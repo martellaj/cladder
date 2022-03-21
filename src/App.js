@@ -156,7 +156,7 @@ function App() {
           width: "100%",
         }}
       >
-        <div style={{ marginBottom: "60px" }}>
+        <div style={{ marginBottom: "20px" }}>
           <Word answer={word} guess={guess} />
         </div>
 
