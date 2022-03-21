@@ -2,17 +2,62 @@ import "./App.css";
 // import Guess from "./Guess";
 import Timer from "./Timer";
 import Word from "./Word";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import useEventListener from "./useEventListener";
 import Keyboard from "react-simple-keyboard";
 import "react-simple-keyboard/build/css/index.css";
+import { game } from "./data";
+
+const TIME_LIMIT = 30000;
+const INCREMENT = 100;
 
 function App() {
-  const word = "poop";
-  const hint = "a dropping sound";
-  const answer = "plop";
-
   const [guess, setGuess] = useState("");
+  const [progress, setProgress] = useState(0);
+  const [isOver, setIsOver] = useState(false);
+
+  const [currentClue, setCurrentClue] = useState(0);
+
+  const [word, setWord] = useState(game[currentClue].word);
+  const [hint, setHint] = useState(game[currentClue].hint);
+  const [answer, setAnswer] = useState(game[currentClue].answer);
+
+  const [messageDetails, setMessageDetails] = useState({
+    message: "",
+    color: "",
+  });
+
+  useEffect(() => {
+    if (progress >= 100) {
+      setIsOver(true);
+    }
+  }, [progress]);
+
+  useEffect(() => {
+    setWord(game[currentClue].word);
+    setHint(game[currentClue].hint);
+    setAnswer(game[currentClue].answer);
+  }, [currentClue]);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setProgress((oldProgress) => {
+        if (oldProgress === 100) {
+          return 0;
+        }
+
+        const oldProg = (oldProgress / 100) * TIME_LIMIT;
+
+        const newProgress = ((oldProg + INCREMENT) / TIME_LIMIT) * 100;
+
+        return Math.min(newProgress, 100);
+      });
+    }, INCREMENT);
+
+    return () => {
+      clearInterval(timer);
+    };
+  }, []);
 
   const onKeyDown = (e) => {
     if (e.key === "Enter") {
@@ -59,13 +104,36 @@ function App() {
   useEventListener("keydown", onKeyDown);
 
   const checkAnswer = () => {
-    alert("todo");
+    if (guess === answer) {
+      setMessageDetails({ message: "nice", color: "green" });
+
+      setCurrentClue((currentClue) => {
+        return currentClue + 1;
+      });
+
+      setGuess("");
+    } else {
+      setMessageDetails({ message: "not quite", color: "red" });
+      setGuess("");
+    }
+
+    setTimeout(() => {
+      setMessageDetails({ message: "", color: "" });
+    }, 1000);
   };
 
   return (
     <div className="App">
-      <Timer />
-
+      <div
+        style={{
+          width: "100%",
+          fontSize: "28px",
+          fontVariant: "all-small-caps",
+        }}
+      >
+        ONE-OFF
+        {!isOver && <Timer progress={progress} />}
+      </div>
       <div
         style={{
           display: "flex",
@@ -78,31 +146,59 @@ function App() {
         <div className="hint">{hint}</div>
       </div>
 
-      <Word answer={word} guess={guess} />
+      <div
+        id="guessRegion"
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          alignItems: "center",
+          width: "100%",
+        }}
+      >
+        <div style={{ marginBottom: "60px" }}>
+          <Word answer={word} guess={guess} />
+        </div>
 
-      <Keyboard
-        onKeyPress={onKeyboardKeyPress}
-        maxLength={answer.length}
-        layout={{
-          default: [
-            "q w e r t y u i o p",
-            "a s d f g h j k l",
-            "z x c v b n m",
-            "{bksp} {enter}",
-          ],
-        }}
-        display={{
-          "{shift}": "⇧",
-          "{shiftactivated}": "⇧",
-          "{enter}": "↵",
-          "{bksp}": "⌫",
-          "{altright}": ".?123",
-          "{downkeyboard}": "🞃",
-          "{space}": " ",
-          "{default}": "ABC",
-          "{back}": "⇦",
-        }}
-      />
+        {messageDetails.message && (
+          <div
+            className="message slide-top"
+            style={{
+              backgroundColor: messageDetails.color,
+              top: `${
+                document.getElementById("guessRegion")?.getBoundingClientRect()
+                  .top - 50
+              }px`,
+            }}
+          >
+            {messageDetails.message}
+          </div>
+        )}
+
+        <Keyboard
+          onKeyPress={onKeyboardKeyPress}
+          maxLength={answer.length}
+          layout={{
+            default: [
+              "q w e r t y u i o p",
+              "a s d f g h j k l",
+              "z x c v b n m",
+              "{bksp} {enter}",
+            ],
+          }}
+          display={{
+            "{shift}": "⇧",
+            "{shiftactivated}": "⇧",
+            "{enter}": "↵",
+            "{bksp}": "⌫",
+            "{altright}": ".?123",
+            "{downkeyboard}": "🞃",
+            "{space}": " ",
+            "{default}": "ABC",
+            "{back}": "⇦",
+          }}
+        />
+      </div>
     </div>
   );
 }
