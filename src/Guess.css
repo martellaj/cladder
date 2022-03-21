@@ -1,0 +1,17 @@
+.guessContainer {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 12px 0;
+  width: 95%;
+}
+
+.tiles {
+  display: flex;
+  margin-top: 10vh;
+}
+
+.hg-theme-default {
+  margin-top: 20vh;
+}

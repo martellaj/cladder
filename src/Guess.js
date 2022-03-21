@@ -1,16 +1,12 @@
-import "./App.css";
-// import Guess from "./Guess";
-import Timer from "./Timer";
-import Word from "./Word";
 import { useState } from "react";
+import "./Guess.css";
+import Tile from "./Tile";
 import useEventListener from "./useEventListener";
 import Keyboard from "react-simple-keyboard";
 import "react-simple-keyboard/build/css/index.css";
 
-function App() {
-  const word = "poop";
-  const hint = "a dropping sound";
-  const answer = "plop";
+function Guess(props) {
+  const { answer } = props;
 
   const [guess, setGuess] = useState("");
 
@@ -58,28 +54,22 @@ function App() {
 
   useEventListener("keydown", onKeyDown);
 
+  const tiles = [];
+  for (let i = 0; i < answer.length; i++) {
+    if (i < guess.length) {
+      tiles.push(<Tile letter={guess[i]} />);
+    } else {
+      tiles.push(<Tile />);
+    }
+  }
+
   const checkAnswer = () => {
     alert("todo");
   };
 
   return (
-    <div className="App">
-      <Timer />
-
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "center",
-          alignItems: "center",
-        }}
-      >
-        <Word answer={word} mode="hint" />
-        <div className="hint">{hint}</div>
-      </div>
-
-      <Word answer={word} guess={guess} />
-
+    <div className="guessContainer">
+      <div className="tiles">{tiles}</div>
       <Keyboard
         onKeyPress={onKeyboardKeyPress}
         maxLength={answer.length}
@@ -107,4 +97,4 @@ function App() {
   );
 }
 
-export default App;
+export default Guess;

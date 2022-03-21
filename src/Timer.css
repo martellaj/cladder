@@ -1,0 +1,18 @@
+.timerContainer {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.progress {
+  margin-bottom: 0 !important;
+}
+
+.progressBar {
+  flex-grow: 1;
+}
+
+.score {
+  margin-left: 10px;
+  margin-right: 10px;
+}
