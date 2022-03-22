@@ -20,6 +20,7 @@ function App() {
         height: "50px",
         fontVariant: "all-small-caps",
         marginBottom: "12px",
+        flexShrink: "0",
       }}
     >
       <div className="headerSection" style={{ marginLeft: "6px" }}>
