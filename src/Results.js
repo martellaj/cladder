@@ -22,6 +22,7 @@ export default function Results(props) {
       <div className="resultsScore">{correct} / 10</div>
       <div className="resultsTime">{time} seconds</div>
       <Button
+        id="shareButton"
         className="positive"
         onClick={() => {
           const text = `I solved ${correct} / 10 hints in ${time} seconds playing NAME OF GAME!\n\nhttps://nameofgame.app`;

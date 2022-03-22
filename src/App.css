@@ -133,3 +133,26 @@
   font-size: larger;
   margin-bottom: 24px;
 }
+
+.menuContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 60px;
+}
+
+.menuButton {
+  margin-bottom: 12px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.headerSection {
+  display: flex;
+  width: 20vw;
+}

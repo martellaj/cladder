@@ -1,10 +1,67 @@
+import { useState } from "react";
 import "./App.css";
 import Game from "./Game";
+import Menu from "./Menu";
+import { Icon } from "semantic-ui-react";
 
 function App() {
+  const [view, setView] = useState("menu");
+
+  const onOptionSelected = (option) => {
+    setView(option);
+  };
+
+  const header = (
+    <div
+      className="header"
+      style={{
+        width: "100%",
+        fontSize: "28px",
+        height: "50px",
+        fontVariant: "all-small-caps",
+        marginBottom: "12px",
+      }}
+    >
+      <div className="headerSection">
+        <Icon
+          onClick={() => setView("menu")}
+          tabIndex="0"
+          style={{
+            cursor: "pointer",
+          }}
+          name="home"
+        />
+      </div>
+      <span>NAME OF GAME</span>
+      <div className="headerSection" style={{ flexDirection: "row-reverse" }}>
+        <Icon
+          onClick={() => window.open("https://twitter.com/martellaj", "_blank")}
+          tabIndex="0"
+          style={{
+            cursor: "pointer",
+          }}
+          name="twitter"
+        />
+      </div>
+    </div>
+  );
+
+  let content = <Menu onOptionSelected={onOptionSelected} />;
+
+  switch (view) {
+    case "game":
+      content = <Game />;
+      break;
+    case "menu":
+    default:
+      content = <Menu onOptionSelected={onOptionSelected} />;
+      break;
+  }
+
   return (
     <div className="App">
-      <Game />
+      {header}
+      {content}
     </div>
   );
 }

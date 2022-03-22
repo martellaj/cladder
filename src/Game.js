@@ -183,16 +183,7 @@ export default function Game() {
 
   return (
     <>
-      <div
-        style={{
-          width: "100%",
-          fontSize: "28px",
-          fontVariant: "all-small-caps",
-        }}
-      >
-        NAME OF GAME
-        {<Timer progress={progress} />}
-      </div>
+      <div style={{ width: "100%" }}>{<Timer progress={progress} />}</div>
 
       {isOver && (
         <Results
@@ -274,8 +265,9 @@ export default function Game() {
           style={{
             backgroundColor: messageDetails.color,
             top: `${
-              document.getElementById("guessRegion")?.getBoundingClientRect()
-                ?.top - 50
+              document
+                .getElementById(isOver ? "shareButton" : "guessRegion")
+                ?.getBoundingClientRect()?.top - 50
             }px`,
           }}
         >
