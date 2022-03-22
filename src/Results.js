@@ -24,7 +24,7 @@ export default function Results(props) {
       <Button
         className="positive"
         onClick={() => {
-          const text = `I solved ${correct} / 10 hints in ${time} seconds playing ONE-OFF!\n\nhttps://one-off.app`;
+          const text = `I solved ${correct} / 10 hints in ${time} seconds playing NAME OF GAME!\n\nhttps://nameofgame.app`;
 
           let success = copy(text);
           if (success) {

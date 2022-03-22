@@ -188,7 +188,7 @@ export default function Game() {
           fontVariant: "all-small-caps",
         }}
       >
-        ONE-OFF
+        NAME OF GAME
         {<Timer progress={progress} />}
       </div>
 
