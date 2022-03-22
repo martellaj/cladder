@@ -111,12 +111,12 @@ export default function Game() {
 
   // keydown handler for OSK (mobile users)
   const onKeyboardKeyPress = (key) => {
-    if (key === "{enter}") {
+    if (key === "{ent}") {
       checkAnswer();
       return;
     }
 
-    if (key === "{bksp}") {
+    if (key === "{backspace}") {
       setGuess(guess.slice(0, -1));
       return;
     }
