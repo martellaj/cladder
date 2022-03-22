@@ -164,7 +164,7 @@ export default function Game() {
       <Word key={game[0].word + "123"} answer={game[0].word} mode="board" />
     );
 
-    for (let i = 0; i < 10; i++) {
+    for (let i = 0; i < gameLevel; i++) {
       _board.push(
         <Word
           key={game[i].answer}
@@ -176,7 +176,7 @@ export default function Game() {
     }
 
     return _board;
-  }, [game]);
+  }, [game, gameLevel]);
 
   return (
     <>
