@@ -130,6 +130,33 @@ export default function Game() {
     };
   }, [isOver]);
 
+  // tries to see if game has been played today
+  useEffect(() => {
+    const data = window.localStorage.getItem(`puzzle-${PUZZLE_NUMBER}`);
+
+    if (data) {
+      const _data = JSON.parse(data);
+      setGameLevel(_data.score);
+      setProgress((_data.time * 100000) / TIME_LIMIT);
+      setIsOver(true);
+    }
+  }, [PUZZLE_NUMBER]);
+
+  // hook that saves game progress to local storage
+  useEffect(() => {
+    const data = window.localStorage.getItem(`puzzle-${PUZZLE_NUMBER}`);
+
+    if (isOver && !data) {
+      window.localStorage.setItem(
+        `puzzle-${PUZZLE_NUMBER}`,
+        JSON.stringify({
+          score: gameLevel,
+          time: (((progress / 100) * TIME_LIMIT) / 1000).toFixed(2),
+        })
+      );
+    }
+  }, [isOver, PUZZLE_NUMBER, gameLevel, progress]);
+
   // adds keydown handlers to window so desktop users can type
   useEventListener("keydown", (e) => {
     if (e.shiftKey || e.ctrlKey || e.altKey) {
