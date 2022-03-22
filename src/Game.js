@@ -135,7 +135,7 @@ export default function Game() {
    * - if incorrect, clear answer
    */
   const checkAnswer = () => {
-    if (guess === answer) {
+    if (guess.toLowerCase() === answer.toLowerCase()) {
       setGameLevel((currentLevel) => {
         return currentLevel + 1;
       });
