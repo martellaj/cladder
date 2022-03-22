@@ -19,9 +19,9 @@ function Timer(props) {
   return (
     <div className="timerContainer">
       <Progress className="progressBar" percent={progress} color={getColor()} />
-      {/* <div className="score">
+      <div className="score">
         {guessed} / {total}
-      </div> */}
+      </div>
     </div>
   );
 }

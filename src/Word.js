@@ -8,14 +8,16 @@ function Word(props) {
 
   if (mode === "hint") {
     for (let i = 0; i < answer.length; i++) {
-      tiles.push(<Tile letter={answer[i]} isLast={i === answer.length - 1} />);
+      tiles.push(
+        <Tile key={i} letter={answer[i]} isLast={i === answer.length - 1} />
+      );
     }
   } else {
     for (let i = 0; i < answer.length; i++) {
       if (i < guess.length) {
-        tiles.push(<Tile letter={guess[i]} />);
+        tiles.push(<Tile key={i} letter={guess[i]} />);
       } else {
-        tiles.push(<Tile />);
+        tiles.push(<Tile key={i} />);
       }
     }
   }
