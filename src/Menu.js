@@ -35,7 +35,7 @@ export default function Menu(props) {
             contact
           </Button>
         </div>
-        <span style={{ marginTop: "auto", marginBottom: "24px" }}>v0.0.1</span>
+        <span style={{ marginTop: "auto", marginBottom: "24px" }}>v0.0.2</span>
       </div>
     </>
   );
