@@ -2,7 +2,7 @@ import { Button } from "semantic-ui-react";
 import copy from "copy-to-clipboard";
 
 export default function Results(props) {
-  const { correct, time, onCopied } = props;
+  const { correct, time, onCopied, puzzleNumber } = props;
 
   let bigMessage = "";
 
@@ -23,9 +23,9 @@ export default function Results(props) {
       <div className="resultsTime">{time} seconds</div>
       <Button
         id="shareButton"
-        className="positive"
+        className="positive button"
         onClick={() => {
-          const text = `I solved ${correct} / 10 hints in ${time} seconds playing NAME OF GAME!\n\nhttps://nameofgame.app`;
+          const text = `✅ ${correct}/10\n🚀 ${time} seconds\n\n#cladder #cladder${puzzleNumber}\n\nhttps://cladder.xyz`;
 
           let success = copy(text);
           if (success) {
@@ -39,7 +39,7 @@ export default function Results(props) {
           }
         }}
       >
-        share
+        SHARE
       </Button>
     </div>
   );

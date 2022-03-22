@@ -34,7 +34,7 @@ function App() {
           name="bars"
         />
       </div>
-      <span>ONE-OFF</span>
+      <span>CLADDER</span>
       <div
         className="headerSection"
         style={{ flexDirection: "row-reverse", marginRight: "6px" }}

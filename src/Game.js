@@ -18,9 +18,9 @@ export default function Game() {
   const [gameLevel, setGameLevel] = useState(0); // current game level
   const [selected, setSelected] = useState(0);
 
-  let d = new Date();
-  d = d.setDate(d.getDate() + 1);
-  const PUZZLE_NUMBER = getPuzzleNumber(d);
+  // let d = new Date();
+  // d = d.setDate(d.getDate() + 1);
+  const PUZZLE_NUMBER = getPuzzleNumber();
 
   // gets the daily puzzle
   const game = _game[PUZZLE_NUMBER];
@@ -242,6 +242,7 @@ export default function Game() {
               setMessageDetails({ message: "", color: "" });
             }, 1000);
           }}
+          puzzleNumber={PUZZLE_NUMBER}
         />
       )}
 
