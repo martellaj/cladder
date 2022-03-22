@@ -152,8 +152,10 @@ export default function Game() {
   };
 
   const board = useMemo(() => {
+    const start = isOver ? 0 : Math.max(gameLevel - 3, 0);
+
     const _board = [];
-    for (let i = 0; i <= gameLevel; i++) {
+    for (let i = start; i <= gameLevel; i++) {
       if (i === 10) {
         _board.push(
           <Word
@@ -177,7 +179,7 @@ export default function Game() {
     }
 
     return _board;
-  }, [gameLevel]);
+  }, [gameLevel, isOver]);
 
   return (
     <>
