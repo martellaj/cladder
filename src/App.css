@@ -164,3 +164,7 @@
 .hg-button {
   height: 60px !important;
 }
+
+body {
+  padding-bottom: env(safe-area-inset-bottom);
+}
