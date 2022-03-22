@@ -143,18 +143,22 @@
 }
 
 .menuButton {
-  margin-bottom: 12px;
+  margin-bottom: 20px;
+  letter-spacing: 0.2rem;
+  text-transform: uppercase;
 }
 
 .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  letter-spacing: 0.2rem;
+  text-transform: uppercase;
 }
 
 .headerSection {
   display: flex;
-  width: 100px;
+  width: 50;
 }
 
 .hg-button {

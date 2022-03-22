@@ -11,6 +11,7 @@ export default function Menu(props) {
       <div className="menuContainer">
         <div className="menuButton">
           <Button
+            size="massive"
             className="menuButton"
             color="green"
             onClick={() => onOptionSelected("game")}
@@ -20,6 +21,7 @@ export default function Menu(props) {
         </div>
         <div className="menuButton">
           <Button
+            size="massive"
             className="menuButton"
             color="yellow"
             onClick={() => onOptionSelected("how")}
@@ -28,7 +30,11 @@ export default function Menu(props) {
           </Button>
         </div>
         <div className="menuButton">
-          <Button className="menuButton" onClick={() => setIsAboutOpen(true)}>
+          <Button
+            size="massive"
+            className="menuButton"
+            onClick={() => setIsAboutOpen(true)}
+          >
             about
           </Button>
         </div>

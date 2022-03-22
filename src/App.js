@@ -22,7 +22,7 @@ function App() {
         marginBottom: "12px",
       }}
     >
-      <div className="headerSection">
+      <div className="headerSection" style={{ marginLeft: "6px" }}>
         <Icon
           onClick={() => setView("menu")}
           tabIndex="0"
@@ -33,7 +33,10 @@ function App() {
         />
       </div>
       <span>NAME OF GAME</span>
-      <div className="headerSection" style={{ flexDirection: "row-reverse" }}>
+      <div
+        className="headerSection"
+        style={{ flexDirection: "row-reverse", marginRight: "6px" }}
+      >
         <Icon
           onClick={() => window.open("https://twitter.com/martellaj", "_blank")}
           tabIndex="0"
