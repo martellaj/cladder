@@ -2,14 +2,20 @@ import Tile from "./Tile";
 import "./Word.css";
 
 function Word(props) {
-  const { answer, guess, mode = "guess" } = props;
+  const { answer, guess, mode = "guess", alteredPosition } = props;
 
   const tiles = [];
 
   if (mode === "hint") {
     for (let i = 0; i < answer.length; i++) {
       tiles.push(
-        <Tile key={i} letter={answer[i]} isLast={i === answer.length - 1} />
+        <Tile
+          key={i}
+          letter={answer[i]}
+          small={true}
+          altered={alteredPosition === i}
+          mode={"hint"}
+        />
       );
     }
   } else {

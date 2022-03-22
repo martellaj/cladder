@@ -5,6 +5,7 @@
   height: 50px;
   justify-content: center;
   width: 50px;
+  margin-right: 12px;
 
   font-size: 2rem;
   line-height: 2rem;
@@ -15,6 +16,19 @@
   user-select: none;
 }
 
-.not-last {
-  margin-right: 12px;
+.smallTile {
+  height: 35px;
+  width: 35px;
+  font-size: 1rem;
+  line-height: 1rem;
+  border-width: 1px;
+  margin-right: 6px;
+}
+
+.altered {
+  background-color: palegoldenrod;
+}
+
+.stale {
+  background-color: lightgrey;
 }

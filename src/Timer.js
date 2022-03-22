@@ -2,7 +2,7 @@ import { Progress } from "semantic-ui-react";
 import "./Timer.css";
 
 function Timer(props) {
-  const { guessed = 0, total = 10, progress } = props;
+  const { progress } = props;
 
   const getColor = () => {
     if (progress < 50) {
@@ -19,9 +19,6 @@ function Timer(props) {
   return (
     <div className="timerContainer">
       <Progress className="progressBar" percent={progress} color={getColor()} />
-      <div className="score">
-        {guessed} / {total}
-      </div>
     </div>
   );
 }

@@ -1,5 +1,5 @@
 import { game } from "./data";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import useEventListener from "./useEventListener";
 import Timer from "./Timer";
 import Word from "./Word";
@@ -52,6 +52,16 @@ export default function Game() {
     setWord(game[gameLevel].word);
     setHint(game[gameLevel].hint);
     setAnswer(game[gameLevel].answer);
+  }, [gameLevel]);
+
+  useEffect(() => {
+    if (gameLevel > 0 && gameLevel < 10) {
+      setMessageDetails({ message: "nice", color: "green" });
+    }
+
+    setTimeout(() => {
+      setMessageDetails({ message: "", color: "" });
+    }, 1000);
   }, [gameLevel]);
 
   // hook that updates progress bar as time elapses
@@ -126,10 +136,8 @@ export default function Game() {
    */
   const checkAnswer = () => {
     if (guess === answer) {
-      setMessageDetails({ message: "nice", color: "green" });
-
-      setGameLevel((currentClue) => {
-        return currentClue + 1;
+      setGameLevel((currentLevel) => {
+        return currentLevel + 1;
       });
 
       setGuess("");
@@ -143,6 +151,34 @@ export default function Game() {
     }, 1000);
   };
 
+  const board = useMemo(() => {
+    const _board = [];
+    for (let i = 0; i <= gameLevel; i++) {
+      if (i === 10) {
+        _board.push(
+          <Word
+            key={game[9].answer}
+            answer={game[9].answer}
+            alteredPosition={gameLevel > i ? game[9].alteredPosition : -1}
+            mode="hint"
+          />
+        );
+        break;
+      }
+
+      _board.push(
+        <Word
+          key={game[i].word}
+          answer={game[i].word}
+          alteredPosition={gameLevel > i ? game[i].alteredPosition : -1}
+          mode="hint"
+        />
+      );
+    }
+
+    return _board;
+  }, [gameLevel]);
+
   return (
     <>
       <div
@@ -153,62 +189,64 @@ export default function Game() {
         }}
       >
         ONE-OFF
-        {<Timer progress={progress} guessed={gameLevel} />}
+        {<Timer progress={progress} />}
+      </div>
+
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          alignItems: "center",
+          marginTop: "50px",
+        }}
+      >
+        {board}
+        {!isOver && (
+          <div style={{ marginTop: "6px" }}>
+            <Word key={word} answer={word} guess={guess} />
+          </div>
+        )}
       </div>
 
       {!isOver && (
-        <>
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              justifyContent: "center",
-              alignItems: "center",
-            }}
-          >
-            <Word answer={word} mode="hint" />
-            <div className="hint">{hint}</div>
-          </div>
+        <div
+          id="guessRegion"
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+            alignItems: "center",
+            width: "100%",
+            marginTop: "auto",
+          }}
+        >
+          <div className="hint">{hint}</div>
 
-          <div
-            id="guessRegion"
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              justifyContent: "center",
-              alignItems: "center",
-              width: "100%",
+          <Keyboard
+            onKeyPress={onKeyboardKeyPress}
+            maxLength={answer.length}
+            layout={{
+              default: [
+                "q w e r t y u i o p",
+                "a s d f g h j k l",
+                "z x c v b n m",
+                "{bksp} {enter}",
+              ],
             }}
-          >
-            <div style={{ marginBottom: "20px" }}>
-              <Word answer={word} guess={guess} />
-            </div>
-
-            <Keyboard
-              onKeyPress={onKeyboardKeyPress}
-              maxLength={answer.length}
-              layout={{
-                default: [
-                  "q w e r t y u i o p",
-                  "a s d f g h j k l",
-                  "z x c v b n m",
-                  "{bksp} {enter}",
-                ],
-              }}
-              display={{
-                "{shift}": "⇧",
-                "{shiftactivated}": "⇧",
-                "{enter}": "↵",
-                "{bksp}": "⌫",
-                "{altright}": ".?123",
-                "{downkeyboard}": "🞃",
-                "{space}": " ",
-                "{default}": "ABC",
-                "{back}": "⇦",
-              }}
-            />
-          </div>
-        </>
+            display={{
+              "{shift}": "⇧",
+              "{shiftactivated}": "⇧",
+              "{enter}": "↵",
+              "{bksp}": "⌫",
+              "{altright}": ".?123",
+              "{downkeyboard}": "🞃",
+              "{space}": " ",
+              "{default}": "ABC",
+              "{back}": "⇦",
+            }}
+          />
+        </div>
       )}
 
       {isOver && (
