@@ -95,22 +95,22 @@
  */
 @-webkit-keyframes slide-top {
   0% {
-    -webkit-transform: translateY(0);
-    transform: translateY(0);
+    -webkit-transform: translateY(70px);
+    transform: translateY(70px);
   }
   100% {
-    -webkit-transform: translateY(-30px);
-    transform: translateY(-30px);
+    -webkit-transform: translateY(90px);
+    transform: translateY(90px);
   }
 }
 @keyframes slide-top {
   0% {
-    -webkit-transform: translateY(0);
-    transform: translateY(0);
+    -webkit-transform: translateY(70px);
+    transform: translateY(70px);
   }
   100% {
-    -webkit-transform: translateY(-30px);
-    transform: translateY(-30px);
+    -webkit-transform: translateY(90px);
+    transform: translateY(90px);
   }
 }
 

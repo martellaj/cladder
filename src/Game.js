@@ -17,7 +17,6 @@ export default function Game() {
   const [isOver, setIsOver] = useState(false); // has game ended
   const [gameLevel, setGameLevel] = useState(0); // current game level
   const [selected, setSelected] = useState(0);
-  const [wasWrong, setWasWrong] = useState(false);
 
   useEffect(() => {
     if (guess === "foo") {
@@ -171,7 +170,7 @@ export default function Game() {
             key={game[9].answer}
             answer={game[9].answer}
             alteredPosition={gameLevel > i ? game[9].alteredPosition : -1}
-            mode="hint"
+            mode="board"
           />
         );
         break;
@@ -182,7 +181,7 @@ export default function Game() {
           key={game[i].word}
           answer={game[i].word}
           alteredPosition={gameLevel > i ? game[i].alteredPosition : -1}
-          mode="hint"
+          mode="board"
         />
       );
     }
@@ -221,7 +220,7 @@ export default function Game() {
           flexDirection: "column",
           justifyContent: "center",
           alignItems: "center",
-          marginTop: "50px",
+          marginTop: isOver ? "50px" : "50%",
         }}
       >
         {isOver && board}
@@ -236,8 +235,10 @@ export default function Game() {
               shouldAnimate={gameLevel > 0}
               selected={selected}
               onSelected={onSelected}
-              shouldAnimateWrong={wasWrong}
             />
+            <div id="hint" className="hint">
+              {hint}
+            </div>
           </>
         )}
       </div>
@@ -254,8 +255,6 @@ export default function Game() {
             marginTop: "auto",
           }}
         >
-          <div className="hint">{hint}</div>
-
           <Keyboard
             onKeyPress={onKeyboardKeyPress}
             maxLength={answer.length}
@@ -295,7 +294,7 @@ export default function Game() {
             backgroundColor: messageDetails.color,
             top: `${
               document
-                .getElementById(isOver ? "shareButton" : "guessRegion")
+                .getElementById(isOver ? "shareButton" : "hint")
                 ?.getBoundingClientRect()?.top - 50
             }px`,
           }}
