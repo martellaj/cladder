@@ -18,7 +18,9 @@ export default function Game() {
   const [gameLevel, setGameLevel] = useState(0); // current game level
   const [selected, setSelected] = useState(0);
 
-  const PUZZLE_NUMBER = getPuzzleNumber();
+  let d = new Date();
+  d = d.setDate(d.getDate() + 1);
+  const PUZZLE_NUMBER = getPuzzleNumber(d);
 
   // gets the daily puzzle
   const game = _game[PUZZLE_NUMBER];
@@ -144,6 +146,9 @@ export default function Game() {
 
   // hook that saves game progress to local storage
   useEffect(() => {
+    const time = parseFloat(
+      (((progress / 100) * TIME_LIMIT) / 1000).toFixed(2)
+    );
     const data = window.localStorage.getItem(`puzzle-${PUZZLE_NUMBER}`);
 
     if (isOver && !data) {
@@ -151,9 +156,23 @@ export default function Game() {
         `puzzle-${PUZZLE_NUMBER}`,
         JSON.stringify({
           score: gameLevel,
-          time: (((progress / 100) * TIME_LIMIT) / 1000).toFixed(2),
+          time: time,
         })
       );
+
+      if (gameLevel === 10) {
+        // update wins
+        const wins = parseInt(window.localStorage.getItem("wins") || "0") + 1;
+        window.localStorage.setItem("wins", wins);
+
+        // update wins
+        const averageTime = (
+          (parseFloat(window.localStorage.getItem("averageTime") || "0") +
+            time) /
+          wins
+        ).toFixed(2);
+        window.localStorage.setItem("averageTime", averageTime);
+      }
     }
   }, [isOver, PUZZLE_NUMBER, gameLevel, progress]);
 
