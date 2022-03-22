@@ -42,7 +42,7 @@ export default function Menu(props) {
             bottom: 0,
           }}
         >
-          v0.0.3
+          v0.0.4
         </span>
       </div>
     </>

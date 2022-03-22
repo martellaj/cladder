@@ -220,7 +220,7 @@ export default function Game() {
           flexDirection: "column",
           justifyContent: "center",
           alignItems: "center",
-          marginTop: isOver ? "50px" : "50%",
+          marginTop: "50px",
         }}
       >
         {isOver && board}
