@@ -1,10 +1,7 @@
-import { Button, Modal } from "semantic-ui-react";
-import { useState } from "react";
+import { Button } from "semantic-ui-react";
 
 export default function Menu(props) {
   const { onOptionSelected } = props;
-
-  const [isAboutOpen, setIsAboutOpen] = useState(false);
 
   return (
     <>
@@ -33,26 +30,12 @@ export default function Menu(props) {
           <Button
             size="massive"
             className="menuButton"
-            onClick={() => setIsAboutOpen(true)}
+            onClick={() => onOptionSelected("about")}
           >
             about
           </Button>
         </div>
       </div>
-
-      <Modal
-        onClose={() => setIsAboutOpen(false)}
-        onOpen={() => setIsAboutOpen(true)}
-        open={isAboutOpen}
-      >
-        <Modal.Header>about</Modal.Header>
-        <Modal.Content>This is a game.</Modal.Content>
-        <Modal.Actions>
-          <Button color="black" onClick={() => setIsAboutOpen(false)}>
-            close
-          </Button>
-        </Modal.Actions>
-      </Modal>
     </>
   );
 }

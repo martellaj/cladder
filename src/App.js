@@ -28,11 +28,12 @@ function App() {
           tabIndex="0"
           style={{
             cursor: "pointer",
+            visibility: view !== "menu" ? "visible" : "hidden",
           }}
-          name="home"
+          name="bars"
         />
       </div>
-      <span>NAME OF GAME</span>
+      <span>ONE-OFF</span>
       <div
         className="headerSection"
         style={{ flexDirection: "row-reverse", marginRight: "6px" }}
