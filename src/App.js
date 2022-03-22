@@ -63,11 +63,28 @@ function App() {
       break;
   }
 
+  const isIos = iOS();
+
   return (
-    <div className="App">
+    <div className={`App ${isIos && "App-iOS"}`}>
       {header}
       {content}
     </div>
+  );
+}
+
+function iOS() {
+  return (
+    [
+      "iPad Simulator",
+      "iPhone Simulator",
+      "iPod Simulator",
+      "iPad",
+      "iPhone",
+      "iPod",
+    ].includes(navigator.platform) ||
+    // iPad on iOS 13 detection
+    (navigator.userAgent.includes("Mac") && "ontouchend" in document)
   );
 }
 

@@ -6,8 +6,11 @@
   max-width: 600px;
   text-align: center;
   height: 100vh;
-  height: -webkit-fill-available;
   max-height: 1000px;
+}
+
+.App-iOS {
+  height: -webkit-fill-available;
 }
 
 .App-logo {
