@@ -18,7 +18,10 @@ export default function Game() {
   const [gameLevel, setGameLevel] = useState(0); // current game level
   const [selected, setSelected] = useState(0);
 
-  const game = _game[1];
+  const PUZZLE_NUMBER = getPuzzleNumber();
+
+  // gets the daily puzzle
+  const game = _game[PUZZLE_NUMBER];
 
   useEffect(() => {
     if (guess === "foo") {
@@ -68,6 +71,7 @@ export default function Game() {
     }, 1000);
   }, [guess, word, answer]);
 
+  // checks answer when guess is made
   useEffect(() => {
     if (guess) {
       checkAnswer();
@@ -92,10 +96,10 @@ export default function Game() {
     setWord(game[gameLevel].word);
     setHint(game[gameLevel].hint);
     setAnswer(game[gameLevel].answer);
-
     setGuess(game[gameLevel].word);
-  }, [gameLevel]);
+  }, [gameLevel, game]);
 
+  // hook that congratulates user when they get an answer right
   useEffect(() => {
     if (gameLevel > 0 && gameLevel < 10) {
       setMessageDetails({ message: "nice", color: "green" });
@@ -174,10 +178,6 @@ export default function Game() {
     return _board;
   }, [game]);
 
-  const onSelected = (index) => {
-    setSelected(index);
-  };
-
   return (
     <>
       <div style={{ width: "100%" }}>{<Timer progress={progress} />}</div>
@@ -218,7 +218,9 @@ export default function Game() {
               mode="hint"
               shouldAnimate={gameLevel > 0}
               selected={selected}
-              onSelected={onSelected}
+              onSelected={(index) => {
+                setSelected(index);
+              }}
             />
             <div id="hint" className="hint">
               {hint}
@@ -289,3 +291,11 @@ export default function Game() {
     </>
   );
 }
+
+const getPuzzleNumber = (date) => {
+  const refDate = new Date(2022, 2, 22, 0, 0, 0, 0);
+  const _date = date || new Date();
+  const val =
+    new Date(_date).setHours(0, 0, 0, 0) - refDate.setHours(0, 0, 0, 0);
+  return Math.round(val / 864e5);
+};
