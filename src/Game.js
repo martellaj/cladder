@@ -194,6 +194,23 @@ export default function Game() {
         {<Timer progress={progress} />}
       </div>
 
+      {isOver && (
+        <Results
+          correct={gameLevel}
+          time={(((progress / 100) * TIME_LIMIT) / 1000).toFixed(2)}
+          onCopied={() => {
+            setMessageDetails({
+              message: "copied to your clipboard",
+              color: "green",
+            });
+
+            setTimeout(() => {
+              setMessageDetails({ message: "", color: "" });
+            }, 1000);
+          }}
+        />
+      )}
+
       <div
         style={{
           display: "flex",
@@ -249,23 +266,6 @@ export default function Game() {
             }}
           />
         </div>
-      )}
-
-      {isOver && (
-        <Results
-          correct={gameLevel}
-          time={(((progress / 100) * TIME_LIMIT) / 1000).toFixed(2)}
-          onCopied={() => {
-            setMessageDetails({
-              message: "copied to your clipboard",
-              color: "green",
-            });
-
-            setTimeout(() => {
-              setMessageDetails({ message: "", color: "" });
-            }, 1000);
-          }}
-        />
       )}
 
       {messageDetails.message && (
