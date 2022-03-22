@@ -1,4 +1,4 @@
-import { game } from "./data";
+import { game as _game } from "./data";
 import { useState, useEffect, useMemo, useCallback } from "react";
 import useEventListener from "./useEventListener";
 import Timer from "./Timer";
@@ -18,12 +18,14 @@ export default function Game() {
   const [gameLevel, setGameLevel] = useState(0); // current game level
   const [selected, setSelected] = useState(0);
 
+  const game = _game[1];
+
   useEffect(() => {
     if (guess === "foo") {
       setGameLevel(game.length - 1);
       setGuess("");
     }
-  }, [guess]);
+  }, [guess, game.length]);
 
   // current level information
   const [word, setWord] = useState(game[gameLevel]?.word);
@@ -132,6 +134,12 @@ export default function Game() {
 
     const key = e.key.toLowerCase().trim();
     if (key.length === 1) {
+      let foo = parseInt(key);
+      if (typeof foo === "number" && foo - 1 < answer.length) {
+        setSelected(foo - 1);
+        return;
+      }
+
       const newGuess =
         guess.substring(0, selected) + key + guess.substring(selected + 1);
       setGuess(newGuess);
@@ -145,49 +153,26 @@ export default function Game() {
     setGuess(newGuess);
   };
 
-  const previous = useMemo(() => {
-    if (gameLevel === 0) {
-      return {
-        answer: game[0].word,
-        alteredPosition: -1,
-      };
-    } else {
-      return {
-        answer: game[gameLevel - 1].answer,
-        alteredPosition: game[gameLevel - 1].alteredPosition,
-      };
-    }
-  }, [gameLevel]);
-
   const board = useMemo(() => {
-    const start = isOver ? 0 : Math.max(gameLevel - 3, 0);
-
     const _board = [];
-    for (let i = start; i <= gameLevel; i++) {
-      if (i === 10) {
-        _board.push(
-          <Word
-            key={game[9].answer}
-            answer={game[9].answer}
-            alteredPosition={gameLevel > i ? game[9].alteredPosition : -1}
-            mode="board"
-          />
-        );
-        break;
-      }
 
+    _board.push(
+      <Word key={game[0].word + "123"} answer={game[0].word} mode="board" />
+    );
+
+    for (let i = 0; i < 10; i++) {
       _board.push(
         <Word
-          key={game[i].word}
-          answer={game[i].word}
-          alteredPosition={gameLevel > i ? game[i].alteredPosition : -1}
+          key={game[i].answer}
+          answer={game[i].answer}
+          alteredPosition={game[i].alteredPosition}
           mode="board"
         />
       );
     }
 
     return _board;
-  }, [gameLevel, isOver]);
+  }, [game]);
 
   const onSelected = (index) => {
     setSelected(index);
@@ -228,9 +213,8 @@ export default function Game() {
         {!isOver && (
           <>
             <Word
-              key={previous.answer}
+              key={answer}
               answer={guess}
-              alteredPosition={previous.alteredPosition}
               mode="hint"
               shouldAnimate={gameLevel > 0}
               selected={selected}
