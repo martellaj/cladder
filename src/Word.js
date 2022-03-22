@@ -2,7 +2,13 @@ import Tile from "./Tile";
 import "./Word.css";
 
 function Word(props) {
-  const { answer, guess, mode = "guess", alteredPosition } = props;
+  const {
+    answer,
+    guess,
+    mode = "guess",
+    alteredPosition,
+    shouldAnimate,
+  } = props;
 
   const tiles = [];
 
@@ -12,7 +18,7 @@ function Word(props) {
         <Tile
           key={i}
           letter={answer[i]}
-          small={true}
+          // small={true}
           altered={alteredPosition === i}
           mode={"hint"}
         />
@@ -28,7 +34,15 @@ function Word(props) {
     }
   }
 
-  return <div className="wordContainer">{tiles}</div>;
+  return (
+    <div
+      className={`wordContainer ${
+        shouldAnimate && "animate__animated animate__slideInUp"
+      }`}
+    >
+      {tiles}
+    </div>
+  );
 }
 
 export default Word;

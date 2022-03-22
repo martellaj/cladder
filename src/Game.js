@@ -151,6 +151,20 @@ export default function Game() {
     }, 1000);
   };
 
+  const previous = useMemo(() => {
+    if (gameLevel === 0) {
+      return {
+        answer: game[0].word,
+        alteredPosition: -1,
+      };
+    } else {
+      return {
+        answer: game[gameLevel - 1].answer,
+        alteredPosition: game[gameLevel - 1].alteredPosition,
+      };
+    }
+  }, [gameLevel]);
+
   const board = useMemo(() => {
     const start = isOver ? 0 : Math.max(gameLevel - 3, 0);
 
@@ -211,11 +225,21 @@ export default function Game() {
           marginTop: "50px",
         }}
       >
-        {board}
+        {isOver && board}
+
         {!isOver && (
-          <div style={{ marginTop: "6px" }}>
-            <Word key={word} answer={word} guess={guess} />
-          </div>
+          <>
+            <Word
+              key={previous.answer}
+              answer={previous.answer}
+              alteredPosition={previous.alteredPosition}
+              mode="hint"
+              shouldAnimate={gameLevel > 0}
+            />
+            <div style={{ marginTop: "6px" }}>
+              <Word key={word} answer={word} guess={guess} />
+            </div>
+          </>
         )}
       </div>
 

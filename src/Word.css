@@ -2,3 +2,22 @@
   display: flex;
   margin-bottom: 4px;
 }
+
+/* .alert-enter {
+  margin-left: -1000px;
+}
+.alert-enter-active {
+  margin-left: 0;
+  transition: margin-left 300ms;
+} */
+/* .alert-exit {
+  margin-top: 0px;
+}
+.alert-exit-active {
+  margin-top: 1000px;
+  transition: margin-top 300ms;
+} */
+
+.animate__slideInUp {
+  --animate-duration: 0.4s;
+}
