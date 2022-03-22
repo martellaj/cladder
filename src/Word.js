@@ -6,8 +6,10 @@ function Word(props) {
     answer,
     guess,
     mode = "guess",
-    alteredPosition,
     shouldAnimate,
+    onSelected,
+    selected = -1,
+    shouldAnimateWrong,
   } = props;
 
   const tiles = [];
@@ -18,9 +20,9 @@ function Word(props) {
         <Tile
           key={i}
           letter={answer[i]}
-          // small={true}
-          altered={alteredPosition === i}
           mode={"hint"}
+          onSelected={() => onSelected?.(i)}
+          isSelected={selected === i}
         />
       );
     }
@@ -37,8 +39,8 @@ function Word(props) {
   return (
     <div
       className={`wordContainer ${
-        shouldAnimate && "animate__animated animate__slideInUp"
-      }`}
+        shouldAnimate && "animate__animated animate__bounce"
+      } ${shouldAnimateWrong && "animate__animated animate__shakeX"}`}
     >
       {tiles}
     </div>

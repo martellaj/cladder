@@ -1,11 +1,12 @@
 import { game } from "./data";
-import { useState, useEffect, useMemo } from "react";
+import { useState, useEffect, useMemo, useCallback } from "react";
 import useEventListener from "./useEventListener";
 import Timer from "./Timer";
 import Word from "./Word";
 import Keyboard from "react-simple-keyboard";
 import "react-simple-keyboard/build/css/index.css";
 import Results from "./Results";
+import animateCSS from "./animateCSS";
 
 const TIME_LIMIT = 30000;
 const INCREMENT = 100;
@@ -15,6 +16,8 @@ export default function Game() {
   const [progress, setProgress] = useState(0); // how much time left
   const [isOver, setIsOver] = useState(false); // has game ended
   const [gameLevel, setGameLevel] = useState(0); // current game level
+  const [selected, setSelected] = useState(0);
+  const [wasWrong, setWasWrong] = useState(false);
 
   useEffect(() => {
     if (guess === "foo") {
@@ -34,6 +37,42 @@ export default function Game() {
     color: "",
   });
 
+  /**
+   * checks if the user's guess matches the answer
+   *
+   * - if correct, clear answer and increment level
+   * - if incorrect, clear answer
+   */
+  const checkAnswer = useCallback(() => {
+    // don't check before guess is set or if guess hasn't changed yet
+    if (!guess || guess.toLowerCase() === word.toLowerCase()) {
+      return;
+    }
+
+    if (guess.toLowerCase() === answer.toLowerCase()) {
+      setGameLevel((currentLevel) => {
+        return currentLevel + 1;
+      });
+    } else {
+      animateCSS(".wordContainer", "shakeX");
+      setMessageDetails({ message: "not quite", color: "darkred" });
+
+      setTimeout(() => {
+        setGuess(word);
+      }, 500);
+    }
+
+    setTimeout(() => {
+      setMessageDetails({ message: "", color: "" });
+    }, 1000);
+  }, [guess, word, answer]);
+
+  useEffect(() => {
+    if (guess) {
+      checkAnswer();
+    }
+  }, [guess, checkAnswer]);
+
   // hook for when timer ends
   // todo: add game level info
   useEffect(() => {
@@ -52,6 +91,8 @@ export default function Game() {
     setWord(game[gameLevel].word);
     setHint(game[gameLevel].hint);
     setAnswer(game[gameLevel].answer);
+
+    setGuess(game[gameLevel].word);
   }, [gameLevel]);
 
   useEffect(() => {
@@ -86,69 +127,23 @@ export default function Game() {
 
   // adds keydown handlers to window so desktop users can type
   useEventListener("keydown", (e) => {
-    if (e.key === "Enter") {
-      checkAnswer();
-    }
-
-    if (e.key === "Backspace") {
-      setGuess(guess.slice(0, -1));
-      return;
-    }
-
-    if (guess.length === answer.length) {
-      return;
-    }
-
     if (e.shiftKey || e.ctrlKey || e.altKey) {
       return;
     }
 
     const key = e.key.toLowerCase().trim();
     if (key.length === 1) {
-      setGuess(guess + key);
+      const newGuess =
+        guess.substring(0, selected) + key + guess.substring(selected + 1);
+      setGuess(newGuess);
     }
   });
 
   // keydown handler for OSK (mobile users)
   const onKeyboardKeyPress = (key) => {
-    if (key === "{ent}") {
-      checkAnswer();
-      return;
-    }
-
-    if (key === "{backspace}") {
-      setGuess(guess.slice(0, -1));
-      return;
-    }
-
-    if (guess.length === answer.length) {
-      return;
-    }
-
-    setGuess(guess + key);
-  };
-
-  /**
-   * checks if the user's guess matches the answer
-   *
-   * - if correct, clear answer and increment level
-   * - if incorrect, clear answer
-   */
-  const checkAnswer = () => {
-    if (guess.toLowerCase() === answer.toLowerCase()) {
-      setGameLevel((currentLevel) => {
-        return currentLevel + 1;
-      });
-
-      setGuess("");
-    } else {
-      setMessageDetails({ message: "not quite", color: "darkred" });
-      setGuess("");
-    }
-
-    setTimeout(() => {
-      setMessageDetails({ message: "", color: "" });
-    }, 1000);
+    const newGuess =
+      guess.substring(0, selected) + key + guess.substring(selected + 1);
+    setGuess(newGuess);
   };
 
   const previous = useMemo(() => {
@@ -195,6 +190,10 @@ export default function Game() {
     return _board;
   }, [gameLevel, isOver]);
 
+  const onSelected = (index) => {
+    setSelected(index);
+  };
+
   return (
     <>
       <div style={{ width: "100%" }}>{<Timer progress={progress} />}</div>
@@ -231,14 +230,14 @@ export default function Game() {
           <>
             <Word
               key={previous.answer}
-              answer={previous.answer}
+              answer={guess}
               alteredPosition={previous.alteredPosition}
               mode="hint"
               shouldAnimate={gameLevel > 0}
+              selected={selected}
+              onSelected={onSelected}
+              shouldAnimateWrong={wasWrong}
             />
-            <div style={{ marginTop: "6px" }}>
-              <Word key={word} answer={word} guess={guess} />
-            </div>
           </>
         )}
       </div>
@@ -266,7 +265,7 @@ export default function Game() {
               default: [
                 "Q W E R T Y U I O P",
                 "A S D F G H J K L",
-                "{ent} Z X C V B N M {backspace}",
+                "Z X C V B N M",
               ],
             }}
             display={{

@@ -1,14 +1,10 @@
 import "./Tile.css";
 
 function Tile(props) {
-  const { letter = " ", small = false, altered, mode = "guess" } = props;
+  const { letter = " ", onSelected, isSelected } = props;
 
   return (
-    <div
-      className={`tile ${small && "smallTile"} ${
-        mode === "hint" ? (altered ? " altered " : " stale ") : undefined
-      }`}
-    >
+    <div onClick={onSelected} className={`tile ${isSelected && "selected"}`}>
       {letter}
     </div>
   );
