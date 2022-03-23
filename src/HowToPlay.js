@@ -17,6 +17,7 @@ export default function HowToPlay() {
           The new answer will be one letter off from the previous answer (i.e.
           JOT ➡️ BOT).
         </h4>
+        <h4>New puzzle every day at midnight!</h4>
       </div>
     </div>
   );

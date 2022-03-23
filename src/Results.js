@@ -4,8 +4,9 @@ import copy from "copy-to-clipboard";
 export default function Results(props) {
   const { correct, time, onCopied, puzzleNumber } = props;
 
-  let bigMessage = "";
+  const didComplete = correct === 10;
 
+  let bigMessage = "";
   if (correct === 10) {
     bigMessage = "Perfect!";
   } else if (correct > 6) {
@@ -20,12 +21,14 @@ export default function Results(props) {
     <div className="resultsContainer">
       <div className="bigMessage">{bigMessage}</div>
       <div className="resultsScore">{correct} / 10</div>
-      <div className="resultsTime">{time} seconds</div>
+      {didComplete && <div className="resultsTime">{time} seconds</div>}
       <Button
         id="shareButton"
         className="positive button"
         onClick={() => {
-          const text = `✅ ${correct}/10\n🚀 ${time} seconds\n\n#cladder #cladder${puzzleNumber}\n\nhttps://cladder.xyz`;
+          const text = `✅ ${correct}/10\n${
+            didComplete ? `🚀 ${time} seconds\n` : ""
+          }\n#cladder #cladder${puzzleNumber}\n\nhttps://cladder.xyz`;
 
           let success = copy(text);
           if (success) {

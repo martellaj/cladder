@@ -47,6 +47,7 @@ function App() {
           tabIndex="0"
           style={{
             cursor: "pointer",
+            visibility: false ? "visible" : "hidden",
           }}
           name="twitter"
         />
@@ -54,7 +55,7 @@ function App() {
     </div>
   );
 
-  let content = <Menu onOptionSelected={onOptionSelected} />;
+  let content = null;
 
   switch (view) {
     case "game":
@@ -65,7 +66,12 @@ function App() {
       break;
     case "menu":
     default:
-      content = <Menu onOptionSelected={onOptionSelected} />;
+      content = (
+        <Menu
+          onOptionSelected={onOptionSelected}
+          puzzleNumber={getPuzzleNumber()}
+        />
+      );
       break;
   }
 
@@ -93,5 +99,13 @@ function iOS() {
     (navigator.userAgent.includes("Mac") && "ontouchend" in document)
   );
 }
+
+const getPuzzleNumber = (date) => {
+  const refDate = new Date(2022, 2, 22, 0, 0, 0, 0);
+  const _date = date || new Date();
+  const val =
+    new Date(_date).setHours(0, 0, 0, 0) - refDate.setHours(0, 0, 0, 0);
+  return Math.round(val / 864e5);
+};
 
 export default App;

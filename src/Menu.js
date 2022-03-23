@@ -1,7 +1,7 @@
 import { Button } from "semantic-ui-react";
 
 export default function Menu(props) {
-  const { onOptionSelected } = props;
+  const { onOptionSelected, puzzleNumber } = props;
 
   return (
     <>
@@ -36,15 +36,16 @@ export default function Menu(props) {
             ABOUT
           </Button>
         </div>
-        <span
+        <div
           style={{
             marginBottom: "24px",
             position: "absolute",
             bottom: 0,
           }}
         >
-          v0.0.6
-        </span>
+          <div>#{puzzleNumber}</div>
+          <div>v0.0.7</div>
+        </div>
       </div>
     </>
   );
