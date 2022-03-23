@@ -3,6 +3,7 @@ import "./App.css";
 import Game from "./Game";
 import Menu from "./Menu";
 import { Icon } from "semantic-ui-react";
+import HowToPlay from "./HowToPlay";
 
 function App() {
   const [view, setView] = useState("menu");
@@ -25,7 +26,9 @@ function App() {
     >
       <div className="headerSection" style={{ marginLeft: "6px" }}>
         <Icon
-          onClick={() => setView("menu")}
+          onClick={() => {
+            setView("menu");
+          }}
           tabIndex="0"
           style={{
             cursor: "pointer",
@@ -56,6 +59,9 @@ function App() {
   switch (view) {
     case "game":
       content = <Game />;
+      break;
+    case "howToPlay":
+      content = <HowToPlay />;
       break;
     case "menu":
     default:

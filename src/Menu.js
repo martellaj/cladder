@@ -9,30 +9,30 @@ export default function Menu(props) {
         <div className="menuButton">
           <Button
             size="massive"
-            className="menuButton"
+            className="menuButton button"
             color="green"
             onClick={() => onOptionSelected("game")}
           >
-            play
+            PLAY
           </Button>
         </div>
         <div className="menuButton">
           <Button
             size="massive"
-            className="menuButton"
+            className="menuButton button"
             color="yellow"
-            onClick={() => onOptionSelected("how")}
+            onClick={() => onOptionSelected("howToPlay")}
           >
-            how to play
+            HOW TO PLAY
           </Button>
         </div>
         <div className="menuButton">
           <Button
             size="massive"
-            className="menuButton"
+            className="menuButton button"
             onClick={() => onOptionSelected("contact")}
           >
-            contact
+            CONTACT
           </Button>
         </div>
         <span

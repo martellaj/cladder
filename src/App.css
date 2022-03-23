@@ -178,3 +178,17 @@ body {
   letter-spacing: 0.2rem;
   text-transform: uppercase;
 }
+
+.howToPlayContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+  letter-spacing: 0.2rem;
+}
+
+.howToPlayContainer h4:not(:last-child) {
+  padding-bottom: 24px;
+  border-bottom: 1px solid gray;
+}
