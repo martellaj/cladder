@@ -248,7 +248,7 @@ export default function Game() {
           time={(((progress / 100) * TIME_LIMIT) / 1000).toFixed(2)}
           onCopied={() => {
             setMessageDetails({
-              message: "copied to your clipboard",
+              message: "COPIED TO YOUR CLIPBOARD",
               color: "green",
             });
 
