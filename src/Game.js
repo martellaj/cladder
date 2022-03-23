@@ -16,7 +16,7 @@ export default function Game() {
   const [progress, setProgress] = useState(0); // how much time left
   const [isOver, setIsOver] = useState(false); // has game ended
   const [gameLevel, setGameLevel] = useState(0); // current game level
-  const [selected, setSelected] = useState(0);
+  const [selected, setSelected] = useState(-1);
 
   // let d = new Date();
   // d = d.setDate(d.getDate() + 1);
@@ -25,12 +25,12 @@ export default function Game() {
   // gets the daily puzzle
   const game = _game[PUZZLE_NUMBER];
 
-  useEffect(() => {
-    if (guess === "foo") {
-      setGameLevel(game.length - 1);
-      setGuess("");
-    }
-  }, [guess, game.length]);
+  // useEffect(() => {
+  //   if (guess === "foo") {
+  //     setGameLevel(game.length - 1);
+  //     setGuess("");
+  //   }
+  // }, [guess, game.length]);
 
   // current level information
   const [word, setWord] = useState(game[gameLevel]?.word);
@@ -51,7 +51,10 @@ export default function Game() {
    */
   const checkAnswer = useCallback(() => {
     // don't check before guess is set or if guess hasn't changed yet
-    if (!guess || guess.toLowerCase() === word.toLowerCase()) {
+    if (
+      !guess ||
+      (selected > -1 && guess.toLowerCase() === word.toLowerCase())
+    ) {
       return;
     }
 
@@ -71,14 +74,20 @@ export default function Game() {
     setTimeout(() => {
       setMessageDetails({ message: "", color: "" });
     }, 1000);
-  }, [guess, word, answer]);
+  }, [guess, word, answer, selected]);
 
   // checks answer when guess is made
   useEffect(() => {
-    if (guess) {
+    if (
+      guess &&
+      (selected > -1 ||
+        (selected === -1 &&
+          guess.length === answer.length &&
+          guess.toLowerCase() !== word.toLowerCase()))
+    ) {
       checkAnswer();
     }
-  }, [guess, checkAnswer]);
+  }, [guess, checkAnswer, selected, answer, word]);
 
   // hook for when timer ends
   // todo: add game level info
@@ -134,6 +143,11 @@ export default function Game() {
 
   // tries to see if game has been played today
   useEffect(() => {
+    let testing = true;
+    if (testing) {
+      return;
+    }
+
     const data = window.localStorage.getItem(`puzzle-${PUZZLE_NUMBER}`);
 
     if (data) {
@@ -182,25 +196,49 @@ export default function Game() {
       return;
     }
 
+    if (e.key === "Backspace") {
+      const newGuess = guess.slice(0, -1);
+
+      setGuess(newGuess || word);
+      return;
+    }
+
     const key = e.key.toLowerCase().trim();
     if (key.length === 1) {
-      let foo = parseInt(key);
-      if (typeof foo === "number" && foo - 1 < answer.length) {
-        setSelected(foo - 1);
-        return;
+      if (selected === -1) {
+        if (guess.length < answer.length) {
+          setGuess(guess + key);
+        } else if (guess.length === answer.length) {
+          setGuess(key);
+        }
+      } else {
+        const newGuess =
+          guess.substring(0, selected) + key + guess.substring(selected + 1);
+        setGuess(newGuess);
       }
-
-      const newGuess =
-        guess.substring(0, selected) + key + guess.substring(selected + 1);
-      setGuess(newGuess);
     }
   });
 
   // keydown handler for OSK (mobile users)
   const onKeyboardKeyPress = (key) => {
-    const newGuess =
-      guess.substring(0, selected) + key + guess.substring(selected + 1);
-    setGuess(newGuess);
+    if (key === "{backspace}") {
+      const newGuess = guess.slice(0, -1);
+
+      setGuess(newGuess || word);
+      return;
+    }
+
+    if (selected === -1) {
+      if (guess.length < answer.length) {
+        setGuess(guess + key);
+      } else if (guess.length === answer.length) {
+        setGuess(key);
+      }
+    } else {
+      const newGuess =
+        guess.substring(0, selected) + key + guess.substring(selected + 1);
+      setGuess(newGuess);
+    }
   };
 
   const board = useMemo(() => {
@@ -261,11 +299,18 @@ export default function Game() {
           <>
             <Word
               key={answer}
-              answer={guess}
+              answer={answer}
+              guess={guess}
               mode="hint"
               shouldAnimate={gameLevel > 0}
               selected={selected}
               onSelected={(index) => {
+                if (selected === index) {
+                  setSelected(-1);
+                  return;
+                }
+
+                setGuess(word);
                 setSelected(index);
               }}
             />
@@ -297,7 +342,7 @@ export default function Game() {
               default: [
                 "Q W E R T Y U I O P",
                 "A S D F G H J K L",
-                "Z X C V B N M",
+                "Z X C V B N M {backspace}",
               ],
             }}
             display={{

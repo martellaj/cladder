@@ -4,6 +4,7 @@ import "./Word.css";
 function Word(props) {
   const {
     answer,
+    guess = "",
     shouldAnimate,
     onSelected,
     selected = -1,
@@ -13,17 +14,45 @@ function Word(props) {
 
   const tiles = [];
 
-  for (let i = 0; i < answer.length; i++) {
-    tiles.push(
-      <Tile
-        key={i}
-        letter={answer[i]}
-        mode={"hint"}
-        onSelected={() => onSelected?.(i)}
-        isSelected={selected === i}
-        altered={mode === "board" && alteredPosition === i}
-      />
-    );
+  if (guess) {
+    for (let i = 0; i < guess.length; i++) {
+      tiles.push(
+        <Tile
+          key={i}
+          letter={guess[i]}
+          mode={"hint"}
+          onSelected={() => onSelected?.(i)}
+          isSelected={selected === i}
+          altered={mode === "board" && alteredPosition === i}
+        />
+      );
+    }
+
+    for (let i = guess.length; i < answer.length; i++) {
+      tiles.push(
+        <Tile
+          key={i}
+          letter={" "}
+          mode={"hint"}
+          onSelected={() => onSelected?.(i)}
+          isSelected={selected === i}
+          altered={mode === "board" && alteredPosition === i}
+        />
+      );
+    }
+  } else {
+    for (let i = 0; i < answer.length; i++) {
+      tiles.push(
+        <Tile
+          key={i}
+          letter={answer[i]}
+          mode={"hint"}
+          onSelected={() => onSelected?.(i)}
+          isSelected={selected === i}
+          altered={mode === "board" && alteredPosition === i}
+        />
+      );
+    }
   }
 
   return (
