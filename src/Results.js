@@ -39,9 +39,8 @@ export default function Results(props) {
             });
           } else {
             copy(text);
+            onCopied();
           }
-
-          onCopied();
         }}
       >
         SHARE
