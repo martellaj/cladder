@@ -36,11 +36,6 @@ export default function Game() {
   const [hint, setHint] = useState(game[gameLevel]?.hint);
   const [answer, setAnswer] = useState(game[gameLevel]?.answer);
 
-  // current level information
-  const [previousAlteredPosition, setPreviousAlteredPosition] = useState(
-    game[0]?.alteredPosition
-  );
-
   // success or failure message after guess
   const [messageDetails, setMessageDetails] = useState({
     message: "",
@@ -95,9 +90,6 @@ export default function Game() {
       setIsOver(true);
       return;
     }
-
-    // save previous altered position for display
-    setPreviousAlteredPosition(game[gameLevel - 1]?.alteredPosition ?? -1);
 
     // set new level information
     setWord(game[gameLevel].word);
@@ -285,7 +277,6 @@ export default function Game() {
               key={`${word}-prev`}
               answer={word}
               mode="board"
-              alteredPosition={gameLevel > 0 ? previousAlteredPosition : -1}
             />
             <Word
               id="guessingWord"
