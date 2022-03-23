@@ -4,6 +4,7 @@ import Game from "./Game";
 import Menu from "./Menu";
 import { Icon } from "semantic-ui-react";
 import HowToPlay from "./HowToPlay";
+import About from "./About";
 import toggleDarkMode from "./toggleDarkMode";
 
 function App() {
@@ -81,6 +82,9 @@ function App() {
       break;
     case "howToPlay":
       content = <HowToPlay />;
+      break;
+    case "about":
+      content = <About />;
       break;
     case "menu":
     default:

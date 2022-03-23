@@ -28,7 +28,7 @@ export default function Menu(props) {
             HOW TO PLAY
           </Button>
         </div>
-        {/* <div className="menuButton">
+        <div className="menuButton">
           <Button
             size="massive"
             className="menuButton button"
@@ -37,7 +37,7 @@ export default function Menu(props) {
           >
             ABOUT
           </Button>
-        </div> */}
+        </div>
         <div
           style={{
             marginBottom: "24px",

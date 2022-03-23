@@ -198,6 +198,32 @@ body {
   border-bottom: 1px solid gray;
 }
 
+.aboutContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+  letter-spacing: 0.2rem;
+}
+
+.aboutContainer h4 {
+  margin-bottom: 0;
+}
+
+.aboutContainer div:not(:last-child) {
+  padding-bottom: 24px;
+  border-bottom: 1px solid gray;
+}
+
+.aboutRow {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 0;
+}
+
 :root {
   --black: black;
   --white: white;
