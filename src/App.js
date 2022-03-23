@@ -77,7 +77,7 @@ function App() {
 
   switch (view) {
     case "game":
-      content = <Game />;
+      content = <Game isIos={iOS()} />;
       break;
     case "howToPlay":
       content = <HowToPlay />;

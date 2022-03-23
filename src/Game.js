@@ -12,7 +12,9 @@ import { getNegativeWord, getPositiveWord } from "./getWord";
 const TIME_LIMIT = 60000;
 const INCREMENT = 100;
 
-export default function Game() {
+export default function Game(props) {
+  const { isIos } = props;
+
   const [guess, setGuess] = useState(""); // current typed guess
   const [progress, setProgress] = useState(0); // how much time left
   const [isOver, setIsOver] = useState(false); // has game ended
@@ -134,10 +136,10 @@ export default function Game() {
 
   // tries to see if game has been played today
   useEffect(() => {
-    let testing = true;
-    if (testing) {
-      return;
-    }
+    // let testing = true;
+    // if (testing) {
+    //   return;
+    // }
 
     const data = window.localStorage.getItem(`puzzle-${PUZZLE_NUMBER}`);
 
@@ -244,6 +246,7 @@ export default function Game() {
 
       {isOver && (
         <Results
+          isIos={isIos}
           correct={gameLevel}
           time={(((progress / 100) * TIME_LIMIT) / 1000).toFixed(2)}
           onCopied={() => {

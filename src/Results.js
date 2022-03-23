@@ -4,7 +4,7 @@ import copy from "copy-to-clipboard";
 const isDarkMode = window.localStorage.getItem("mode") === "dark";
 
 export default function Results(props) {
-  const { correct, time, onCopied, puzzleNumber } = props;
+  const { correct, time, onCopied, puzzleNumber, isIos } = props;
 
   const didComplete = correct === 10;
 
@@ -33,16 +33,15 @@ export default function Results(props) {
             didComplete ? `🚀 ${time} seconds\n` : ""
           }\n#cladder #cladder${puzzleNumber}\n\nhttps://cladder.xyz`;
 
-          let success = copy(text);
-          if (success) {
-            onCopied();
-          }
-
-          if (!success) {
+          if (isIos) {
             navigator.share({
               text: text,
             });
+          } else {
+            copy(text);
           }
+
+          onCopied();
         }}
       >
         SHARE
