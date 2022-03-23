@@ -125,4 +125,67 @@ export const game = [
       alteredPosition: 0,
     },
   ],
+  // day #3
+  [
+    {
+      word: "has",
+      hint: "it's not a solid or a liquid",
+      answer: "gas",
+      alteredPosition: 0,
+    },
+    {
+      word: "gas",
+      hint: "actress who plays Wonder Woman",
+      answer: "gal",
+      alteredPosition: 2,
+    },
+    {
+      word: "gal",
+      hint: "hair styling product",
+      answer: "gel",
+      alteredPosition: 1,
+    },
+    {
+      word: "gel",
+      hint: "delete key label",
+      answer: "del",
+      alteredPosition: 0,
+    },
+    {
+      word: "del",
+      hint: "israel city: ___ Aviv",
+      answer: "tel",
+      alteredPosition: 0,
+    },
+    {
+      word: "tel",
+      hint: "1 + 2 + 3 + 4",
+      answer: "ten",
+      alteredPosition: 2,
+    },
+    {
+      word: "ten",
+      hint: "unit of weight for elephants",
+      answer: "ton",
+      alteredPosition: 1,
+    },
+    {
+      word: "ton",
+      hint: "Jayden, to Will Smith",
+      answer: "son",
+      alteredPosition: 0,
+    },
+    {
+      word: "son",
+      hint: `before "Andreas" or "Antonio"`,
+      answer: "san",
+      alteredPosition: 1,
+    },
+    {
+      word: "san",
+      hint: "moral slip-up",
+      answer: "sin",
+      alteredPosition: 1,
+    },
+  ],
 ];
