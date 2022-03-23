@@ -7,6 +7,7 @@ import Keyboard from "react-simple-keyboard";
 import "react-simple-keyboard/build/css/index.css";
 import Results from "./Results";
 import animateCSS from "./animateCSS";
+import { getNegativeWord, getPositiveWord } from "./getWord";
 
 const TIME_LIMIT = 60000;
 const INCREMENT = 100;
@@ -55,7 +56,7 @@ export default function Game() {
       });
     } else {
       animateCSS("#guessingWord", "shakeX");
-      setMessageDetails({ message: "not quite", color: "darkred" });
+      setMessageDetails({ message: getNegativeWord(), color: "darkred" });
 
       setTimeout(() => {
         setGuess("");
@@ -103,7 +104,7 @@ export default function Game() {
   // hook that congratulates user when they get an answer right
   useEffect(() => {
     if (gameLevel > 0 && gameLevel < 10 && !isOver) {
-      setMessageDetails({ message: "nice", color: "green" });
+      setMessageDetails({ message: getPositiveWord(), color: "green" });
     }
 
     setTimeout(() => {
@@ -133,10 +134,10 @@ export default function Game() {
 
   // tries to see if game has been played today
   useEffect(() => {
-    // let testing = true;
-    // if (testing) {
-    //   return;
-    // }
+    let testing = true;
+    if (testing) {
+      return;
+    }
 
     const data = window.localStorage.getItem(`puzzle-${PUZZLE_NUMBER}`);
 
@@ -340,6 +341,8 @@ export default function Game() {
         <div
           className="message slide-top"
           style={{
+            letterSpacing: "0.2rem",
+            textTransform: "uppercase",
             backgroundColor: messageDetails.color,
             top: `${
               document
