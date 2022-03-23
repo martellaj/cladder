@@ -7,7 +7,7 @@ export default function HowToPlay() {
           width: "300px",
         }}
       >
-        <h4>You'll get a starting word and a clue (i.e. JOE).</h4>
+        <h4>You'll get a starting word (i.e. JOE) and a clue.</h4>
         <h4>
           The answer will be one letter off from the starting word (i.e. JOE ➡️
           JOT).

@@ -110,14 +110,14 @@ export default function Game() {
 
   // hook that congratulates user when they get an answer right
   useEffect(() => {
-    if (gameLevel > 0 && gameLevel < 10) {
+    if (gameLevel > 0 && gameLevel < 10 && !isOver) {
       setMessageDetails({ message: "nice", color: "green" });
     }
 
     setTimeout(() => {
       setMessageDetails({ message: "", color: "" });
     }, 1000);
-  }, [gameLevel]);
+  }, [gameLevel, isOver]);
 
   // hook that updates progress bar as time elapses
   useEffect(() => {
