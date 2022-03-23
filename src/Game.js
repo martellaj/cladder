@@ -16,7 +16,6 @@ export default function Game() {
   const [progress, setProgress] = useState(0); // how much time left
   const [isOver, setIsOver] = useState(false); // has game ended
   const [gameLevel, setGameLevel] = useState(0); // current game level
-  const [selected, setSelected] = useState(-1);
 
   // let d = new Date();
   // d = d.setDate(d.getDate() + 1);
@@ -37,24 +36,21 @@ export default function Game() {
   const [hint, setHint] = useState(game[gameLevel]?.hint);
   const [answer, setAnswer] = useState(game[gameLevel]?.answer);
 
+  // current level information
+  const [previousAlteredPosition, setPreviousAlteredPosition] = useState(
+    game[0]?.alteredPosition
+  );
+
   // success or failure message after guess
   const [messageDetails, setMessageDetails] = useState({
     message: "",
     color: "",
   });
 
-  /**
-   * checks if the user's guess matches the answer
-   *
-   * - if correct, clear answer and increment level
-   * - if incorrect, clear answer
-   */
+  // checks if the user's guess matches the answer
   const checkAnswer = useCallback(() => {
     // don't check before guess is set or if guess hasn't changed yet
-    if (
-      !guess ||
-      (selected > -1 && guess.toLowerCase() === word.toLowerCase())
-    ) {
+    if (!guess) {
       return;
     }
 
@@ -63,31 +59,27 @@ export default function Game() {
         return currentLevel + 1;
       });
     } else {
-      animateCSS(".wordContainer", "shakeX");
+      animateCSS("#guessingWord", "shakeX");
       setMessageDetails({ message: "not quite", color: "darkred" });
 
       setTimeout(() => {
-        setGuess(word);
-      }, 500);
+        setGuess("");
+      }, 150);
     }
 
     setTimeout(() => {
       setMessageDetails({ message: "", color: "" });
     }, 1000);
-  }, [guess, word, answer, selected]);
+  }, [guess, answer]);
 
   // checks answer when guess is made
   useEffect(() => {
-    if (
-      guess &&
-      (selected > -1 ||
-        (selected === -1 &&
-          guess.length === answer.length &&
-          guess.toLowerCase() !== word.toLowerCase()))
-    ) {
-      checkAnswer();
+    if (guess && guess.length === answer.length) {
+      setTimeout(() => {
+        checkAnswer();
+      }, 150);
     }
-  }, [guess, checkAnswer, selected, answer, word]);
+  }, [guess, checkAnswer, answer, word]);
 
   // hook for when timer ends
   // todo: add game level info
@@ -104,11 +96,17 @@ export default function Game() {
       return;
     }
 
+    // save previous altered position for display
+    setPreviousAlteredPosition(game[gameLevel - 1]?.alteredPosition ?? -1);
+
+    // set new level information
     setWord(game[gameLevel].word);
     setHint(game[gameLevel].hint);
     setAnswer(game[gameLevel].answer);
-    setGuess(game[gameLevel].word);
-  }, [gameLevel, game]);
+
+    // clear guess
+    setGuess("");
+  }, [gameLevel, game, word]);
 
   // hook that congratulates user when they get an answer right
   useEffect(() => {
@@ -174,6 +172,11 @@ export default function Game() {
         })
       );
 
+      // update total games
+      const totalGames =
+        parseInt(window.localStorage.getItem("totalGames") || "0") + 1;
+      window.localStorage.setItem("totalGames", totalGames);
+
       if (gameLevel === 10) {
         // update wins
         const wins = parseInt(window.localStorage.getItem("wins") || "0") + 1;
@@ -199,23 +202,13 @@ export default function Game() {
     if (e.key === "Backspace") {
       const newGuess = guess.slice(0, -1);
 
-      setGuess(newGuess || word);
+      setGuess(newGuess || "");
       return;
     }
 
     const key = e.key.toLowerCase().trim();
     if (key.length === 1) {
-      if (selected === -1) {
-        if (guess.length < answer.length) {
-          setGuess(guess + key);
-        } else if (guess.length === answer.length) {
-          setGuess(key);
-        }
-      } else {
-        const newGuess =
-          guess.substring(0, selected) + key + guess.substring(selected + 1);
-        setGuess(newGuess);
-      }
+      setGuess(guess + key);
     }
   });
 
@@ -224,21 +217,11 @@ export default function Game() {
     if (key === "{backspace}") {
       const newGuess = guess.slice(0, -1);
 
-      setGuess(newGuess || word);
+      setGuess(newGuess || "");
       return;
     }
 
-    if (selected === -1) {
-      if (guess.length < answer.length) {
-        setGuess(guess + key);
-      } else if (guess.length === answer.length) {
-        setGuess(key);
-      }
-    } else {
-      const newGuess =
-        guess.substring(0, selected) + key + guess.substring(selected + 1);
-      setGuess(newGuess);
-    }
+    setGuess(guess + key);
   };
 
   const board = useMemo(() => {
@@ -298,21 +281,18 @@ export default function Game() {
         {!isOver && (
           <>
             <Word
+              id="previousWord"
+              key={`${word}-prev`}
+              answer={word}
+              mode="board"
+              alteredPosition={gameLevel > 0 ? previousAlteredPosition : -1}
+            />
+            <Word
+              id="guessingWord"
               key={answer}
               answer={answer}
               guess={guess}
               mode="hint"
-              shouldAnimate={gameLevel > 0}
-              selected={selected}
-              onSelected={(index) => {
-                if (selected === index) {
-                  setSelected(-1);
-                  return;
-                }
-
-                setGuess(word);
-                setSelected(index);
-              }}
             />
             <div id="hint" className="hint">
               {hint}

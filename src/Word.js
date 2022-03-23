@@ -4,17 +4,17 @@ import "./Word.css";
 function Word(props) {
   const {
     answer,
-    guess = "",
-    shouldAnimate,
+    guess,
     onSelected,
     selected = -1,
     mode = "board",
     alteredPosition = -1,
+    id,
   } = props;
 
   const tiles = [];
 
-  if (guess) {
+  if (guess !== undefined) {
     for (let i = 0; i < guess.length; i++) {
       tiles.push(
         <Tile
@@ -33,7 +33,6 @@ function Word(props) {
         <Tile
           key={i}
           letter={" "}
-          mode={"hint"}
           onSelected={() => onSelected?.(i)}
           isSelected={selected === i}
           altered={mode === "board" && alteredPosition === i}
@@ -46,7 +45,6 @@ function Word(props) {
         <Tile
           key={i}
           letter={answer[i]}
-          mode={"hint"}
           onSelected={() => onSelected?.(i)}
           isSelected={selected === i}
           altered={mode === "board" && alteredPosition === i}
@@ -56,12 +54,7 @@ function Word(props) {
   }
 
   return (
-    <div
-      id="wordContainer"
-      className={`wordContainer ${
-        shouldAnimate && "animate__animated animate__bounce"
-      }`}
-    >
+    <div id={id} className={`wordContainer`}>
       {tiles}
     </div>
   );
