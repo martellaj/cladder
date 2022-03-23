@@ -1,6 +1,6 @@
 .tile {
   align-items: center;
-  border: 2px black solid;
+  border: 2px var(--black) solid;
   display: flex;
   height: 70px;
   justify-content: center;
@@ -26,7 +26,7 @@
 }
 
 .altered {
-  background-color: palegoldenrod;
+  background-color: var(--alteredBackground);
 }
 
 .stale {

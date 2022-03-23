@@ -4,6 +4,8 @@ import "./Timer.css";
 function Timer(props) {
   const { progress } = props;
 
+  const isDarkMode = window.localStorage.getItem("mode") === "dark";
+
   const getColor = () => {
     if (progress < 50) {
       return "green";
@@ -18,7 +20,12 @@ function Timer(props) {
 
   return (
     <div className="timerContainer">
-      <Progress className="progressBar" percent={progress} color={getColor()} />
+      <Progress
+        className="progressBar"
+        percent={progress}
+        color={getColor()}
+        inverted={isDarkMode}
+      />
     </div>
   );
 }

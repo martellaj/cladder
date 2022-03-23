@@ -1,3 +1,8 @@
+body {
+  background-color: var(--white);
+  color: var(--black);
+}
+
 .App {
   align-items: center;
   display: flex;
@@ -191,4 +196,18 @@ body {
 .howToPlayContainer h4:not(:last-child) {
   padding-bottom: 24px;
   border-bottom: 1px solid gray;
+}
+
+:root {
+  --black: black;
+  --white: white;
+}
+
+.hg-theme-default .hg-button {
+  background-color: var(--white) !important;
+  color: var(--black) !important;
+}
+
+.hg-theme-default {
+  background-color: var(--keyboardBackground) !important;
 }

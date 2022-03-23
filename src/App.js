@@ -4,11 +4,19 @@ import Game from "./Game";
 import Menu from "./Menu";
 import { Icon } from "semantic-ui-react";
 import HowToPlay from "./HowToPlay";
+import toggleDarkMode from "./toggleDarkMode";
 
 function App() {
   const [view, setView] = useState("menu");
+  const [isDarkMode, setIsDarkMode] = useState(
+    window.localStorage.getItem("mode") === "dark"
+  );
 
   const onOptionSelected = (option) => {
+    if (option === "toggleDarkMode") {
+      setIsDarkMode(!isDarkMode);
+    }
+
     setView(option);
   };
 
@@ -35,6 +43,7 @@ function App() {
             visibility: view !== "menu" ? "visible" : "hidden",
           }}
           name="bars"
+          inverted={isDarkMode}
         />
       </div>
       <span>CLADDER</span>
@@ -43,6 +52,15 @@ function App() {
         style={{ flexDirection: "row-reverse", marginRight: "6px" }}
       >
         <Icon
+          name={isDarkMode ? "lightbulb" : "moon"}
+          onClick={() => {
+            setIsDarkMode(!isDarkMode);
+            toggleDarkMode();
+          }}
+          className="button"
+          inverted={isDarkMode}
+        />
+        {/* <Icon
           onClick={() => window.open("https://twitter.com/martellaj", "_blank")}
           tabIndex="0"
           style={{
@@ -50,7 +68,7 @@ function App() {
             visibility: false ? "visible" : "hidden",
           }}
           name="twitter"
-        />
+        /> */}
       </div>
     </div>
   );
@@ -70,6 +88,7 @@ function App() {
         <Menu
           onOptionSelected={onOptionSelected}
           puzzleNumber={getPuzzleNumber()}
+          isDarkMode={isDarkMode}
         />
       );
       break;

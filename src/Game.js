@@ -8,7 +8,7 @@ import "react-simple-keyboard/build/css/index.css";
 import Results from "./Results";
 import animateCSS from "./animateCSS";
 
-const TIME_LIMIT = 30000;
+const TIME_LIMIT = 60000;
 const INCREMENT = 100;
 
 export default function Game() {

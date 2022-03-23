@@ -1,6 +1,8 @@
 import { Button } from "semantic-ui-react";
 import copy from "copy-to-clipboard";
 
+const isDarkMode = window.localStorage.getItem("mode") === "dark";
+
 export default function Results(props) {
   const { correct, time, onCopied, puzzleNumber } = props;
 
@@ -25,6 +27,7 @@ export default function Results(props) {
       <Button
         id="shareButton"
         className="positive button"
+        inverted={isDarkMode}
         onClick={() => {
           const text = `✅ ${correct}/10\n${
             didComplete ? `🚀 ${time} seconds\n` : ""
