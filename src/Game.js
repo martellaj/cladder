@@ -9,7 +9,7 @@ import Results from "./Results";
 import animateCSS from "./animateCSS";
 import { getNegativeWord, getPositiveWord } from "./getWord";
 
-const TIME_LIMIT = 60000;
+const TIME_LIMIT = 40000;
 const INCREMENT = 100;
 
 export default function Game(props) {
