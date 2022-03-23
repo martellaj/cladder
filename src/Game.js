@@ -141,10 +141,10 @@ export default function Game() {
 
   // tries to see if game has been played today
   useEffect(() => {
-    let testing = true;
-    if (testing) {
-      return;
-    }
+    // let testing = true;
+    // if (testing) {
+    //   return;
+    // }
 
     const data = window.localStorage.getItem(`puzzle-${PUZZLE_NUMBER}`);
 
