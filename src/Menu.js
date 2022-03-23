@@ -30,9 +30,10 @@ export default function Menu(props) {
           <Button
             size="massive"
             className="menuButton button"
-            onClick={() => onOptionSelected("contact")}
+            onClick={() => onOptionSelected("about")}
+            disabled
           >
-            CONTACT
+            ABOUT
           </Button>
         </div>
         <span
