@@ -3,7 +3,7 @@ export default function HowToPlay() {
     <div id="aboutContainer" className="aboutContainer">
       <div
         style={{
-          width: "400px",
+          width: "100%",
         }}
       >
         <div className="aboutRow">
