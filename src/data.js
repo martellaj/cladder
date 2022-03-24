@@ -198,7 +198,7 @@ export const game = [
     },
     {
       word: "foul",
-      hint: "a light fencing sword",
+      hint: "a fencing sword",
       answer: "foil",
       alteredPosition: 2,
     },
@@ -210,12 +210,18 @@ export const game = [
     },
     {
       word: "boil",
-      hint: "collateral",
-      answer: "bail",
+      hint: "to work hard",
+      answer: "toil",
+      alteredPosition: 0,
+    },
+    {
+      word: "toil",
+      hint: "wags when happy",
+      answer: "tail",
       alteredPosition: 1,
     },
     {
-      word: "bail",
+      word: "tail",
       hint: "trains drive on a ___road",
       answer: "rail",
       alteredPosition: 0,
@@ -243,12 +249,6 @@ export const game = [
       hint: "ouch",
       answer: "pain",
       alteredPosition: 0,
-    },
-    {
-      word: "pain",
-      hint: "two of a kind",
-      answer: "pair",
-      alteredPosition: 3,
     },
   ],
 ];
