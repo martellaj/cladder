@@ -188,4 +188,67 @@ export const game = [
       alteredPosition: 1,
     },
   ],
+  // day #4
+  [
+    {
+      word: "four",
+      hint: "unpleasant",
+      answer: "foul",
+      alteredPosition: 3,
+    },
+    {
+      word: "foul",
+      hint: "a light fencing sword",
+      answer: "foil",
+      alteredPosition: 2,
+    },
+    {
+      word: "foil",
+      hint: "liquid bubbling",
+      answer: "boil",
+      alteredPosition: 0,
+    },
+    {
+      word: "boil",
+      hint: "collateral",
+      answer: "bail",
+      alteredPosition: 1,
+    },
+    {
+      word: "bail",
+      hint: "trains drive on a ___road",
+      answer: "rail",
+      alteredPosition: 0,
+    },
+    {
+      word: "rail",
+      hint: "military attack, often by air",
+      answer: "raid",
+      alteredPosition: 3,
+    },
+    {
+      word: "raid",
+      hint: "has a bucket and a mop",
+      answer: "maid",
+      alteredPosition: 0,
+    },
+    {
+      word: "maid",
+      hint: "primary",
+      answer: "main",
+      alteredPosition: 3,
+    },
+    {
+      word: "main",
+      hint: "ouch",
+      answer: "pain",
+      alteredPosition: 0,
+    },
+    {
+      word: "pain",
+      hint: "two of a kind",
+      answer: "pair",
+      alteredPosition: 3,
+    },
+  ],
 ];

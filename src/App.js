@@ -15,6 +15,10 @@ const appHeight = () =>
 window.addEventListener("resize", appHeight);
 appHeight();
 
+const params = new Proxy(new URLSearchParams(window.location.search), {
+  get: (searchParams, prop) => searchParams.get(prop),
+});
+
 function App() {
   const [view, setView] = useState("menu");
   const [isDarkMode, setIsDarkMode] = useState(
@@ -99,7 +103,7 @@ function App() {
       content = (
         <Menu
           onOptionSelected={onOptionSelected}
-          puzzleNumber={getPuzzleNumber()}
+          puzzleNumber={params?.pz ?? getPuzzleNumber()}
           isDarkMode={isDarkMode}
         />
       );

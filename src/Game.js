@@ -12,6 +12,10 @@ import { getNegativeWord, getPositiveWord } from "./getWord";
 const TIME_LIMIT = 45000;
 const INCREMENT = 100;
 
+const params = new Proxy(new URLSearchParams(window.location.search), {
+  get: (searchParams, prop) => searchParams.get(prop),
+});
+
 export default function Game(props) {
   const { isIos } = props;
 
@@ -20,9 +24,11 @@ export default function Game(props) {
   const [isOver, setIsOver] = useState(false); // has game ended
   const [gameLevel, setGameLevel] = useState(0); // current game level
 
+  const specificGameLevel = params?.pz ?? null;
+
   // let d = new Date();
   // d = d.setDate(d.getDate() + 1);
-  const PUZZLE_NUMBER = getPuzzleNumber();
+  const PUZZLE_NUMBER = specificGameLevel ?? getPuzzleNumber();
 
   // gets the daily puzzle
   const game = _game[PUZZLE_NUMBER];
@@ -136,10 +142,10 @@ export default function Game(props) {
 
   // tries to see if game has been played today
   useEffect(() => {
-    // let testing = true;
-    // if (testing) {
-    //   return;
-    // }
+    // let user replay if they visit using link
+    if (specificGameLevel !== null) {
+      return;
+    }
 
     const data = window.localStorage.getItem(`puzzle-${PUZZLE_NUMBER}`);
 
@@ -149,7 +155,7 @@ export default function Game(props) {
       setProgress((_data.time * 100000) / TIME_LIMIT);
       setIsOver(true);
     }
-  }, [PUZZLE_NUMBER]);
+  }, [PUZZLE_NUMBER, specificGameLevel]);
 
   // hook that saves game progress to local storage
   useEffect(() => {
@@ -158,7 +164,7 @@ export default function Game(props) {
     );
     const data = window.localStorage.getItem(`puzzle-${PUZZLE_NUMBER}`);
 
-    if (isOver && !data) {
+    if (isOver && !data && !specificGameLevel) {
       window.localStorage.setItem(
         `puzzle-${PUZZLE_NUMBER}`,
         JSON.stringify({
@@ -186,7 +192,7 @@ export default function Game(props) {
         window.localStorage.setItem("averageTime", averageTime);
       }
     }
-  }, [isOver, PUZZLE_NUMBER, gameLevel, progress]);
+  }, [isOver, PUZZLE_NUMBER, gameLevel, progress, specificGameLevel]);
 
   // adds keydown handlers to window so desktop users can type
   useEventListener("keydown", (e) => {
@@ -202,7 +208,7 @@ export default function Game(props) {
     }
 
     const key = e.key.toLowerCase().trim();
-    if (key.length === 1) {
+    if (key.length === 1 && guess.length < answer.length) {
       setGuess(guess + key);
     }
   });
@@ -216,7 +222,9 @@ export default function Game(props) {
       return;
     }
 
-    setGuess(guess + key);
+    if (guess.length < answer.length) {
+      setGuess(guess + key);
+    }
   };
 
   const board = useMemo(() => {
