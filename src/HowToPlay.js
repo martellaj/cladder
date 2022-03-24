@@ -2,11 +2,7 @@ export default function HowToPlay() {
   return (
     <div id="howToPlayContainer" className="howToPlayContainer">
       <h3 style={{ marginBottom: "30px" }}>HOW TO PLAY</h3>
-      <div
-        style={{
-          width: "300px",
-        }}
-      >
+      <div>
         <h4>You'll get a starting word (e.g. JOE) and a clue.</h4>
         <h4>
           The answer will be one letter off from the starting word (e.g. JOE ➡️
