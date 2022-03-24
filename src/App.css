@@ -10,8 +10,10 @@ body {
   margin: auto;
   max-width: 600px;
   text-align: center;
-  height: 100vh;
+  /* height: 100vh; */
   max-height: 1000px;
+
+  height: var(--app-height);
 }
 
 .App-iOS {

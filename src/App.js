@@ -7,6 +7,14 @@ import HowToPlay from "./HowToPlay";
 import About from "./About";
 import toggleDarkMode from "./toggleDarkMode";
 
+const appHeight = () =>
+  document.documentElement.style.setProperty(
+    "--app-height",
+    `${window.innerHeight}px`
+  );
+window.addEventListener("resize", appHeight);
+appHeight();
+
 function App() {
   const [view, setView] = useState("menu");
   const [isDarkMode, setIsDarkMode] = useState(
