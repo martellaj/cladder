@@ -280,6 +280,16 @@ export default function Game(props) {
             }, 1000);
           }}
           puzzleNumber={PUZZLE_NUMBER}
+          onLoaded={() => {
+            setMessageDetails({
+              message: "PLEASE SHARE ❤️",
+              color: "green",
+            });
+
+            setTimeout(() => {
+              setMessageDetails({ message: "", color: "" });
+            }, 2500);
+          }}
         />
       )}
 

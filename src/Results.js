@@ -1,12 +1,19 @@
 import { Button } from "semantic-ui-react";
 import copy from "copy-to-clipboard";
+import { useEffect } from "react";
 
 const isDarkMode = window.localStorage.getItem("mode") === "dark";
 
 export default function Results(props) {
-  const { correct, time, onCopied, puzzleNumber, isIos } = props;
+  const { correct, time, onCopied, puzzleNumber, isIos, onLoaded } = props;
 
   const didComplete = correct === 10;
+
+  useEffect(() => {
+    setTimeout(() => {
+      onLoaded();
+    }, 250);
+  }, []);
 
   let bigMessage = "";
   if (correct === 10) {
