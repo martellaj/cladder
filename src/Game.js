@@ -245,6 +245,18 @@ export default function Game(props) {
       );
     }
 
+    if (gameLevel < 10) {
+      _board.push(
+        <Word
+          key={game[gameLevel].answer}
+          answer={game[gameLevel].answer}
+          alteredPosition={game[gameLevel].alteredPosition}
+          failed={true}
+          mode="board"
+        />
+      );
+    }
+
     return _board;
   }, [game, gameLevel]);
 

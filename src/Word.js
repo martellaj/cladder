@@ -10,6 +10,7 @@ function Word(props) {
     mode = "board",
     alteredPosition = -1,
     id,
+    failed = false,
   } = props;
 
   const tiles = [];
@@ -48,6 +49,7 @@ function Word(props) {
           onSelected={() => onSelected?.(i)}
           isSelected={selected === i}
           altered={mode === "board" && alteredPosition === i}
+          failed={failed}
         />
       );
     }

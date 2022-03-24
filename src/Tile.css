@@ -29,6 +29,10 @@
   background-color: var(--alteredBackground);
 }
 
+.altered.failed {
+  background-color: var(--alteredFailedBackground);
+}
+
 .stale {
   background-color: lightgrey;
 }
