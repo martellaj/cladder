@@ -314,4 +314,67 @@ export const game = [
       alteredPosition: 0,
     },
   ],
+  // day #6
+  [
+    {
+      word: "run",
+      hint: "a religious woman",
+      answer: "nun",
+      alteredPosition: 0,
+    },
+    {
+      word: "nun",
+      hint: "expressing negation or absence",
+      answer: "non",
+      alteredPosition: 1,
+    },
+    {
+      word: "non",
+      hint: "opposite of later",
+      answer: "now",
+      alteredPosition: 1,
+    },
+    {
+      word: "now",
+      hint: "says moo",
+      answer: "cow",
+      alteredPosition: 0,
+    },
+    {
+      word: "cow",
+      hint: "serves and protects",
+      answer: "cop",
+      alteredPosition: 2,
+    },
+    {
+      word: "cop",
+      hint: "washes the floor",
+      answer: "mop",
+      alteredPosition: 0,
+    },
+    {
+      word: "mop",
+      hint: "drawing of an area",
+      answer: "map",
+      alteredPosition: 1,
+    },
+    {
+      word: "map",
+      hint: "sticky, from a tree",
+      answer: "sap",
+      alteredPosition: 0,
+    },
+    {
+      word: "sap",
+      hint: "a tiny drink",
+      answer: "sip",
+      alteredPosition: 1,
+    },
+    {
+      word: "sip",
+      hint: "extra gratitude",
+      answer: "tip",
+      alteredPosition: 0,
+    },
+  ],
 ];
