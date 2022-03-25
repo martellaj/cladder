@@ -13,11 +13,11 @@ export default function HowToPlay() {
         <div className="aboutRow">
           <h4>Twitter</h4>
           <a
-            href="https://twitter.com/martellaj"
+            href="https://twitter.com/playcladder"
             target="_blank"
             rel="noreferrer"
           >
-            @martellaj
+            @playcladder
           </a>
         </div>
         <div className="aboutRow">
