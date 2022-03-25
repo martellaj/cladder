@@ -90,7 +90,7 @@ function App() {
 
   switch (view) {
     case "game":
-      content = <Game isIos={iOS()} />;
+      content = <Game isIos={iOS()} isDarkMode={isDarkMode} />;
       break;
     case "howToPlay":
       content = <HowToPlay />;
@@ -109,8 +109,6 @@ function App() {
       );
       break;
   }
-
-  const isIos = iOS();
 
   return (
     <div className={`App`}>

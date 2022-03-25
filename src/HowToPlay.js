@@ -13,7 +13,7 @@ export default function HowToPlay() {
           The new answer will be one letter off from the previous answer (e.g.
           JOT ➡️ BOT).
         </h4>
-        <h4>Be quick! You have 40 seconds to get all 10 clues!</h4>
+        <h4>Be quick! You have 45 seconds to get all 10 clues!</h4>
         <h4>New puzzle every day at midnight!</h4>
       </div>
     </div>

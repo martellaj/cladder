@@ -8,6 +8,7 @@ import "react-simple-keyboard/build/css/index.css";
 import Results from "./Results";
 import animateCSS from "./animateCSS";
 import { getNegativeWord, getPositiveWord } from "./getWord";
+import { Button } from "semantic-ui-react";
 
 const TIME_LIMIT = 45000;
 const INCREMENT = 100;
@@ -17,12 +18,14 @@ const params = new Proxy(new URLSearchParams(window.location.search), {
 });
 
 export default function Game(props) {
-  const { isIos } = props;
+  const { isIos, isDarkMode } = props;
 
   const [guess, setGuess] = useState(""); // current typed guess
   const [progress, setProgress] = useState(0); // how much time left
   const [isOver, setIsOver] = useState(false); // has game ended
   const [gameLevel, setGameLevel] = useState(0); // current game level
+  const [skippedLevel, setSkippedLevel] = useState(false); // has user skipped level
+  const [skipPenalty, setSkipPenalty] = useState(5);
 
   const specificGameLevel = params?.pz ?? null;
 
@@ -111,14 +114,17 @@ export default function Game(props) {
 
   // hook that congratulates user when they get an answer right
   useEffect(() => {
-    if (gameLevel > 0 && gameLevel < 10 && !isOver) {
+    if (gameLevel > 0 && gameLevel < 10 && !isOver && !skippedLevel) {
       setMessageDetails({ message: getPositiveWord(), color: "green" });
-    }
 
-    setTimeout(() => {
-      setMessageDetails({ message: "", color: "" });
-    }, 1000);
-  }, [gameLevel, isOver]);
+      // reset if user skipped
+      setSkippedLevel(false);
+
+      setTimeout(() => {
+        setMessageDetails({ message: "", color: "" });
+      }, 1000);
+    }
+  }, [gameLevel, isOver, skippedLevel]);
 
   // hook that updates progress bar as time elapses
   useEffect(() => {
@@ -288,7 +294,7 @@ export default function Game(props) {
 
             setTimeout(() => {
               setMessageDetails({ message: "", color: "" });
-            }, 2500);
+            }, 3000);
           }}
         />
       )}
@@ -322,6 +328,38 @@ export default function Game(props) {
             <div id="hint" className="hint">
               {hint}
             </div>
+            <Button
+              onClick={() => {
+                // note user skipped level (so no notification)
+                setSkippedLevel(true);
+
+                // increment level
+                setGameLevel((currentLevel) => {
+                  return currentLevel + 1;
+                });
+
+                // penalize user for skipping by incrementing timer
+                setProgress((oldProgress) => {
+                  if (isOver) {
+                    return oldProgress;
+                  }
+
+                  const elapsedTime = (oldProgress / 100) * TIME_LIMIT;
+                  const newElapsedTime =
+                    ((elapsedTime + skipPenalty * 1000) / TIME_LIMIT) * 100;
+
+                  return Math.min(newElapsedTime, 100);
+                });
+
+                // increase penalty by 1 second per use
+                setSkipPenalty(skipPenalty + 1);
+              }}
+              className="button"
+              inverted={isDarkMode}
+              color="red"
+            >
+              SKIP (+{skipPenalty} seconds)
+            </Button>
           </>
         )}
       </div>
