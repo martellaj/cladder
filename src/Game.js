@@ -202,6 +202,10 @@ export default function Game(props) {
 
   // adds keydown handlers to window so desktop users can type
   useEventListener("keydown", (e) => {
+    if (isOver) {
+      return;
+    }
+
     if (e.shiftKey || e.ctrlKey || e.altKey) {
       return;
     }
@@ -221,6 +225,10 @@ export default function Game(props) {
 
   // keydown handler for OSK (mobile users)
   const onKeyboardKeyPress = (key) => {
+    if (isOver) {
+      return;
+    }
+
     if (key === "{backspace}") {
       const newGuess = guess.slice(0, -1);
 
