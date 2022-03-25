@@ -113,7 +113,7 @@ function App() {
   const isIos = iOS();
 
   return (
-    <div className={`App ${isIos && "App-iOS"}`}>
+    <div className={`App`}>
       {header}
       {content}
     </div>
