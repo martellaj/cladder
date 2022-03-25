@@ -251,4 +251,67 @@ export const game = [
       alteredPosition: 0,
     },
   ],
+  // day #5
+  [
+    {
+      word: "spit",
+      hint: "a common dog name",
+      answer: "spot",
+      alteredPosition: 2,
+    },
+    {
+      word: "spot",
+      hint: "a narrow opening",
+      answer: "slot",
+      alteredPosition: 1,
+    },
+    {
+      word: "slot",
+      hint: "black, powdery substance",
+      answer: "soot",
+      alteredPosition: 1,
+    },
+    {
+      word: "soot",
+      hint: "to cheer",
+      answer: "root",
+      alteredPosition: 0,
+    },
+    {
+      word: "root",
+      hint: "a tall shoe",
+      answer: "boot",
+      alteredPosition: 0,
+    },
+    {
+      word: "boot",
+      hint: "to run away",
+      answer: "bolt",
+      alteredPosition: 2,
+    },
+    {
+      word: "bolt",
+      hint: "worn around the waist",
+      answer: "belt",
+      alteredPosition: 1,
+    },
+    {
+      word: "belt",
+      hint: "dark red vegtable",
+      answer: "beet",
+      alteredPosition: 2,
+    },
+    {
+      word: "beet",
+      hint: "short, high-pitched sound",
+      answer: "beep",
+      alteredPosition: 3,
+    },
+    {
+      word: "beep",
+      hint: "marshmallow treat",
+      answer: "peep",
+      alteredPosition: 0,
+    },
+  ],
 ];
