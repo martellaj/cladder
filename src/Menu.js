@@ -8,6 +8,7 @@ export default function Menu(props) {
       <div className="menuContainer">
         <div className="menuButton">
           <Button
+            id="playButton"
             size="massive"
             className="menuButton button"
             color="green"
@@ -46,7 +47,7 @@ export default function Menu(props) {
           }}
         >
           <div>#{puzzleNumber}</div>
-          <div>v0.0.31</div>
+          <div>v0.0.32</div>
         </div>
       </div>
     </>
