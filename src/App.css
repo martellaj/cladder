@@ -238,8 +238,18 @@ body {
 .hg-theme-default .hg-button {
   background-color: var(--white) !important;
   color: var(--black) !important;
+  border-bottom: none !important;
 }
 
 .hg-theme-default {
   background-color: var(--keyboardBackground) !important;
+  padding: 2px !important;
+}
+
+.hg-theme-default .hg-row:not(:last-child) {
+  margin-bottom: 1px !important;
+}
+
+.hg-theme-default .hg-row .hg-button:not(:last-child) {
+  margin-right: 1px !important;
 }

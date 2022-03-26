@@ -387,7 +387,6 @@ export default function Game(props) {
           <Keyboard
             onKeyPress={onKeyboardKeyPress}
             maxLength={answer.length}
-            mergeDisplay={true}
             layoutName={"default"}
             layout={{
               default: [
@@ -397,20 +396,7 @@ export default function Game(props) {
               ],
             }}
             display={{
-              "{numbers}": "123",
-              "{ent}": "enter",
-              "{escape}": "esc ⎋",
-              "{tab}": "tab ⇥",
               "{backspace}": "⌫",
-              "{capslock}": "caps lock ⇪",
-              "{shift}": "⇧",
-              "{controlleft}": "ctrl ⌃",
-              "{controlright}": "ctrl ⌃",
-              "{altleft}": "alt ⌥",
-              "{altright}": "alt ⌥",
-              "{metaleft}": "cmd ⌘",
-              "{metaright}": "cmd ⌘",
-              "{abc}": "ABC",
             }}
           />
         </div>
