@@ -10,7 +10,7 @@ import animateCSS from "./animateCSS";
 import { getNegativeWord, getPositiveWord } from "./getWord";
 import { Button } from "semantic-ui-react";
 
-const TIME_LIMIT = 45000;
+const TIME_LIMIT = 60000;
 const INCREMENT = 100;
 
 const params = new Proxy(new URLSearchParams(window.location.search), {
