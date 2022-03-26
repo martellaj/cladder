@@ -29,7 +29,14 @@ export default function Results(props) {
   return (
     <div className="resultsContainer">
       <div className="bigMessage">{bigMessage}</div>
-      <div className="resultsScore">{correct} / 10</div>
+      <div
+        id="gameResult"
+        className="resultsScore"
+        data-score={correct}
+        data-time={time}
+      >
+        {correct} / 10
+      </div>
       {didComplete && <div className="resultsTime">{time} seconds</div>}
       <Button
         id="shareButton"
