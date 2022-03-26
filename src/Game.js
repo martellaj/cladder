@@ -25,7 +25,7 @@ export default function Game(props) {
   const [isOver, setIsOver] = useState(false); // has game ended
   const [gameLevel, setGameLevel] = useState(0); // current game level
   const [skippedLevel, setSkippedLevel] = useState(false); // has user skipped level
-  const [skipPenalty, setSkipPenalty] = useState(5);
+  const [remainingSkips, setRemainingSkips] = useState(2);
 
   const specificGameLevel = params?.pz ?? null;
 
@@ -336,38 +336,40 @@ export default function Game(props) {
             <div id="hint" className="hint">
               {hint}
             </div>
-            <Button
-              onClick={() => {
-                // note user skipped level (so no notification)
-                setSkippedLevel(true);
+            {remainingSkips > 0 && (
+              <Button
+                onClick={() => {
+                  // note user skipped level (so no notification)
+                  setSkippedLevel(true);
 
-                // increment level
-                setGameLevel((currentLevel) => {
-                  return currentLevel + 1;
-                });
+                  // increment level
+                  setGameLevel((currentLevel) => {
+                    return currentLevel + 1;
+                  });
 
-                // penalize user for skipping by incrementing timer
-                setProgress((oldProgress) => {
-                  if (isOver) {
-                    return oldProgress;
-                  }
+                  // penalize user for skipping by incrementing timer
+                  setProgress((oldProgress) => {
+                    if (isOver) {
+                      return oldProgress;
+                    }
 
-                  const elapsedTime = (oldProgress / 100) * TIME_LIMIT;
-                  const newElapsedTime =
-                    ((elapsedTime + skipPenalty * 1000) / TIME_LIMIT) * 100;
+                    const elapsedTime = (oldProgress / 100) * TIME_LIMIT;
+                    const newElapsedTime =
+                      ((elapsedTime + 5 * 1000) / TIME_LIMIT) * 100;
 
-                  return Math.min(newElapsedTime, 100);
-                });
+                    return Math.min(newElapsedTime, 100);
+                  });
 
-                // increase penalty by 1 second per use
-                setSkipPenalty(skipPenalty + 1);
-              }}
-              className="button"
-              inverted={isDarkMode}
-              color="red"
-            >
-              SKIP (+{skipPenalty} seconds)
-            </Button>
+                  // decrement remaining skips
+                  setRemainingSkips(remainingSkips - 1);
+                }}
+                className="button"
+                inverted={isDarkMode}
+                color="red"
+              >
+                SKIP ({remainingSkips} left)
+              </Button>
+            )}
           </>
         )}
       </div>
