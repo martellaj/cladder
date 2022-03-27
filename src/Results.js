@@ -47,7 +47,9 @@ export default function Results(props) {
             didComplete ? `🚀 ${time} seconds\n` : ""
           }\n#cladder #cladder${puzzleNumber}\n\nhttps://cladder.xyz`;
 
-          if (isIos) {
+          var ua = navigator.userAgent.toLowerCase();
+          var isAndroid = ua.indexOf("android") > -1;
+          if (isIos || isAndroid) {
             navigator.share({
               text: text,
             });
