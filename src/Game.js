@@ -114,7 +114,7 @@ export default function Game(props) {
 
   // hook that congratulates user when they get an answer right
   useEffect(() => {
-    if (gameLevel > 0 && gameLevel < 10 && !isOver && !skippedLevel) {
+    if (gameLevel > 0 && gameLevel < 10 && !isOver) {
       setMessageDetails({ message: getPositiveWord(), color: "green" });
 
       // reset if user skipped
@@ -278,6 +278,20 @@ export default function Game(props) {
     return progress < 85 && remainingSkips > 0;
   }, [progress, remainingSkips]);
 
+  const messageTargetId = useMemo(() => {
+    let id = "hint";
+
+    if (isOver) {
+      id = "shareButton";
+    } else if (showSkipButton) {
+      id = "skipButton";
+    } else {
+      id = "hint";
+    }
+
+    return id;
+  }, [isOver, showSkipButton]);
+
   return (
     <>
       <div style={{ width: "100%" }}>{<Timer progress={progress} />}</div>
@@ -342,6 +356,7 @@ export default function Game(props) {
             </div>
             {showSkipButton && (
               <Button
+                id="skipButton"
                 onClick={() => {
                   // note user skipped level (so no notification)
                   setSkippedLevel(true);
@@ -416,9 +431,8 @@ export default function Game(props) {
             textTransform: "uppercase",
             backgroundColor: messageDetails.color,
             top: `${
-              document
-                .getElementById(isOver ? "shareButton" : "hint")
-                ?.getBoundingClientRect()?.top - 50
+              document.getElementById(messageTargetId)?.getBoundingClientRect()
+                ?.top - 50
             }px`,
           }}
         >
