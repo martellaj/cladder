@@ -72,11 +72,11 @@ export default function Game(props) {
       setTimeout(() => {
         setGuess("");
       }, 150);
-    }
 
-    setTimeout(() => {
-      setMessageDetails({ message: "", color: "" });
-    }, 1000);
+      setTimeout(() => {
+        setMessageDetails({ message: "", color: "" });
+      }, 1000);
+    }
   }, [guess, answer]);
 
   // checks answer when guess is made
@@ -274,6 +274,10 @@ export default function Game(props) {
     return _board;
   }, [game, gameLevel]);
 
+  const showSkipButton = useMemo(() => {
+    return progress < 85 && remainingSkips > 0;
+  }, [progress, remainingSkips]);
+
   return (
     <>
       <div style={{ width: "100%" }}>{<Timer progress={progress} />}</div>
@@ -302,7 +306,7 @@ export default function Game(props) {
 
             setTimeout(() => {
               setMessageDetails({ message: "", color: "" });
-            }, 3000);
+            }, 2000);
           }}
         />
       )}
@@ -336,7 +340,7 @@ export default function Game(props) {
             <div id="hint" className="hint">
               {hint}
             </div>
-            {remainingSkips > 0 && (
+            {showSkipButton && (
               <Button
                 onClick={() => {
                   // note user skipped level (so no notification)
