@@ -377,4 +377,67 @@ export const game = [
       alteredPosition: 0,
     },
   ],
+  // 3/28/2022
+  [
+    {
+      word: "trip",
+      hint: "catch an animal",
+      answer: "trap",
+      alteredPosition: 2,
+    },
+    {
+      word: "trap",
+      hint: "ash___",
+      answer: "tray",
+      alteredPosition: 3,
+    },
+    {
+      word: "tray",
+      hint: "religious worship",
+      answer: "pray",
+      alteredPosition: 0,
+    },
+    {
+      word: "pray",
+      hint: "theatrical performance",
+      answer: "play",
+      alteredPosition: 1,
+    },
+    {
+      word: "play",
+      hint: "vanquish",
+      answer: "slay",
+      alteredPosition: 0,
+    },
+    {
+      word: "slay",
+      hint: "strike with your hand",
+      answer: "slap",
+      alteredPosition: 3,
+    },
+    {
+      word: "slap",
+      hint: "accidental fall",
+      answer: "slip",
+      alteredPosition: 2,
+    },
+    {
+      word: "slip",
+      hint: "pig food",
+      answer: "slop",
+      alteredPosition: 2,
+    },
+    {
+      word: "slop",
+      hint: "mall activity",
+      answer: "shop",
+      alteredPosition: 1,
+    },
+    {
+      word: "shop",
+      hint: "large boat",
+      answer: "ship",
+      alteredPosition: 2,
+    },
+  ],
 ];
