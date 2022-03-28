@@ -440,4 +440,67 @@ export const game = [
       alteredPosition: 2,
     },
   ],
+  // 3/29/2022 (#7)
+  [
+    {
+      word: "shard",
+      hint: "not dull",
+      answer: "sharp",
+      alteredPosition: 4,
+    },
+    {
+      word: "sharp",
+      hint: "a single stock",
+      answer: "share",
+      alteredPosition: 4,
+    },
+    {
+      word: "share",
+      hint: "beach",
+      answer: "shore",
+      alteredPosition: 2,
+    },
+    {
+      word: "shore",
+      hint: "a prostitude",
+      answer: "whore",
+      alteredPosition: 0,
+    },
+    {
+      word: "whore",
+      hint: "a household task",
+      answer: "chore",
+      alteredPosition: 0,
+    },
+    {
+      word: "chore",
+      hint: "decided",
+      answer: "chose",
+      alteredPosition: 3,
+    },
+    {
+      word: "chose",
+      hint: "nearby",
+      answer: "close",
+      alteredPosition: 1,
+    },
+    {
+      word: "close",
+      hint: "garlic measurement",
+      answer: "clove",
+      alteredPosition: 3,
+    },
+    {
+      word: "clove",
+      hint: "a hand covering",
+      answer: "glove",
+      alteredPosition: 0,
+    },
+    {
+      word: "glove",
+      hint: "model of Earth",
+      answer: "globe",
+      alteredPosition: 3,
+    },
+  ],
 ];

@@ -24,6 +24,7 @@ function Word(props) {
           mode={"hint"}
           onSelected={() => onSelected?.(i)}
           isSelected={selected === i}
+          wordLength={answer.length}
           altered={mode === "board" && alteredPosition === i}
         />
       );
@@ -36,6 +37,7 @@ function Word(props) {
           letter={" "}
           onSelected={() => onSelected?.(i)}
           isSelected={selected === i}
+          wordLength={answer.length}
           altered={mode === "board" && alteredPosition === i}
         />
       );
@@ -49,6 +51,7 @@ function Word(props) {
           onSelected={() => onSelected?.(i)}
           isSelected={selected === i}
           altered={mode === "board" && alteredPosition === i}
+          wordLength={answer.length}
           failed={failed}
         />
       );

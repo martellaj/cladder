@@ -7,6 +7,7 @@ function Tile(props) {
     isSelected,
     altered,
     failed = false,
+    wordLength = 3,
   } = props;
 
   return (
@@ -14,7 +15,7 @@ function Tile(props) {
       onClick={onSelected}
       className={`tile ${isSelected && "selected"} ${altered && "altered"} ${
         failed && "failed"
-      }`}
+      } ${wordLength === 5 && "fiveLetterTile"}`}
     >
       {letter}
     </div>
