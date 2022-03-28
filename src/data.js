@@ -462,12 +462,6 @@ export const game = [
     },
     {
       word: "shore",
-      hint: "a prostitude",
-      answer: "whore",
-      alteredPosition: 0,
-    },
-    {
-      word: "whore",
       hint: "a household task",
       answer: "chore",
       alteredPosition: 0,
@@ -486,6 +480,12 @@ export const game = [
     },
     {
       word: "close",
+      hint: "a duplicate",
+      answer: "clone",
+      alteredPosition: 3,
+    },
+    {
+      word: "clone",
       hint: "garlic measurement",
       answer: "clove",
       alteredPosition: 3,
