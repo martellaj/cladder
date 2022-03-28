@@ -6,7 +6,10 @@ import { Icon } from "semantic-ui-react";
 import HowToPlay from "./HowToPlay";
 import About from "./About";
 import toggleDarkMode from "./toggleDarkMode";
+import { consolidate } from "./resultsCache";
+import ScoreDistribution from "./ScoreDistribution";
 
+// set the app height for mobile
 const appHeight = () =>
   document.documentElement.style.setProperty(
     "--app-height",
@@ -14,6 +17,9 @@ const appHeight = () =>
   );
 window.addEventListener("resize", appHeight);
 appHeight();
+
+// consolidate scores for results
+consolidate();
 
 const params = new Proxy(new URLSearchParams(window.location.search), {
   get: (searchParams, prop) => searchParams.get(prop),
@@ -45,7 +51,7 @@ function App() {
         flexShrink: "0",
       }}
     >
-      <div className="headerSection" style={{ marginLeft: "6px" }}>
+      <div className="headerSection" style={{ marginLeft: "12px" }}>
         <Icon
           onClick={() => {
             setView("menu");
@@ -58,12 +64,29 @@ function App() {
           name="bars"
           inverted={isDarkMode}
         />
+        <Icon
+          onClick={() => {
+            setView("menu");
+          }}
+          tabIndex="0"
+          style={{
+            cursor: "pointer",
+            visibility: "hidden",
+          }}
+          name="bars"
+          inverted={isDarkMode}
+        />
       </div>
       <span>CLADDER</span>
-      <div
-        className="headerSection"
-        style={{ flexDirection: "row-reverse", marginRight: "6px" }}
-      >
+      <div className="headerSection" style={{ marginRight: "12px" }}>
+        <Icon
+          name={"chart bar"}
+          onClick={() => {
+            setView("stats");
+          }}
+          className="button chart"
+          inverted={isDarkMode}
+        />
         <Icon
           name={isDarkMode ? "lightbulb" : "moon"}
           onClick={() => {
@@ -97,6 +120,11 @@ function App() {
       break;
     case "about":
       content = <About />;
+      break;
+    case "stats":
+      content = (
+        <ScoreDistribution puzzleNumber={params?.pz ?? getPuzzleNumber()} />
+      );
       break;
     case "menu":
     default:

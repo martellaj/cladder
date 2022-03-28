@@ -1,0 +1,54 @@
+.scoreDistributionContainer {
+  display: flex;
+  width: 100%;
+  padding: 12px;
+  margin-top: 24px;
+  flex-direction: column;
+}
+
+.graph-container {
+  width: 100%;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  padding-bottom: 4px;
+  font-size: 14px;
+  line-height: 20px;
+  margin-bottom: 4px;
+}
+
+.graph-container .graph {
+  width: 100%;
+  height: 100%;
+  padding-left: 4px;
+  display: flex;
+}
+
+.graph-container .graph .graph-bar.align-right {
+  justify-content: flex-end;
+  padding-right: 8px;
+}
+
+.graph-container .graph .graph-bar.highlight {
+  background-color: #538d4e;
+}
+
+.graph-container .graph .graph-bar {
+  height: 100%;
+  width: 0%;
+  position: relative;
+  background-color: #3a3a3c;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.graph-container .graph .num-guesses {
+  font-weight: bold;
+  color: white;
+}
+
+.guess {
+  width: 50px;
+  color: white;
+}
