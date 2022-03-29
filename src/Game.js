@@ -9,6 +9,7 @@ import Results from "./Results";
 import animateCSS from "./animateCSS";
 import { getNegativeWord, getPositiveWord } from "./getWord";
 import { Button } from "semantic-ui-react";
+import { updateStats } from "./stats";
 
 const TIME_LIMIT = 60000;
 const INCREMENT = 100;
@@ -179,24 +180,10 @@ export default function Game(props) {
         })
       );
 
-      // update total games
-      const totalGames =
-        parseInt(window.localStorage.getItem("totalGames") || "0") + 1;
-      window.localStorage.setItem("totalGames", totalGames);
-
-      if (gameLevel === 10) {
-        // update wins
-        const wins = parseInt(window.localStorage.getItem("wins") || "0") + 1;
-        window.localStorage.setItem("wins", wins);
-
-        // update wins
-        const averageTime = (
-          (parseFloat(window.localStorage.getItem("averageTime") || "0") +
-            time) /
-          wins
-        ).toFixed(2);
-        window.localStorage.setItem("averageTime", averageTime);
-      }
+      updateStats({
+        score: gameLevel,
+        time: time,
+      });
     }
   }, [isOver, PUZZLE_NUMBER, gameLevel, progress, specificGameLevel]);
 

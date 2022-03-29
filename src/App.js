@@ -6,7 +6,10 @@ import { Icon } from "semantic-ui-react";
 import HowToPlay from "./HowToPlay";
 import About from "./About";
 import toggleDarkMode from "./toggleDarkMode";
+import { copyStats } from "./stats";
+import StatsComponent from "./StatsComponent";
 
+// set the app height for mobile
 const appHeight = () =>
   document.documentElement.style.setProperty(
     "--app-height",
@@ -18,6 +21,14 @@ appHeight();
 const params = new Proxy(new URLSearchParams(window.location.search), {
   get: (searchParams, prop) => searchParams.get(prop),
 });
+
+setTimeout(() => {
+  const stats = params?.stats;
+
+  if (stats) {
+    copyStats(stats);
+  }
+}, 50);
 
 function App() {
   const [view, setView] = useState("menu");
@@ -45,7 +56,7 @@ function App() {
         flexShrink: "0",
       }}
     >
-      <div className="headerSection" style={{ marginLeft: "6px" }}>
+      <div className="headerSection" style={{ marginLeft: "12px" }}>
         <Icon
           onClick={() => {
             setView("menu");
@@ -54,21 +65,45 @@ function App() {
           style={{
             cursor: "pointer",
             visibility: view !== "menu" ? "visible" : "hidden",
+            marginRight: "12px",
+          }}
+          name={view === "game" ? "arrow left" : "close"}
+          inverted={isDarkMode}
+        />
+        <Icon
+          onClick={() => {
+            setView("menu");
+          }}
+          tabIndex="0"
+          style={{
+            cursor: "pointer",
+            visibility: "hidden",
           }}
           name="bars"
           inverted={isDarkMode}
         />
       </div>
       <span>CLADDER</span>
-      <div
-        className="headerSection"
-        style={{ flexDirection: "row-reverse", marginRight: "6px" }}
-      >
+      <div className="headerSection" style={{ marginRight: "12px" }}>
+        <Icon
+          name={"chart bar"}
+          onClick={() => {
+            setView("stats");
+          }}
+          style={{
+            cursor: "pointer",
+          }}
+          className="button chart"
+          inverted={isDarkMode}
+        />
         <Icon
           name={isDarkMode ? "lightbulb" : "moon"}
           onClick={() => {
             setIsDarkMode(!isDarkMode);
             toggleDarkMode();
+          }}
+          style={{
+            cursor: "pointer",
           }}
           className="button"
           inverted={isDarkMode}
@@ -97,6 +132,9 @@ function App() {
       break;
     case "about":
       content = <About />;
+      break;
+    case "stats":
+      content = <StatsComponent />;
       break;
     case "menu":
     default:
