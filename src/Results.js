@@ -1,7 +1,6 @@
 import { Button } from "semantic-ui-react";
 import copy from "copy-to-clipboard";
 import { useEffect } from "react";
-import ScoreDistribution from "./ScoreDistribution";
 
 const isDarkMode = window.localStorage.getItem("mode") === "dark";
 

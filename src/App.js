@@ -6,7 +6,7 @@ import { Icon } from "semantic-ui-react";
 import HowToPlay from "./HowToPlay";
 import About from "./About";
 import toggleDarkMode from "./toggleDarkMode";
-import { copyScores } from "./resultsCache";
+import { copyStats } from "./stats";
 import ScoreDistribution from "./ScoreDistribution";
 
 // set the app height for mobile
@@ -23,12 +23,12 @@ const params = new Proxy(new URLSearchParams(window.location.search), {
 });
 
 setTimeout(() => {
-  const scores = params?.scores;
+  const stats = params?.stats;
 
-  if (scores) {
-    copyScores(scores);
+  if (stats) {
+    copyStats(stats);
   }
-}, 1000);
+}, 500);
 
 function App() {
   const [view, setView] = useState("menu");

@@ -1,10 +1,9 @@
-import { getScores } from "./resultsCache";
 import "./ScoreDistribution.css";
 
 export default function ScoreDistribution(props) {
   const { puzzleNumber } = props;
 
-  const scores = getScores();
+  const scores = null;
 
   if (!scores) {
     return null;
