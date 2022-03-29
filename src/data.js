@@ -503,4 +503,67 @@ export const game = [
       alteredPosition: 3,
     },
   ],
+  // 3/30/2022 (#8)
+  [
+    {
+      word: "foot",
+      hint: "silly person",
+      answer: "fool",
+      alteredPosition: 3,
+    },
+    {
+      word: "fool",
+      hint: "chilly",
+      answer: "cool",
+      alteredPosition: 0,
+    },
+    {
+      word: "cool",
+      hint: "black rock fuel",
+      answer: "coal",
+      alteredPosition: 2,
+    },
+    {
+      word: "coal",
+      hint: "jacket",
+      answer: "coat",
+      alteredPosition: 3,
+    },
+    {
+      word: "coat",
+      hint: "water vehicle",
+      answer: "boat",
+      alteredPosition: 0,
+    },
+    {
+      word: "boat",
+      hint: "furry pig",
+      answer: "boar",
+      alteredPosition: 3,
+    },
+    {
+      word: "boar",
+      hint: "brown, polar, panda",
+      answer: "bear",
+      alteredPosition: 1,
+    },
+    {
+      word: "bear",
+      hint: "fruit",
+      answer: "pear",
+      alteredPosition: 0,
+    },
+    {
+      word: "pear",
+      hint: "top of a mountain",
+      answer: "peak",
+      alteredPosition: 3,
+    },
+    {
+      word: "peak",
+      hint: "frail",
+      answer: "weak",
+      alteredPosition: 0,
+    },
+  ],
 ];
