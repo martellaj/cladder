@@ -45,7 +45,7 @@ export default function Results(props) {
         onClick={() => {
           const text = `✅ ${correct}/10\n${
             didComplete ? `🚀 ${time} seconds\n` : ""
-          }\n#cladder #cladder${puzzleNumber}\n\nhttps://cladder.xyz`;
+          }\n#cladder #cladder${puzzleNumber}\n\nhttps://playcladder.com`;
 
           var ua = navigator.userAgent.toLowerCase();
           var isAndroid = ua.indexOf("android") > -1;
