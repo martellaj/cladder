@@ -28,7 +28,7 @@ setTimeout(() => {
   if (stats) {
     copyStats(stats);
   }
-}, 500);
+}, 50);
 
 function App() {
   const [view, setView] = useState("menu");

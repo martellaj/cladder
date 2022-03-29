@@ -20,7 +20,7 @@ export default function StatsComponent() {
         </div>
         <div className="statsBlock">
           <div className="statsValue">
-            {Math.floor((gamesWon / gamesPlayed) * 100)}
+            {gamesPlayed > 0 ? Math.floor((gamesWon / gamesPlayed) * 100) : 0}
           </div>
           <div className="statsTitle">Win %</div>
         </div>
