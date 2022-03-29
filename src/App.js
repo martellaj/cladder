@@ -64,11 +64,10 @@ function App() {
           tabIndex="0"
           style={{
             cursor: "pointer",
-            visibility:
-              view !== "menu" && view !== "game" ? "visible" : "hidden",
+            visibility: view !== "menu" ? "visible" : "hidden",
             marginRight: "12px",
           }}
-          name="close"
+          name={view === "game" ? "arrow left" : "close"}
           inverted={isDarkMode}
         />
         <Icon
