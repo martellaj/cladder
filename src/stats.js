@@ -57,7 +57,10 @@ export function updateStats(result) {
     );
   }
 
-  if (result.score === 10 && result.time < stats.fastestWinTime) {
+  if (
+    result.score === 10 &&
+    (result.time < stats.fastestWinTime || !stats.fastestWinTime)
+  ) {
     stats.fastestWinTime = result.time;
   }
 
