@@ -48,7 +48,7 @@ export function updateStats(result) {
   if (result.score === 10) {
     stats.averageWinTime = parseFloat(
       (
-        (stats.averageWinTime * (stats.gamesWon - 1) + result.score) /
+        (stats.averageWinTime * (stats.gamesWon - 1) + result.time) /
         stats.gamesWon
       ).toFixed(2)
     );

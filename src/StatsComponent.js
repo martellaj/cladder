@@ -3,8 +3,7 @@ import { getStats } from "./stats";
 export default function StatsComponent() {
   const stats = getStats();
 
-  const { averageWinTime, fastestWinTime, gamesPlayed, gamesWon, scores } =
-    stats;
+  const { averageWinTime, fastestWinTime, gamesPlayed, gamesWon } = stats;
 
   return (
     <div className="statsContainer">
