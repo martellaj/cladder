@@ -2,10 +2,13 @@ export function copyStats(_stats) {
   const stats = window.localStorage.getItem("stats");
 
   if (stats) {
+    window.history.replaceState({}, document.title, "/");
     return;
   }
 
   window.localStorage.setItem("stats", _stats);
+
+  window.history.replaceState({}, document.title, "/");
 }
 
 export function getStats() {
