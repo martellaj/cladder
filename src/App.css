@@ -256,3 +256,21 @@ body {
 .chart.button {
   margin-right: 12px;
 }
+
+.statsBlocks {
+  display: flex;
+  justify-content: center;
+}
+
+.statsBlock {
+  margin: 24px;
+}
+
+.statsValue {
+  font-size: x-large;
+  font-weight: bold;
+}
+
+.statsTitle {
+  font-size: small;
+}

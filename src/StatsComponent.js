@@ -2,4 +2,39 @@ import { getStats } from "./stats";
 
 export default function StatsComponent() {
   const stats = getStats();
+
+  const { averageWinTime, fastestWinTime, gamesPlayed, gamesWon, scores } =
+    stats;
+
+  return (
+    <div className="statsContainer">
+      <h3>STATISTICS</h3>
+      <div className="statsBlocks">
+        <div className="statsBlock">
+          <div className="statsValue">{gamesPlayed}</div>
+          <div className="statsTitle">Played</div>
+        </div>
+        <div className="statsBlock">
+          <div className="statsValue">{gamesWon}</div>
+          <div className="statsTitle">Won</div>
+        </div>
+        <div className="statsBlock">
+          <div className="statsValue">
+            {Math.floor((gamesWon / gamesPlayed) * 100)}
+          </div>
+          <div className="statsTitle">Win %</div>
+        </div>
+      </div>
+      <div className="statsBlocks">
+        <div className="statsBlock">
+          <div className="statsValue">{averageWinTime} sec</div>
+          <div className="statsTitle">Average Time (Win)</div>
+        </div>
+        <div className="statsBlock">
+          <div className="statsValue">{fastestWinTime} sec</div>
+          <div className="statsTitle">Fastest Time (Win)</div>
+        </div>
+      </div>
+    </div>
+  );
 }

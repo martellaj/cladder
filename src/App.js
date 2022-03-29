@@ -7,7 +7,7 @@ import HowToPlay from "./HowToPlay";
 import About from "./About";
 import toggleDarkMode from "./toggleDarkMode";
 import { copyStats } from "./stats";
-import ScoreDistribution from "./ScoreDistribution";
+import StatsComponent from "./StatsComponent";
 
 // set the app height for mobile
 const appHeight = () =>
@@ -64,9 +64,11 @@ function App() {
           tabIndex="0"
           style={{
             cursor: "pointer",
-            visibility: view !== "menu" ? "visible" : "hidden",
+            visibility:
+              view !== "menu" && view !== "game" ? "visible" : "hidden",
+            marginRight: "12px",
           }}
-          name="bars"
+          name="close"
           inverted={isDarkMode}
         />
         <Icon
@@ -89,6 +91,9 @@ function App() {
           onClick={() => {
             setView("stats");
           }}
+          style={{
+            cursor: "pointer",
+          }}
           className="button chart"
           inverted={isDarkMode}
         />
@@ -97,6 +102,9 @@ function App() {
           onClick={() => {
             setIsDarkMode(!isDarkMode);
             toggleDarkMode();
+          }}
+          style={{
+            cursor: "pointer",
           }}
           className="button"
           inverted={isDarkMode}
@@ -127,9 +135,7 @@ function App() {
       content = <About />;
       break;
     case "stats":
-      content = (
-        <ScoreDistribution puzzleNumber={params?.pz ?? getPuzzleNumber()} />
-      );
+      content = <StatsComponent />;
       break;
     case "menu":
     default:
