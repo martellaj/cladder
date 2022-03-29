@@ -1,6 +1,6 @@
 {
-  "name": "one-off",
-  "version": "0.1.0",
+  "name": "cladder",
+  "version": "0.0.0",
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.8.2",
@@ -49,5 +49,5 @@
       "last 1 safari version"
     ]
   },
-  "homepage": "https://cladder.xyz"
+  "homepage": "https://playcladder.com"
 }
