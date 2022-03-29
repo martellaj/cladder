@@ -240,6 +240,10 @@ body {
   border-bottom: none !important;
 }
 
+.hg-theme-default .hg-button.hg-activeButton {
+  background-color: var(--keyboardActiveBackground) !important;
+}
+
 .hg-theme-default {
   background-color: var(--keyboardBackground) !important;
   padding: 2px !important;
