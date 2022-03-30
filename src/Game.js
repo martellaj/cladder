@@ -12,7 +12,7 @@ import { Button } from "semantic-ui-react";
 import { updateStats } from "./stats";
 
 const TIME_LIMIT = 60000;
-const INCREMENT = 100;
+const INCREMENT = 200;
 
 const params = new Proxy(new URLSearchParams(window.location.search), {
   get: (searchParams, prop) => searchParams.get(prop),

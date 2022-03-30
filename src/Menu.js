@@ -47,7 +47,7 @@ export default function Menu(props) {
           }}
         >
           <div>#{puzzleNumber}</div>
-          <div>v0.0.48</div>
+          <div>v0.0.49</div>
         </div>
       </div>
     </>
