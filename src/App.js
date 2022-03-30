@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./App.css";
 import Game from "./Game";
 import Menu from "./Menu";
@@ -18,6 +18,9 @@ const appHeight = () =>
 window.addEventListener("resize", appHeight);
 appHeight();
 
+const returningPlayer =
+  window.localStorage.getItem("returningPlayer") === "true";
+
 const params = new Proxy(new URLSearchParams(window.location.search), {
   get: (searchParams, prop) => searchParams.get(prop),
 });
@@ -31,10 +34,15 @@ setTimeout(() => {
 }, 50);
 
 function App() {
-  const [view, setView] = useState("menu");
+  const [view, setView] = useState(returningPlayer ? "menu" : "howToPlay");
   const [isDarkMode, setIsDarkMode] = useState(
     window.localStorage.getItem("mode") === "dark"
   );
+
+  // note the player has played before so we don't show help next time
+  useEffect(() => {
+    window.localStorage.setItem("returningPlayer", "true");
+  }, []);
 
   const onOptionSelected = (option) => {
     if (option === "toggleDarkMode") {
