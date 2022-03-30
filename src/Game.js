@@ -26,7 +26,7 @@ export default function Game(props) {
   const [isOver, setIsOver] = useState(false); // has game ended
   const [gameLevel, setGameLevel] = useState(0); // current game level
   const [skippedLevel, setSkippedLevel] = useState(false); // has user skipped level
-  const [remainingSkips, setRemainingSkips] = useState(2);
+  const [remainingSkips, setRemainingSkips] = useState(1);
 
   const specificGameLevel = params?.pz ?? null;
 
