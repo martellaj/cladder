@@ -3,18 +3,16 @@ export default function HowToPlay() {
     <div id="howToPlayContainer" className="howToPlayContainer">
       <h3 style={{ marginBottom: "30px" }}>HOW TO PLAY</h3>
       <div>
-        <h4>You'll get a starting word (e.g. JOE) and a clue.</h4>
+        <h4>🕵️‍♂️ You have 60 seconds to solve all 10 clues</h4>
         <h4>
-          The answer will be one letter off from the starting word (e.g. JOE ➡️
-          JOT).
+          1️⃣ Each answer is only 1 letter different from the previous answer
+          (e.g. JOE ➡️ JOT)
         </h4>
-        <h4>When you solve it, you'll get a new clue.</h4>
         <h4>
-          The new answer will be one letter off from the previous answer (e.g.
-          JOT ➡️ BOT).
+          🙅‍♀️ You are <strong>not</strong> penalized for incorrect guesses
         </h4>
-        <h4>Be quick! You have 60 seconds to solve all 10 clues!</h4>
-        <h4>New puzzle every day at midnight!</h4>
+        <h4>⏭ You have 2 skips (each skip costs 5 seconds)</h4>
+        <h4>🕛 New puzzle at midnight!</h4>
       </div>
     </div>
   );
