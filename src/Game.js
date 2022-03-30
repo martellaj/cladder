@@ -11,38 +11,28 @@ import { getNegativeWord, getPositiveWord } from "./getWord";
 import { Button } from "semantic-ui-react";
 import { updateStats } from "./stats";
 
-const TIME_LIMIT = 60000;
-const INCREMENT = 100;
-
-const params = new Proxy(new URLSearchParams(window.location.search), {
-  get: (searchParams, prop) => searchParams.get(prop),
-});
-
 export default function Game(props) {
-  const { isIos, isDarkMode } = props;
+  const { isIos, isDarkMode, score = -1, time = -1, puzzleNumber } = props;
 
   const [guess, setGuess] = useState(""); // current typed guess
-  const [progress, setProgress] = useState(0); // how much time left
-  const [isOver, setIsOver] = useState(false); // has game ended
-  const [gameLevel, setGameLevel] = useState(0); // current game level
+  const [gameLevel, setGameLevel] = useState(score > 0 ? score : 0); // current game level
   const [skippedLevel, setSkippedLevel] = useState(false); // has user skipped level
   const [remainingSkips, setRemainingSkips] = useState(2);
 
-  const specificGameLevel = params?.pz ?? null;
+  // Timer bits
+  const [isOver, setIsOver] = useState(score >= 0); // has game ended
+  const [hideSkips, setHideSkips] = useState(false);
 
-  // let d = new Date();
-  // d = d.setDate(d.getDate() + 1);
-  const PUZZLE_NUMBER = specificGameLevel ?? getPuzzleNumber();
+  // Results bits
+  const [finalScore, setFinalScore] = useState(score);
+  const [finalTime, setFinalTime] = useState(time);
+
+  const start = useMemo(() => {
+    return Date.now();
+  }, []);
 
   // gets the daily puzzle
-  const game = _game[PUZZLE_NUMBER];
-
-  // useEffect(() => {
-  //   if (guess === "foo") {
-  //     setGameLevel(game.length - 1);
-  //     setGuess("");
-  //   }
-  // }, [guess, game.length]);
+  const game = _game[puzzleNumber];
 
   // current level information
   const [word, setWord] = useState(game[gameLevel]?.word);
@@ -89,14 +79,6 @@ export default function Game(props) {
     }
   }, [guess, checkAnswer, answer, word]);
 
-  // hook for when timer ends
-  // todo: add game level info
-  useEffect(() => {
-    if (progress >= 100) {
-      setIsOver(true);
-    }
-  }, [progress]);
-
   // hook that updates level information
   useEffect(() => {
     if (gameLevel === game.length) {
@@ -127,53 +109,19 @@ export default function Game(props) {
     }
   }, [gameLevel, isOver, skippedLevel]);
 
-  // hook that updates progress bar as time elapses
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setProgress((oldProgress) => {
-        if (isOver) {
-          return oldProgress;
-        }
-
-        const elapsedTime = (oldProgress / 100) * TIME_LIMIT;
-        const newElapsedTime = ((elapsedTime + INCREMENT) / TIME_LIMIT) * 100;
-
-        return Math.min(newElapsedTime, 100);
-      });
-    }, INCREMENT);
-
-    return () => {
-      clearInterval(timer);
-    };
-  }, [isOver]);
-
-  // tries to see if game has been played today
-  useEffect(() => {
-    // let user replay if they visit using link
-    if (specificGameLevel !== null) {
-      return;
-    }
-
-    const data = window.localStorage.getItem(`puzzle-${PUZZLE_NUMBER}`);
-
-    if (data) {
-      const _data = JSON.parse(data);
-      setGameLevel(_data.score);
-      setProgress((_data.time * 100000) / TIME_LIMIT);
-      setIsOver(true);
-    }
-  }, [PUZZLE_NUMBER, specificGameLevel]);
-
   // hook that saves game progress to local storage
   useEffect(() => {
-    const time = parseFloat(
-      (((progress / 100) * TIME_LIMIT) / 1000).toFixed(2)
-    );
-    const data = window.localStorage.getItem(`puzzle-${PUZZLE_NUMBER}`);
+    const data = window.localStorage.getItem(`puzzle-${puzzleNumber}`);
 
-    if (isOver && !data && !specificGameLevel) {
+    if (isOver && !data) {
+      const end = Date.now();
+      const time = parseFloat((end - start) / 1000).toFixed(2);
+
+      setFinalScore(gameLevel);
+      setFinalTime(time);
+
       window.localStorage.setItem(
-        `puzzle-${PUZZLE_NUMBER}`,
+        `puzzle-${puzzleNumber}`,
         JSON.stringify({
           score: gameLevel,
           time: time,
@@ -185,7 +133,7 @@ export default function Game(props) {
         time: time,
       });
     }
-  }, [isOver, PUZZLE_NUMBER, gameLevel, progress, specificGameLevel]);
+  }, [isOver, puzzleNumber, gameLevel, start]);
 
   // adds keydown handlers to window so desktop users can type
   useEventListener("keydown", (e) => {
@@ -262,8 +210,8 @@ export default function Game(props) {
   }, [game, gameLevel]);
 
   const showSkipButton = useMemo(() => {
-    return progress < 85 && remainingSkips > 0;
-  }, [progress, remainingSkips]);
+    return !hideSkips && remainingSkips > 0;
+  }, [hideSkips, remainingSkips]);
 
   const messageTargetId = useMemo(() => {
     let id = "hint";
@@ -281,13 +229,24 @@ export default function Game(props) {
 
   return (
     <>
-      <div style={{ width: "100%" }}>{<Timer progress={progress} />}</div>
+      <div style={{ width: "100%" }}>
+        {
+          <Timer
+            setHideSkips={setHideSkips}
+            setIsOver={setIsOver}
+            skipsUsed={2 - remainingSkips}
+            isOver={isOver}
+            finalTime={isOver && finalTime ? finalTime : -1}
+            start={start}
+          />
+        }
+      </div>
 
-      {isOver && (
+      {isOver && finalScore > -1 && (
         <Results
+          correct={finalScore}
+          time={finalTime}
           isIos={isIos}
-          correct={gameLevel}
-          time={(((progress / 100) * TIME_LIMIT) / 1000).toFixed(2)}
           onCopied={() => {
             setMessageDetails({
               message: "COPIED TO YOUR CLIPBOARD",
@@ -298,7 +257,7 @@ export default function Game(props) {
               setMessageDetails({ message: "", color: "" });
             }, 1000);
           }}
-          puzzleNumber={PUZZLE_NUMBER}
+          puzzleNumber={puzzleNumber}
           onLoaded={() => {
             setMessageDetails({
               message: "PLEASE SHARE ❤️",
@@ -351,19 +310,6 @@ export default function Game(props) {
                   // increment level
                   setGameLevel((currentLevel) => {
                     return currentLevel + 1;
-                  });
-
-                  // penalize user for skipping by incrementing timer
-                  setProgress((oldProgress) => {
-                    if (isOver) {
-                      return oldProgress;
-                    }
-
-                    const elapsedTime = (oldProgress / 100) * TIME_LIMIT;
-                    const newElapsedTime =
-                      ((elapsedTime + 5 * 1000) / TIME_LIMIT) * 100;
-
-                    return Math.min(newElapsedTime, 100);
                   });
 
                   // decrement remaining skips
@@ -429,11 +375,3 @@ export default function Game(props) {
     </>
   );
 }
-
-const getPuzzleNumber = (date) => {
-  const refDate = new Date(2022, 2, 22, 0, 0, 0, 0);
-  const _date = date || new Date();
-  const val =
-    new Date(_date).setHours(0, 0, 0, 0) - refDate.setHours(0, 0, 0, 0);
-  return Math.round(val / 864e5);
-};

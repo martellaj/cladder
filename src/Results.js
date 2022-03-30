@@ -5,9 +5,7 @@ import { useEffect } from "react";
 const isDarkMode = window.localStorage.getItem("mode") === "dark";
 
 export default function Results(props) {
-  const { correct, time, onCopied, puzzleNumber, isIos, onLoaded } = props;
-
-  const didComplete = correct === 10;
+  const { onCopied, puzzleNumber, isIos, onLoaded, correct, time } = props;
 
   useEffect(() => {
     setTimeout(() => {
@@ -15,15 +13,17 @@ export default function Results(props) {
     }, 250);
   }, []);
 
+  const didComplete = correct === 10;
+
   let bigMessage = "";
   if (correct === 10) {
     bigMessage = "Perfect!";
-  } else if (correct > 6) {
+  } else if (correct > 7) {
     bigMessage = "Impressive!";
   } else if (correct > 2) {
     bigMessage = "Nice try!";
   } else {
-    bigMessage = "Everything okay?";
+    bigMessage = "Better luck next time!";
   }
 
   return (

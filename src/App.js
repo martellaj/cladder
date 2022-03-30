@@ -9,6 +9,18 @@ import toggleDarkMode from "./toggleDarkMode";
 import { copyStats } from "./stats";
 import StatsComponent from "./StatsComponent";
 
+const getPuzzleNumber = (date) => {
+  const refDate = new Date(2022, 2, 22, 0, 0, 0, 0);
+  const _date = date || new Date();
+  const val =
+    new Date(_date).setHours(0, 0, 0, 0) - refDate.setHours(0, 0, 0, 0);
+  return Math.round(val / 864e5);
+};
+
+const params = new Proxy(new URLSearchParams(window.location.search), {
+  get: (searchParams, prop) => searchParams.get(prop),
+});
+
 // set the app height for mobile
 const appHeight = () =>
   document.documentElement.style.setProperty(
@@ -21,9 +33,22 @@ appHeight();
 const returningPlayer =
   window.localStorage.getItem("returningPlayer") === "true";
 
-const params = new Proxy(new URLSearchParams(window.location.search), {
-  get: (searchParams, prop) => searchParams.get(prop),
-});
+const specificGameLevel = params?.p ?? null;
+
+// let d = new Date();
+// d = d.setDate(d.getDate() + 1);
+const PUZZLE_NUMBER = specificGameLevel ?? getPuzzleNumber();
+console.log(PUZZLE_NUMBER);
+
+const data = window.localStorage.getItem(`puzzle-${PUZZLE_NUMBER}`);
+
+let finalScore;
+let finalTime;
+if (data) {
+  const _data = JSON.parse(data);
+  finalScore = _data.score;
+  finalTime = _data.time;
+}
 
 setTimeout(() => {
   const stats = params?.stats;
@@ -133,7 +158,15 @@ function App() {
 
   switch (view) {
     case "game":
-      content = <Game isIos={iOS()} isDarkMode={isDarkMode} />;
+      content = (
+        <Game
+          isIos={iOS()}
+          isDarkMode={isDarkMode}
+          score={finalScore}
+          time={finalTime}
+          puzzleNumber={PUZZLE_NUMBER}
+        />
+      );
       break;
     case "howToPlay":
       content = <HowToPlay />;
@@ -149,7 +182,7 @@ function App() {
       content = (
         <Menu
           onOptionSelected={onOptionSelected}
-          puzzleNumber={params?.pz ?? getPuzzleNumber()}
+          puzzleNumber={PUZZLE_NUMBER}
           isDarkMode={isDarkMode}
         />
       );
@@ -178,13 +211,5 @@ function iOS() {
     (navigator.userAgent.includes("Mac") && "ontouchend" in document)
   );
 }
-
-const getPuzzleNumber = (date) => {
-  const refDate = new Date(2022, 2, 22, 0, 0, 0, 0);
-  const _date = date || new Date();
-  const val =
-    new Date(_date).setHours(0, 0, 0, 0) - refDate.setHours(0, 0, 0, 0);
-  return Math.round(val / 864e5);
-};
 
 export default App;
