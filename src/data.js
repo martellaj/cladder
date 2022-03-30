@@ -566,4 +566,67 @@ export const game = [
       alteredPosition: 0,
     },
   ],
+  // 3/31/2022 (#9)
+  [
+    {
+      word: "bear",
+      hint: "a drop of sweat",
+      answer: "bead",
+      alteredPosition: 3,
+    },
+    {
+      word: "bead",
+      hint: "paint, pipes, pencil",
+      answer: "lead",
+      alteredPosition: 0,
+    },
+    {
+      word: "lead",
+      hint: "divulging information",
+      answer: "leak",
+      alteredPosition: 3,
+    },
+    {
+      word: "leak",
+      hint: "the top",
+      answer: "peak",
+      alteredPosition: 0,
+    },
+    {
+      word: "peak",
+      hint: "a light kiss",
+      answer: "peck",
+      alteredPosition: 2,
+    },
+    {
+      word: "peck",
+      hint: "to punch",
+      answer: "deck",
+      alteredPosition: 0,
+    },
+    {
+      word: "deck",
+      hint: "bringing a boat to a stop",
+      answer: "dock",
+      alteredPosition: 1,
+    },
+    {
+      word: "dock",
+      hint: "a geek",
+      answer: "dork",
+      alteredPosition: 2,
+    },
+    {
+      word: "dork",
+      hint: "pig",
+      answer: "pork",
+      alteredPosition: 0,
+    },
+    {
+      word: "pork",
+      hint: "a harbor",
+      answer: "port",
+      alteredPosition: 3,
+    },
+  ],
 ];
