@@ -154,7 +154,7 @@ function App() {
       content = (
         <Menu
           onOptionSelected={onOptionSelected}
-          puzzleNumber={params?.pz ?? getPuzzleNumber()}
+          puzzleNumber={params?.p ?? getPuzzleNumber()}
           isDarkMode={isDarkMode}
         />
       );
