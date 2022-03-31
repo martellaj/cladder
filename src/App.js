@@ -75,7 +75,7 @@ function App() {
             visibility: view !== "menu" ? "visible" : "hidden",
             marginRight: "12px",
           }}
-          name={view === "game" ? "arrow left" : "close"}
+          name={view === "game" || view === "practice" ? "arrow left" : "close"}
           inverted={isDarkMode}
         />
         <Icon
@@ -134,6 +134,11 @@ function App() {
   switch (view) {
     case "game":
       content = <Game isIos={iOS()} isDarkMode={isDarkMode} />;
+      break;
+    case "practice":
+      content = (
+        <Game isIos={iOS()} isDarkMode={isDarkMode} isPractice={true} />
+      );
       break;
     case "howToPlay":
       content = <HowToPlay />;

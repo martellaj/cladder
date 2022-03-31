@@ -20,6 +20,18 @@ export default function Menu(props) {
         </div>
         <div className="menuButton">
           <Button
+            id="playButton"
+            size="massive"
+            className="menuButton button"
+            color="red"
+            inverted={isDarkMode}
+            onClick={() => onOptionSelected("practice")}
+          >
+            PRACTICE
+          </Button>
+        </div>
+        <div className="menuButton">
+          <Button
             size="massive"
             className="menuButton button"
             color="yellow"
@@ -47,7 +59,7 @@ export default function Menu(props) {
           }}
         >
           <div>#{puzzleNumber}</div>
-          <div>v0.0.52</div>
+          <div>v0.0.53</div>
         </div>
       </div>
     </>

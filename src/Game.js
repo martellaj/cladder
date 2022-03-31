@@ -18,8 +18,15 @@ const params = new Proxy(new URLSearchParams(window.location.search), {
   get: (searchParams, prop) => searchParams.get(prop),
 });
 
+/**
+ * Returns a random number between min (inclusive) and max (exclusive)
+ */
+function getRandomPuzzle() {
+  return Math.floor(Math.random() * getPuzzleNumber());
+}
+
 export default function Game(props) {
-  const { isIos, isDarkMode } = props;
+  const { isIos, isDarkMode, isPractice } = props;
 
   const [guess, setGuess] = useState(""); // current typed guess
   const [progress, setProgress] = useState(0); // how much time left
@@ -28,11 +35,15 @@ export default function Game(props) {
   const [skippedLevel, setSkippedLevel] = useState(false); // has user skipped level
   const [remainingSkips, setRemainingSkips] = useState(1);
 
-  const specificGameLevel = params?.pz ?? null;
+  const specificGameLevel = useMemo(() => {
+    return params?.pz ?? isPractice ? getRandomPuzzle() : null;
+  }, [isPractice]);
 
   // let d = new Date();
   // d = d.setDate(d.getDate() + 1);
-  const PUZZLE_NUMBER = specificGameLevel ?? getPuzzleNumber();
+  const PUZZLE_NUMBER = useMemo(() => {
+    return specificGameLevel ?? getPuzzleNumber();
+  }, [specificGameLevel]);
 
   // gets the daily puzzle
   const game = _game[PUZZLE_NUMBER];
@@ -149,8 +160,8 @@ export default function Game(props) {
 
   // tries to see if game has been played today
   useEffect(() => {
-    // let user replay if they visit using link
-    if (specificGameLevel !== null) {
+    // ignore stored result if using param or practicing
+    if (specificGameLevel !== null || isPractice) {
       return;
     }
 
@@ -162,7 +173,7 @@ export default function Game(props) {
       setProgress((_data.time * 100000) / TIME_LIMIT);
       setIsOver(true);
     }
-  }, [PUZZLE_NUMBER, specificGameLevel]);
+  }, [PUZZLE_NUMBER, specificGameLevel, isPractice]);
 
   // hook that saves game progress to local storage
   useEffect(() => {
@@ -171,7 +182,7 @@ export default function Game(props) {
     );
     const data = window.localStorage.getItem(`puzzle-${PUZZLE_NUMBER}`);
 
-    if (isOver && !data && !specificGameLevel) {
+    if (isOver && !data && !specificGameLevel && !isPractice) {
       window.localStorage.setItem(
         `puzzle-${PUZZLE_NUMBER}`,
         JSON.stringify({
@@ -185,7 +196,14 @@ export default function Game(props) {
         time: time,
       });
     }
-  }, [isOver, PUZZLE_NUMBER, gameLevel, progress, specificGameLevel]);
+  }, [
+    isOver,
+    PUZZLE_NUMBER,
+    gameLevel,
+    progress,
+    specificGameLevel,
+    isPractice,
+  ]);
 
   // adds keydown handlers to window so desktop users can type
   useEventListener("keydown", (e) => {
@@ -287,6 +305,7 @@ export default function Game(props) {
         <Results
           isIos={isIos}
           correct={gameLevel}
+          isPractice={isPractice}
           time={(((progress / 100) * TIME_LIMIT) / 1000).toFixed(2)}
           onCopied={() => {
             setMessageDetails({
@@ -300,14 +319,16 @@ export default function Game(props) {
           }}
           puzzleNumber={PUZZLE_NUMBER}
           onLoaded={() => {
-            setMessageDetails({
-              message: "PLEASE SHARE ❤️",
-              color: "green",
-            });
+            if (!isPractice) {
+              setMessageDetails({
+                message: "PLEASE SHARE ❤️",
+                color: "green",
+              });
 
-            setTimeout(() => {
-              setMessageDetails({ message: "", color: "" });
-            }, 2000);
+              setTimeout(() => {
+                setMessageDetails({ message: "", color: "" });
+              }, 2000);
+            }
           }}
         />
       )}

@@ -5,7 +5,8 @@ import { useEffect } from "react";
 const isDarkMode = window.localStorage.getItem("mode") === "dark";
 
 export default function Results(props) {
-  const { correct, time, onCopied, puzzleNumber, isIos, onLoaded } = props;
+  const { correct, time, onCopied, puzzleNumber, isIos, onLoaded, isPractice } =
+    props;
 
   const didComplete = correct === 10;
 
@@ -38,29 +39,31 @@ export default function Results(props) {
         {correct} / 10
       </div>
       {didComplete && <div className="resultsTime">{time} seconds</div>}
-      <Button
-        id="shareButton"
-        className="positive button"
-        inverted={isDarkMode}
-        onClick={() => {
-          const text = `✅ ${correct}/10\n${
-            didComplete ? `🚀 ${time} seconds\n` : ""
-          }\n#cladder #cladder${puzzleNumber}\n\nhttps://playcladder.com`;
+      {!isPractice && (
+        <Button
+          id="shareButton"
+          className="positive button"
+          inverted={isDarkMode}
+          onClick={() => {
+            const text = `✅ ${correct}/10\n${
+              didComplete ? `🚀 ${time} seconds\n` : ""
+            }\n#cladder #cladder${puzzleNumber}\n\nhttps://playcladder.com`;
 
-          var ua = navigator.userAgent.toLowerCase();
-          var isAndroid = ua.indexOf("android") > -1;
-          if (isIos || isAndroid) {
-            navigator.share({
-              text: text,
-            });
-          } else {
-            copy(text);
-            onCopied();
-          }
-        }}
-      >
-        SHARE
-      </Button>
+            var ua = navigator.userAgent.toLowerCase();
+            var isAndroid = ua.indexOf("android") > -1;
+            if (isIos || isAndroid) {
+              navigator.share({
+                text: text,
+              });
+            } else {
+              copy(text);
+              onCopied();
+            }
+          }}
+        >
+          SHARE
+        </Button>
+      )}
     </div>
   );
 }
