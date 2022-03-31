@@ -629,4 +629,67 @@ export const game = [
       alteredPosition: 3,
     },
   ],
+  // 4/1/2022 (#10)
+  [
+    {
+      word: "love",
+      hint: "white bird",
+      answer: "dove",
+      alteredPosition: 0,
+    },
+    {
+      word: "dove",
+      hint: "intentional fall",
+      answer: "dive",
+      alteredPosition: 1,
+    },
+    {
+      word: "dive",
+      hint: "honey home",
+      answer: "hive",
+      alteredPosition: 0,
+    },
+    {
+      word: "hive",
+      hint: "nature walk",
+      answer: "hike",
+      alteredPosition: 2,
+    },
+    {
+      word: "hike",
+      hint: "two wheels",
+      answer: "bike",
+      alteredPosition: 0,
+    },
+    {
+      word: "bike",
+      hint: "cook in an oven",
+      answer: "bake",
+      alteredPosition: 1,
+    },
+    {
+      word: "bake",
+      hint: "a bundle of hay",
+      answer: "bale",
+      alteredPosition: 2,
+    },
+    {
+      word: "bale",
+      hint: "gets thrown, kicked, or hit",
+      answer: "ball",
+      alteredPosition: 3,
+    },
+    {
+      word: "ball",
+      hint: "ointment to heal skin",
+      answer: "balm",
+      alteredPosition: 3,
+    },
+    {
+      word: "balm",
+      hint: "tranquil",
+      answer: "calm",
+      alteredPosition: 0,
+    },
+  ],
 ];
