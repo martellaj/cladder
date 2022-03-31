@@ -36,7 +36,11 @@ export default function Game(props) {
   const [remainingSkips, setRemainingSkips] = useState(1);
 
   const specificGameLevel = useMemo(() => {
-    return params?.p ?? isPractice ? getRandomPuzzle() : null;
+    return params?.p !== null
+      ? params.p
+      : isPractice
+      ? getRandomPuzzle()
+      : null;
   }, [isPractice]);
 
   // let d = new Date();
