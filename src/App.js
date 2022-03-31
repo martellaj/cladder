@@ -21,6 +21,11 @@ appHeight();
 const returningPlayer =
   window.localStorage.getItem("returningPlayer") === "true";
 
+// set default mode to dark mode
+if (!returningPlayer) {
+  window.localStorage.setItem("mode", "dark");
+}
+
 const params = new Proxy(new URLSearchParams(window.location.search), {
   get: (searchParams, prop) => searchParams.get(prop),
 });
