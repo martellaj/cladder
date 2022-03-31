@@ -11,9 +11,6 @@ import { getNegativeWord, getPositiveWord } from "./getWord";
 import { Button } from "semantic-ui-react";
 import { updateStats } from "./stats";
 
-const TIME_LIMIT = 60000;
-const INCREMENT = 200;
-
 const params = new Proxy(new URLSearchParams(window.location.search), {
   get: (searchParams, prop) => searchParams.get(prop),
 });
@@ -22,13 +19,63 @@ export default function Game(props) {
   const { isIos, isDarkMode } = props;
 
   const [guess, setGuess] = useState(""); // current typed guess
-  const [progress, setProgress] = useState(0); // how much time left
-  const [isOver, setIsOver] = useState(false); // has game ended
   const [gameLevel, setGameLevel] = useState(0); // current game level
   const [skippedLevel, setSkippedLevel] = useState(false); // has user skipped level
   const [remainingSkips, setRemainingSkips] = useState(1);
+  const [isTimeLeftToSkip, setIsTimeLeftToSkip] = useState(true);
+  const [storedResultTime, setStoredResultTime] = useState(0);
+
+  // game end states
+  const [isTimerExpired, setIsTimerExpired] = useState(false);
+  const [isPuzzleSolved, setIsPuzzleSolved] = useState(false);
+  const [isCompletedPreviously, setIsCompletedPreviously] = useState(false);
+
+  // game status
+  const isGameOver = useMemo(() => {
+    return isTimerExpired || isPuzzleSolved || isCompletedPreviously;
+  }, [isTimerExpired, isPuzzleSolved, isCompletedPreviously]);
 
   const specificGameLevel = params?.pz ?? null;
+
+  const startTime = useMemo(() => {
+    return Date.now();
+  }, []);
+
+  const resultTime = useMemo(() => {
+    if (storedResultTime) {
+      return storedResultTime;
+    }
+
+    if (!isGameOver) {
+      return 0;
+    }
+
+    const elapsedTime = parseFloat(Date.now() - startTime);
+    const skipPenaltyTime = (1 - remainingSkips) * 5000;
+
+    const time = parseFloat(
+      ((elapsedTime + skipPenaltyTime) / 1000).toFixed(2)
+    );
+    return Math.min(60.0, time);
+  }, [startTime, storedResultTime, isGameOver, remainingSkips]);
+
+  useEffect(() => {
+    let innerTimer = null;
+    const timer = setTimeout(() => {
+      if (remainingSkips === 0) {
+        innerTimer = setTimeout(() => {
+          setIsTimerExpired(true);
+        }, 5000);
+      } else {
+        setIsTimerExpired(true);
+      }
+    }, 60000);
+
+    return () => {
+      clearTimeout(innerTimer);
+      clearTimeout(timer);
+    };
+  }, [remainingSkips]);
 
   // let d = new Date();
   // d = d.setDate(d.getDate() + 1);
@@ -36,13 +83,6 @@ export default function Game(props) {
 
   // gets the daily puzzle
   const game = _game[PUZZLE_NUMBER];
-
-  // useEffect(() => {
-  //   if (guess === "foo") {
-  //     setGameLevel(game.length - 1);
-  //     setGuess("");
-  //   }
-  // }, [guess, game.length]);
 
   // current level information
   const [word, setWord] = useState(game[gameLevel]?.word);
@@ -89,18 +129,14 @@ export default function Game(props) {
     }
   }, [guess, checkAnswer, answer, word]);
 
-  // hook for when timer ends
-  // todo: add game level info
-  useEffect(() => {
-    if (progress >= 100) {
-      setIsOver(true);
-    }
-  }, [progress]);
+  const onHideSkips = useCallback(() => {
+    setIsTimeLeftToSkip(false);
+  }, []);
 
   // hook that updates level information
   useEffect(() => {
     if (gameLevel === game.length) {
-      setIsOver(true);
+      setIsPuzzleSolved(true);
       return;
     }
 
@@ -115,7 +151,7 @@ export default function Game(props) {
 
   // hook that congratulates user when they get an answer right
   useEffect(() => {
-    if (gameLevel > 0 && gameLevel < 10 && !isOver) {
+    if (gameLevel > 0 && gameLevel < 10 && !isGameOver) {
       setMessageDetails({ message: getPositiveWord(), color: "green" });
 
       // reset if user skipped
@@ -125,27 +161,7 @@ export default function Game(props) {
         setMessageDetails({ message: "", color: "" });
       }, 1000);
     }
-  }, [gameLevel, isOver, skippedLevel]);
-
-  // hook that updates progress bar as time elapses
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setProgress((oldProgress) => {
-        if (isOver) {
-          return oldProgress;
-        }
-
-        const elapsedTime = (oldProgress / 100) * TIME_LIMIT;
-        const newElapsedTime = ((elapsedTime + INCREMENT) / TIME_LIMIT) * 100;
-
-        return Math.min(newElapsedTime, 100);
-      });
-    }, INCREMENT);
-
-    return () => {
-      clearInterval(timer);
-    };
-  }, [isOver]);
+  }, [gameLevel, isGameOver, skippedLevel]);
 
   // tries to see if game has been played today
   useEffect(() => {
@@ -159,37 +175,41 @@ export default function Game(props) {
     if (data) {
       const _data = JSON.parse(data);
       setGameLevel(_data.score);
-      setProgress((_data.time * 100000) / TIME_LIMIT);
-      setIsOver(true);
+      setStoredResultTime(_data.time);
+      setIsCompletedPreviously(true);
     }
   }, [PUZZLE_NUMBER, specificGameLevel]);
 
   // hook that saves game progress to local storage
   useEffect(() => {
-    const time = parseFloat(
-      (((progress / 100) * TIME_LIMIT) / 1000).toFixed(2)
-    );
     const data = window.localStorage.getItem(`puzzle-${PUZZLE_NUMBER}`);
 
-    if (isOver && !data && !specificGameLevel) {
+    if (isGameOver && !data && !specificGameLevel) {
       window.localStorage.setItem(
         `puzzle-${PUZZLE_NUMBER}`,
         JSON.stringify({
           score: gameLevel,
-          time: time,
+          time: resultTime,
         })
       );
 
       updateStats({
         score: gameLevel,
-        time: time,
+        time: resultTime,
       });
     }
-  }, [isOver, PUZZLE_NUMBER, gameLevel, progress, specificGameLevel]);
+  }, [
+    isGameOver,
+    PUZZLE_NUMBER,
+    gameLevel,
+    specificGameLevel,
+    startTime,
+    resultTime,
+  ]);
 
   // adds keydown handlers to window so desktop users can type
   useEventListener("keydown", (e) => {
-    if (isOver) {
+    if (isGameOver) {
       return;
     }
 
@@ -212,7 +232,7 @@ export default function Game(props) {
 
   // keydown handler for OSK (mobile users)
   const onKeyboardKeyPress = (key) => {
-    if (isOver) {
+    if (isGameOver) {
       return;
     }
 
@@ -262,13 +282,13 @@ export default function Game(props) {
   }, [game, gameLevel]);
 
   const showSkipButton = useMemo(() => {
-    return progress < 85 && remainingSkips > 0;
-  }, [progress, remainingSkips]);
+    return isTimeLeftToSkip && remainingSkips > 0;
+  }, [isTimeLeftToSkip, remainingSkips]);
 
   const messageTargetId = useMemo(() => {
     let id = "hint";
 
-    if (isOver) {
+    if (isGameOver) {
       id = "shareButton";
     } else if (showSkipButton) {
       id = "skipButton";
@@ -277,17 +297,26 @@ export default function Game(props) {
     }
 
     return id;
-  }, [isOver, showSkipButton]);
+  }, [isGameOver, showSkipButton]);
 
   return (
     <>
-      <div style={{ width: "100%" }}>{<Timer progress={progress} />}</div>
+      <div style={{ width: "100%" }}>
+        {
+          <Timer
+            isGameOver={isGameOver}
+            onHideSkips={onHideSkips}
+            resultTime={resultTime}
+            remainingSkips={remainingSkips}
+          />
+        }
+      </div>
 
-      {isOver && (
+      {isGameOver && (
         <Results
           isIos={isIos}
           correct={gameLevel}
-          time={(((progress / 100) * TIME_LIMIT) / 1000).toFixed(2)}
+          time={resultTime}
           onCopied={() => {
             setMessageDetails({
               message: "COPIED TO YOUR CLIPBOARD",
@@ -321,9 +350,9 @@ export default function Game(props) {
           marginTop: "50px",
         }}
       >
-        {isOver && board}
+        {isGameOver && board}
 
-        {!isOver && (
+        {!isGameOver && (
           <>
             <Word
               id="previousWord"
@@ -353,19 +382,6 @@ export default function Game(props) {
                     return currentLevel + 1;
                   });
 
-                  // penalize user for skipping by incrementing timer
-                  setProgress((oldProgress) => {
-                    if (isOver) {
-                      return oldProgress;
-                    }
-
-                    const elapsedTime = (oldProgress / 100) * TIME_LIMIT;
-                    const newElapsedTime =
-                      ((elapsedTime + 5 * 1000) / TIME_LIMIT) * 100;
-
-                    return Math.min(newElapsedTime, 100);
-                  });
-
                   // decrement remaining skips
                   setRemainingSkips(remainingSkips - 1);
                 }}
@@ -380,7 +396,7 @@ export default function Game(props) {
         )}
       </div>
 
-      {!isOver && (
+      {!isGameOver && (
         <div
           id="guessRegion"
           style={{
