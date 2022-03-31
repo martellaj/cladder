@@ -20,7 +20,7 @@ export default function Menu(props) {
         </div>
         <div className="menuButton">
           <Button
-            id="playButton"
+            id="practiceButton"
             size="massive"
             className="menuButton button"
             color="red"
