@@ -692,4 +692,67 @@ export const game = [
       alteredPosition: 0,
     },
   ],
+  // 4/2/2022 (#11)
+  [
+    {
+      word: "drop",
+      hint: "trickle",
+      answer: "drip",
+      alteredPosition: 2,
+    },
+    {
+      word: "drip",
+      hint: "journey",
+      answer: "trip",
+      alteredPosition: 0,
+    },
+    {
+      word: "trip",
+      hint: "shorten",
+      answer: "trim",
+      alteredPosition: 3,
+    },
+    {
+      word: "trim",
+      hint: "train",
+      answer: "tram",
+      alteredPosition: 2,
+    },
+    {
+      word: "tram",
+      hint: "sports group",
+      answer: "team",
+      alteredPosition: 1,
+    },
+    {
+      word: "team",
+      hint: "laser",
+      answer: "beam",
+      alteredPosition: 0,
+    },
+    {
+      word: "beam",
+      hint: "a drop of liquid",
+      answer: "bead",
+      alteredPosition: 3,
+    },
+    {
+      word: "bead",
+      hint: "curve",
+      answer: "bend",
+      alteredPosition: 2,
+    },
+    {
+      word: "bend",
+      hint: "fix",
+      answer: "mend",
+      alteredPosition: 0,
+    },
+    {
+      word: "mend",
+      hint: "brain",
+      answer: "mind",
+      alteredPosition: 1,
+    },
+  ],
 ];
