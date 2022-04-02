@@ -714,7 +714,7 @@ export const game = [
     },
     {
       word: "trim",
-      hint: "train",
+      hint: "trolley",
       answer: "tram",
       alteredPosition: 2,
     },
