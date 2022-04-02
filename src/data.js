@@ -755,4 +755,67 @@ export const game = [
       alteredPosition: 1,
     },
   ],
+  // 4/3/2022 (#12)
+  [
+    {
+      word: "fire",
+      hint: "to employ",
+      answer: "hire",
+      alteredPosition: 0,
+    },
+    {
+      word: "hire",
+      hint: "a bunny",
+      answer: "hare",
+      alteredPosition: 1,
+    },
+    {
+      word: "hare",
+      hint: "to injure",
+      answer: "harm",
+      alteredPosition: 3,
+    },
+    {
+      word: "harm",
+      hint: "Old MacDonald had one",
+      answer: "farm",
+      alteredPosition: 0,
+    },
+    {
+      word: "farm",
+      hint: "to shape",
+      answer: "form",
+      alteredPosition: 1,
+    },
+    {
+      word: "form",
+      hint: "animal with no arms, legs, or bones",
+      answer: "worm",
+      alteredPosition: 0,
+    },
+    {
+      word: "worm",
+      hint: "perform a job",
+      answer: "work",
+      alteredPosition: 3,
+    },
+    {
+      word: "work",
+      hint: "meat from a pig",
+      answer: "pork",
+      alteredPosition: 0,
+    },
+    {
+      word: "pork",
+      hint: "dock ships",
+      answer: "port",
+      alteredPosition: 3,
+    },
+    {
+      word: "port",
+      hint: "frown",
+      answer: "pout",
+      alteredPosition: 2,
+    },
+  ],
 ];
