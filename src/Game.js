@@ -429,7 +429,7 @@ export default function Game(props) {
               ],
             }}
             display={{
-              "{backspace}": "⌫",
+              "{backspace}": " backspace ",
             }}
           />
         </div>
