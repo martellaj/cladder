@@ -45,3 +45,7 @@
 .selected {
   background-color: lightblue;
 }
+
+.tileHint {
+  background-color: var(--alteredBackground);
+}

@@ -33,7 +33,8 @@ export default function Game(props) {
   const [isOver, setIsOver] = useState(false); // has game ended
   const [gameLevel, setGameLevel] = useState(0); // current game level
   const [skippedLevel, setSkippedLevel] = useState(false); // has user skipped level
-  const [remainingSkips, setRemainingSkips] = useState(1);
+  const [remainingSkips, setRemainingSkips] = useState(3);
+  const [hintPosition, setHintPosition] = useState(-1);
 
   const specificGameLevel = useMemo(() => {
     return params?.p !== null
@@ -135,6 +136,7 @@ export default function Game(props) {
 
       // reset if user skipped
       setSkippedLevel(false);
+      setHintPosition(-1);
 
       setTimeout(() => {
         setMessageDetails({ message: "", color: "" });
@@ -284,8 +286,8 @@ export default function Game(props) {
   }, [game, gameLevel]);
 
   const showSkipButton = useMemo(() => {
-    return progress < 85 && remainingSkips > 0;
-  }, [progress, remainingSkips]);
+    return /*progress < 85 &&*/ remainingSkips > 0;
+  }, [/*progress,*/ remainingSkips]);
 
   const messageTargetId = useMemo(() => {
     let id = "hint";
@@ -362,6 +364,7 @@ export default function Game(props) {
               answer={answer}
               guess={guess}
               mode="hint"
+              hintPosition={hintPosition}
             />
             <div id="hint" className="hint">
               {hint}
@@ -370,13 +373,20 @@ export default function Game(props) {
               <Button
                 id="skipButton"
                 onClick={() => {
-                  // note user skipped level (so no notification)
-                  setSkippedLevel(true);
+                  // // note user skipped level (so no notification)
+                  // setSkippedLevel(true);
 
-                  // increment level
-                  setGameLevel((currentLevel) => {
-                    return currentLevel + 1;
-                  });
+                  // // increment level
+                  // setGameLevel((currentLevel) => {
+                  //   return currentLevel + 1;
+                  // });
+
+                  // no-op if it was already used on this word
+                  if (hintPosition === game[gameLevel].alteredPosition) {
+                    return;
+                  }
+
+                  setHintPosition(game[gameLevel].alteredPosition);
 
                   // penalize user for skipping by incrementing timer
                   setProgress((oldProgress) => {
@@ -398,7 +408,7 @@ export default function Game(props) {
                 inverted={isDarkMode}
                 color="red"
               >
-                SKIP ({remainingSkips} left)
+                REVEAL ({remainingSkips} left)
               </Button>
             )}
           </>

@@ -11,6 +11,7 @@ function Word(props) {
     alteredPosition = -1,
     id,
     failed = false,
+    hintPosition,
   } = props;
 
   const tiles = [];
@@ -26,6 +27,7 @@ function Word(props) {
           isSelected={selected === i}
           wordLength={answer.length}
           altered={mode === "board" && alteredPosition === i}
+          showHint={mode === "hint" && hintPosition === i}
         />
       );
     }
@@ -39,6 +41,7 @@ function Word(props) {
           isSelected={selected === i}
           wordLength={answer.length}
           altered={mode === "board" && alteredPosition === i}
+          showHint={mode === "hint" && hintPosition === i}
         />
       );
     }
@@ -53,6 +56,7 @@ function Word(props) {
           altered={mode === "board" && alteredPosition === i}
           wordLength={answer.length}
           failed={failed}
+          showHint={mode === "hint" && hintPosition === i}
         />
       );
     }
