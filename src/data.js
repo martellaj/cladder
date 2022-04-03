@@ -818,4 +818,67 @@ export const game = [
       alteredPosition: 2,
     },
   ],
+  // 4/4/2022 (#13)
+  [
+    {
+      word: "rope",
+      hint: "be sad",
+      answer: "mope",
+      alteredPosition: 0,
+    },
+    {
+      word: "mope",
+      hint: "mean, median, ___",
+      answer: "mode",
+      alteredPosition: 2,
+    },
+    {
+      word: "mode",
+      hint: "computer program",
+      answer: "code",
+      alteredPosition: 0,
+    },
+    {
+      word: "code",
+      hint: "ice cream wafer container",
+      answer: "cone",
+      alteredPosition: 2,
+    },
+    {
+      word: "cone",
+      hint: "walking stick",
+      answer: "cane",
+      alteredPosition: 1,
+    },
+    {
+      word: "cane",
+      hint: "birthday, for example",
+      answer: "cake",
+      alteredPosition: 2,
+    },
+    {
+      word: "cake",
+      hint: "rise up",
+      answer: "wake",
+      alteredPosition: 0,
+    },
+    {
+      word: "wake",
+      hint: "goods and merchandise",
+      answer: "ware",
+      alteredPosition: 2,
+    },
+    {
+      word: "ware",
+      hint: "benign growth",
+      answer: "wart",
+      alteredPosition: 3,
+    },
+    {
+      word: "wart",
+      hint: "sour",
+      answer: "tart",
+      alteredPosition: 0,
+    },
+  ],
 ];
