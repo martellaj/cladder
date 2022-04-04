@@ -881,4 +881,67 @@ export const game = [
       alteredPosition: 0,
     },
   ],
+  // 4/5/2022 (#14)
+  [
+    {
+      word: "bun",
+      hint: "type of joke",
+      answer: "pun",
+      alteredPosition: 0,
+    },
+    {
+      word: "pun",
+      hint: "a young dog",
+      answer: "pup",
+      alteredPosition: 2,
+    },
+    {
+      word: "pup",
+      hint: "a drinking receptacle",
+      answer: "cup",
+      alteredPosition: 0,
+    },
+    {
+      word: "cup",
+      hint: "a kind of hat",
+      answer: "cap",
+      alteredPosition: 1,
+    },
+    {
+      word: "cap",
+      hint: "a taxi",
+      answer: "cab",
+      alteredPosition: 2,
+    },
+    {
+      word: "cab",
+      hint: "to steal",
+      answer: "nab",
+      alteredPosition: 0,
+    },
+    {
+      word: "nab",
+      hint: "a science place",
+      answer: "lab",
+      alteredPosition: 0,
+    },
+    {
+      word: "lab",
+      hint: "a toss",
+      answer: "lob",
+      alteredPosition: 1,
+    },
+    {
+      word: "lob",
+      hint: "to float long",
+      answer: "bob",
+      alteredPosition: 0,
+    },
+    {
+      word: "bob",
+      hint: "a ghost says",
+      answer: "boo",
+      alteredPosition: 2,
+    },
+  ],
 ];

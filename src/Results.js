@@ -45,9 +45,9 @@ export default function Results(props) {
           className="positive button"
           inverted={isDarkMode}
           onClick={() => {
-            const text = `✅ ${correct}/10\n${
+            const text = `#Cladder ${puzzleNumber}\n\n✅ ${correct}/10\n${
               didComplete ? `🚀 ${time} seconds\n` : ""
-            }\n#cladder #cladder${puzzleNumber}\n\nhttps://playcladder.com`;
+            }\nhttps://playcladder.com`;
 
             var ua = navigator.userAgent.toLowerCase();
             var isAndroid = ua.indexOf("android") > -1;
