@@ -944,4 +944,67 @@ export const game = [
       alteredPosition: 2,
     },
   ],
+  // 4/6/2022 (#15)
+  [
+    {
+      word: "vat",
+      hint: "wear it upon your head",
+      answer: "hat",
+      alteredPosition: 0,
+    },
+    {
+      word: "hat",
+      hint: "high temperature",
+      answer: "hot",
+      alteredPosition: 1,
+    },
+    {
+      word: "hot",
+      hint: "an owl says",
+      answer: "hoo",
+      alteredPosition: 2,
+    },
+    {
+      word: "hoo",
+      hint: "a cow says",
+      answer: "moo",
+      alteredPosition: 0,
+    },
+    {
+      word: "moo",
+      hint: "Larry, Curly, and ___",
+      answer: "moe",
+      alteredPosition: 2,
+    },
+    {
+      word: "moe",
+      hint: "a female deer",
+      answer: "doe",
+      alteredPosition: 0,
+    },
+    {
+      word: "doe",
+      hint: "multiple dice",
+      answer: "die",
+      alteredPosition: 1,
+    },
+    {
+      word: "die",
+      hint: "to compete",
+      answer: "vie",
+      alteredPosition: 0,
+    },
+    {
+      word: "vie",
+      hint: "a special guest",
+      answer: "vip",
+      alteredPosition: 2,
+    },
+    {
+      word: "vip",
+      hint: "a hint",
+      answer: "tip",
+      alteredPosition: 0,
+    },
+  ],
 ];
