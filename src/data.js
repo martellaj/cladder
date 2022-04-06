@@ -984,7 +984,7 @@ export const game = [
     },
     {
       word: "doe",
-      hint: "multiple dice",
+      hint: "singlular form of dice",
       answer: "die",
       alteredPosition: 1,
     },
