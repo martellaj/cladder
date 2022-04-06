@@ -13,7 +13,6 @@
   color: var(--black);
   background-color: var(--keyboardBackground);
   border: 1px solid var(--white);
-  border-radius: 10%;
   text-transform: uppercase;
   font-size: 14px;
   font-weight: 600;
