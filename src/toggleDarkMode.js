@@ -18,15 +18,15 @@ export function reloadColors() {
   let black = "black";
   let white = "white";
   let alteredBackground = "palegoldenrod";
-  let keyboardBackground = "#ececec";
-  let keyboardActiveBackground = "ededed";
+  let keyboardBackground = "#d3d6da";
+  let keyboardActiveBackground = "#ededed";
   let alteredFailedBackground = "indianred";
 
   if (mode === "dark") {
     black = "white";
     white = "#121212";
     alteredBackground = "#c39b38";
-    keyboardBackground = "darkgray";
+    keyboardBackground = "#373737";
     alteredFailedBackground = "darkred";
     keyboardActiveBackground = "#2b2b2d";
   }

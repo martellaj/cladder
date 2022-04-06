@@ -3,13 +3,12 @@ import { useState, useEffect, useMemo, useCallback } from "react";
 import useEventListener from "./useEventListener";
 import Timer from "./Timer";
 import Word from "./Word";
-import Keyboard from "react-simple-keyboard";
-import "react-simple-keyboard/build/css/index.css";
 import Results from "./Results";
 import animateCSS from "./animateCSS";
 import { getNegativeWord, getPositiveWord } from "./getWord";
 import { Button } from "semantic-ui-react";
 import { updateStats } from "./stats";
+import Keyboard from "./Keyboard";
 
 const TIME_LIMIT = 60000;
 const INCREMENT = 200;
@@ -234,11 +233,11 @@ export default function Game(props) {
 
   // keydown handler for OSK (mobile users)
   const onKeyboardKeyPress = (key) => {
-    if (isOver) {
+    if (isOver || key === "ENTER") {
       return;
     }
 
-    if (key === "{backspace}") {
+    if (key === "DELETE") {
       const newGuess = guess.slice(0, -1);
 
       setGuess(newGuess || "");
@@ -405,35 +404,7 @@ export default function Game(props) {
         )}
       </div>
 
-      {!isOver && (
-        <div
-          id="guessRegion"
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "center",
-            alignItems: "center",
-            width: "100%",
-            marginTop: "auto",
-          }}
-        >
-          <Keyboard
-            onKeyPress={onKeyboardKeyPress}
-            maxLength={answer.length}
-            layoutName={"default"}
-            layout={{
-              default: [
-                "Q W E R T Y U I O P",
-                "A S D F G H J K L",
-                "Z X C V B N M {backspace}",
-              ],
-            }}
-            display={{
-              "{backspace}": " delete ",
-            }}
-          />
-        </div>
-      )}
+      {!isOver && <Keyboard onKeyPress={onKeyboardKeyPress} />}
 
       {messageDetails.message && (
         <div

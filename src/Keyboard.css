@@ -1,0 +1,52 @@
+.keyboard {
+  display: grid;
+  grid-template-columns: repeat(20, 5%);
+  grid-template-rows: repeat(3, 60px);
+  margin-top: auto;
+  touch-action: manipulation;
+  width: 100%;
+}
+
+.letter,
+.enter,
+.delete {
+  color: var(--black);
+  background-color: var(--keyboardBackground);
+  border: 1px solid var(--white);
+  border-radius: 10%;
+  text-transform: uppercase;
+  font-size: 14px;
+  font-weight: 600;
+  transition: all 0.2s;
+  user-select: none;
+}
+
+.letter:hover,
+.enter:hover,
+.delete:hover {
+  cursor: pointer;
+  filter: brightness(0.95);
+}
+
+.letter:active,
+.enter:active,
+.delete:active {
+  filter: brightness(0.9);
+}
+
+.letter {
+  grid-column: span 2;
+}
+
+.enter {
+  letter-spacing: 0.1rem;
+}
+
+.enter,
+.delete {
+  grid-column: span 3;
+}
+
+.enter {
+  background-color: var(--white);
+}

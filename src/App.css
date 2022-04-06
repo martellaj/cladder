@@ -290,3 +290,7 @@ body {
 .statsTitle {
   font-size: small;
 }
+
+button:focus {
+  outline: none;
+}
