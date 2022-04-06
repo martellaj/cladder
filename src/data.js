@@ -1007,4 +1007,67 @@ export const game = [
       alteredPosition: 0,
     },
   ],
+  // 4/7/2022 (#16)
+  [
+    {
+      word: "copy",
+      hint: "deal with",
+      answer: "cope",
+      alteredPosition: 3,
+    },
+    {
+      word: "cope",
+      hint: "arrive",
+      answer: "come",
+      alteredPosition: 2,
+    },
+    {
+      word: "come",
+      hint: "a circular roof",
+      answer: "dome",
+      alteredPosition: 0,
+    },
+    {
+      word: "dome",
+      hint: "10 cent coin",
+      answer: "dime",
+      alteredPosition: 1,
+    },
+    {
+      word: "dime",
+      hint: "a green citrus fruit",
+      answer: "lime",
+      alteredPosition: 0,
+    },
+    {
+      word: "lime",
+      hint: "existence",
+      answer: "life",
+      alteredPosition: 2,
+    },
+    {
+      word: "life",
+      hint: "to carry",
+      answer: "lift",
+      alteredPosition: 3,
+    },
+    {
+      word: "lift",
+      hint: "attic",
+      answer: "loft",
+      alteredPosition: 1,
+    },
+    {
+      word: "loft",
+      hint: "missing",
+      answer: "lost",
+      alteredPosition: 2,
+    },
+    {
+      word: "lost",
+      hint: "mail",
+      answer: "post",
+      alteredPosition: 0,
+    },
+  ],
 ];
