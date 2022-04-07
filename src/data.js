@@ -1070,4 +1070,67 @@ export const game = [
       alteredPosition: 0,
     },
   ],
+  // 4/8/2022 (#17)
+  [
+    {
+      word: "womb",
+      hint: "hair brush",
+      answer: "comb",
+      alteredPosition: 0,
+    },
+    {
+      word: "comb",
+      hint: "free",
+      answer: "comp",
+      alteredPosition: 3,
+    },
+    {
+      word: "comp",
+      hint: "outdoor living",
+      answer: "camp",
+      alteredPosition: 1,
+    },
+    {
+      word: "camp",
+      hint: "slightly wet",
+      answer: "damp",
+      alteredPosition: 0,
+    },
+    {
+      word: "damp",
+      hint: "woman of rank",
+      answer: "dame",
+      alteredPosition: 3,
+    },
+    {
+      word: "dame",
+      hint: "domesticated",
+      answer: "tame",
+      alteredPosition: 0,
+    },
+    {
+      word: "tame",
+      hint: "clock",
+      answer: "time",
+      alteredPosition: 1,
+    },
+    {
+      word: "time",
+      hint: "copy",
+      answer: "mime",
+      alteredPosition: 0,
+    },
+    {
+      word: "mime",
+      hint: "5,280 feet, 1,600 meters",
+      answer: "mile",
+      alteredPosition: 2,
+    },
+    {
+      word: "mile",
+      hint: "evil",
+      answer: "vile",
+      alteredPosition: 0,
+    },
+  ],
 ];
