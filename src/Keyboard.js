@@ -1,24 +1,16 @@
 import "./Keyboard.css";
-import { useState } from "react";
 
 export default function Keyboard(props) {
   const { onKeyPress } = props;
 
-  const [isTouch, setIsTouch] = useState(false);
-
   const handleOnTouchStart = (e) => {
     const key = e.target.innerText === "⌫" ? "DELETE" : e.target.innerText;
     onKeyPress(key);
-
-    // note that this is a hacky way to detect touch devices
-    setIsTouch(true);
   };
 
-  const handleOnMouseUp = (e) => {
-    if (!isTouch) {
-      const key = e.target.innerText === "⌫" ? "DELETE" : e.target.innerText;
-      onKeyPress(key);
-    }
+  const handleOnMouseDown = (e) => {
+    const key = e.target.innerText === "⌫" ? "DELETE" : e.target.innerText;
+    onKeyPress(key);
   };
 
   return (
@@ -27,7 +19,8 @@ export default function Keyboard(props) {
         className="key letter"
         draggable={false}
         onTouchStart={handleOnTouchStart}
-        onMouseUp={handleOnMouseUp}
+        onTouchEnd={(e) => e.preventDefault()}
+        onMouseDown={handleOnMouseDown}
         tabIndex="-1"
       >
         q
@@ -36,7 +29,8 @@ export default function Keyboard(props) {
         className="key letter"
         draggable={false}
         onTouchStart={handleOnTouchStart}
-        onMouseUp={handleOnMouseUp}
+        onTouchEnd={(e) => e.preventDefault()}
+        onMouseDown={handleOnMouseDown}
         tabIndex="-1"
       >
         w
@@ -45,7 +39,8 @@ export default function Keyboard(props) {
         className="key letter"
         draggable={false}
         onTouchStart={handleOnTouchStart}
-        onMouseUp={handleOnMouseUp}
+        onTouchEnd={(e) => e.preventDefault()}
+        onMouseDown={handleOnMouseDown}
         tabIndex="-1"
       >
         e
@@ -54,7 +49,8 @@ export default function Keyboard(props) {
         className="key letter"
         draggable={false}
         onTouchStart={handleOnTouchStart}
-        onMouseUp={handleOnMouseUp}
+        onTouchEnd={(e) => e.preventDefault()}
+        onMouseDown={handleOnMouseDown}
         tabIndex="-1"
       >
         r
@@ -63,7 +59,8 @@ export default function Keyboard(props) {
         className="key letter"
         draggable={false}
         onTouchStart={handleOnTouchStart}
-        onMouseUp={handleOnMouseUp}
+        onTouchEnd={(e) => e.preventDefault()}
+        onMouseDown={handleOnMouseDown}
         tabIndex="-1"
       >
         t
@@ -72,7 +69,8 @@ export default function Keyboard(props) {
         className="key letter"
         draggable={false}
         onTouchStart={handleOnTouchStart}
-        onMouseUp={handleOnMouseUp}
+        onTouchEnd={(e) => e.preventDefault()}
+        onMouseDown={handleOnMouseDown}
         tabIndex="-1"
       >
         y
@@ -81,7 +79,8 @@ export default function Keyboard(props) {
         className="key letter"
         draggable={false}
         onTouchStart={handleOnTouchStart}
-        onMouseUp={handleOnMouseUp}
+        onTouchEnd={(e) => e.preventDefault()}
+        onMouseDown={handleOnMouseDown}
         tabIndex="-1"
       >
         u
@@ -90,7 +89,8 @@ export default function Keyboard(props) {
         className="key letter"
         draggable={false}
         onTouchStart={handleOnTouchStart}
-        onMouseUp={handleOnMouseUp}
+        onTouchEnd={(e) => e.preventDefault()}
+        onMouseDown={handleOnMouseDown}
         tabIndex="-1"
       >
         i
@@ -99,7 +99,8 @@ export default function Keyboard(props) {
         className="key letter"
         draggable={false}
         onTouchStart={handleOnTouchStart}
-        onMouseUp={handleOnMouseUp}
+        onTouchEnd={(e) => e.preventDefault()}
+        onMouseDown={handleOnMouseDown}
         tabIndex="-1"
       >
         o
@@ -108,7 +109,8 @@ export default function Keyboard(props) {
         className="key letter"
         draggable={false}
         onTouchStart={handleOnTouchStart}
-        onMouseUp={handleOnMouseUp}
+        onTouchEnd={(e) => e.preventDefault()}
+        onMouseDown={handleOnMouseDown}
         tabIndex="-1"
       >
         p
@@ -118,7 +120,8 @@ export default function Keyboard(props) {
         className="key letter"
         draggable={false}
         onTouchStart={handleOnTouchStart}
-        onMouseUp={handleOnMouseUp}
+        onTouchEnd={(e) => e.preventDefault()}
+        onMouseDown={handleOnMouseDown}
         tabIndex="-1"
       >
         a
@@ -127,7 +130,8 @@ export default function Keyboard(props) {
         className="key letter"
         draggable={false}
         onTouchStart={handleOnTouchStart}
-        onMouseUp={handleOnMouseUp}
+        onTouchEnd={(e) => e.preventDefault()}
+        onMouseDown={handleOnMouseDown}
         tabIndex="-1"
       >
         s
@@ -136,7 +140,8 @@ export default function Keyboard(props) {
         className="key letter"
         draggable={false}
         onTouchStart={handleOnTouchStart}
-        onMouseUp={handleOnMouseUp}
+        onTouchEnd={(e) => e.preventDefault()}
+        onMouseDown={handleOnMouseDown}
         tabIndex="-1"
       >
         d
@@ -145,7 +150,8 @@ export default function Keyboard(props) {
         className="key letter"
         draggable={false}
         onTouchStart={handleOnTouchStart}
-        onMouseUp={handleOnMouseUp}
+        onTouchEnd={(e) => e.preventDefault()}
+        onMouseDown={handleOnMouseDown}
         tabIndex="-1"
       >
         f
@@ -154,7 +160,8 @@ export default function Keyboard(props) {
         className="key letter"
         draggable={false}
         onTouchStart={handleOnTouchStart}
-        onMouseUp={handleOnMouseUp}
+        onTouchEnd={(e) => e.preventDefault()}
+        onMouseDown={handleOnMouseDown}
         tabIndex="-1"
       >
         g
@@ -163,7 +170,8 @@ export default function Keyboard(props) {
         className="key letter"
         draggable={false}
         onTouchStart={handleOnTouchStart}
-        onMouseUp={handleOnMouseUp}
+        onTouchEnd={(e) => e.preventDefault()}
+        onMouseDown={handleOnMouseDown}
         tabIndex="-1"
       >
         h
@@ -172,7 +180,8 @@ export default function Keyboard(props) {
         className="key letter"
         draggable={false}
         onTouchStart={handleOnTouchStart}
-        onMouseUp={handleOnMouseUp}
+        onTouchEnd={(e) => e.preventDefault()}
+        onMouseDown={handleOnMouseDown}
         tabIndex="-1"
       >
         j
@@ -181,7 +190,8 @@ export default function Keyboard(props) {
         className="key letter"
         draggable={false}
         onTouchStart={handleOnTouchStart}
-        onMouseUp={handleOnMouseUp}
+        onTouchEnd={(e) => e.preventDefault()}
+        onMouseDown={handleOnMouseDown}
         tabIndex="-1"
       >
         k
@@ -190,7 +200,8 @@ export default function Keyboard(props) {
         className="key letter"
         draggable={false}
         onTouchStart={handleOnTouchStart}
-        onMouseUp={handleOnMouseUp}
+        onTouchEnd={(e) => e.preventDefault()}
+        onMouseDown={handleOnMouseDown}
         tabIndex="-1"
       >
         l
@@ -201,7 +212,8 @@ export default function Keyboard(props) {
         className="key letter"
         draggable={false}
         onTouchStart={handleOnTouchStart}
-        onMouseUp={handleOnMouseUp}
+        onTouchEnd={(e) => e.preventDefault()}
+        onMouseDown={handleOnMouseDown}
         tabIndex="-1"
       >
         z
@@ -210,7 +222,8 @@ export default function Keyboard(props) {
         className="key letter"
         draggable={false}
         onTouchStart={handleOnTouchStart}
-        onMouseUp={handleOnMouseUp}
+        onTouchEnd={(e) => e.preventDefault()}
+        onMouseDown={handleOnMouseDown}
         tabIndex="-1"
       >
         x
@@ -219,7 +232,8 @@ export default function Keyboard(props) {
         className="key letter"
         draggable={false}
         onTouchStart={handleOnTouchStart}
-        onMouseUp={handleOnMouseUp}
+        onTouchEnd={(e) => e.preventDefault()}
+        onMouseDown={handleOnMouseDown}
         tabIndex="-1"
       >
         c
@@ -228,7 +242,8 @@ export default function Keyboard(props) {
         className="key letter"
         draggable={false}
         onTouchStart={handleOnTouchStart}
-        onMouseUp={handleOnMouseUp}
+        onTouchEnd={(e) => e.preventDefault()}
+        onMouseDown={handleOnMouseDown}
         tabIndex="-1"
       >
         v
@@ -237,7 +252,8 @@ export default function Keyboard(props) {
         className="key letter"
         draggable={false}
         onTouchStart={handleOnTouchStart}
-        onMouseUp={handleOnMouseUp}
+        onTouchEnd={(e) => e.preventDefault()}
+        onMouseDown={handleOnMouseDown}
         tabIndex="-1"
       >
         b
@@ -246,7 +262,8 @@ export default function Keyboard(props) {
         className="key letter"
         draggable={false}
         onTouchStart={handleOnTouchStart}
-        onMouseUp={handleOnMouseUp}
+        onTouchEnd={(e) => e.preventDefault()}
+        onMouseDown={handleOnMouseDown}
         tabIndex="-1"
       >
         n
@@ -255,7 +272,8 @@ export default function Keyboard(props) {
         className="key letter"
         draggable={false}
         onTouchStart={handleOnTouchStart}
-        onMouseUp={handleOnMouseUp}
+        onTouchEnd={(e) => e.preventDefault()}
+        onMouseDown={handleOnMouseDown}
         tabIndex="-1"
       >
         m
@@ -263,7 +281,8 @@ export default function Keyboard(props) {
       <button
         className="key delete"
         onTouchStart={handleOnTouchStart}
-        onMouseUp={handleOnMouseUp}
+        onTouchEnd={(e) => e.preventDefault()}
+        onMouseDown={handleOnMouseDown}
         tabIndex="-1"
       >
         ⌫
