@@ -342,7 +342,7 @@ export default function Game(props) {
           flexDirection: "column",
           justifyContent: "center",
           alignItems: "center",
-          marginTop: "50px",
+          margin: "auto 0px",
         }}
       >
         {isOver && board}
