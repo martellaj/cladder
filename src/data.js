@@ -1133,4 +1133,67 @@ export const game = [
       alteredPosition: 0,
     },
   ],
+  // 4/9/2022 (#18)
+  [
+    {
+      word: "rad",
+      hint: "to remove",
+      answer: "rid",
+      alteredPosition: 1,
+    },
+    {
+      word: "rid",
+      hint: "a cover",
+      answer: "lid",
+      alteredPosition: 0,
+    },
+    {
+      word: "lid",
+      hint: "a boy",
+      answer: "lad",
+      alteredPosition: 1,
+    },
+    {
+      word: "lad",
+      hint: "the rules",
+      answer: "law",
+      alteredPosition: 2,
+    },
+    {
+      word: "law",
+      hint: "uncooked",
+      answer: "raw",
+      alteredPosition: 0,
+    },
+    {
+      word: "raw",
+      hint: "to paddle",
+      answer: "row",
+      alteredPosition: 1,
+    },
+    {
+      word: "row",
+      hint: "shoots arrows",
+      answer: "bow",
+      alteredPosition: 0,
+    },
+    {
+      word: "bow",
+      hint: "wet, muddy ground",
+      answer: "bog",
+      alteredPosition: 2,
+    },
+    {
+      word: "bog",
+      hint: "a tiny insect",
+      answer: "bug",
+      alteredPosition: 1,
+    },
+    {
+      word: "bug",
+      hint: "to pull",
+      answer: "tug",
+      alteredPosition: 0,
+    },
+  ],
 ];
