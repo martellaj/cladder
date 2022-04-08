@@ -1080,7 +1080,7 @@ export const game = [
     },
     {
       word: "comb",
-      hint: "free",
+      hint: "to give away for free",
       answer: "comp",
       alteredPosition: 3,
     },
