@@ -1196,4 +1196,67 @@ export const game = [
       alteredPosition: 0,
     },
   ],
+  // 4/10/2022 (#19)
+  [
+    {
+      word: "ref",
+      hint: "color of a stop sign",
+      answer: "red",
+      alteredPosition: 2,
+    },
+    {
+      word: "red",
+      hint: "a place to sleep",
+      answer: "bed",
+      alteredPosition: 0,
+    },
+    {
+      word: "bed",
+      hint: "honey maker",
+      answer: "bee",
+      alteredPosition: 2,
+    },
+    {
+      word: "bee",
+      hint: "a type of shirt",
+      answer: "tee",
+      alteredPosition: 0,
+    },
+    {
+      word: "tee",
+      hint: "a foot finger",
+      answer: "toe",
+      alteredPosition: 1,
+    },
+    {
+      word: "toe",
+      hint: "fish eggs",
+      answer: "roe",
+      alteredPosition: 0,
+    },
+    {
+      word: "roe",
+      hint: "a type of grain",
+      answer: "rye",
+      alteredPosition: 1,
+    },
+    {
+      word: "rye",
+      hint: "used to add color",
+      answer: "dye",
+      alteredPosition: 0,
+    },
+    {
+      word: "dye",
+      hint: "hole in a needle",
+      answer: "eye",
+      alteredPosition: 0,
+    },
+    {
+      word: "eye",
+      hint: "a female sheep",
+      answer: "ewe",
+      alteredPosition: 1,
+    },
+  ],
 ];
