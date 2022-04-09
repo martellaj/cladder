@@ -13,6 +13,8 @@ import Keyboard from "./Keyboard";
 const TIME_LIMIT = 60000;
 const INCREMENT = 200;
 
+let tileHintTimer = null;
+
 const params = new Proxy(new URLSearchParams(window.location.search), {
   get: (searchParams, prop) => searchParams.get(prop),
 });
@@ -34,6 +36,7 @@ export default function Game(props) {
   const [skippedLevel, setSkippedLevel] = useState(false); // has user skipped level
   const [remainingSkips, setRemainingSkips] = useState(1);
   const [selectedIndex, setSelectedIndex] = useState(-1);
+  const [shouldShowTileToChange, setShouldShowTileToChange] = useState(false);
 
   const specificGameLevel = useMemo(() => {
     return params?.p !== null
@@ -112,6 +115,7 @@ export default function Game(props) {
   // todo: add game level info
   useEffect(() => {
     if (progress >= 100) {
+      clearTimeout(tileHintTimer);
       setIsOver(true);
     }
   }, [progress]);
@@ -119,11 +123,15 @@ export default function Game(props) {
   // hook that updates level information
   useEffect(() => {
     if (gameLevel === game.length) {
+      clearTimeout(tileHintTimer);
       setIsOver(true);
       return;
     }
 
     setSelectedIndex(-1);
+
+    setShouldShowTileToChange(false);
+    clearTimeout(tileHintTimer);
 
     // set new level information
     setWord(game[gameLevel].word);
@@ -132,6 +140,13 @@ export default function Game(props) {
 
     // clear guess
     setGuess(selectionMode ? word : "");
+
+    tileHintTimer = setTimeout(() => {
+      setShouldShowTileToChange(true);
+      setTimeout(() => {
+        animateCSS(".altered", "heartBeat");
+      }, 0);
+    }, 10000);
   }, [gameLevel, game, word, selectionMode]);
 
   // hook that congratulates user when they get an answer right
@@ -324,6 +339,10 @@ export default function Game(props) {
     return id;
   }, [isOver, showSkipButton]);
 
+  const onTileSelected = useCallback((index) => {
+    setSelectedIndex(index);
+  }, []);
+
   return (
     <>
       <div style={{ width: "100%" }}>{<Timer progress={progress} />}</div>
@@ -388,9 +407,9 @@ export default function Game(props) {
               guess={guess}
               mode="hint"
               selectedIndex={selectedIndex}
-              onTileSelected={(index) => {
-                setSelectedIndex(index);
-              }}
+              onTileSelected={onTileSelected}
+              alteredPosition={game[gameLevel].alteredPosition}
+              showTileToChange={shouldShowTileToChange}
             />
             <div id="hint" className="hint">
               {hint}

@@ -11,6 +11,7 @@ function Word(props) {
     failed = false,
     selectedIndex = -1,
     onTileSelected = null,
+    showTileToChange = false,
   } = props;
 
   const tiles = [];
@@ -25,7 +26,7 @@ function Word(props) {
           onSelected={() => onTileSelected?.(i)}
           isSelected={selectedIndex === i}
           wordLength={answer.length}
-          altered={mode === "board" && alteredPosition === i}
+          altered={mode === "hint" && alteredPosition === i && showTileToChange}
         />
       );
     }
@@ -36,7 +37,10 @@ function Word(props) {
           key={i}
           letter={" "}
           wordLength={answer.length}
-          altered={mode === "board" && alteredPosition === i}
+          altered={
+            (mode === "board" && alteredPosition === i) ||
+            (mode === "hint" && alteredPosition === i && showTileToChange)
+          }
         />
       );
     }
@@ -46,7 +50,10 @@ function Word(props) {
         <Tile
           key={i}
           letter={answer[i]}
-          altered={mode === "board" && alteredPosition === i}
+          altered={
+            (mode === "board" && alteredPosition === i) ||
+            (mode === "hint" && alteredPosition === i && showTileToChange)
+          }
           wordLength={answer.length}
           failed={failed}
         />
