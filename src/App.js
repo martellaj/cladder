@@ -8,6 +8,7 @@ import About from "./About";
 import { copyStats } from "./stats";
 import StatsComponent from "./StatsComponent";
 import Settings from "./Settings";
+import animateCSS from "./animateCSS";
 
 // set the app height for mobile
 const appHeight = () =>
@@ -20,6 +21,8 @@ appHeight();
 
 const returningPlayer =
   window.localStorage.getItem("returningPlayer") === "true";
+
+const seenSettings = window.localStorage.getItem("seenSettings") === "true";
 
 // set default mode to dark mode
 if (!returningPlayer) {
@@ -49,6 +52,12 @@ function App() {
 
   // note the player has played before so we don't show help next time
   useEffect(() => {
+    if (returningPlayer && !seenSettings) {
+      setTimeout(() => {
+        animateCSS("#settings", "heartBeat");
+      }, 100);
+    }
+
     window.localStorage.setItem("returningPlayer", "true");
   }, []);
 
@@ -113,6 +122,7 @@ function App() {
           inverted={isDarkMode}
         />
         <Icon
+          id="settings"
           name={"setting"}
           onClick={() => {
             setView("settings");

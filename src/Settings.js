@@ -1,8 +1,13 @@
+import { useEffect } from "react";
 import { Checkbox } from "semantic-ui-react";
 import toggleDarkMode from "./toggleDarkMode";
 
 export default function Settings(props) {
   const { setIsDarkMode, isDarkMode, selectionMode, setSelectionMode } = props;
+
+  useEffect(() => {
+    window.localStorage.setItem("seenSettings", "true");
+  }, []);
 
   return (
     <div id="howToPlayContainer" className="howToPlayContainer">
