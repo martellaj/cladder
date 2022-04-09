@@ -5,9 +5,9 @@ import Menu from "./Menu";
 import { Icon } from "semantic-ui-react";
 import HowToPlay from "./HowToPlay";
 import About from "./About";
-import toggleDarkMode from "./toggleDarkMode";
 import { copyStats } from "./stats";
 import StatsComponent from "./StatsComponent";
+import Settings from "./Settings";
 
 // set the app height for mobile
 const appHeight = () =>
@@ -42,6 +42,9 @@ function App() {
   const [view, setView] = useState(returningPlayer ? "menu" : "howToPlay");
   const [isDarkMode, setIsDarkMode] = useState(
     window.localStorage.getItem("mode") === "dark"
+  );
+  const [selectionMode, setSelectionMode] = useState(
+    window.localStorage.getItem("selectionMode") === "true"
   );
 
   // note the player has played before so we don't show help next time
@@ -110,10 +113,9 @@ function App() {
           inverted={isDarkMode}
         />
         <Icon
-          name={isDarkMode ? "lightbulb" : "moon"}
+          name={"setting"}
           onClick={() => {
-            setIsDarkMode(!isDarkMode);
-            toggleDarkMode();
+            setView("settings");
           }}
           style={{
             cursor: "pointer",
@@ -138,11 +140,22 @@ function App() {
 
   switch (view) {
     case "game":
-      content = <Game isIos={iOS()} isDarkMode={isDarkMode} />;
+      content = (
+        <Game
+          isIos={iOS()}
+          isDarkMode={isDarkMode}
+          selectionMode={selectionMode}
+        />
+      );
       break;
     case "practice":
       content = (
-        <Game isIos={iOS()} isDarkMode={isDarkMode} isPractice={true} />
+        <Game
+          isIos={iOS()}
+          isDarkMode={isDarkMode}
+          isPractice={true}
+          selectionMode={selectionMode}
+        />
       );
       break;
     case "howToPlay":
@@ -153,6 +166,16 @@ function App() {
       break;
     case "stats":
       content = <StatsComponent />;
+      break;
+    case "settings":
+      content = (
+        <Settings
+          setIsDarkMode={setIsDarkMode}
+          isDarkMode={isDarkMode}
+          setSelectionMode={setSelectionMode}
+          selectionMode={selectionMode}
+        />
+      );
       break;
     case "menu":
     default:

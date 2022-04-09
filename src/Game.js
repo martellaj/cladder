@@ -25,7 +25,7 @@ function getRandomPuzzle() {
 }
 
 export default function Game(props) {
-  const { isIos, isDarkMode, isPractice } = props;
+  const { isIos, isDarkMode, isPractice, selectionMode } = props;
 
   const [guess, setGuess] = useState(""); // current typed guess
   const [progress, setProgress] = useState(0); // how much time left
@@ -33,6 +33,7 @@ export default function Game(props) {
   const [gameLevel, setGameLevel] = useState(0); // current game level
   const [skippedLevel, setSkippedLevel] = useState(false); // has user skipped level
   const [remainingSkips, setRemainingSkips] = useState(1);
+  const [selectedIndex, setSelectedIndex] = useState(-1);
 
   const specificGameLevel = useMemo(() => {
     return params?.p !== null
@@ -85,23 +86,27 @@ export default function Game(props) {
       setMessageDetails({ message: getNegativeWord(), color: "darkred" });
 
       setTimeout(() => {
-        setGuess("");
+        setGuess(selectionMode ? word : "");
       }, 150);
 
       setTimeout(() => {
         setMessageDetails({ message: "", color: "" });
       }, 1000);
     }
-  }, [guess, answer]);
+  }, [guess, answer, word, selectionMode]);
 
   // checks answer when guess is made
   useEffect(() => {
-    if (guess && guess.length === answer.length) {
+    if (selectionMode && selectedIndex !== -1 && guess !== word) {
+      setTimeout(() => {
+        checkAnswer();
+      }, 150);
+    } else if (!selectionMode && guess && guess.length === answer.length) {
       setTimeout(() => {
         checkAnswer();
       }, 150);
     }
-  }, [guess, checkAnswer, answer, word]);
+  }, [guess, word, selectedIndex, checkAnswer, answer.length, selectionMode]);
 
   // hook for when timer ends
   // todo: add game level info
@@ -118,14 +123,16 @@ export default function Game(props) {
       return;
     }
 
+    setSelectedIndex(-1);
+
     // set new level information
     setWord(game[gameLevel].word);
     setHint(game[gameLevel].hint);
     setAnswer(game[gameLevel].answer);
 
     // clear guess
-    setGuess("");
-  }, [gameLevel, game, word]);
+    setGuess(selectionMode ? word : "");
+  }, [gameLevel, game, word, selectionMode]);
 
   // hook that congratulates user when they get an answer right
   useEffect(() => {
@@ -226,7 +233,16 @@ export default function Game(props) {
     }
 
     const key = e.key.toLowerCase().trim();
-    if (key.length === 1 && guess.length < answer.length) {
+
+    if (selectionMode) {
+      if (selectedIndex > -1) {
+        const newGuess =
+          guess.substring(0, selectedIndex) +
+          key +
+          guess.substring(selectedIndex + 1);
+        setGuess(newGuess);
+      }
+    } else if (key.length === 1 && guess.length < answer.length) {
       setGuess(guess + key);
     }
   });
@@ -244,7 +260,15 @@ export default function Game(props) {
       return;
     }
 
-    if (guess.length < answer.length) {
+    if (selectionMode) {
+      if (selectedIndex > -1) {
+        const newGuess =
+          guess.substring(0, selectedIndex) +
+          key +
+          guess.substring(selectedIndex + 1);
+        setGuess(newGuess);
+      }
+    } else if (guess.length < answer.length) {
       setGuess(guess + key);
     }
   };
@@ -361,6 +385,10 @@ export default function Game(props) {
               answer={answer}
               guess={guess}
               mode="hint"
+              selectedIndex={selectedIndex}
+              onTileSelected={(index) => {
+                setSelectedIndex(index);
+              }}
             />
             <div id="hint" className="hint">
               {hint}
@@ -404,7 +432,12 @@ export default function Game(props) {
         )}
       </div>
 
-      {!isOver && <Keyboard onKeyPress={onKeyboardKeyPress} />}
+      {!isOver && (
+        <Keyboard
+          onKeyPress={onKeyboardKeyPress}
+          selectionMode={selectionMode}
+        />
+      )}
 
       {messageDetails.message && (
         <div

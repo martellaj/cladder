@@ -1,7 +1,7 @@
 import "./Keyboard.css";
 
 export default function Keyboard(props) {
-  const { onKeyPress } = props;
+  const { onKeyPress, selectionMode } = props;
 
   const handleOnTouchStart = (e) => {
     const key = e.target.innerText === "⌫" ? "DELETE" : e.target.innerText;
@@ -278,15 +278,17 @@ export default function Keyboard(props) {
       >
         m
       </button>
-      <button
-        className="key delete"
-        onTouchStart={handleOnTouchStart}
-        onTouchEnd={(e) => e.preventDefault()}
-        onMouseDown={handleOnMouseDown}
-        tabIndex="-1"
-      >
-        ⌫
-      </button>
+      {selectionMode ? null : (
+        <button
+          className="key delete"
+          onTouchStart={handleOnTouchStart}
+          onTouchEnd={(e) => e.preventDefault()}
+          onMouseDown={handleOnMouseDown}
+          tabIndex="-1"
+        >
+          ⌫
+        </button>
+      )}
     </div>
   );
 }

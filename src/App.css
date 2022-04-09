@@ -294,3 +294,35 @@ body {
 button:focus {
   outline: none;
 }
+
+.settingRow {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 24px 12px;
+}
+
+.howToPlayContainer .settingRow:not(:last-child) {
+  padding-bottom: 24px;
+  border-bottom: 1px solid gray;
+}
+
+.settingName {
+  font-size: larger;
+  font-weight: bold;
+  margin-bottom: 6px;
+}
+
+.settingDescription {
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.settingWithDescriptionContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  text-align: left;
+  padding-right: 24px;
+}
