@@ -3,7 +3,14 @@ import { Checkbox } from "semantic-ui-react";
 import toggleDarkMode from "./toggleDarkMode";
 
 export default function Settings(props) {
-  const { setIsDarkMode, isDarkMode, selectionMode, setSelectionMode } = props;
+  const {
+    setIsDarkMode,
+    isDarkMode,
+    selectionMode,
+    setSelectionMode,
+    isHardMode,
+    setIsHardMode,
+  } = props;
 
   useEffect(() => {
     window.localStorage.setItem("seenSettings", "true");
@@ -22,6 +29,25 @@ export default function Settings(props) {
             }}
           />
         </div>
+
+        <div className="settingRow">
+          <div className="settingWithDescriptionContainer">
+            <div className="settingName">Hard mode</div>
+            <div className="settingDescription">
+              Your skip won't be available and we won't let you know which tile
+              to change if you get stuck. Your score will have an asterisk to
+              denote that you took the challenge!
+            </div>
+          </div>
+          <Checkbox
+            checked={isHardMode}
+            onChange={(e, data) => {
+              window.localStorage.setItem("hardMode", data.checked);
+              setIsHardMode(data.checked);
+            }}
+          />
+        </div>
+
         <div className="settingRow">
           <div className="settingWithDescriptionContainer">
             <div className="settingName">Use "selection mode"</div>

@@ -49,6 +49,9 @@ function App() {
   const [selectionMode, setSelectionMode] = useState(
     window.localStorage.getItem("selectionMode") === "true"
   );
+  const [isHardMode, setIsHardMode] = useState(
+    window.localStorage.getItem("hardMode") === "true"
+  );
 
   // note the player has played before so we don't show help next time
   useEffect(() => {
@@ -155,6 +158,7 @@ function App() {
           isIos={iOS()}
           isDarkMode={isDarkMode}
           selectionMode={selectionMode}
+          isHardMode={isHardMode}
         />
       );
       break;
@@ -165,6 +169,7 @@ function App() {
           isDarkMode={isDarkMode}
           isPractice={true}
           selectionMode={selectionMode}
+          isHardMode={isHardMode}
         />
       );
       break;
@@ -184,6 +189,8 @@ function App() {
           isDarkMode={isDarkMode}
           setSelectionMode={setSelectionMode}
           selectionMode={selectionMode}
+          isHardMode={isHardMode}
+          setIsHardMode={setIsHardMode}
         />
       );
       break;

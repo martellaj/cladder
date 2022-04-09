@@ -2,11 +2,18 @@ import { Button } from "semantic-ui-react";
 import copy from "copy-to-clipboard";
 import { useEffect } from "react";
 
-const isDarkMode = window.localStorage.getItem("mode") === "dark";
-
 export default function Results(props) {
-  const { correct, time, onCopied, puzzleNumber, isIos, onLoaded, isPractice } =
-    props;
+  const {
+    correct,
+    time,
+    onCopied,
+    puzzleNumber,
+    isIos,
+    onLoaded,
+    isPractice,
+    isHardMode,
+    isDarkMode,
+  } = props;
 
   const didComplete = correct === 10;
 
@@ -46,7 +53,9 @@ export default function Results(props) {
           style={{ marginBottom: "24px" }}
           inverted={isDarkMode}
           onClick={() => {
-            const text = `#Cladder ${puzzleNumber}\n\n✅ ${correct}/10\n${
+            const text = `#Cladder ${puzzleNumber}\n\n✅ ${correct}/10${
+              isHardMode ? "*" : ""
+            }\n${
               didComplete ? `🚀 ${time} seconds\n` : ""
             }\nhttps://playcladder.com`;
 

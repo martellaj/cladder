@@ -27,14 +27,14 @@ function getRandomPuzzle() {
 }
 
 export default function Game(props) {
-  const { isIos, isDarkMode, isPractice, selectionMode } = props;
+  const { isIos, isDarkMode, isPractice, selectionMode, isHardMode } = props;
 
   const [guess, setGuess] = useState(""); // current typed guess
   const [progress, setProgress] = useState(0); // how much time left
   const [isOver, setIsOver] = useState(false); // has game ended
   const [gameLevel, setGameLevel] = useState(0); // current game level
   const [skippedLevel, setSkippedLevel] = useState(false); // has user skipped level
-  const [remainingSkips, setRemainingSkips] = useState(1);
+  const [remainingSkips, setRemainingSkips] = useState(isHardMode ? 0 : 1);
   const [selectedIndex, setSelectedIndex] = useState(-1);
   const [shouldShowTileToChange, setShouldShowTileToChange] = useState(false);
 
@@ -141,13 +141,15 @@ export default function Game(props) {
     // clear guess
     setGuess(selectionMode ? word : "");
 
-    tileHintTimer = setTimeout(() => {
-      setShouldShowTileToChange(true);
-      setTimeout(() => {
-        animateCSS(".altered", "heartBeat");
-      }, 0);
-    }, 10000);
-  }, [gameLevel, game, word, selectionMode]);
+    if (!isHardMode) {
+      tileHintTimer = setTimeout(() => {
+        setShouldShowTileToChange(true);
+        setTimeout(() => {
+          animateCSS(".altered", "heartBeat");
+        }, 0);
+      }, 10000);
+    }
+  }, [gameLevel, game, word, selectionMode, isHardMode]);
 
   // hook that congratulates user when they get an answer right
   useEffect(() => {
@@ -350,6 +352,8 @@ export default function Game(props) {
       {isOver && (
         <Results
           isIos={isIos}
+          isHardMode={isHardMode}
+          isDarkMode={isDarkMode}
           correct={gameLevel}
           isPractice={isPractice}
           time={(((progress / 100) * TIME_LIMIT) / 1000).toFixed(2)}
@@ -408,7 +412,7 @@ export default function Game(props) {
               mode="hint"
               selectedIndex={selectedIndex}
               onTileSelected={onTileSelected}
-              alteredPosition={game[gameLevel].alteredPosition}
+              alteredPosition={game[gameLevel]?.alteredPosition}
               showTileToChange={shouldShowTileToChange}
             />
             <div id="hint" className="hint">
