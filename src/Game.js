@@ -373,12 +373,14 @@ export default function Game(props) {
 
         {!isOver && (
           <>
-            <Word
-              id="previousWord"
-              key={`${word}-prev`}
-              answer={word}
-              mode="board"
-            />
+            {!selectionMode && (
+              <Word
+                id="previousWord"
+                key={`${word}-prev`}
+                answer={word}
+                mode="board"
+              />
+            )}
             <Word
               id="guessingWord"
               key={answer}
