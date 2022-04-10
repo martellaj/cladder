@@ -1259,4 +1259,67 @@ export const game = [
       alteredPosition: 1,
     },
   ],
+  // 4/11/2022 (#20)
+  [
+    {
+      word: "son",
+      hint: "center of the solar system",
+      answer: "sun",
+      alteredPosition: 1,
+    },
+    {
+      word: "sun",
+      hint: "offense or fault",
+      answer: "sin",
+      alteredPosition: 1,
+    },
+    {
+      word: "sin",
+      hint: "___ and tonic",
+      answer: "gin",
+      alteredPosition: 0,
+    },
+    {
+      word: "gin",
+      hint: "a weapon",
+      answer: "gun",
+      alteredPosition: 1,
+    },
+    {
+      word: "gun",
+      hint: "stomach",
+      answer: "gut",
+      alteredPosition: 2,
+    },
+    {
+      word: "gut",
+      hint: "shack",
+      answer: "hut",
+      alteredPosition: 0,
+    },
+    {
+      word: "hut",
+      hint: "headgear",
+      answer: "hat",
+      alteredPosition: 1,
+    },
+    {
+      word: "hat",
+      hint: "feline",
+      answer: "cat",
+      alteredPosition: 0,
+    },
+    {
+      word: "cat",
+      hint: "a bed",
+      answer: "cot",
+      alteredPosition: 1,
+    },
+    {
+      word: "cot",
+      hint: "a cooking container",
+      answer: "pot",
+      alteredPosition: 0,
+    },
+  ],
 ];
