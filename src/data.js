@@ -1322,4 +1322,67 @@ export const game = [
       alteredPosition: 0,
     },
   ],
+  // 4/12/2022 (#21)
+  [
+    {
+      word: "bar",
+      hint: "hearing organ",
+      answer: "ear",
+      alteredPosition: 0,
+    },
+    {
+      word: "ear",
+      hint: "to ingest",
+      answer: "eat",
+      alteredPosition: 2,
+    },
+    {
+      word: "eat",
+      hint: "plump",
+      answer: "fat",
+      alteredPosition: 0,
+    },
+    {
+      word: "fat",
+      hint: "in good health",
+      answer: "fit",
+      alteredPosition: 1,
+    },
+    {
+      word: "fit",
+      hint: "mental sharpness",
+      answer: "wit",
+      alteredPosition: 0,
+    },
+    {
+      word: "wit",
+      hint: "head covering made of hair",
+      answer: "wig",
+      alteredPosition: 2,
+    },
+    {
+      word: "wig",
+      hint: "oinks",
+      answer: "pig",
+      alteredPosition: 0,
+    },
+    {
+      word: "pig",
+      hint: "pirate's leg",
+      answer: "peg",
+      alteredPosition: 1,
+    },
+    {
+      word: "peg",
+      hint: "a writing instrument",
+      answer: "pen",
+      alteredPosition: 2,
+    },
+    {
+      word: "pen",
+      hint: "multiple males",
+      answer: "men",
+      alteredPosition: 0,
+    },
+  ],
 ];
