@@ -13,7 +13,7 @@ export default function Settings(props) {
   } = props;
 
   useEffect(() => {
-    window.localStorage.setItem("seenSettings", "true");
+    window.localStorage.setItem("seenSettings2", "true");
   }, []);
 
   return (

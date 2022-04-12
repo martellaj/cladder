@@ -1385,4 +1385,130 @@ export const game = [
       alteredPosition: 0,
     },
   ],
+  // 4/13/2022 (#22)
+  [
+    {
+      word: "etsy",
+      hint: "simple",
+      answer: "easy",
+      alteredPosition: 1,
+    },
+    {
+      word: "easy",
+      hint: "where the sun rises",
+      answer: "east",
+      alteredPosition: 3,
+    },
+    {
+      word: "east",
+      hint: "an ensemble",
+      answer: "cast",
+      alteredPosition: 0,
+    },
+    {
+      word: "cast",
+      hint: "a barrel",
+      answer: "cask",
+      alteredPosition: 3,
+    },
+    {
+      word: "cask",
+      hint: "a to-do",
+      answer: "task",
+      alteredPosition: 0,
+    },
+    {
+      word: "task",
+      hint: "an armored vehicle",
+      answer: "tank",
+      alteredPosition: 2,
+    },
+    {
+      word: "tank",
+      hint: "assign status",
+      answer: "rank",
+      alteredPosition: 0,
+    },
+    {
+      word: "rank",
+      hint: "skating area",
+      answer: "rink",
+      alteredPosition: 1,
+    },
+    {
+      word: "rink",
+      hint: "a citrus skin",
+      answer: "rind",
+      alteredPosition: 3,
+    },
+    {
+      word: "rind",
+      hint: "brain",
+      answer: "mind",
+      alteredPosition: 0,
+    },
+  ],
+  // 4/14/2022 (#23)
+  [
+    {
+      word: "kind",
+      hint: "a monarch",
+      answer: "king",
+      alteredPosition: 3,
+    },
+    {
+      word: "king",
+      hint: "helps a plane fly",
+      answer: "wing",
+      alteredPosition: 0,
+    },
+    {
+      word: "wing",
+      hint: "an eye gesture",
+      answer: "wink",
+      alteredPosition: 3,
+    },
+    {
+      word: "wink",
+      hint: "mix of red and white",
+      answer: "pink",
+      alteredPosition: 0,
+    },
+    {
+      word: "pink",
+      hint: "type of rock music",
+      answer: "punk",
+      alteredPosition: 1,
+    },
+    {
+      word: "punk",
+      hint: "a hockey ball",
+      answer: "puck",
+      alteredPosition: 2,
+    },
+    {
+      word: "puck",
+      hint: "a male deer",
+      answer: "buck",
+      alteredPosition: 0,
+    },
+    {
+      word: "buck",
+      hint: "a large quantity",
+      answer: "bulk",
+      alteredPosition: 2,
+    },
+    {
+      word: "bulk",
+      hint: "a male bovine",
+      answer: "bull",
+      alteredPosition: 3,
+    },
+    {
+      word: "bull",
+      hint: "opposite of push",
+      answer: "pull",
+      alteredPosition: 0,
+    },
+  ],
 ];

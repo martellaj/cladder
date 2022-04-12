@@ -22,7 +22,7 @@ appHeight();
 const returningPlayer =
   window.localStorage.getItem("returningPlayer") === "true";
 
-const seenSettings = window.localStorage.getItem("seenSettings") === "true";
+const seenSettings = window.localStorage.getItem("seenSettings2") === "true";
 
 // set default mode to dark mode
 if (!returningPlayer) {
@@ -57,7 +57,7 @@ function App() {
   useEffect(() => {
     if (returningPlayer && !seenSettings) {
       setTimeout(() => {
-        animateCSS("#settings", "heartBeat");
+        animateCSS("#settings", "flash");
       }, 100);
     }
 
