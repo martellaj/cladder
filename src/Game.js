@@ -284,6 +284,18 @@ export default function Game(props) {
           key +
           guess.substring(selectedIndex + 1);
         setGuess(newGuess);
+      } else {
+        setMessageDetails({
+          message: "Tap a tile to change it's letter!",
+          color: "#c39b38",
+        });
+
+        setTimeout(() => {
+          setMessageDetails({
+            message: "",
+            color: "",
+          });
+        }, 3000);
       }
     } else if (guess.length < answer.length) {
       setGuess(guess + key);
