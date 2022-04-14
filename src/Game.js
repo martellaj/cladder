@@ -286,7 +286,7 @@ export default function Game(props) {
         setGuess(newGuess);
       } else {
         setMessageDetails({
-          message: "Tap a tile to change it's letter!",
+          message: "Tap a tile to change its letter!",
           color: "#c39b38",
         });
 
