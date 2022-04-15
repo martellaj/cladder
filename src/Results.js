@@ -51,6 +51,7 @@ export default function Results(props) {
           id="shareButton"
           className="positive button"
           style={{ marginBottom: "24px" }}
+          size="massive"
           inverted={isDarkMode}
           onClick={() => {
             const text = `#Cladder ${puzzleNumber}\n\n✅ ${correct}/10${

@@ -22,6 +22,7 @@ export function reloadColors() {
   let keyboardActiveBackground = "#ededed";
   let alteredFailedBackground = "indianred";
   let selectedTileBackground = "#c0b9f9";
+  let statsBackground = "#f1f1f1";
 
   if (mode === "dark") {
     black = "white";
@@ -31,6 +32,7 @@ export function reloadColors() {
     alteredFailedBackground = "darkred";
     keyboardActiveBackground = "#2b2b2d";
     selectedTileBackground = "#6654f2";
+    statsBackground = "#272727";
   }
 
   let root = document.documentElement;
@@ -44,4 +46,5 @@ export function reloadColors() {
     keyboardActiveBackground
   );
   root.style.setProperty("--selectedTileBackground", selectedTileBackground);
+  root.style.setProperty("--statsBackground", statsBackground);
 }

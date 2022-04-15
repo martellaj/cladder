@@ -1,12 +1,14 @@
 import { getStats } from "./stats";
 
-export default function StatsComponent() {
+export default function StatsComponent(props) {
   const stats = getStats();
+
+  const { resultsPage = false } = props;
 
   const { averageWinTime, fastestWinTime, gamesPlayed, gamesWon } = stats;
 
   return (
-    <div className="statsContainer">
+    <div className={resultsPage && "statsContainer"}>
       <h3>STATISTICS</h3>
       <div className="statsBlocks">
         <div className="statsBlock">

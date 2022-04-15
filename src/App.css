@@ -130,18 +130,18 @@ body {
 }
 
 .bigMessage {
-  font-size: larger;
+  font-size: xx-large;
   margin-bottom: 24px;
 }
 
 .resultsScore {
-  font-size: x-large;
+  font-size: xx-large;
   font-weight: bold;
   margin-bottom: 24px;
 }
 
 .resultsTime {
-  font-size: larger;
+  font-size: x-large;
   margin-bottom: 24px;
 }
 
@@ -325,4 +325,10 @@ button:focus {
   align-items: flex-start;
   text-align: left;
   padding-right: 24px;
+}
+
+.statsContainer {
+  background-color: var(--statsBackground);
+  padding: 12px;
+  border-radius: 10%;
 }

@@ -9,6 +9,7 @@ import { getNegativeWord, getPositiveWord } from "./getWord";
 import { Button } from "semantic-ui-react";
 import { updateStats } from "./stats";
 import Keyboard from "./Keyboard";
+import StatsComponent from "./StatsComponent";
 
 const TIME_LIMIT = 60000;
 const INCREMENT = 200;
@@ -381,16 +382,7 @@ export default function Game(props) {
           }}
           puzzleNumber={PUZZLE_NUMBER}
           onLoaded={() => {
-            if (!isPractice) {
-              setMessageDetails({
-                message: "PLEASE SHARE ❤️",
-                color: "green",
-              });
-
-              setTimeout(() => {
-                setMessageDetails({ message: "", color: "" });
-              }, 2000);
-            }
+            animateCSS("#shareButton", "heartBeat");
           }}
         />
       )}
@@ -404,7 +396,15 @@ export default function Game(props) {
           margin: "auto 0px",
         }}
       >
-        {isOver && board}
+        {isOver && (
+          <>
+            {<div style={{ height: "36px" }}></div>}
+            <StatsComponent resultsPage={true} />
+            <div style={{ height: "60px" }}></div>
+            {board}
+            <div style={{ height: "24px" }}></div>
+          </>
+        )}
 
         {!isOver && (
           <>
