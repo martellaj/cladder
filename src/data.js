@@ -1637,4 +1637,68 @@ export const game = [
       alteredPosition: 1,
     },
   ],
+  // 4/17/2022 (#26)
+  [
+    {
+      word: "wake",
+      hint: "water-skiing venue",
+      answer: "lake",
+      alteredPosition: 0,
+    },
+    {
+      word: "lake",
+      hint: "thumbs up on Facebook",
+      answer: "like",
+      alteredPosition: 1,
+    },
+    {
+      word: "like",
+      hint: `"swoosh" company`,
+      answer: "nike",
+      alteredPosition: 0,
+    },
+    {
+      word: "nike",
+      hint: "atomic bomb, casually",
+      answer: "nuke",
+      alteredPosition: 1,
+    },
+    {
+      word: "nuke",
+      hint: "to move deceptively",
+      answer: "juke",
+      alteredPosition: 0,
+    },
+    {
+      word: "juke",
+      hint: "the sixth month",
+      answer: "june",
+      alteredPosition: 2,
+    },
+
+    {
+      word: "june",
+      hint: "ridge of blown sand",
+      answer: "dune",
+      alteredPosition: 0,
+    },
+    {
+      word: "dune",
+      hint: "eat at 7 p.m., say",
+      answer: "dine",
+      alteredPosition: 1,
+    },
+    {
+      word: "dine",
+      hint: "sound effect for a correct answer",
+      answer: "ding",
+      alteredPosition: 3,
+    },
+    {
+      word: "ding",
+      hint: "search engine since 2009",
+      answer: "bing",
+      alteredPosition: 0,
+    },
+  ],
 ];
