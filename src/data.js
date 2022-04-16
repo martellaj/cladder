@@ -1701,4 +1701,68 @@ export const game = [
       alteredPosition: 0,
     },
   ],
+  // 4/18/2022 (#27)
+  [
+    {
+      word: "bud",
+      hint: "soil, after a heavy rain",
+      answer: "mud",
+      alteredPosition: 0,
+    },
+    {
+      word: "mud",
+      hint: "angry",
+      answer: "mad",
+      alteredPosition: 1,
+    },
+    {
+      word: "mad",
+      hint: "a trend",
+      answer: "fad",
+      alteredPosition: 0,
+    },
+    {
+      word: "fad",
+      hint: "big admirer",
+      answer: "fan",
+      alteredPosition: 2,
+    },
+    {
+      word: "fan",
+      hint: "park of a shark seen above",
+      answer: "fin",
+      alteredPosition: 1,
+    },
+    {
+      word: "fin",
+      hint: "family",
+      answer: "kin",
+      alteredPosition: 0,
+    },
+
+    {
+      word: "kin",
+      hint: "a young goat",
+      answer: "kid",
+      alteredPosition: 2,
+    },
+    {
+      word: "kid",
+      hint: "thing to do at an auction",
+      answer: "bid",
+      alteredPosition: 0,
+    },
+    {
+      word: "bid",
+      hint: "The ___ Bang",
+      answer: "big",
+      alteredPosition: 2,
+    },
+    {
+      word: "big",
+      hint: "a band's booking",
+      answer: "gig",
+      alteredPosition: 0,
+    },
+  ],
 ];
