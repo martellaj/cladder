@@ -1765,4 +1765,67 @@ export const game = [
       alteredPosition: 0,
     },
   ],
+  // 4/19/2022 (#28)
+  [
+    {
+      word: "card",
+      hint: "thin, woven rope",
+      answer: "cord",
+      alteredPosition: 1,
+    },
+    {
+      word: "cord",
+      hint: "part of Microsoft Office",
+      answer: "word",
+      alteredPosition: 0,
+    },
+    {
+      word: "word",
+      hint: "a rotten apple resident",
+      answer: "worm",
+      alteredPosition: 3,
+    },
+    {
+      word: "worm",
+      hint: "something bureaucratic to fill out",
+      answer: "form",
+      alteredPosition: 0,
+    },
+    {
+      word: "form",
+      hint: "cappuccino topping",
+      answer: "foam",
+      alteredPosition: 1,
+    },
+    {
+      word: "foam",
+      hint: "to drift here and there",
+      answer: "roam",
+      alteredPosition: 0,
+    },
+    {
+      word: "roam",
+      hint: "there might be a fork in one",
+      answer: "road",
+      alteredPosition: 3,
+    },
+    {
+      word: "road",
+      hint: "curl up with a good book, say",
+      answer: "read",
+      alteredPosition: 1,
+    },
+    {
+      word: "read",
+      hint: "tall slender plant of wet areas",
+      answer: "reed",
+      alteredPosition: 2,
+    },
+    {
+      word: "reed",
+      hint: "undesirable plant",
+      answer: "weed",
+      alteredPosition: 0,
+    },
+  ],
 ];
