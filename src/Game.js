@@ -56,6 +56,10 @@ export default function Game(props) {
   // gets the daily puzzle
   const game = _game[PUZZLE_NUMBER];
 
+  if (!game) {
+    window.location.href = `/?v=${Math.random()}`;
+  }
+
   // useEffect(() => {
   //   if (guess === "foo") {
   //     setGameLevel(game.length - 1);
