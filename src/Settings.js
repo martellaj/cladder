@@ -10,6 +10,8 @@ export default function Settings(props) {
     setSelectionMode,
     isHardMode,
     setIsHardMode,
+    isTeacherMode,
+    setIsTeacherMode,
   } = props;
 
   useEffect(() => {
@@ -20,7 +22,7 @@ export default function Settings(props) {
     <div id="howToPlayContainer" className="howToPlayContainer">
       <div style={{ width: "100%", maxWidth: "500px" }}>
         <div className="settingRow">
-          <div className="settingName">Dark mode</div>
+          <div className="settingName">Dark Mode</div>
           <Checkbox
             checked={isDarkMode}
             onChange={(e, data) => {
@@ -32,7 +34,7 @@ export default function Settings(props) {
 
         <div className="settingRow">
           <div className="settingWithDescriptionContainer">
-            <div className="settingName">Hard mode</div>
+            <div className="settingName">Hard Mode</div>
             <div className="settingDescription">
               Your skip won't be available and we won't let you know which tile
               to change if you get stuck. Your score will have an asterisk to
@@ -50,9 +52,9 @@ export default function Settings(props) {
 
         <div className="settingRow">
           <div className="settingWithDescriptionContainer">
-            <div className="settingName">Use "selection mode"</div>
+            <div className="settingName">Selection Mode</div>
             <div className="settingDescription">
-              When you turn on "selection mode", you simply tap a tile to change
+              When you turn on selection mode, you simply tap a tile to change
               its letter instead of typing out the whole word. Mobile users may
               find this more efficient. Turn it on and give it a try in practice
               mode!
@@ -63,6 +65,23 @@ export default function Settings(props) {
             onChange={(e, data) => {
               window.localStorage.setItem("selectionMode", data.checked);
               setSelectionMode(data.checked);
+            }}
+          />
+        </div>
+
+        <div className="settingRow">
+          <div className="settingWithDescriptionContainer">
+            <div className="settingName">Teacher Mode</div>
+            <div className="settingDescription">
+              Teacher mode is made for classroom Cladder-ing. This mode disables
+              the timer to encourage collaborative classroom play.
+            </div>
+          </div>
+          <Checkbox
+            checked={isTeacherMode}
+            onChange={(e, data) => {
+              window.localStorage.setItem("teacherMode", data.checked);
+              setIsTeacherMode(data.checked);
             }}
           />
         </div>

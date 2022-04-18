@@ -28,7 +28,14 @@ function getRandomPuzzle() {
 }
 
 export default function Game(props) {
-  const { isIos, isDarkMode, isPractice, selectionMode, isHardMode } = props;
+  const {
+    isIos,
+    isDarkMode,
+    isPractice,
+    selectionMode,
+    isHardMode,
+    isTeacherMode,
+  } = props;
 
   const [guess, setGuess] = useState(""); // current typed guess
   const [progress, setProgress] = useState(0); // how much time left
@@ -119,11 +126,11 @@ export default function Game(props) {
   // hook for when timer ends
   // todo: add game level info
   useEffect(() => {
-    if (progress >= 100) {
+    if (progress >= 100 && !isTeacherMode) {
       clearTimeout(tileHintTimer);
       setIsOver(true);
     }
-  }, [progress]);
+  }, [progress, isTeacherMode]);
 
   // hook that updates level information
   useEffect(() => {
@@ -364,7 +371,9 @@ export default function Game(props) {
 
   return (
     <>
-      <div style={{ width: "100%" }}>{<Timer progress={progress} />}</div>
+      {!isTeacherMode && (
+        <div style={{ width: "100%" }}>{<Timer progress={progress} />}</div>
+      )}
 
       {isOver && (
         <Results
@@ -373,6 +382,7 @@ export default function Game(props) {
           isDarkMode={isDarkMode}
           correct={gameLevel}
           isPractice={isPractice}
+          isTeacherMode={isTeacherMode}
           time={(((progress / 100) * TIME_LIMIT) / 1000).toFixed(2)}
           onCopied={() => {
             setMessageDetails({
@@ -403,7 +413,7 @@ export default function Game(props) {
         {isOver && (
           <>
             {<div style={{ height: "36px" }}></div>}
-            <StatsComponent resultsPage={true} />
+            <StatsComponent resultsPage={true} isTeacherMode={isTeacherMode} />
             <div style={{ height: "60px" }}></div>
             {board}
             <div style={{ height: "24px" }}></div>

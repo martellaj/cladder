@@ -67,6 +67,9 @@ function App() {
   const [isHardMode, setIsHardMode] = useState(
     window.localStorage.getItem("hardMode") === "true"
   );
+  const [isTeacherMode, setIsTeacherMode] = useState(
+    window.localStorage.getItem("teacherMode") === "true"
+  );
 
   // note the player has played before so we don't show help next time
   useEffect(() => {
@@ -174,6 +177,7 @@ function App() {
           isDarkMode={isDarkMode}
           selectionMode={selectionMode}
           isHardMode={isHardMode}
+          isTeacherMode={isTeacherMode}
         />
       );
       break;
@@ -185,6 +189,7 @@ function App() {
           isPractice={true}
           selectionMode={selectionMode}
           isHardMode={isHardMode}
+          isTeacherMode={isTeacherMode}
         />
       );
       break;
@@ -195,7 +200,7 @@ function App() {
       content = <About />;
       break;
     case "stats":
-      content = <StatsComponent />;
+      content = <StatsComponent isTeacherMode={isTeacherMode} />;
       break;
     case "settings":
       content = (
@@ -206,6 +211,8 @@ function App() {
           selectionMode={selectionMode}
           isHardMode={isHardMode}
           setIsHardMode={setIsHardMode}
+          isTeacherMode={isTeacherMode}
+          setIsTeacherMode={setIsTeacherMode}
         />
       );
       break;

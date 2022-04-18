@@ -311,6 +311,7 @@ button:focus {
   font-size: larger;
   font-weight: bold;
   margin-bottom: 6px;
+  font-variant: small-caps;
 }
 
 .settingDescription {

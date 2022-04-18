@@ -13,6 +13,7 @@ export default function Results(props) {
     isPractice,
     isHardMode,
     isDarkMode,
+    isTeacherMode,
   } = props;
 
   const didComplete = correct === 10;
@@ -31,7 +32,7 @@ export default function Results(props) {
   } else if (correct > 2) {
     bigMessage = "Nice try!";
   } else {
-    bigMessage = "Everything okay?";
+    bigMessage = "There's always tomorrow!";
   }
 
   return (
@@ -45,7 +46,9 @@ export default function Results(props) {
       >
         {correct} / 10
       </div>
-      {didComplete && <div className="resultsTime">{time} seconds</div>}
+      {didComplete && !isTeacherMode && (
+        <div className="resultsTime">{time} seconds</div>
+      )}
       {!isPractice && (
         <Button
           id="shareButton"
@@ -55,9 +58,9 @@ export default function Results(props) {
           inverted={isDarkMode}
           onClick={() => {
             const text = `#Cladder ${puzzleNumber}\n\n✅ ${correct}/10${
-              isHardMode ? "*" : ""
+              isHardMode && !isTeacherMode ? "*" : ""
             }\n${
-              didComplete ? `🚀 ${time} seconds\n` : ""
+              didComplete && !isTeacherMode ? `🚀 ${time} seconds\n` : ""
             }\nhttps://playcladder.com`;
 
             var ua = navigator.userAgent.toLowerCase();
