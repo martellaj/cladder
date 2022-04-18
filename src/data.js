@@ -1729,7 +1729,7 @@ export const game = [
     },
     {
       word: "fan",
-      hint: "park of a shark seen above",
+      hint: "part of a shark seen above",
       answer: "fin",
       alteredPosition: 1,
     },
