@@ -22,7 +22,7 @@ appHeight();
 const returningPlayer =
   window.localStorage.getItem("returningPlayer") === "true";
 
-const seenSettings = window.localStorage.getItem("seenSettings2") === "true";
+const seenSettings = window.localStorage.getItem("seenSettings3") === "true";
 
 // set default mode to dark mode
 if (!returningPlayer) {
