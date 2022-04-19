@@ -1828,4 +1828,67 @@ export const game = [
       alteredPosition: 0,
     },
   ],
+  // 4/20/2022 (#29)
+  [
+    {
+      word: "pool",
+      hint: "yarn for a winter garment",
+      answer: "wool",
+      alteredPosition: 0,
+    },
+    {
+      word: "wool",
+      hint: "comment from a canine",
+      answer: "woof",
+      alteredPosition: 3,
+    },
+    {
+      word: "woof",
+      hint: "top of your mouth",
+      answer: "roof",
+      alteredPosition: 0,
+    },
+    {
+      word: "roof",
+      hint: "plant part that's underground",
+      answer: "root",
+      alteredPosition: 3,
+    },
+    {
+      word: "root",
+      hint: "money from a heist",
+      answer: "loot",
+      alteredPosition: 0,
+    },
+    {
+      word: "loot",
+      hint: "one mine step on the gas",
+      answer: "foot",
+      alteredPosition: 0,
+    },
+    {
+      word: "foot",
+      hint: "refuge in a snowball fight",
+      answer: "fort",
+      alteredPosition: 2,
+    },
+    {
+      word: "fort",
+      hint: "chopsticks alternative",
+      answer: "fork",
+      alteredPosition: 3,
+    },
+    {
+      word: "fork",
+      hint: "common people",
+      answer: "folk",
+      alteredPosition: 2,
+    },
+    {
+      word: "folk",
+      hint: "the center of an egg",
+      answer: "yolk",
+      alteredPosition: 0,
+    },
+  ],
 ];
