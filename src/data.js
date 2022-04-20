@@ -1862,7 +1862,7 @@ export const game = [
     },
     {
       word: "loot",
-      hint: "one mine step on the gas",
+      hint: "one might step on the gas",
       answer: "foot",
       alteredPosition: 0,
     },
