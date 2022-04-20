@@ -1891,4 +1891,67 @@ export const game = [
       alteredPosition: 0,
     },
   ],
+  // 4/21/2022 (#30)
+  [
+    {
+      word: "door",
+      hint: "person of action",
+      answer: "doer",
+      alteredPosition: 2,
+    },
+    {
+      word: "doer",
+      hint: "gentle creature of the forest",
+      answer: "deer",
+      alteredPosition: 1,
+    },
+    {
+      word: "deer",
+      hint: "academic paper reviewer, often",
+      answer: "peer",
+      alteredPosition: 0,
+    },
+    {
+      word: "peer",
+      hint: "tree inhabited by a Christmas partridge",
+      answer: "pear",
+      alteredPosition: 2,
+    },
+    {
+      word: "pear",
+      hint: "use one of your senses",
+      answer: "hear",
+      alteredPosition: 0,
+    },
+    {
+      word: "hear",
+      hint: "your brain is in it",
+      answer: "head",
+      alteredPosition: 3,
+    },
+    {
+      word: "head",
+      hint: "a group of cattle",
+      answer: "herd",
+      alteredPosition: 2,
+    },
+    {
+      word: "herd",
+      hint: "how you may find this puzzle",
+      answer: "hard",
+      alteredPosition: 1,
+    },
+    {
+      word: "hard",
+      hint: "listen up (old-style)",
+      answer: "hark",
+      alteredPosition: 3,
+    },
+    {
+      word: "hark",
+      hint: "like Darth Vader's side",
+      answer: "dark",
+      alteredPosition: 0,
+    },
+  ],
 ];
