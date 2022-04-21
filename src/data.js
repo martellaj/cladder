@@ -1954,4 +1954,67 @@ export const game = [
       alteredPosition: 0,
     },
   ],
+  // 4/22/2022 (#31)
+  [
+    {
+      word: "hand",
+      hint: "not the sea",
+      answer: "land",
+      alteredPosition: 0,
+    },
+    {
+      word: "land",
+      hint: "a narrow path",
+      answer: "lane",
+      alteredPosition: 3,
+    },
+    {
+      word: "lane",
+      hint: "a small part of a film script",
+      answer: "line",
+      alteredPosition: 1,
+    },
+    {
+      word: "line",
+      hint: "air freshener scent",
+      answer: "pine",
+      alteredPosition: 0,
+    },
+    {
+      word: "pine",
+      hint: `lead weapon in "Clue"`,
+      answer: "pipe",
+      alteredPosition: 2,
+    },
+    {
+      word: "pipe",
+      hint: "Vatican City's eminent tenant",
+      answer: "pope",
+      alteredPosition: 1,
+    },
+    {
+      word: "pope",
+      hint: "a fool",
+      answer: "dope",
+      alteredPosition: 0,
+    },
+    {
+      word: "dope",
+      hint: "fruit cup brand",
+      answer: "dole",
+      alteredPosition: 2,
+    },
+    {
+      word: "dole",
+      hint: "toy that might sleep in a miniature bed",
+      answer: "doll",
+      alteredPosition: 3,
+    },
+    {
+      word: "doll",
+      hint: "yawn-inducing",
+      answer: "dull",
+      alteredPosition: 1,
+    },
+  ],
 ];
