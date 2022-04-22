@@ -14,6 +14,7 @@ export default function Results(props) {
     isHardMode,
     isDarkMode,
     isTeacherMode,
+    specificGameLevel = undefined,
   } = props;
 
   const didComplete = correct === 10;
@@ -49,7 +50,7 @@ export default function Results(props) {
       {didComplete && !isTeacherMode && (
         <div className="resultsTime">{time} seconds</div>
       )}
-      {!isPractice && (
+      {!isPractice && specificGameLevel === undefined && (
         <Button
           id="shareButton"
           className="positive button"

@@ -8,6 +8,7 @@ import About from "./About";
 import { copyStats } from "./stats";
 import StatsComponent from "./StatsComponent";
 import Settings from "./Settings";
+import Archive from "./Archive";
 import animateCSS from "./animateCSS";
 
 // set the app height for mobile
@@ -70,6 +71,7 @@ function App() {
   const [isTeacherMode, setIsTeacherMode] = useState(
     window.localStorage.getItem("teacherMode") === "true"
   );
+  const [puzzleNumber, setPuzzleNumber] = useState(undefined);
 
   // note the player has played before so we don't show help next time
   useEffect(() => {
@@ -82,10 +84,12 @@ function App() {
     window.localStorage.setItem("returningPlayer", "true");
   }, []);
 
-  const onOptionSelected = (option) => {
+  const onOptionSelected = (option, level) => {
     if (option === "toggleDarkMode") {
       setIsDarkMode(!isDarkMode);
     }
+
+    setPuzzleNumber(level);
 
     setView(option);
   };
@@ -105,7 +109,11 @@ function App() {
       <div className="headerSection" style={{ marginLeft: "12px" }}>
         <Icon
           onClick={() => {
-            setView("menu");
+            if (view === "game" && puzzleNumber !== undefined) {
+              setView("archive");
+            } else {
+              setView("menu");
+            }
           }}
           tabIndex="0"
           style={{
@@ -178,6 +186,7 @@ function App() {
           selectionMode={selectionMode}
           isHardMode={isHardMode}
           isTeacherMode={isTeacherMode}
+          puzzleNumber={puzzleNumber}
         />
       );
       break;
@@ -215,6 +224,9 @@ function App() {
           setIsTeacherMode={setIsTeacherMode}
         />
       );
+      break;
+    case "archive":
+      content = <Archive onOptionSelected={onOptionSelected} />;
       break;
     case "menu":
     default:

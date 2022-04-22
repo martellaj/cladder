@@ -35,6 +35,7 @@ export default function Game(props) {
     selectionMode,
     isHardMode,
     isTeacherMode,
+    puzzleNumber,
   } = props;
 
   const [guess, setGuess] = useState(""); // current typed guess
@@ -51,8 +52,10 @@ export default function Game(props) {
       ? params.p
       : isPractice
       ? getRandomPuzzle()
-      : null;
-  }, [isPractice]);
+      : puzzleNumber !== undefined
+      ? puzzleNumber
+      : undefined;
+  }, [isPractice, puzzleNumber]);
 
   // let d = new Date();
   // d = d.setDate(d.getDate() + 1);
@@ -200,7 +203,7 @@ export default function Game(props) {
   // tries to see if game has been played today
   useEffect(() => {
     // ignore stored result if using param or practicing
-    if (specificGameLevel !== null || isPractice) {
+    if (specificGameLevel !== undefined || isPractice) {
       return;
     }
 
@@ -221,7 +224,7 @@ export default function Game(props) {
     );
     const data = window.localStorage.getItem(`puzzle-${PUZZLE_NUMBER}`);
 
-    if (isOver && !data && !specificGameLevel && !isPractice) {
+    if (isOver && !data && !isPractice) {
       window.localStorage.setItem(
         `puzzle-${PUZZLE_NUMBER}`,
         JSON.stringify({
@@ -398,6 +401,7 @@ export default function Game(props) {
           onLoaded={() => {
             animateCSS("#shareButton", "heartBeat");
           }}
+          specificGameLevel={specificGameLevel}
         />
       )}
 

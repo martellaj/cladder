@@ -333,3 +333,10 @@ button:focus {
   padding: 12px;
   border-radius: 10%;
 }
+
+.archiveContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 24px;
+}
