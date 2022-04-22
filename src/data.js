@@ -2017,4 +2017,67 @@ export const game = [
       alteredPosition: 1,
     },
   ],
+  // 4/23/2022 (#32)
+  [
+    {
+      word: "copy",
+      hint: "deal with difficulities",
+      answer: "cope",
+      alteredPosition: 3,
+    },
+    {
+      word: "cope",
+      hint: "a lasso",
+      answer: "rope",
+      alteredPosition: 0,
+    },
+    {
+      word: "rope",
+      hint: "fully developed or matured",
+      answer: "ripe",
+      alteredPosition: 1,
+    },
+    {
+      word: "ripe",
+      hint: "use a moist towelette, say",
+      answer: "wipe",
+      alteredPosition: 0,
+    },
+    {
+      word: "wipe",
+      hint: "what fills some cellars",
+      answer: "wine",
+      alteredPosition: 2,
+    },
+    {
+      word: "wine",
+      hint: "feathered limb",
+      answer: "wing",
+      alteredPosition: 3,
+    },
+    {
+      word: "wing",
+      hint: "engage in karaoke",
+      answer: "sing",
+      alteredPosition: 0,
+    },
+    {
+      word: "sing",
+      hint: "place to put dirty dishes",
+      answer: "sink",
+      alteredPosition: 3,
+    },
+    {
+      word: "sink",
+      hint: "where you may skate on thin ice",
+      answer: "rink",
+      alteredPosition: 3,
+    },
+    {
+      word: "rink",
+      hint: "jeopardy, danger",
+      answer: "risk",
+      alteredPosition: 2,
+    },
+  ],
 ];
