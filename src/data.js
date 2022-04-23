@@ -2080,4 +2080,67 @@ export const game = [
       alteredPosition: 2,
     },
   ],
+  // 4/23/2022 (#33)
+  [
+    {
+      word: "lark",
+      hint: "animal fat",
+      answer: "lard",
+      alteredPosition: 3,
+    },
+    {
+      word: "lard",
+      hint: "title for a duke",
+      answer: "lord",
+      alteredPosition: 1,
+    },
+    {
+      word: "lord",
+      hint: "cable to charge your phone",
+      answer: "cord",
+      alteredPosition: 0,
+    },
+    {
+      word: "cord",
+      hint: "Hallmark greeting",
+      answer: "card",
+      alteredPosition: 1,
+    },
+    {
+      word: "card",
+      hint: "freshwater fish like a koi",
+      answer: "carp",
+      alteredPosition: 3,
+    },
+    {
+      word: "carp",
+      hint: "large stringed musical instrument",
+      answer: "harp",
+      alteredPosition: 0,
+    },
+    {
+      word: "harp",
+      hint: "way to boil an egg",
+      answer: "hard",
+      alteredPosition: 3,
+    },
+    {
+      word: "hard",
+      hint: "type of immunity",
+      answer: "herd",
+      alteredPosition: 1,
+    },
+    {
+      word: "herd",
+      hint: "basil or sage, for example",
+      answer: "herb",
+      alteredPosition: 3,
+    },
+    {
+      word: "herb",
+      hint: "an action word",
+      answer: "verb",
+      alteredPosition: 0,
+    },
+  ],
 ];
