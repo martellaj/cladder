@@ -2143,4 +2143,67 @@ export const game = [
       alteredPosition: 0,
     },
   ],
+  // 4/24/2022 (#34)
+  [
+    {
+      word: "vest",
+      hint: "bird's home of twigs",
+      answer: "nest",
+      alteredPosition: 0,
+    },
+    {
+      word: "nest",
+      hint: "clean or orderly",
+      answer: "neat",
+      alteredPosition: 2,
+    },
+    {
+      word: "neat",
+      hint: "within spittin' distance of",
+      answer: "near",
+      alteredPosition: 3,
+    },
+    {
+      word: "near",
+      hint: "char on the surface",
+      answer: "sear",
+      alteredPosition: 0,
+    },
+    {
+      word: "sear",
+      hint: "Lion King antagonist",
+      answer: "scar",
+      alteredPosition: 1,
+    },
+    {
+      word: "scar",
+      hint: "throw some jabs",
+      answer: "spar",
+      alteredPosition: 1,
+    },
+    {
+      word: "spar",
+      hint: "disruptive e-mail",
+      answer: "spam",
+      alteredPosition: 3,
+    },
+    {
+      word: "spam",
+      hint: "fake, fraud",
+      answer: "sham",
+      alteredPosition: 1,
+    },
+    {
+      word: "sham",
+      hint: "impact onomatopoeia",
+      answer: "wham",
+      alteredPosition: 0,
+    },
+    {
+      word: "wham",
+      hint: "sudden idea to do something",
+      answer: "whim",
+      alteredPosition: 2,
+    },
+  ],
 ];
