@@ -2206,4 +2206,67 @@ export const game = [
       alteredPosition: 2,
     },
   ],
+  // 4/25/2022 (#35)
+  [
+    {
+      word: "left",
+      hint: "storage space with ladder access",
+      answer: "loft",
+      alteredPosition: 1,
+    },
+    {
+      word: "loft",
+      hint: `like those who ask "Where am I?"`,
+      answer: "lost",
+      alteredPosition: 2,
+    },
+    {
+      word: "lost",
+      hint: "price",
+      answer: "cost",
+      alteredPosition: 0,
+    },
+    {
+      word: "cost",
+      hint: "broken bone cover",
+      answer: "cast",
+      alteredPosition: 1,
+    },
+    {
+      word: "cast",
+      hint: "part of a sailboat",
+      answer: "mast",
+      alteredPosition: 0,
+    },
+    {
+      word: "mast",
+      hint: "a large crowd",
+      answer: "mass",
+      alteredPosition: 3,
+    },
+    {
+      word: "mass",
+      hint: "mountain range path",
+      answer: "pass",
+      alteredPosition: 0,
+    },
+    {
+      word: "pass",
+      hint: "historic",
+      answer: "past",
+      alteredPosition: 3,
+    },
+    {
+      word: "past",
+      hint: "separate piece",
+      answer: "part",
+      alteredPosition: 2,
+    },
+    {
+      word: "part",
+      hint: "green section in a city",
+      answer: "park",
+      alteredPosition: 3,
+    },
+  ],
 ];
