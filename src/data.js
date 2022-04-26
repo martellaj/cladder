@@ -2269,4 +2269,67 @@ export const game = [
       alteredPosition: 3,
     },
   ],
+  // 4/26/2022 (#36)
+  [
+    {
+      word: "babe",
+      hint: "a large bundle of cotton, hay, or paper",
+      answer: "bale",
+      alteredPosition: 2,
+    },
+    {
+      word: "bale",
+      hint: "fable or parable",
+      answer: "tale",
+      alteredPosition: 0,
+    },
+    {
+      word: "tale",
+      hint: "snatch, grab",
+      answer: "take",
+      alteredPosition: 2,
+    },
+    {
+      word: "take",
+      hint: "layered dessert, often",
+      answer: "cake",
+      alteredPosition: 0,
+    },
+    {
+      word: "cake",
+      hint: "hole in the side of a cliff or hill",
+      answer: "cave",
+      alteredPosition: 2,
+    },
+    {
+      word: "cave",
+      hint: "to cover with cement",
+      answer: "pave",
+      alteredPosition: 0,
+    },
+    {
+      word: "pave",
+      hint: "not tanned at all",
+      answer: "pale",
+      alteredPosition: 2,
+    },
+    {
+      word: "pale",
+      hint: "hide in your hand, as a magician would",
+      answer: "palm",
+      alteredPosition: 3,
+    },
+    {
+      word: "palm",
+      hint: "lip ____, i.e. ChapStick",
+      answer: "balm",
+      alteredPosition: 0,
+    },
+    {
+      word: "balm",
+      hint: "needing no shampoo",
+      answer: "bald",
+      alteredPosition: 3,
+    },
+  ],
 ];
