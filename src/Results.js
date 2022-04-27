@@ -81,7 +81,7 @@ export default function Results(props) {
           </Button>
 
           <Button
-            id="shareButton"
+            id="donateButton"
             className="button"
             style={{
               marginBottom: "12px",
