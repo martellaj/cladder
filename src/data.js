@@ -2332,4 +2332,67 @@ export const game = [
       alteredPosition: 3,
     },
   ],
+  // 4/27/2022 (#37)
+  [
+    {
+      word: "air",
+      hint: "prepare to take a shot",
+      answer: "aim",
+      alteredPosition: 2,
+    },
+    {
+      word: "aim",
+      hint: "edge of a drinking cup",
+      answer: "rim",
+      alteredPosition: 0,
+    },
+    {
+      word: "rim",
+      hint: "liquor made in Jamaica",
+      answer: "rum",
+      alteredPosition: 1,
+    },
+    {
+      word: "rum",
+      hint: "addition problem's answer",
+      answer: "sum",
+      alteredPosition: 0,
+    },
+    {
+      word: "sum",
+      hint: "the closest star",
+      answer: "sun",
+      alteredPosition: 2,
+    },
+    {
+      word: "sun",
+      hint: "___ and games",
+      answer: "fun",
+      alteredPosition: 0,
+    },
+    {
+      word: "fun",
+      hint: "animal's coat",
+      answer: "fur",
+      alteredPosition: 2,
+    },
+    {
+      word: "fur",
+      hint: "good way off",
+      answer: "far",
+      alteredPosition: 1,
+    },
+    {
+      word: "far",
+      hint: "glass container with a lid",
+      answer: "jar",
+      alteredPosition: 0,
+    },
+    {
+      word: "jar",
+      hint: "toast topper, often",
+      answer: "jam",
+      alteredPosition: 2,
+    },
+  ],
 ];
