@@ -2395,4 +2395,67 @@ export const game = [
       alteredPosition: 2,
     },
   ],
+  // 4/28/2022 (#38)
+  [
+    {
+      word: "zero",
+      hint: "one who comes to the rescue",
+      answer: "hero",
+      alteredPosition: 0,
+    },
+    {
+      word: "hero",
+      hint: "group of livestock",
+      answer: "herd",
+      alteredPosition: 3,
+    },
+    {
+      word: "herd",
+      hint: "you may hang it in shame",
+      answer: "head",
+      alteredPosition: 2,
+    },
+    {
+      word: "head",
+      hint: "big untidy pile",
+      answer: "heap",
+      alteredPosition: 3,
+    },
+    {
+      word: "heap",
+      hint: "what a good Samaritan offers",
+      answer: "help",
+      alteredPosition: 2,
+    },
+    {
+      word: "help",
+      hint: "place unlikely to freeze over",
+      answer: "hell",
+      alteredPosition: 3,
+    },
+    {
+      word: "hell",
+      hint: "it rings",
+      answer: "bell",
+      alteredPosition: 0,
+    },
+    {
+      word: "bell",
+      hint: "___ Gates (Microsoft founder)",
+      answer: "bill",
+      alteredPosition: 1,
+    },
+    {
+      word: "bill",
+      hint: "last legal testament",
+      answer: "will",
+      alteredPosition: 0,
+    },
+    {
+      word: "will",
+      hint: "totally untamed",
+      answer: "wild",
+      alteredPosition: 3,
+    },
+  ],
 ];
