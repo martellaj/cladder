@@ -2833,7 +2833,7 @@ export const game = [
       word: "sale",
       hint: "seasoning paired with pepper",
       answer: "salt",
-      alteredPosition: 2,
+      alteredPosition: 3,
     },
   ],
 ];
