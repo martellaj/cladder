@@ -29,7 +29,7 @@ export default function Converter() {
 
           const game = [];
 
-          for (let i = 0; i <= 10; i++) {
+          for (let i = 0; i < 10; i++) {
             game.push({
               word: words[i],
               hint: clues[i + 1],
