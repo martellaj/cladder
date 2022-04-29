@@ -10,6 +10,7 @@ import StatsComponent from "./StatsComponent";
 import Settings from "./Settings";
 import Archive from "./Archive";
 import animateCSS from "./animateCSS";
+import Converter from "./Converter";
 
 // set the app height for mobile
 const appHeight = () =>
@@ -72,6 +73,12 @@ function App() {
     window.localStorage.getItem("teacherMode") === "true"
   );
   const [puzzleNumber, setPuzzleNumber] = useState(undefined);
+
+  useEffect(() => {
+    if (params?.convert) {
+      setView("convert");
+    }
+  }, []);
 
   // note the player has played before so we don't show help next time
   useEffect(() => {
@@ -227,6 +234,9 @@ function App() {
       break;
     case "archive":
       content = <Archive onOptionSelected={onOptionSelected} />;
+      break;
+    case "convert":
+      content = <Converter />;
       break;
     case "menu":
     default:
