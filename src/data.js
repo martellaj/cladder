@@ -2521,4 +2521,130 @@ export const game = [
       alteredPosition: 0,
     },
   ],
+  // 4/30/2022 (#40)
+  [
+    {
+      word: "quiz",
+      hint: "pound sterling",
+      answer: "quid",
+      alteredPosition: 3,
+    },
+    {
+      word: "quid",
+      hint: "area between buildings on campus",
+      answer: "quad",
+      alteredPosition: 2,
+    },
+    {
+      word: "quad",
+      hint: "twosome",
+      answer: "duad",
+      alteredPosition: 0,
+    },
+    {
+      word: "duad",
+      hint: "____ as a doornail",
+      answer: "dead",
+      alteredPosition: 1,
+    },
+    {
+      word: "dead",
+      hint: "peruse",
+      answer: "read",
+      alteredPosition: 0,
+    },
+    {
+      word: "read",
+      hint: "500 sheets of paper",
+      answer: "ream",
+      alteredPosition: 3,
+    },
+    {
+      word: "ream",
+      hint: "use a cell phone outside of your area",
+      answer: "roam",
+      alteredPosition: 1,
+    },
+    {
+      word: "roam",
+      hint: "Cappuccino topper",
+      answer: "foam",
+      alteredPosition: 0,
+    },
+    {
+      word: "foam",
+      hint: "to shape",
+      answer: "form",
+      alteredPosition: 2,
+    },
+    {
+      word: "form",
+      hint: "object with tines",
+      answer: "fork",
+      alteredPosition: 3,
+    },
+  ],
+  // 4/30/2022 (#40)
+  [
+    {
+      word: "quiz",
+      hint: "pound sterling",
+      answer: "quid",
+      alteredPosition: 3,
+    },
+    {
+      word: "quid",
+      hint: "area between buildings on campus",
+      answer: "quad",
+      alteredPosition: 2,
+    },
+    {
+      word: "quad",
+      hint: "twosome",
+      answer: "duad",
+      alteredPosition: 0,
+    },
+    {
+      word: "duad",
+      hint: "____ as a doornail",
+      answer: "dead",
+      alteredPosition: 1,
+    },
+    {
+      word: "dead",
+      hint: "peruse",
+      answer: "read",
+      alteredPosition: 0,
+    },
+    {
+      word: "read",
+      hint: "500 sheets of paper",
+      answer: "ream",
+      alteredPosition: 3,
+    },
+    {
+      word: "ream",
+      hint: "use a cell phone outside of your area",
+      answer: "roam",
+      alteredPosition: 1,
+    },
+    {
+      word: "roam",
+      hint: "Cappuccino topper",
+      answer: "foam",
+      alteredPosition: 0,
+    },
+    {
+      word: "foam",
+      hint: "to shape",
+      answer: "form",
+      alteredPosition: 2,
+    },
+    {
+      word: "form",
+      hint: "object with tines",
+      answer: "fork",
+      alteredPosition: 3,
+    },
+  ],
 ];
