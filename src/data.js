@@ -2458,4 +2458,67 @@ export const game = [
       alteredPosition: 3,
     },
   ],
+  // 4/29/2022 (#39)
+  [
+    {
+      word: "time",
+      hint: "less than exciting",
+      answer: "tame",
+      alteredPosition: 1,
+    },
+    {
+      word: "tame",
+      hint: "titled lady in England",
+      answer: "dame",
+      alteredPosition: 0,
+    },
+    {
+      word: "dame",
+      hint: "John Doe, e.g.",
+      answer: "name",
+      alteredPosition: 0,
+    },
+    {
+      word: "name",
+      hint: "the back of one's neck",
+      answer: "nape",
+      alteredPosition: 2,
+    },
+    {
+      word: "nape",
+      hint: "be open-mouthed",
+      answer: "gape",
+      alteredPosition: 0,
+    },
+    {
+      word: "gape",
+      hint: "plane boarding area",
+      answer: "gate",
+      alteredPosition: 2,
+    },
+    {
+      word: "gate",
+      hint: "buddy (in London)",
+      answer: "mate",
+      alteredPosition: 0,
+    },
+    {
+      word: "mate",
+      hint: "horse's long hair",
+      answer: "mane",
+      alteredPosition: 2,
+    },
+    {
+      word: "mane",
+      hint: "a whole lotta",
+      answer: "many",
+      alteredPosition: 3,
+    },
+    {
+      word: "many",
+      hint: "wacky",
+      answer: "zany",
+      alteredPosition: 0,
+    },
+  ],
 ];
