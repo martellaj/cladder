@@ -2332,7 +2332,7 @@ export const game = [
       alteredPosition: 3,
     },
   ],
-  // 4/27/2022 (#37)
+  // 4/28/2022 (#37)
   [
     {
       word: "air",
@@ -2395,7 +2395,7 @@ export const game = [
       alteredPosition: 2,
     },
   ],
-  // 4/28/2022 (#38)
+  // 4/29/2022 (#38)
   [
     {
       word: "zero",
@@ -2458,7 +2458,7 @@ export const game = [
       alteredPosition: 3,
     },
   ],
-  // 4/29/2022 (#39)
+  // 4/30/2022 (#39)
   [
     {
       word: "time",
@@ -2521,7 +2521,7 @@ export const game = [
       alteredPosition: 0,
     },
   ],
-  // 4/30/2022 (#40)
+  // 5/1/2022 (#40)
   [
     {
       word: "quiz",
@@ -2584,7 +2584,7 @@ export const game = [
       alteredPosition: 3,
     },
   ],
-  // 5/1/2022 (#41)
+  // 5/2/2022 (#41)
   [
     {
       word: "sure",
@@ -2644,6 +2644,195 @@ export const game = [
       word: "cord",
       hint: "an informal term for a female student",
       answer: "coed",
+      alteredPosition: 2,
+    },
+  ],
+  // 5/3/2022 (#42)
+  [
+    {
+      word: "born",
+      hint: "dawn",
+      answer: "morn",
+      alteredPosition: 0,
+    },
+    {
+      word: "morn",
+      hint: "show someone your bum",
+      answer: "moon",
+      alteredPosition: 2,
+    },
+    {
+      word: "moon",
+      hint: "shortly",
+      answer: "soon",
+      alteredPosition: 0,
+    },
+    {
+      word: "soon",
+      hint: "it dirties santa's outfit",
+      answer: "soot",
+      alteredPosition: 3,
+    },
+    {
+      word: "soot",
+      hint: "put into alphabetical order",
+      answer: "sort",
+      alteredPosition: 2,
+    },
+    {
+      word: "sort",
+      hint: "structure that might be made of pillows",
+      answer: "fort",
+      alteredPosition: 0,
+    },
+    {
+      word: "fort",
+      hint: "pass gas",
+      answer: "fart",
+      alteredPosition: 0,
+    },
+    {
+      word: "fart",
+      hint: "forgo eating",
+      answer: "fast",
+      alteredPosition: 2,
+    },
+    {
+      word: "fast",
+      hint: "clenched hand",
+      answer: "fist",
+      alteredPosition: 1,
+    },
+    {
+      word: "fist",
+      hint: "Italian auto manufacturer",
+      answer: "fiat",
+      alteredPosition: 2,
+    },
+  ],
+  // 5/4/2022 (#43)
+  [
+    {
+      word: "fiat",
+      hint: "impressive achievement",
+      answer: "feat",
+      alteredPosition: 1,
+    },
+    {
+      word: "feat",
+      hint: "place in Parliament/Congress",
+      answer: "seat",
+      alteredPosition: 0,
+    },
+    {
+      word: "seat",
+      hint: "navy ___",
+      answer: "seal",
+      alteredPosition: 3,
+    },
+    {
+      word: "seal",
+      hint: "pass out cards",
+      answer: "deal",
+      alteredPosition: 0,
+    },
+    {
+      word: "deal",
+      hint: "computer manufacturer michael",
+      answer: "dell",
+      alteredPosition: 2,
+    },
+    {
+      word: "dell",
+      hint: "Barbie, e.g.",
+      answer: "doll",
+      alteredPosition: 1,
+    },
+    {
+      word: "doll",
+      hint: "roadway fee",
+      answer: "toll",
+      alteredPosition: 0,
+    },
+    {
+      word: "toll",
+      hint: "recounted",
+      answer: "told",
+      alteredPosition: 3,
+    },
+    {
+      word: "told",
+      hint: "darken a font",
+      answer: "bold",
+      alteredPosition: 0,
+    },
+    {
+      word: "bold",
+      hint: "harry potter's blemish",
+      answer: "bolt",
+      alteredPosition: 3,
+    },
+  ],
+  // 5/5/2022 (#44)
+  [
+    {
+      word: "bolt",
+      hint: "smaller than a ship",
+      answer: "boat",
+      alteredPosition: 2,
+    },
+    {
+      word: "boat",
+      hint: "piece of clothing worn outside",
+      answer: "coat",
+      alteredPosition: 0,
+    },
+    {
+      word: "coat",
+      hint: "the price to be paid",
+      answer: "cost",
+      alteredPosition: 2,
+    },
+    {
+      word: "cost",
+      hint: "someone who has guests",
+      answer: "host",
+      alteredPosition: 0,
+    },
+    {
+      word: "host",
+      hint: "tube for watering plants",
+      answer: "hose",
+      alteredPosition: 3,
+    },
+    {
+      word: "hose",
+      hint: "donut's middle",
+      answer: "hole",
+      alteredPosition: 2,
+    },
+    {
+      word: "hole",
+      hint: "distribute in charity",
+      answer: "dole",
+      alteredPosition: 0,
+    },
+    {
+      word: "dole",
+      hint: "one of Disney's chipmunks",
+      answer: "dale",
+      alteredPosition: 1,
+    },
+    {
+      word: "dale",
+      hint: "percent-off promotion",
+      answer: "sale",
+      alteredPosition: 0,
+    },
+    {
+      word: "sale",
+      hint: "seasoning paired with pepper",
+      answer: "salt",
       alteredPosition: 2,
     },
   ],
