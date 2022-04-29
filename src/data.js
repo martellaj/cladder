@@ -2689,7 +2689,7 @@ export const game = [
       word: "fort",
       hint: "pass gas",
       answer: "fart",
-      alteredPosition: 0,
+      alteredPosition: 1,
     },
     {
       word: "fart",
