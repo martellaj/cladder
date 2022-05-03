@@ -2738,7 +2738,7 @@ export const game = [
     },
     {
       word: "deal",
-      hint: "computer manufacturer michael",
+      hint: "computer manufacturer",
       answer: "dell",
       alteredPosition: 2,
     },
