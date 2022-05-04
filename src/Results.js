@@ -10,11 +10,9 @@ export default function Results(props) {
     puzzleNumber,
     isIos,
     onLoaded,
-    isPractice,
     isHardMode,
     isDarkMode,
     isTeacherMode,
-    specificGameLevel = undefined,
   } = props;
 
   const didComplete = correct === 10;
@@ -50,53 +48,51 @@ export default function Results(props) {
       {didComplete && !isTeacherMode && (
         <div className="resultsTime">{time} seconds</div>
       )}
-      {!isPractice && specificGameLevel === undefined && (
-        <>
-          <Button
-            id="shareButton"
-            className="positive button"
-            style={{ marginBottom: "18px" }}
-            size="massive"
-            inverted={isDarkMode}
-            onClick={() => {
-              const text = `#Cladder ${puzzleNumber}\n\n✅ ${correct}/10${
-                isHardMode && !isTeacherMode ? "*" : ""
-              }\n${
-                didComplete && !isTeacherMode ? `🚀 ${time} seconds\n` : ""
-              }\nhttps://playcladder.com`;
+      <>
+        <Button
+          id="shareButton"
+          className="positive button"
+          style={{ marginBottom: "18px" }}
+          size="massive"
+          inverted={isDarkMode}
+          onClick={() => {
+            const text = `#Cladder ${puzzleNumber}\n\n✅ ${correct}/10${
+              isHardMode && !isTeacherMode ? "*" : ""
+            }\n${
+              didComplete && !isTeacherMode ? `🚀 ${time} seconds\n` : ""
+            }\nhttps://playcladder.com`;
 
-              var ua = navigator.userAgent.toLowerCase();
-              var isAndroid = ua.indexOf("android") > -1;
-              if (isIos || isAndroid) {
-                navigator.share({
-                  text: text,
-                });
-              } else {
-                copy(text);
-                onCopied();
-              }
-            }}
-          >
-            SHARE
-          </Button>
+            var ua = navigator.userAgent.toLowerCase();
+            var isAndroid = ua.indexOf("android") > -1;
+            if (isIos || isAndroid) {
+              navigator.share({
+                text: text,
+              });
+            } else {
+              copy(text);
+              onCopied();
+            }
+          }}
+        >
+          SHARE
+        </Button>
 
-          <Button
-            id="donateButton"
-            className="button"
-            style={{
-              marginBottom: "12px",
-            }}
-            size="large"
-            color="purple"
-            inverted={isDarkMode}
-            onClick={() => {
-              window.open("https://www.buymeacoffee.com/playcladder", "_blank");
-            }}
-          >
-            ☕ BUY ME A COFFEE
-          </Button>
-        </>
-      )}
+        <Button
+          id="donateButton"
+          className="button"
+          style={{
+            marginBottom: "12px",
+          }}
+          size="large"
+          color="purple"
+          inverted={isDarkMode}
+          onClick={() => {
+            window.open("https://www.buymeacoffee.com/playcladder", "_blank");
+          }}
+        >
+          ☕ BUY ME A COFFEE
+        </Button>
+      </>
     </div>
   );
 }

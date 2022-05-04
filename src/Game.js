@@ -222,9 +222,8 @@ export default function Game(props) {
     const time = parseFloat(
       (((progress / 100) * TIME_LIMIT) / 1000).toFixed(2)
     );
-    const data = window.localStorage.getItem(`puzzle-${PUZZLE_NUMBER}`);
 
-    if (isOver && !data && !isPractice) {
+    if (isOver && !isPractice) {
       window.localStorage.setItem(
         `puzzle-${PUZZLE_NUMBER}`,
         JSON.stringify({
