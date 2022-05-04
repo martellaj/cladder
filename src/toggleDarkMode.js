@@ -23,7 +23,8 @@ export function reloadColors() {
   let alteredFailedBackground = "indianred";
   let selectedTileBackground = "#c0b9f9";
   let statsBackground = "#f1f1f1";
-  let attemptedTileBackground = "#ade8ad";
+  let attemptedTileBackground = "#c0b9f9";
+  let completedTileBackground = "#ade8ad";
 
   if (mode === "dark") {
     black = "white";
@@ -34,7 +35,8 @@ export function reloadColors() {
     keyboardActiveBackground = "#2b2b2d";
     selectedTileBackground = "#6654f2";
     statsBackground = "#272727";
-    attemptedTileBackground = "#3b843b";
+    attemptedTileBackground = "#6654f2";
+    completedTileBackground = "#3b843b";
   }
 
   let root = document.documentElement;
@@ -50,4 +52,5 @@ export function reloadColors() {
   root.style.setProperty("--selectedTileBackground", selectedTileBackground);
   root.style.setProperty("--statsBackground", statsBackground);
   root.style.setProperty("--attemptedTileBackground", attemptedTileBackground);
+  root.style.setProperty("--completedTileBackground", completedTileBackground);
 }

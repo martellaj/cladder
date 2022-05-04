@@ -49,5 +49,8 @@
 }
 
 .attempted {
-  background-color: var(--attemptedTileBackground);
+  background-color: var(--alteredBackground);
+}
+.completed {
+  background-color: var(--completedTileBackground) !important;
 }

@@ -6,9 +6,10 @@ export default function Archive(props) {
   const todayPuzzleNumber = getPuzzleNumber();
   const content = [];
 
-  for (let i = 0; i <= todayPuzzleNumber; i++) {
+  for (let i = todayPuzzleNumber; i >= 0; i--) {
     const data = window.localStorage.getItem(`puzzle-${i}`);
     const isAttempted = !!data;
+    const isCompleted = data ? JSON.parse(data).score === 10 : false;
 
     content.push(
       <div style={{ marginBottom: "6px" }}>
@@ -20,6 +21,7 @@ export default function Archive(props) {
           altered={false}
           letter={i}
           attempted={isAttempted}
+          completed={isCompleted}
         />
       </div>
     );
