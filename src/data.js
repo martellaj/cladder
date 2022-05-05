@@ -2836,4 +2836,67 @@ export const game = [
       alteredPosition: 3,
     },
   ],
+  // 5/6/2022 (#45)
+  [
+    {
+      word: "snow",
+      hint: "to demonstrate",
+      answer: "show",
+      alteredPosition: 1,
+    },
+    {
+      word: "show",
+      hint: "store",
+      answer: "shop",
+      alteredPosition: 3,
+    },
+    {
+      word: "shop",
+      hint: "huge boat",
+      answer: "ship",
+      alteredPosition: 2,
+    },
+    {
+      word: "ship",
+      hint: "stumble or slide",
+      answer: "slip",
+      alteredPosition: 1,
+    },
+    {
+      word: "slip",
+      hint: "moved smoothly",
+      answer: "slid",
+      alteredPosition: 3,
+    },
+    {
+      word: "slid",
+      hint: "uttered",
+      answer: "said",
+      alteredPosition: 1,
+    },
+    {
+      word: "said",
+      hint: "provided funds",
+      answer: "paid",
+      alteredPosition: 0,
+    },
+    {
+      word: "paid",
+      hint: "discomfort",
+      answer: "pain",
+      alteredPosition: 3,
+    },
+    {
+      word: "pain",
+      hint: "weather that may cancel a picnic",
+      answer: "rain",
+      alteredPosition: 0,
+    },
+    {
+      word: "rain",
+      hint: "horizontal bar",
+      answer: "rail",
+      alteredPosition: 3,
+    },
+  ],
 ];
