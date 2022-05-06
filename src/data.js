@@ -2899,4 +2899,67 @@ export const game = [
       alteredPosition: 3,
     },
   ],
+  // 5/7/2022 (#46)
+  [
+    {
+      word: "snork",
+      hint: "make loud noises while sleeping",
+      answer: "snore",
+      alteredPosition: 4,
+    },
+    {
+      word: "snore",
+      hint: "camping treat with marshmallows",
+      answer: "smore",
+      alteredPosition: 1,
+    },
+    {
+      word: "smore",
+      hint: "that's Italian for love",
+      answer: "amore",
+      alteredPosition: 0,
+    },
+    {
+      word: "amore",
+      hint: "be fond of",
+      answer: "adore",
+      alteredPosition: 1,
+    },
+    {
+      word: "adore",
+      hint: "decorate or embellish",
+      answer: "adorn",
+      alteredPosition: 4,
+    },
+    {
+      word: "adorn",
+      hint: "oak tree nut",
+      answer: "acorn",
+      alteredPosition: 1,
+    },
+    {
+      word: "acorn",
+      hint: "openly dislike or disrespect",
+      answer: "scorn",
+      alteredPosition: 0,
+    },
+    {
+      word: "scorn",
+      hint: "kick a field goal or drop a basket, e.g.",
+      answer: "score",
+      alteredPosition: 4,
+    },
+    {
+      word: "score",
+      hint: "frighten",
+      answer: "scare",
+      alteredPosition: 2,
+    },
+    {
+      word: "scare",
+      hint: "10 pins in two balls",
+      answer: "spare",
+      alteredPosition: 1,
+    },
+  ],
 ];
