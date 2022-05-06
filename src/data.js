@@ -2846,7 +2846,7 @@ export const game = [
     },
     {
       word: "show",
-      hint: "store",
+      hint: "a store",
       answer: "shop",
       alteredPosition: 3,
     },
