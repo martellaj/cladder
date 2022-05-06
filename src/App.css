@@ -346,10 +346,14 @@ button:focus {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: var(--bannerBackgroundColor);
+  background-color: var(--statsBackground);
   padding: 12px;
   border-radius: 10px;
   margin: 0px 12px;
   margin-bottom: -30px;
   font-size: small;
+}
+
+.bannerResultsContainer {
+  margin-bottom: 24px !important;
 }
