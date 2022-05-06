@@ -340,3 +340,16 @@ button:focus {
   justify-content: center;
   margin-top: 24px;
 }
+
+.bannerContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--bannerBackgroundColor);
+  padding: 12px;
+  border-radius: 10px;
+  margin: 0px 12px;
+  margin-bottom: -30px;
+  font-size: small;
+}

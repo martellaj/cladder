@@ -11,6 +11,7 @@ import Settings from "./Settings";
 import Archive from "./Archive";
 import animateCSS from "./animateCSS";
 import Converter from "./Converter";
+import CreatorWeekBanner from "./CreatorWeekBanner";
 
 // set the app height for mobile
 const appHeight = () =>
@@ -73,12 +74,22 @@ function App() {
     window.localStorage.getItem("teacherMode") === "true"
   );
   const [puzzleNumber, setPuzzleNumber] = useState(undefined);
+  const [showCreatorWeekBanner, setShowCreatorWeekBanner] = useState(false);
 
   useEffect(() => {
     if (params?.convert) {
       setView("convert");
     }
   }, []);
+
+  useEffect(() => {
+    const puzzleNumber = params?.p ?? getPuzzleNumber();
+    if (puzzleNumber >= 100 && puzzleNumber <= 101 && view === "menu") {
+      setShowCreatorWeekBanner(true);
+    } else {
+      setShowCreatorWeekBanner(false);
+    }
+  }, [view]);
 
   // note the player has played before so we don't show help next time
   useEffect(() => {
@@ -253,6 +264,7 @@ function App() {
   return (
     <div className={`App`}>
       {header}
+      {showCreatorWeekBanner && <CreatorWeekBanner />}
       {content}
     </div>
   );

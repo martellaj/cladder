@@ -66,8 +66,7 @@ export default function Menu(props) {
         <div
           style={{
             marginBottom: "24px",
-            position: "absolute",
-            bottom: 0,
+            marginTop: "auto",
           }}
         >
           <div>#{puzzleNumber}</div>
