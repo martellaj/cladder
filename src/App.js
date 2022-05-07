@@ -5,7 +5,6 @@ import Menu from "./Menu";
 import { Icon } from "semantic-ui-react";
 import HowToPlay from "./HowToPlay";
 import About from "./About";
-import { copyStats } from "./stats";
 import StatsComponent from "./StatsComponent";
 import Settings from "./Settings";
 import Archive from "./Archive";
@@ -50,14 +49,6 @@ if (!returningPlayer) {
 const params = new Proxy(new URLSearchParams(window.location.search), {
   get: (searchParams, prop) => searchParams.get(prop),
 });
-
-setTimeout(() => {
-  const stats = params?.stats;
-
-  if (stats) {
-    copyStats(stats);
-  }
-}, 50);
 
 function App() {
   const [view, setView] = useState(returningPlayer ? "menu" : "howToPlay");

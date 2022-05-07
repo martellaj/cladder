@@ -7,7 +7,6 @@ import Results from "./Results";
 import animateCSS from "./animateCSS";
 import { getNegativeWord, getPositiveWord } from "./getWord";
 import { Button } from "semantic-ui-react";
-import { updateStats } from "./stats";
 import Keyboard from "./Keyboard";
 import StatsComponent from "./StatsComponent";
 
@@ -231,11 +230,6 @@ export default function Game(props) {
           time: time,
         })
       );
-
-      updateStats({
-        score: gameLevel,
-        time: time,
-      });
     }
   }, [
     isOver,

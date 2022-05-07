@@ -1,7 +1,14 @@
+import { useEffect, useState } from "react";
 import { getStats } from "./stats";
 
 export default function StatsComponent(props) {
-  const stats = getStats();
+  const [stats, setStats] = useState(getStats());
+
+  useEffect(() => {
+    setTimeout(() => {
+      setStats(getStats());
+    }, 200);
+  }, []);
 
   const { resultsPage = false, isTeacherMode } = props;
 
