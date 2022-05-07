@@ -2962,4 +2962,67 @@ export const game = [
       alteredPosition: 1,
     },
   ],
+  // 5/8/2022 (#47)
+  [
+    {
+      word: "dime",
+      hint: "hemispherical roof",
+      answer: "dome",
+      alteredPosition: 1,
+    },
+    {
+      word: "dome",
+      hint: "___ into one's own",
+      answer: "come",
+      alteredPosition: 0,
+    },
+    {
+      word: "come",
+      hint: "provide free tickets to",
+      answer: "comp",
+      alteredPosition: 3,
+    },
+    {
+      word: "comp",
+      hint: "violent government overthrow",
+      answer: "coup",
+      alteredPosition: 2,
+    },
+    {
+      word: "coup",
+      hint: "appetizer served in a bowl",
+      answer: "soup",
+      alteredPosition: 0,
+    },
+    {
+      word: "soup",
+      hint: "The Days of Our Lives, e.g.",
+      answer: "soap",
+      alteredPosition: 2,
+    },
+    {
+      word: "soap",
+      hint: "fly aloft",
+      answer: "soar",
+      alteredPosition: 3,
+    },
+    {
+      word: "soar",
+      hint: "wild pig",
+      answer: "boar",
+      alteredPosition: 0,
+    },
+    {
+      word: "boar",
+      hint: "Yogi or Pooh, e.g.",
+      answer: "bear",
+      alteredPosition: 1,
+    },
+    {
+      word: "bear",
+      hint: "drop on a face",
+      answer: "tear",
+      alteredPosition: 0,
+    },
+  ],
 ];
