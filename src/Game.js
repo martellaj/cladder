@@ -48,7 +48,7 @@ export default function Game(props) {
 
   const specificGameLevel = useMemo(() => {
     return params?.p !== null
-      ? params.p
+      ? parseInt(params.p)
       : isPractice
       ? getRandomPuzzle()
       : puzzleNumber !== undefined

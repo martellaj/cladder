@@ -75,7 +75,7 @@ function App() {
 
   useEffect(() => {
     const puzzleNumber = params?.p ?? getPuzzleNumber();
-    if (puzzleNumber >= 100 && puzzleNumber <= 101 && view === "menu") {
+    if (puzzleNumber >= 48 && puzzleNumber <= 53 && view === "menu") {
       setShowCreatorWeekBanner(true);
     } else {
       setShowCreatorWeekBanner(false);

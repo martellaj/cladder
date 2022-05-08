@@ -3025,4 +3025,67 @@ export const game = [
       alteredPosition: 0,
     },
   ],
+  // 5/9/2022 (#48) - @kennyhaller
+  [
+    {
+      word: "lamb",
+      hint: "not cool",
+      answer: "lame",
+      alteredPosition: 3,
+    },
+    {
+      word: "lame",
+      hint: "what you're playing",
+      answer: "game",
+      alteredPosition: 0,
+    },
+    {
+      word: "game",
+      hint: "we are not the ___ (different)",
+      answer: "same",
+      alteredPosition: 0,
+    },
+    {
+      word: "same",
+      hint: "to prevent a goal",
+      answer: "save",
+      alteredPosition: 2,
+    },
+    {
+      word: "save",
+      hint: "not in danger",
+      answer: "safe",
+      alteredPosition: 2,
+    },
+    {
+      word: "safe",
+      hint: "coffee shop",
+      answer: "cafe",
+      alteredPosition: 0,
+    },
+    {
+      word: "cafe",
+      hint: "candy ___",
+      answer: "cane",
+      alteredPosition: 2,
+    },
+    {
+      word: "cane",
+      hint: "stay in your ___",
+      answer: "lane",
+      alteredPosition: 0,
+    },
+    {
+      word: "lane",
+      hint: "a straight ___",
+      answer: "line",
+      alteredPosition: 1,
+    },
+    {
+      word: "line",
+      hint: "a type of stream",
+      answer: "live",
+      alteredPosition: 2,
+    },
+  ],
 ];

@@ -1,7 +1,7 @@
 export default function CreatorWeekResultsBanner(props) {
   const { puzzleNumber } = props;
 
-  if (puzzleNumber < 100 || puzzleNumber > 100) {
+  if (puzzleNumber < 48 || puzzleNumber > 53) {
     return null;
   }
 
@@ -20,7 +20,11 @@ export default function CreatorWeekResultsBanner(props) {
       <span style={{ marginBottom: "12px" }}>
         <div style={{ display: "inline" }}>
           Today's puzzle has been submitted by{" "}
-          <a href={getCreatorTikTokLink(puzzleNumber, true)} target="_blank">
+          <a
+            href={getCreatorTikTokLink(puzzleNumber, true)}
+            target="_blank"
+            rel="noreferrer"
+          >
             <strong>{getCreatorName(puzzleNumber, true)}</strong>
           </a>
           ! Check them out on TikTok for Cladder, Wordle, and more!
@@ -29,7 +33,11 @@ export default function CreatorWeekResultsBanner(props) {
       <span>
         <div style={{ display: "inline" }}>
           Make sure to follow{" "}
-          <a href={getCreatorTikTokLink(puzzleNumber, false)} target="_blank">
+          <a
+            href={getCreatorTikTokLink(puzzleNumber, false)}
+            target="_blank"
+            rel="noreferrer"
+          >
             <strong>{getCreatorName(puzzleNumber, false)}</strong>
           </a>{" "}
           who will be attempting to solve this puzzle on TikTok today!
@@ -40,16 +48,19 @@ export default function CreatorWeekResultsBanner(props) {
 }
 
 function getCreatorName(puzzleNumber, isSubmitter) {
-  if (puzzleNumber === 100) {
-    return "@dailywordle";
+  console.log(puzzleNumber);
+  if (puzzleNumber === 48) {
+    return isSubmitter ? "@kennyhaller" : "@dailywordle";
   } else {
     return "@wordletips";
   }
 }
 
 function getCreatorTikTokLink(puzzleNumber, isSubmitter) {
-  if (puzzleNumber === 100) {
-    return "https://www.tiktok.com/@dailywordle";
+  if (puzzleNumber === 48) {
+    return isSubmitter
+      ? "https://tiktok.com/@kennyhaller"
+      : "https://www.tiktok.com/@dailywordle";
   } else {
     return "https://www.tiktok.com/@wordletips";
   }

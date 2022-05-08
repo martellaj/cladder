@@ -347,7 +347,7 @@ button:focus {
   justify-content: center;
   align-items: center;
   background-color: var(--statsBackground);
-  padding: 12px;
+  padding: 24px;
   border-radius: 10px;
   margin: 0px 12px;
   margin-bottom: -30px;
