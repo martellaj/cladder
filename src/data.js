@@ -3110,7 +3110,7 @@ export const game = [
     },
     {
       word: "face",
-      hint: "a true agreement",
+      hint: "a true statement",
       answer: "fact",
       alteredPosition: 3,
     },
