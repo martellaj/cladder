@@ -1,6 +1,11 @@
 export default function CreatorWeekBanner() {
   return (
     <div className="bannerContainer">
+      <span
+        style={{ fontWeight: "bold", marginBottom: "12px", fontSize: "medium" }}
+      >
+        🌟
+      </span>
       <span style={{ marginBottom: "12px" }}>
         <div style={{ display: "inline" }}>
           It's <strong>Cladder Creator Week</strong>! Each puzzle this week has
