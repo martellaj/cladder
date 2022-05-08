@@ -3088,4 +3088,67 @@ export const game = [
       alteredPosition: 2,
     },
   ],
+  // 5/10/2022 (#49) - @dailywordle
+  [
+    {
+      word: "gaze",
+      hint: "Cladder, Wordle, Monopoly, e.g.",
+      answer: "game",
+      alteredPosition: 2,
+    },
+    {
+      word: "game",
+      hint: "what celebrities have",
+      answer: "fame",
+      alteredPosition: 0,
+    },
+    {
+      word: "fame",
+      hint: "it has eyes, a nose, and a mouth",
+      answer: "face",
+      alteredPosition: 2,
+    },
+    {
+      word: "face",
+      hint: "a true agreement",
+      answer: "fact",
+      alteredPosition: 3,
+    },
+    {
+      word: "fact",
+      hint: "an agreement",
+      answer: "pact",
+      alteredPosition: 0,
+    },
+    {
+      word: "pact",
+      hint: "steady and consistent speed",
+      answer: "pace",
+      alteredPosition: 3,
+    },
+    {
+      word: "pace",
+      hint: "one of many in a book",
+      answer: "page",
+      alteredPosition: 2,
+    },
+    {
+      word: "page",
+      hint: "how much you get paid",
+      answer: "wage",
+      alteredPosition: 0,
+    },
+    {
+      word: "wage",
+      hint: "what a dog's tail does",
+      answer: "wags",
+      alteredPosition: 3,
+    },
+    {
+      word: "wags",
+      hint: "what you put your groceries in",
+      answer: "bags",
+      alteredPosition: 0,
+    },
+  ],
 ];

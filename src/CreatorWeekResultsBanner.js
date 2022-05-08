@@ -51,8 +51,8 @@ function getCreatorName(puzzleNumber, isSubmitter) {
   console.log(puzzleNumber);
   if (puzzleNumber === 48) {
     return isSubmitter ? "@kennyhaller" : "@dailywordle";
-  } else {
-    return "@wordletips";
+  } else if (puzzleNumber === 49) {
+    return isSubmitter ? "@dailywordle" : "@kennyhaller";
   }
 }
 
@@ -61,7 +61,9 @@ function getCreatorTikTokLink(puzzleNumber, isSubmitter) {
     return isSubmitter
       ? "https://tiktok.com/@kennyhaller"
       : "https://www.tiktok.com/@dailywordle";
-  } else {
-    return "https://www.tiktok.com/@wordletips";
+  } else if (puzzleNumber === 49) {
+    return isSubmitter
+      ? "https://www.tiktok.com/@dailywordle"
+      : "https://tiktok.com/@kennyhaller";
   }
 }
