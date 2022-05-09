@@ -81,7 +81,7 @@ export default function Results(props) {
 
         <Button
           id="donateButton"
-          className="button"
+          className="button active"
           style={{
             marginBottom: "12px",
           }}
@@ -92,7 +92,7 @@ export default function Results(props) {
             window.open("https://www.buymeacoffee.com/playcladder", "_blank");
           }}
         >
-          ☕ BUY ME A COFFEE
+          ❤️ SUPPORT BY DONATING
         </Button>
       </>
     </div>
