@@ -10,8 +10,17 @@ import { Button } from "semantic-ui-react";
 import Keyboard from "./Keyboard";
 import StatsComponent from "./StatsComponent";
 
+const getPuzzleNumber = (date) => {
+  const refDate = new Date(2022, 2, 22, 0, 0, 0, 0);
+  const _date = date || new Date();
+  const val =
+    new Date(_date).setHours(0, 0, 0, 0) - refDate.setHours(0, 0, 0, 0);
+  return Math.round(val / 864e5);
+};
+
 const TIME_LIMIT = 60000;
 const INCREMENT = 200;
+const DEFAULT_PUZZLE_NUMBER = getPuzzleNumber();
 
 let tileHintTimer = null;
 
@@ -23,7 +32,7 @@ const params = new Proxy(new URLSearchParams(window.location.search), {
  * Returns a random number between min (inclusive) and max (exclusive)
  */
 function getRandomPuzzle() {
-  return Math.floor(Math.random() * getPuzzleNumber());
+  return Math.floor(Math.random() * DEFAULT_PUZZLE_NUMBER);
 }
 
 export default function Game(props) {
@@ -58,11 +67,15 @@ export default function Game(props) {
   // let d = new Date();
   // d = d.setDate(d.getDate() + 1);
   const PUZZLE_NUMBER = useMemo(() => {
-    return specificGameLevel ?? getPuzzleNumber();
+    return specificGameLevel ?? DEFAULT_PUZZLE_NUMBER;
   }, [specificGameLevel]);
 
+  const SKIPS_COUNT = useMemo(() => {
+    return getSkipsCount(PUZZLE_NUMBER);
+  }, [PUZZLE_NUMBER]);
+
   const [remainingSkips, setRemainingSkips] = useState(
-    isHardMode ? 0 : getSkipsCount(PUZZLE_NUMBER)
+    isHardMode ? 0 : SKIPS_COUNT
   );
 
   // gets the daily puzzle
@@ -276,42 +289,45 @@ export default function Game(props) {
   });
 
   // keydown handler for OSK (mobile users)
-  const onKeyboardKeyPress = (key) => {
-    if (isOver || key === "ENTER") {
-      return;
-    }
-
-    if (key === "DELETE") {
-      const newGuess = guess.slice(0, -1);
-
-      setGuess(newGuess || "");
-      return;
-    }
-
-    if (selectionMode) {
-      if (selectedIndex > -1) {
-        const newGuess =
-          guess.substring(0, selectedIndex) +
-          key +
-          guess.substring(selectedIndex + 1);
-        setGuess(newGuess);
-      } else {
-        setMessageDetails({
-          message: "Tap a tile to change its letter!",
-          color: "#c39b38",
-        });
-
-        setTimeout(() => {
-          setMessageDetails({
-            message: "",
-            color: "",
-          });
-        }, 3000);
+  const onKeyboardKeyPress = useCallback(
+    (key) => {
+      if (isOver || key === "ENTER") {
+        return;
       }
-    } else if (guess.length < answer.length) {
-      setGuess(guess + key);
-    }
-  };
+
+      if (key === "DELETE") {
+        const newGuess = guess.slice(0, -1);
+
+        setGuess(newGuess || "");
+        return;
+      }
+
+      if (selectionMode) {
+        if (selectedIndex > -1) {
+          const newGuess =
+            guess.substring(0, selectedIndex) +
+            key +
+            guess.substring(selectedIndex + 1);
+          setGuess(newGuess);
+        } else {
+          setMessageDetails({
+            message: "Tap a tile to change its letter!",
+            color: "#c39b38",
+          });
+
+          setTimeout(() => {
+            setMessageDetails({
+              message: "",
+              color: "",
+            });
+          }, 3000);
+        }
+      } else if (guess.length < answer.length) {
+        setGuess(guess + key);
+      }
+    },
+    [answer.length, isOver, selectionMode, selectedIndex, guess]
+  );
 
   const board = useMemo(() => {
     const _board = [];
@@ -509,14 +525,6 @@ export default function Game(props) {
     </>
   );
 }
-
-const getPuzzleNumber = (date) => {
-  const refDate = new Date(2022, 2, 22, 0, 0, 0, 0);
-  const _date = date || new Date();
-  const val =
-    new Date(_date).setHours(0, 0, 0, 0) - refDate.setHours(0, 0, 0, 0);
-  return Math.round(val / 864e5);
-};
 
 const getSkipsCount = (puzzleNumber) => {
   const hardPuzzles = [51];
