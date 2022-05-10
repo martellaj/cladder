@@ -3151,4 +3151,130 @@ export const game = [
       alteredPosition: 0,
     },
   ],
+  // 5/11/2022 (#50) - @justin.baldori
+  [
+    {
+      word: "fog",
+      hint: "it goes woof",
+      answer: "dog",
+      alteredPosition: 0,
+    },
+    {
+      word: "dog",
+      hint: "large piece of tree",
+      answer: "log",
+      alteredPosition: 0,
+    },
+    {
+      word: "log",
+      hint: "lower body limb",
+      answer: "leg",
+      alteredPosition: 1,
+    },
+    {
+      word: "leg",
+      hint: "a small barrel",
+      answer: "keg",
+      alteredPosition: 0,
+    },
+    {
+      word: "keg",
+      hint: "ask for money",
+      answer: "beg",
+      alteredPosition: 0,
+    },
+    {
+      word: "beg",
+      hint: "opposite of small",
+      answer: "big",
+      alteredPosition: 1,
+    },
+    {
+      word: "big",
+      hint: "a covering of the head",
+      answer: "wig",
+      alteredPosition: 0,
+    },
+    {
+      word: "wig",
+      hint: "keen intelligence",
+      answer: "wit",
+      alteredPosition: 2,
+    },
+    {
+      word: "wit",
+      hint: "saturated with liquid",
+      answer: "wet",
+      alteredPosition: 1,
+    },
+    {
+      word: "wet",
+      hint: "place something in a position",
+      answer: "set",
+      alteredPosition: 0,
+    },
+  ],
+  // 5/12/2022 (#51) - @wordletips
+  [
+    {
+      word: "lead",
+      hint: "Shakespeare king",
+      answer: "lear",
+      alteredPosition: 3,
+    },
+    {
+      word: "lear",
+      hint: "precedes Abby, John, and Evan Hansen",
+      answer: "dear",
+      alteredPosition: 0,
+    },
+    {
+      word: "dear",
+      hint: "pass out cards",
+      answer: "deal",
+      alteredPosition: 3,
+    },
+    {
+      word: "deal",
+      hint: "head of educational department",
+      answer: "dean",
+      alteredPosition: 3,
+    },
+    {
+      word: "dean",
+      hint: "not nice, or the average of a set of numbers",
+      answer: "mean",
+      alteredPosition: 0,
+    },
+    {
+      word: "mean",
+      hint: "dramatic cry",
+      answer: "moan",
+      alteredPosition: 1,
+    },
+    {
+      word: "moan",
+      hint: "short for the beginning part of the day",
+      answer: "morn",
+      alteredPosition: 2,
+    },
+    {
+      word: "morn",
+      hint: "happened on your birthday",
+      answer: "born",
+      alteredPosition: 0,
+    },
+    {
+      word: "born",
+      hint: "farm animal home",
+      answer: "barn",
+      alteredPosition: 1,
+    },
+    {
+      word: "barn",
+      hint: "what Eleanor Rigby does to her socks or dang",
+      answer: "darn",
+      alteredPosition: 0,
+    },
+  ],
 ];

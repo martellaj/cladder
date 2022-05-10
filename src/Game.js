@@ -42,7 +42,6 @@ export default function Game(props) {
   const [isOver, setIsOver] = useState(false); // has game ended
   const [gameLevel, setGameLevel] = useState(0); // current game level
   const [skippedLevel, setSkippedLevel] = useState(false); // has user skipped level
-  const [remainingSkips, setRemainingSkips] = useState(isHardMode ? 0 : 1);
   const [selectedIndex, setSelectedIndex] = useState(-1);
   const [shouldShowTileToChange, setShouldShowTileToChange] = useState(false);
 
@@ -61,6 +60,10 @@ export default function Game(props) {
   const PUZZLE_NUMBER = useMemo(() => {
     return specificGameLevel ?? getPuzzleNumber();
   }, [specificGameLevel]);
+
+  const [remainingSkips, setRemainingSkips] = useState(
+    isHardMode ? 0 : getSkipsCount(PUZZLE_NUMBER)
+  );
 
   // gets the daily puzzle
   const game = _game[PUZZLE_NUMBER];
@@ -513,4 +516,10 @@ const getPuzzleNumber = (date) => {
   const val =
     new Date(_date).setHours(0, 0, 0, 0) - refDate.setHours(0, 0, 0, 0);
   return Math.round(val / 864e5);
+};
+
+const getSkipsCount = (puzzleNumber) => {
+  const hardPuzzles = [51];
+
+  return hardPuzzles.includes(puzzleNumber) ? 3 : 1;
 };

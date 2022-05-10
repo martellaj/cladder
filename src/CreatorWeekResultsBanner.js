@@ -48,22 +48,17 @@ export default function CreatorWeekResultsBanner(props) {
 }
 
 function getCreatorName(puzzleNumber, isSubmitter) {
-  console.log(puzzleNumber);
   if (puzzleNumber === 48) {
     return isSubmitter ? "@kennyhaller" : "@dailywordle";
   } else if (puzzleNumber === 49) {
     return isSubmitter ? "@dailywordle" : "@kennyhaller";
+  } else if (puzzleNumber === 50) {
+    return isSubmitter ? "@justin.baldori" : "@wordletips";
+  } else if (puzzleNumber === 51) {
+    return isSubmitter ? "@wordletips" : "@justin.baldori";
   }
 }
 
 function getCreatorTikTokLink(puzzleNumber, isSubmitter) {
-  if (puzzleNumber === 48) {
-    return isSubmitter
-      ? "https://tiktok.com/@kennyhaller"
-      : "https://www.tiktok.com/@dailywordle";
-  } else if (puzzleNumber === 49) {
-    return isSubmitter
-      ? "https://www.tiktok.com/@dailywordle"
-      : "https://tiktok.com/@kennyhaller";
-  }
+  return `https://tiktok.com/${getCreatorName(puzzleNumber, isSubmitter)}`;
 }
