@@ -3277,4 +3277,67 @@ export const game = [
       alteredPosition: 0,
     },
   ],
+  // 5/13/2022 (#52) - @nyt.wordle
+  [
+    {
+      word: "goner",
+      hint: "type of kebab",
+      answer: "doner",
+      alteredPosition: 0,
+    },
+    {
+      word: "doner",
+      hint: "a local restaurant",
+      answer: "diner",
+      alteredPosition: 1,
+    },
+    {
+      word: "diner",
+      hint: "an NFL player from San Francisco",
+      answer: "niner",
+      alteredPosition: 0,
+    },
+    {
+      word: "niner",
+      hint: "worker who collects coal",
+      answer: "miner",
+      alteredPosition: 0,
+    },
+    {
+      word: "miner",
+      hint: "makeup for eyes",
+      answer: "liner",
+      alteredPosition: 0,
+    },
+    {
+      word: "liner",
+      hint: "an independent person",
+      answer: "loner",
+      alteredPosition: 1,
+    },
+    {
+      word: "loner",
+      hint: "used by printers (not ink)",
+      answer: "toner",
+      alteredPosition: 0,
+    },
+    {
+      word: "toner",
+      hint: "musical sounds",
+      answer: "tones",
+      alteredPosition: 4,
+    },
+    {
+      word: "tones",
+      hint: "a fork has these",
+      answer: "tines",
+      alteredPosition: 1,
+    },
+    {
+      word: "tines",
+      hint: "owners of Wordle (The New York ___)",
+      answer: "times",
+      alteredPosition: 2,
+    },
+  ],
 ];
