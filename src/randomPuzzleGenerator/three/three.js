@@ -56,25 +56,40 @@ const getRandomThreeLetterPuzzle = () => {
 };
 
 const getNextLevel = (word, restrictedPosition = -1) => {
-  const randomizer = getRandomizer();
+  try {
+    const randomizer = getRandomizer();
 
-  for (let i = randomizer; i < threeKeys.length; i++) {
-    const candidateWord = threeKeys[i];
+    let attempts = 0;
 
-    if (
-      /^[a-zA-Z]+$/.test(candidateWord) === true &&
-      isValidNextLevel(word, candidateWord, restrictedPosition)
-    ) {
-      return {
-        answer: candidateWord,
-        hint: three[candidateWord][0], // todo: randomize clue
-      };
+    for (let i = randomizer; i < threeKeys.length; i++) {
+      const candidateWord = threeKeys[i];
+
+      if (
+        /^[a-zA-Z]+$/.test(candidateWord) === true &&
+        isValidNextLevel(word, candidateWord, restrictedPosition)
+      ) {
+        const hints = three[candidateWord];
+        const randomHint = hints[Math.floor(Math.random() * hints.length)];
+
+        return {
+          answer: candidateWord,
+          hint: randomHint,
+        };
+      }
+
+      // reset if we haven't found a next word
+      if (i === threeKeys.length - 1) {
+        if (attempts === 1) {
+          window.location.href = "/";
+          return;
+        }
+
+        i = 0;
+        attempts++;
+      }
     }
-
-    // reset if we haven't found a next word
-    if (i === threeKeys.length - 1) {
-      i = 0;
-    }
+  } catch (e) {
+    window.location.href = "/";
   }
 };
 

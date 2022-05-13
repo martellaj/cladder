@@ -226,7 +226,6 @@ function App() {
         <Game
           mode="challenge"
           isDarkMode={isDarkMode}
-          isPractice={true}
           selectionMode={selectionMode}
           isHardMode={isHardMode}
           isTeacherMode={isTeacherMode}

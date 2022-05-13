@@ -16,6 +16,7 @@ export default function Results(props) {
     isPractice,
     isChallengeMode,
     onPlayAgain,
+    skipsUsed,
   } = props;
 
   const didComplete = correct === 10;
@@ -51,6 +52,11 @@ export default function Results(props) {
         >
           {correct} / 10
         </div>
+        {isChallengeMode && (
+          <div style={{ fontSize: "medium", marginBottom: "12px" }}>
+            ({skipsUsed === 1 ? `${skipsUsed} skip` : `${skipsUsed} skips`})
+          </div>
+        )}
         {didComplete && !isTeacherMode && (
           <div className="resultsTime">{time} seconds</div>
         )}

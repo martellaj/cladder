@@ -7,7 +7,7 @@ import isValidNextLevel from "../util/isValidNextLevel";
 import four from "./fourData";
 const fourKeys = Object.keys(four);
 
-const getRandomFourLetterPuzzle = async () => {
+const getRandomFourLetterPuzzle = () => {
   const start = Date.now();
 
   const randomizer = getRandomizer();
@@ -56,27 +56,40 @@ const getRandomFourLetterPuzzle = async () => {
 };
 
 const getNextLevel = (word, restrictedPosition = -1) => {
-  const randomizer = getRandomizer();
+  try {
+    const randomizer = getRandomizer();
 
-  for (let i = randomizer; i < fourKeys.length; i++) {
-    const candidateWord = fourKeys[i];
+    let attempts = 0;
 
-    if (
-      /^[a-zA-Z]+$/.test(candidateWord) === true &&
-      isValidNextLevel(word, candidateWord, restrictedPosition)
-    ) {
-      return {
-        answer: candidateWord,
-        hint: four[candidateWord][
-          getRandomInt(0, four[candidateWord].length - 1)
-        ],
-      };
+    for (let i = randomizer; i < fourKeys.length; i++) {
+      const candidateWord = fourKeys[i];
+
+      if (
+        /^[a-zA-Z]+$/.test(candidateWord) === true &&
+        isValidNextLevel(word, candidateWord, restrictedPosition)
+      ) {
+        const hints = four[candidateWord];
+        const randomHint = hints[Math.floor(Math.random() * hints.length)];
+
+        return {
+          answer: candidateWord,
+          hint: randomHint,
+        };
+      }
+
+      // reset if we haven't found a next word
+      if (i === fourKeys.length - 1) {
+        if (attempts === 1) {
+          window.location.href = "/";
+          return;
+        }
+
+        i = 0;
+        attempts++;
+      }
     }
-
-    // reset if we haven't found a next word
-    if (i === fourKeys.length - 1) {
-      i = 0;
-    }
+  } catch (e) {
+    window.location.href = "/";
   }
 };
 

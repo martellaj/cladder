@@ -10,7 +10,6 @@ import { Button } from "semantic-ui-react";
 import Keyboard from "./Keyboard";
 import StatsComponent from "./StatsComponent";
 import getRandomThreeLetterPuzzle from "./randomPuzzleGenerator/three/three";
-import getRandomInt from "./randomPuzzleGenerator/util/getRandomInt";
 import getRandomFourLetterPuzzle from "./randomPuzzleGenerator/four/four";
 import getDailyPuzzleNumber from "./getDailyPuzzleNumber";
 
@@ -70,7 +69,7 @@ export default function Game(props) {
   const game = useMemo(() => {
     // if challenge mode, get a random nyt puzzle
     if (mode === "challenge") {
-      return getRandomInt(0, 1) === 0
+      return Math.random() < 0.5
         ? getRandomThreeLetterPuzzle()
         : getRandomFourLetterPuzzle();
     }
@@ -131,6 +130,9 @@ export default function Game(props) {
   const [shouldShowTileToChange, setShouldShowTileToChange] = useState(false);
   const [remainingSkips, setRemainingSkips] = useState(
     initializeRemainingSkips
+  );
+  const [skipsUsed, setSkipsUsed] = useState(
+    mode === "challenge" ? 0 : undefined
   );
 
   /////////////////////////////////
@@ -465,6 +467,7 @@ export default function Game(props) {
           }}
           isChallengeMode={mode === "challenge"}
           onPlayAgain={onPlayAgain}
+          skipsUsed={skipsUsed}
         />
       )}
 
@@ -546,6 +549,9 @@ export default function Game(props) {
 
                   // decrement remaining skips (unless in challenge mode)
                   mode !== "challenge" && setRemainingSkips(remainingSkips - 1);
+
+                  // increment number of skips used
+                  mode === "challenge" && setSkipsUsed(skipsUsed + 1);
                 }}
                 className="button"
                 inverted={isDarkMode}
