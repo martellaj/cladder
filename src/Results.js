@@ -40,8 +40,7 @@ export default function Results(props) {
 
   return (
     <div className="resultsContainer">
-      {!isPractice &&
-        !(<CreatorWeekResultsBanner puzzleNumber={puzzleNumber} />)}
+      {!isPractice && <CreatorWeekResultsBanner puzzleNumber={puzzleNumber} />}
       <div style={{ marginBottom: "24px" }}>
         <div className="bigMessage">{bigMessage}</div>
         <div

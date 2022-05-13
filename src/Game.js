@@ -33,7 +33,6 @@ export default function Game(props) {
     archivePuzzleNumber = -1, // which puzzle from archive user selected
     isDarkMode,
     isHardMode,
-    isPractice,
     isTeacherMode,
     mode, // daily, archive, practice, challenge
     onPlayAgain,
@@ -448,7 +447,7 @@ export default function Game(props) {
           isHardMode={isHardMode}
           isDarkMode={isDarkMode}
           correct={gameLevel}
-          isPractice={isPractice}
+          isPractice={mode === "practice"}
           isTeacherMode={isTeacherMode}
           time={(((progress / 100) * TIME_LIMIT) / 1000).toFixed(2)}
           onCopied={() => {
