@@ -11,6 +11,8 @@ import Archive from "./Archive";
 import animateCSS from "./animateCSS";
 import Converter from "./Converter";
 import CreatorWeekBanner from "./CreatorWeekBanner";
+import Loading from "./Loading";
+import getDailyPuzzleNumber from "./getDailyPuzzleNumber";
 
 // set the app height for mobile
 const appHeight = () =>
@@ -64,8 +66,16 @@ function App() {
   const [isTeacherMode, setIsTeacherMode] = useState(
     window.localStorage.getItem("teacherMode") === "true"
   );
-  const [puzzleNumber, setPuzzleNumber] = useState(undefined);
-  const [showCreatorWeekBanner, setShowCreatorWeekBanner] = useState(false);
+  const [selectedArchivePuzzleNumber, setSelectedArchivePuzzleNumber] =
+    useState(undefined);
+  const [showCreatorWeekBanner, setShowCreatorWeekBanner] = useState(() => {
+    const puzzleNumber = params?.p ?? getDailyPuzzleNumber();
+    if (puzzleNumber >= 48 && puzzleNumber <= 53 && view === "menu") {
+      return true;
+    } else {
+      return false;
+    }
+  });
 
   useEffect(() => {
     if (params?.convert) {
@@ -74,7 +84,7 @@ function App() {
   }, []);
 
   useEffect(() => {
-    const puzzleNumber = params?.p ?? getPuzzleNumber();
+    const puzzleNumber = params?.p ?? getDailyPuzzleNumber();
     if (puzzleNumber >= 48 && puzzleNumber <= 53 && view === "menu") {
       setShowCreatorWeekBanner(true);
     } else {
@@ -98,7 +108,7 @@ function App() {
       setIsDarkMode(!isDarkMode);
     }
 
-    setPuzzleNumber(level);
+    setSelectedArchivePuzzleNumber(level || undefined);
 
     setView(option);
   };
@@ -118,7 +128,7 @@ function App() {
       <div className="headerSection" style={{ marginLeft: "12px" }}>
         <Icon
           onClick={() => {
-            if (view === "game" && puzzleNumber !== undefined) {
+            if (view === "game" && selectedArchivePuzzleNumber !== undefined) {
               setView("archive");
             } else {
               setView("menu");
@@ -190,24 +200,38 @@ function App() {
     case "game":
       content = (
         <Game
-          isIos={iOS()}
+          mode={selectedArchivePuzzleNumber !== undefined ? "archive" : "daily"}
+          archivePuzzleNumber={selectedArchivePuzzleNumber}
           isDarkMode={isDarkMode}
           selectionMode={selectionMode}
           isHardMode={isHardMode}
           isTeacherMode={isTeacherMode}
-          puzzleNumber={puzzleNumber}
         />
       );
       break;
     case "practice":
       content = (
         <Game
-          isIos={iOS()}
+          mode="practice"
           isDarkMode={isDarkMode}
-          isPractice={true}
           selectionMode={selectionMode}
           isHardMode={isHardMode}
           isTeacherMode={isTeacherMode}
+        />
+      );
+      break;
+    case "challenge":
+      content = (
+        <Game
+          mode="challenge"
+          isDarkMode={isDarkMode}
+          selectionMode={selectionMode}
+          isHardMode={isHardMode}
+          isTeacherMode={isTeacherMode}
+          onPlayAgain={() => {
+            setView("loading");
+            setTimeout(() => setView("challenge"), 500);
+          }}
         />
       );
       break;
@@ -240,13 +264,17 @@ function App() {
     case "convert":
       content = <Converter />;
       break;
+    case "loading":
+      content = <Loading />;
+      break;
     case "menu":
     default:
       content = (
         <Menu
           onOptionSelected={onOptionSelected}
-          puzzleNumber={params?.p ?? getPuzzleNumber()}
+          puzzleNumber={params?.p ?? getDailyPuzzleNumber()}
           isDarkMode={isDarkMode}
+          showChallengeMode={params?.challenge}
         />
       );
       break;
@@ -260,28 +288,5 @@ function App() {
     </div>
   );
 }
-
-function iOS() {
-  return (
-    [
-      "iPad Simulator",
-      "iPhone Simulator",
-      "iPod Simulator",
-      "iPad",
-      "iPhone",
-      "iPod",
-    ].includes(navigator.platform) ||
-    // iPad on iOS 13 detection
-    (navigator.userAgent.includes("Mac") && "ontouchend" in document)
-  );
-}
-
-const getPuzzleNumber = (date) => {
-  const refDate = new Date(2022, 2, 22, 0, 0, 0, 0);
-  const _date = date || new Date();
-  const val =
-    new Date(_date).setHours(0, 0, 0, 0) - refDate.setHours(0, 0, 0, 0);
-  return Math.round(val / 864e5);
-};
 
 export default App;

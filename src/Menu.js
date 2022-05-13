@@ -1,7 +1,12 @@
 import { Button } from "semantic-ui-react";
 
 export default function Menu(props) {
-  const { onOptionSelected, puzzleNumber, isDarkMode } = props;
+  const {
+    onOptionSelected,
+    puzzleNumber,
+    isDarkMode,
+    showChallengeMode = false,
+  } = props;
 
   return (
     <>
@@ -18,6 +23,19 @@ export default function Menu(props) {
             PLAY
           </Button>
         </div>
+        {showChallengeMode && (
+          <div className="menuButton">
+            <Button
+              size="massive"
+              className="menuButton button"
+              color="yellow"
+              inverted={isDarkMode}
+              onClick={() => onOptionSelected("challenge")}
+            >
+              CHALLENGE
+            </Button>
+          </div>
+        )}
         <div className="menuButton">
           <Button
             id="archiveButton"
@@ -42,17 +60,19 @@ export default function Menu(props) {
             PRACTICE
           </Button>
         </div>
-        <div className="menuButton">
-          <Button
-            size="massive"
-            className="menuButton button"
-            color="yellow"
-            inverted={isDarkMode}
-            onClick={() => onOptionSelected("howToPlay")}
-          >
-            HOW TO PLAY
-          </Button>
-        </div>
+        {!showChallengeMode && (
+          <div className="menuButton">
+            <Button
+              size="massive"
+              className="menuButton button"
+              color="yellow"
+              inverted={isDarkMode}
+              onClick={() => onOptionSelected("howToPlay")}
+            >
+              HOW TO PLAY
+            </Button>
+          </div>
+        )}
         <div className="menuButton">
           <Button
             size="massive"

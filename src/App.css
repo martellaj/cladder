@@ -131,18 +131,18 @@ body {
 
 .bigMessage {
   font-size: xx-large;
-  margin-bottom: 24px;
+  margin-bottom: 12px;
 }
 
 .resultsScore {
   font-size: xx-large;
   font-weight: bold;
-  margin-bottom: 24px;
+  margin-bottom: 12px;
 }
 
 .resultsTime {
   font-size: x-large;
-  margin-bottom: 24px;
+  margin-bottom: 12px;
 }
 
 .menuContainer {
@@ -356,4 +356,11 @@ button:focus {
 
 .bannerResultsContainer {
   margin-bottom: 24px !important;
+}
+
+.ui.loader:after,
+.ui.loader:before {
+  height: 100px;
+  width: 100px;
+  margin-left: -50px;
 }
