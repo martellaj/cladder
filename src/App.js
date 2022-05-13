@@ -191,7 +191,6 @@ function App() {
     case "game":
       content = (
         <Game
-          isIos={iOS()}
           isDarkMode={isDarkMode}
           selectionMode={selectionMode}
           isHardMode={isHardMode}
@@ -203,7 +202,6 @@ function App() {
     case "practice":
       content = (
         <Game
-          isIos={iOS()}
           isDarkMode={isDarkMode}
           isPractice={true}
           selectionMode={selectionMode}
@@ -215,7 +213,6 @@ function App() {
     case "infinite":
       content = (
         <Game
-          isIos={iOS()}
           isDarkMode={isDarkMode}
           isPractice={true}
           selectionMode={selectionMode}
@@ -280,21 +277,6 @@ function App() {
       {showCreatorWeekBanner && <CreatorWeekBanner />}
       {content}
     </div>
-  );
-}
-
-function iOS() {
-  return (
-    [
-      "iPad Simulator",
-      "iPhone Simulator",
-      "iPod Simulator",
-      "iPad",
-      "iPhone",
-      "iPod",
-    ].includes(navigator.platform) ||
-    // iPad on iOS 13 detection
-    (navigator.userAgent.includes("Mac") && "ontouchend" in document)
   );
 }
 

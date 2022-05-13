@@ -31,7 +31,6 @@ function getRandomPuzzle() {
 
 export default function Game(props) {
   const {
-    isIos,
     isDarkMode,
     isPractice,
     selectionMode,
@@ -393,7 +392,6 @@ export default function Game(props) {
 
       {isOver && (
         <Results
-          isIos={isIos}
           isHardMode={isHardMode}
           isDarkMode={isDarkMode}
           correct={gameLevel}

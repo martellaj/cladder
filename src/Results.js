@@ -9,7 +9,6 @@ export default function Results(props) {
     time,
     onCopied,
     puzzleNumber,
-    isIos,
     onLoaded,
     isHardMode,
     isDarkMode,
@@ -83,6 +82,20 @@ export default function Results(props) {
 
               var ua = navigator.userAgent.toLowerCase();
               var isAndroid = ua.indexOf("android") > -1;
+
+              const isIos =
+                [
+                  "iPad Simulator",
+                  "iPhone Simulator",
+                  "iPod Simulator",
+                  "iPad",
+                  "iPhone",
+                  "iPod",
+                ].includes(navigator.platform) ||
+                // iPad on iOS 13 detection
+                (navigator.userAgent.includes("Mac") &&
+                  "ontouchend" in document);
+
               if (isIos || isAndroid) {
                 navigator.share({
                   text: text,
