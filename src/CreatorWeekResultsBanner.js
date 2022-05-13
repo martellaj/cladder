@@ -58,6 +58,8 @@ function getCreatorName(puzzleNumber, isSubmitter) {
     return isSubmitter ? "@wordletips" : "@justin.baldori";
   } else if (puzzleNumber === 52) {
     return isSubmitter ? "@nyt.wordle" : "@michael.dicostanzo.vlogs";
+  } else if (puzzleNumber === 53) {
+    return isSubmitter ? "@michael.dicostanzo.vlogs" : "@nyt.wordle";
   }
 }
 

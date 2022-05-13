@@ -3340,4 +3340,67 @@ export const game = [
       alteredPosition: 2,
     },
   ],
+  // 5/14/2022 (#53) - @michael.dicostanzo.vlogs
+  [
+    {
+      word: "what",
+      hint: "an informal conversation",
+      answer: "chat",
+      alteredPosition: 0,
+    },
+    {
+      word: "chat",
+      hint: "country in central Africa",
+      answer: "chad",
+      alteredPosition: 3,
+    },
+    {
+      word: "chad",
+      hint: "a fellow in Britain",
+      answer: "chap",
+      alteredPosition: 3,
+    },
+    {
+      word: "chap",
+      hint: "goes well with a sandwich",
+      answer: "chip",
+      alteredPosition: 2,
+    },
+    {
+      word: "chip",
+      hint: "Indiana Jones prop",
+      answer: "whip",
+      alteredPosition: 0,
+    },
+    {
+      word: "whip",
+      hint: "a large aquatic vessel",
+      answer: "ship",
+      alteredPosition: 0,
+    },
+    {
+      word: "ship",
+      hint: "a small retail outlet",
+      answer: "shop",
+      alteredPosition: 2,
+    },
+    {
+      word: "shop",
+      hint: "come to an end",
+      answer: "stop",
+      alteredPosition: 1,
+    },
+    {
+      word: "stop",
+      hint: "perched on",
+      answer: "atop",
+      alteredPosition: 0,
+    },
+    {
+      word: "atop",
+      hint: "contains protons, neutrons, and electrons",
+      answer: "atom",
+      alteredPosition: 3,
+    },
+  ],
 ];
