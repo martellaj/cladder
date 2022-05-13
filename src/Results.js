@@ -14,6 +14,9 @@ export default function Results(props) {
     isHardMode,
     isDarkMode,
     isTeacherMode,
+    isPractice,
+    isInfiniteMode,
+    onPlayAgain,
   } = props;
 
   const didComplete = correct === 10;
@@ -37,47 +40,62 @@ export default function Results(props) {
 
   return (
     <div className="resultsContainer">
-      <CreatorWeekResultsBanner puzzleNumber={puzzleNumber} />
-      <div className="bigMessage">{bigMessage}</div>
-      <div
-        id="gameResult"
-        className="resultsScore"
-        data-score={correct}
-        data-time={time}
-      >
-        {correct} / 10
-      </div>
-      {didComplete && !isTeacherMode && (
-        <div className="resultsTime">{time} seconds</div>
-      )}
-      <>
-        <Button
-          id="shareButton"
-          className="positive button"
-          style={{ marginBottom: "18px" }}
-          size="massive"
-          inverted={isDarkMode}
-          onClick={() => {
-            const text = `#Cladder ${puzzleNumber}\n\n✅ ${correct}/10${
-              isHardMode && !isTeacherMode ? "*" : ""
-            }\n${
-              didComplete && !isTeacherMode ? `🚀 ${time} seconds\n` : ""
-            }\nhttps://playcladder.com`;
-
-            var ua = navigator.userAgent.toLowerCase();
-            var isAndroid = ua.indexOf("android") > -1;
-            if (isIos || isAndroid) {
-              navigator.share({
-                text: text,
-              });
-            } else {
-              copy(text);
-              onCopied();
-            }
-          }}
+      {!isPractice &&
+        !(<CreatorWeekResultsBanner puzzleNumber={puzzleNumber} />)}
+      <div style={{ marginBottom: "24px" }}>
+        <div className="bigMessage">{bigMessage}</div>
+        <div
+          id="gameResult"
+          className="resultsScore"
+          data-score={correct}
+          data-time={time}
         >
-          SHARE
-        </Button>
+          {correct} / 10
+        </div>
+        {didComplete && !isTeacherMode && (
+          <div className="resultsTime">{time} seconds</div>
+        )}
+      </div>
+      <>
+        {isInfiniteMode && onPlayAgain ? (
+          <Button
+            className="positive button"
+            style={{ marginBottom: "18px" }}
+            size="massive"
+            inverted={isDarkMode}
+            onClick={() => onPlayAgain()}
+          >
+            PLAY AGAIN
+          </Button>
+        ) : (
+          <Button
+            id="shareButton"
+            className="positive button"
+            style={{ marginBottom: "18px" }}
+            size="massive"
+            inverted={isDarkMode}
+            onClick={() => {
+              const text = `#Cladder ${puzzleNumber}\n\n✅ ${correct}/10${
+                isHardMode && !isTeacherMode ? "*" : ""
+              }\n${
+                didComplete && !isTeacherMode ? `🚀 ${time} seconds\n` : ""
+              }\nhttps://playcladder.com`;
+
+              var ua = navigator.userAgent.toLowerCase();
+              var isAndroid = ua.indexOf("android") > -1;
+              if (isIos || isAndroid) {
+                navigator.share({
+                  text: text,
+                });
+              } else {
+                copy(text);
+                onCopied();
+              }
+            }}
+          >
+            SHARE
+          </Button>
+        )}
 
         <Button
           id="donateButton"

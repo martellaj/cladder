@@ -9,6 +9,9 @@ import { getNegativeWord, getPositiveWord } from "./getWord";
 import { Button } from "semantic-ui-react";
 import Keyboard from "./Keyboard";
 import StatsComponent from "./StatsComponent";
+import getRandomThreeLetterPuzzle from "./randomPuzzleGenerator/three/three";
+import getRandomInt from "./randomPuzzleGenerator/util/getRandomInt";
+import getRandomFourLetterPuzzle from "./randomPuzzleGenerator/four/four";
 
 const TIME_LIMIT = 60000;
 const INCREMENT = 200;
@@ -35,6 +38,8 @@ export default function Game(props) {
     isHardMode,
     isTeacherMode,
     puzzleNumber,
+    isInfiniteMode,
+    onPlayAgain,
   } = props;
 
   const [guess, setGuess] = useState(""); // current typed guess
@@ -58,15 +63,26 @@ export default function Game(props) {
   // let d = new Date();
   // d = d.setDate(d.getDate() + 1);
   const PUZZLE_NUMBER = useMemo(() => {
-    return specificGameLevel ?? getPuzzleNumber();
-  }, [specificGameLevel]);
+    return isInfiniteMode ? -1 : specificGameLevel ?? getPuzzleNumber();
+  }, [specificGameLevel, isInfiniteMode]);
 
   const [remainingSkips, setRemainingSkips] = useState(
-    isHardMode ? 0 : getSkipsCount(PUZZLE_NUMBER)
+    isInfiniteMode ? 1 : isHardMode ? 0 : getSkipsCount(PUZZLE_NUMBER)
   );
 
   // gets the daily puzzle
-  const game = _game[PUZZLE_NUMBER];
+  // const game = isInfiniteMode
+  //   ? getRandomThreeLetterPuzzle()
+  //   : _game[PUZZLE_NUMBER];
+  const game = useMemo(() => {
+    if (isInfiniteMode) {
+      return getRandomInt(0, 1) === 0
+        ? getRandomThreeLetterPuzzle()
+        : getRandomFourLetterPuzzle();
+    } else {
+      return _game[PUZZLE_NUMBER];
+    }
+  }, [isInfiniteMode, PUZZLE_NUMBER]);
 
   if (!game) {
     window.location.href = `/?v=${Math.random()}`;
@@ -225,7 +241,7 @@ export default function Game(props) {
       (((progress / 100) * TIME_LIMIT) / 1000).toFixed(2)
     );
 
-    if (isOver && !isPractice) {
+    if (isOver && !isPractice && !isInfiniteMode) {
       window.localStorage.setItem(
         `puzzle-${PUZZLE_NUMBER}`,
         JSON.stringify({
@@ -241,6 +257,7 @@ export default function Game(props) {
     progress,
     specificGameLevel,
     isPractice,
+    isInfiniteMode,
   ]);
 
   // adds keydown handlers to window so desktop users can type
@@ -347,8 +364,8 @@ export default function Game(props) {
   }, [game, gameLevel]);
 
   const showSkipButton = useMemo(() => {
-    return progress < 85 && remainingSkips > 0;
-  }, [progress, remainingSkips]);
+    return isInfiniteMode || (progress < 85 && remainingSkips > 0);
+  }, [progress, remainingSkips, isInfiniteMode]);
 
   const messageTargetId = useMemo(() => {
     let id = "hint";
@@ -398,6 +415,8 @@ export default function Game(props) {
             animateCSS("#shareButton", "heartBeat");
           }}
           specificGameLevel={specificGameLevel}
+          isInfiniteMode={isInfiniteMode}
+          onPlayAgain={onPlayAgain}
         />
       )}
 
@@ -412,8 +431,19 @@ export default function Game(props) {
       >
         {isOver && (
           <>
-            {<div style={{ height: "36px" }}></div>}
-            <StatsComponent resultsPage={true} isTeacherMode={isTeacherMode} />
+            {!isInfiniteMode && !isPractice && (
+              <>
+                <div
+                  style={{
+                    height: "36px",
+                  }}
+                ></div>
+                <StatsComponent
+                  resultsPage={true}
+                  isTeacherMode={isTeacherMode}
+                />
+              </>
+            )}
             <div style={{ height: "60px" }}></div>
             {board}
             <div style={{ height: "24px" }}></div>
@@ -470,13 +500,13 @@ export default function Game(props) {
                   });
 
                   // decrement remaining skips
-                  setRemainingSkips(remainingSkips - 1);
+                  !isInfiniteMode && setRemainingSkips(remainingSkips - 1);
                 }}
                 className="button"
                 inverted={isDarkMode}
                 color="red"
               >
-                SKIP ({remainingSkips} left)
+                {isInfiniteMode ? "SKIP" : `SKIP (${remainingSkips} left)`}
               </Button>
             )}
           </>

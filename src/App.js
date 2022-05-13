@@ -11,6 +11,7 @@ import Archive from "./Archive";
 import animateCSS from "./animateCSS";
 import Converter from "./Converter";
 import CreatorWeekBanner from "./CreatorWeekBanner";
+import Loading from "./Loading";
 
 // set the app height for mobile
 const appHeight = () =>
@@ -211,6 +212,23 @@ function App() {
         />
       );
       break;
+    case "infinite":
+      content = (
+        <Game
+          isIos={iOS()}
+          isDarkMode={isDarkMode}
+          isPractice={true}
+          selectionMode={selectionMode}
+          isHardMode={isHardMode}
+          isTeacherMode={isTeacherMode}
+          isInfiniteMode={true}
+          onPlayAgain={() => {
+            setView("loading");
+            setTimeout(() => setView("infinite"), 500);
+          }}
+        />
+      );
+      break;
     case "howToPlay":
       content = <HowToPlay />;
       break;
@@ -240,6 +258,9 @@ function App() {
     case "convert":
       content = <Converter />;
       break;
+    case "loading":
+      content = <Loading />;
+      break;
     case "menu":
     default:
       content = (
@@ -247,6 +268,7 @@ function App() {
           onOptionSelected={onOptionSelected}
           puzzleNumber={params?.p ?? getPuzzleNumber()}
           isDarkMode={isDarkMode}
+          showInfiniteMode={params?.infinite}
         />
       );
       break;
