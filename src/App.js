@@ -221,7 +221,7 @@ function App() {
         />
       );
       break;
-    case "infinite":
+    case "challenge":
       content = (
         <Game
           mode="challenge"
@@ -230,10 +230,9 @@ function App() {
           selectionMode={selectionMode}
           isHardMode={isHardMode}
           isTeacherMode={isTeacherMode}
-          isInfiniteMode={true}
           onPlayAgain={() => {
             setView("loading");
-            setTimeout(() => setView("infinite"), 500);
+            setTimeout(() => setView("challenge"), 500);
           }}
         />
       );
@@ -277,7 +276,7 @@ function App() {
           onOptionSelected={onOptionSelected}
           puzzleNumber={params?.p ?? getDailyPuzzleNumber()}
           isDarkMode={isDarkMode}
-          showInfiniteMode={params?.infinite}
+          showChallengeMode={params?.challenge}
         />
       );
       break;

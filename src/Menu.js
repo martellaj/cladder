@@ -5,7 +5,7 @@ export default function Menu(props) {
     onOptionSelected,
     puzzleNumber,
     isDarkMode,
-    showInfiniteMode = false,
+    showChallengeMode = false,
   } = props;
 
   return (
@@ -23,6 +23,19 @@ export default function Menu(props) {
             PLAY
           </Button>
         </div>
+        {showChallengeMode && (
+          <div className="menuButton">
+            <Button
+              size="massive"
+              className="menuButton button"
+              color="yellow"
+              inverted={isDarkMode}
+              onClick={() => onOptionSelected("challenge")}
+            >
+              CHALLENGE
+            </Button>
+          </div>
+        )}
         <div className="menuButton">
           <Button
             id="archiveButton"
@@ -47,19 +60,7 @@ export default function Menu(props) {
             PRACTICE
           </Button>
         </div>
-        {showInfiniteMode ? (
-          <div className="menuButton">
-            <Button
-              size="massive"
-              className="menuButton button"
-              color="yellow"
-              inverted={isDarkMode}
-              onClick={() => onOptionSelected("infinite")}
-            >
-              INFINITE
-            </Button>
-          </div>
-        ) : (
+        {!showChallengeMode && (
           <div className="menuButton">
             <Button
               size="massive"
