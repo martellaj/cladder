@@ -12,6 +12,7 @@ import animateCSS from "./animateCSS";
 import Converter from "./Converter";
 import CreatorWeekBanner from "./CreatorWeekBanner";
 import Loading from "./Loading";
+import getDailyPuzzleNumber from "./getDailyPuzzleNumber";
 
 // set the app height for mobile
 const appHeight = () =>
@@ -65,8 +66,16 @@ function App() {
   const [isTeacherMode, setIsTeacherMode] = useState(
     window.localStorage.getItem("teacherMode") === "true"
   );
-  const [puzzleNumber, setPuzzleNumber] = useState(undefined);
-  const [showCreatorWeekBanner, setShowCreatorWeekBanner] = useState(false);
+  const [selectedArchivePuzzleNumber, setSelectedArchivePuzzleNumber] =
+    useState(undefined);
+  const [showCreatorWeekBanner, setShowCreatorWeekBanner] = useState(() => {
+    const puzzleNumber = params?.p ?? getDailyPuzzleNumber();
+    if (puzzleNumber >= 48 && puzzleNumber <= 53 && view === "menu") {
+      return true;
+    } else {
+      return false;
+    }
+  });
 
   useEffect(() => {
     if (params?.convert) {
@@ -75,7 +84,7 @@ function App() {
   }, []);
 
   useEffect(() => {
-    const puzzleNumber = params?.p ?? getPuzzleNumber();
+    const puzzleNumber = params?.p ?? getDailyPuzzleNumber();
     if (puzzleNumber >= 48 && puzzleNumber <= 53 && view === "menu") {
       setShowCreatorWeekBanner(true);
     } else {
@@ -99,7 +108,7 @@ function App() {
       setIsDarkMode(!isDarkMode);
     }
 
-    setPuzzleNumber(level);
+    setSelectedArchivePuzzleNumber(level || undefined);
 
     setView(option);
   };
@@ -119,7 +128,7 @@ function App() {
       <div className="headerSection" style={{ marginLeft: "12px" }}>
         <Icon
           onClick={() => {
-            if (view === "game" && puzzleNumber !== undefined) {
+            if (view === "game" && selectedArchivePuzzleNumber !== undefined) {
               setView("archive");
             } else {
               setView("menu");
@@ -191,17 +200,19 @@ function App() {
     case "game":
       content = (
         <Game
+          mode={selectedArchivePuzzleNumber !== undefined ? "archive" : "daily"}
+          archivePuzzleNumber={selectedArchivePuzzleNumber}
           isDarkMode={isDarkMode}
           selectionMode={selectionMode}
           isHardMode={isHardMode}
           isTeacherMode={isTeacherMode}
-          puzzleNumber={puzzleNumber}
         />
       );
       break;
     case "practice":
       content = (
         <Game
+          mode="practice"
           isDarkMode={isDarkMode}
           isPractice={true}
           selectionMode={selectionMode}
@@ -213,6 +224,7 @@ function App() {
     case "infinite":
       content = (
         <Game
+          mode="challenge"
           isDarkMode={isDarkMode}
           isPractice={true}
           selectionMode={selectionMode}
@@ -263,7 +275,7 @@ function App() {
       content = (
         <Menu
           onOptionSelected={onOptionSelected}
-          puzzleNumber={params?.p ?? getPuzzleNumber()}
+          puzzleNumber={params?.p ?? getDailyPuzzleNumber()}
           isDarkMode={isDarkMode}
           showInfiniteMode={params?.infinite}
         />
@@ -279,13 +291,5 @@ function App() {
     </div>
   );
 }
-
-const getPuzzleNumber = (date) => {
-  const refDate = new Date(2022, 2, 22, 0, 0, 0, 0);
-  const _date = date || new Date();
-  const val =
-    new Date(_date).setHours(0, 0, 0, 0) - refDate.setHours(0, 0, 0, 0);
-  return Math.round(val / 864e5);
-};
 
 export default App;

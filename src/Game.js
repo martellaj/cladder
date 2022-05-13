@@ -12,6 +12,7 @@ import StatsComponent from "./StatsComponent";
 import getRandomThreeLetterPuzzle from "./randomPuzzleGenerator/three/three";
 import getRandomInt from "./randomPuzzleGenerator/util/getRandomInt";
 import getRandomFourLetterPuzzle from "./randomPuzzleGenerator/four/four";
+import getDailyPuzzleNumber from "./getDailyPuzzleNumber";
 
 const TIME_LIMIT = 60000;
 const INCREMENT = 200;
@@ -22,82 +23,122 @@ const params = new Proxy(new URLSearchParams(window.location.search), {
   get: (searchParams, prop) => searchParams.get(prop),
 });
 
-/**
- * Returns a random number between min (inclusive) and max (exclusive)
- */
-function getRandomPuzzle() {
-  return Math.floor(Math.random() * getPuzzleNumber());
+const puzzleParam = params?.p ?? undefined;
+
+function getRandomPuzzleNumber() {
+  return Math.floor(Math.random() * getDailyPuzzleNumber());
 }
 
 export default function Game(props) {
   const {
+    archivePuzzleNumber = -1, // which puzzle from archive user selected
     isDarkMode,
-    isPractice,
-    selectionMode,
     isHardMode,
+    isPractice,
     isTeacherMode,
-    puzzleNumber,
-    isInfiniteMode,
+    mode, // daily, archive, practice, challenge
     onPlayAgain,
+    selectionMode,
   } = props;
 
-  const [guess, setGuess] = useState(""); // current typed guess
-  const [progress, setProgress] = useState(0); // how much time left
-  const [isOver, setIsOver] = useState(false); // has game ended
-  const [gameLevel, setGameLevel] = useState(0); // current game level
-  const [skippedLevel, setSkippedLevel] = useState(false); // has user skipped level
-  const [selectedIndex, setSelectedIndex] = useState(-1);
-  const [shouldShowTileToChange, setShouldShowTileToChange] = useState(false);
+  /**
+   * puzzle number for the game being completed (where applicable)
+   */
+  const puzzleNumber = useMemo(() => {
+    if (puzzleParam) {
+      return puzzleParam;
+    }
 
-  const specificGameLevel = useMemo(() => {
-    return params?.p !== null
-      ? parseInt(params.p)
-      : isPractice
-      ? getRandomPuzzle()
-      : puzzleNumber !== undefined
-      ? puzzleNumber
-      : undefined;
-  }, [isPractice, puzzleNumber]);
+    if (mode === "daily") {
+      return getDailyPuzzleNumber();
+    }
 
-  // let d = new Date();
-  // d = d.setDate(d.getDate() + 1);
-  const PUZZLE_NUMBER = useMemo(() => {
-    return isInfiniteMode ? -1 : specificGameLevel ?? getPuzzleNumber();
-  }, [specificGameLevel, isInfiniteMode]);
+    if (mode === "practice") {
+      return getRandomPuzzleNumber();
+    }
 
-  const [remainingSkips, setRemainingSkips] = useState(
-    isInfiniteMode ? 1 : isHardMode ? 0 : getSkipsCount(PUZZLE_NUMBER)
-  );
+    if (mode === "archive") {
+      return archivePuzzleNumber || 0;
+    }
 
-  // gets the daily puzzle
-  // const game = isInfiniteMode
-  //   ? getRandomThreeLetterPuzzle()
-  //   : _game[PUZZLE_NUMBER];
+    return -1;
+  }, [mode, archivePuzzleNumber]);
+
+  /**
+   * the actual puzzle being completed
+   */
   const game = useMemo(() => {
-    if (isInfiniteMode) {
+    // if challenge mode, get a random nyt puzzle
+    if (mode === "challenge") {
       return getRandomInt(0, 1) === 0
         ? getRandomThreeLetterPuzzle()
         : getRandomFourLetterPuzzle();
-    } else {
-      return _game[PUZZLE_NUMBER];
     }
-  }, [isInfiniteMode, PUZZLE_NUMBER]);
 
+    // else, use puzzleNumber as index
+    return _game[puzzleNumber];
+  }, [mode, puzzleNumber]);
+
+  // if there's no game data, then refresh the page
   if (!game) {
     window.location.href = `/?v=${Math.random()}`;
   }
 
-  // useEffect(() => {
-  //   if (guess === "foo") {
-  //     setGameLevel(game.length - 1);
-  //     setGuess("");
-  //   }
-  // }, [guess, game.length]);
+  /**
+   * returns results from daily game (if played)
+   * else returns undefined
+   */
+  const getDailyResult = () => {
+    if (mode === "daily") {
+      const resultData = window.localStorage.getItem(`puzzle-${puzzleNumber}`);
 
-  // current level information
+      if (resultData) {
+        const parsedResultData = JSON.parse(resultData);
+        return {
+          score: parsedResultData.score,
+          progress: (parsedResultData.time * 100000) / TIME_LIMIT,
+        };
+      }
+    }
+
+    return undefined;
+  };
+  const dailyResult = getDailyResult();
+
+  /**
+   * initializes the number of remaining skips
+   */
+  const initializeRemainingSkips = () => {
+    if (mode === "challenge") {
+      return 1;
+    }
+
+    if (isHardMode) {
+      return 0;
+    }
+
+    return getSkipsCount(puzzleNumber);
+  };
+
+  //////////////////////
+  ///// GAME STATE /////
+  //////////////////////
+  const [progress, setProgress] = useState(dailyResult?.progress ?? 0); // how much time left
+  const [gameLevel, setGameLevel] = useState(dailyResult?.score ?? 0); // current game level
+  const [isOver, setIsOver] = useState(!!dailyResult); // has game ended
+  const [guess, setGuess] = useState(""); // current typed guess
+  const [selectedIndex, setSelectedIndex] = useState(-1);
+  const [shouldShowTileToChange, setShouldShowTileToChange] = useState(false);
+  const [remainingSkips, setRemainingSkips] = useState(
+    initializeRemainingSkips
+  );
+
+  /////////////////////////////////
+  /// CURRENT ROUND INFORMATION ///
+  /////////////////////////////////
   const [word, setWord] = useState(game[gameLevel]?.word);
   const [hint, setHint] = useState(game[gameLevel]?.hint);
-  const [answer, setAnswer] = useState(game[gameLevel]?.answer);
+  const [answer, setAnswer] = useState(game[gameLevel]?.answer ?? "");
 
   // success or failure message after guess
   const [messageDetails, setMessageDetails] = useState({
@@ -105,7 +146,31 @@ export default function Game(props) {
     color: "",
   });
 
-  // checks if the user's guess matches the answer
+  /**
+   * saves game result to localStorage
+   */
+  const saveResult = useCallback(() => {
+    // no-op for practice and challenge modes
+    if (mode === "practice" || mode === "challenge") {
+      return;
+    }
+
+    const time = parseFloat(
+      (((progress / 100) * TIME_LIMIT) / 1000).toFixed(2)
+    );
+
+    window.localStorage.setItem(
+      `puzzle-${puzzleNumber}`,
+      JSON.stringify({
+        score: gameLevel,
+        time: time,
+      })
+    );
+  }, [mode, progress, gameLevel, puzzleNumber]);
+
+  /**
+   * checks if the user's guess matches the answer
+   */
   const checkAnswer = useCallback(() => {
     // don't check before guess is set or if guess hasn't changed yet
     if (!guess) {
@@ -130,7 +195,7 @@ export default function Game(props) {
     }
   }, [guess, answer, word, selectionMode]);
 
-  // checks answer when guess is made
+  // hook that checks answer when guess is made
   useEffect(() => {
     if (selectionMode && selectedIndex !== -1 && guess !== word) {
       setTimeout(() => {
@@ -144,13 +209,18 @@ export default function Game(props) {
   }, [guess, word, selectedIndex, checkAnswer, answer.length, selectionMode]);
 
   // hook for when timer ends
-  // todo: add game level info
   useEffect(() => {
     if (progress >= 100 && !isTeacherMode) {
+      // clear pendin timeout
       clearTimeout(tileHintTimer);
+
+      // save result to localStorage
+      saveResult();
+
+      // update game state
       setIsOver(true);
     }
-  }, [progress, isTeacherMode]);
+  }, [progress, isTeacherMode, saveResult]);
 
   // hook that updates level information
   useEffect(() => {
@@ -188,14 +258,11 @@ export default function Game(props) {
     if (gameLevel > 0 && gameLevel < 10 && !isOver) {
       setMessageDetails({ message: getPositiveWord(), color: "green" });
 
-      // reset if user skipped
-      setSkippedLevel(false);
-
       setTimeout(() => {
         setMessageDetails({ message: "", color: "" });
       }, 1000);
     }
-  }, [gameLevel, isOver, skippedLevel]);
+  }, [gameLevel, isOver]);
 
   // hook that updates progress bar as time elapses
   useEffect(() => {
@@ -217,47 +284,27 @@ export default function Game(props) {
     };
   }, [isOver]);
 
-  // tries to see if game has been played today
+  // hook that saves game progress to local storage
   useEffect(() => {
-    // ignore stored result if using param or practicing
-    if (specificGameLevel !== undefined || isPractice) {
+    // no-op for practice and challenge modes
+    if (mode === "practice" || mode === "challenge") {
       return;
     }
 
-    const data = window.localStorage.getItem(`puzzle-${PUZZLE_NUMBER}`);
-
-    if (data) {
-      const _data = JSON.parse(data);
-      setGameLevel(_data.score);
-      setProgress((_data.time * 100000) / TIME_LIMIT);
-      setIsOver(true);
-    }
-  }, [PUZZLE_NUMBER, specificGameLevel, isPractice]);
-
-  // hook that saves game progress to local storage
-  useEffect(() => {
     const time = parseFloat(
       (((progress / 100) * TIME_LIMIT) / 1000).toFixed(2)
     );
 
-    if (isOver && !isPractice && !isInfiniteMode) {
+    if (isOver) {
       window.localStorage.setItem(
-        `puzzle-${PUZZLE_NUMBER}`,
+        `puzzle-${puzzleNumber}`,
         JSON.stringify({
           score: gameLevel,
           time: time,
         })
       );
     }
-  }, [
-    isOver,
-    PUZZLE_NUMBER,
-    gameLevel,
-    progress,
-    specificGameLevel,
-    isPractice,
-    isInfiniteMode,
-  ]);
+  }, [mode, progress, isOver, puzzleNumber, gameLevel]);
 
   // adds keydown handlers to window so desktop users can type
   useEventListener("keydown", (e) => {
@@ -363,8 +410,12 @@ export default function Game(props) {
   }, [game, gameLevel]);
 
   const showSkipButton = useMemo(() => {
-    return isInfiniteMode || (progress < 85 && remainingSkips > 0);
-  }, [progress, remainingSkips, isInfiniteMode]);
+    if (mode === "challenge") {
+      return true;
+    }
+
+    return progress < 85 && remainingSkips > 0;
+  }, [progress, remainingSkips, mode]);
 
   const messageTargetId = useMemo(() => {
     let id = "hint";
@@ -408,12 +459,11 @@ export default function Game(props) {
               setMessageDetails({ message: "", color: "" });
             }, 1000);
           }}
-          puzzleNumber={PUZZLE_NUMBER}
+          puzzleNumber={puzzleNumber}
           onLoaded={() => {
             animateCSS("#shareButton", "heartBeat");
           }}
-          specificGameLevel={specificGameLevel}
-          isInfiniteMode={isInfiniteMode}
+          isChallengeMode={mode === "challenge"}
           onPlayAgain={onPlayAgain}
         />
       )}
@@ -429,7 +479,7 @@ export default function Game(props) {
       >
         {isOver && (
           <>
-            {!isInfiniteMode && !isPractice && (
+            {(mode === "daily" || mode === "archive") && (
               <>
                 <div
                   style={{
@@ -476,9 +526,6 @@ export default function Game(props) {
               <Button
                 id="skipButton"
                 onClick={() => {
-                  // note user skipped level (so no notification)
-                  setSkippedLevel(true);
-
                   // increment level
                   setGameLevel((currentLevel) => {
                     return currentLevel + 1;
@@ -497,14 +544,16 @@ export default function Game(props) {
                     return Math.min(newElapsedTime, 100);
                   });
 
-                  // decrement remaining skips
-                  !isInfiniteMode && setRemainingSkips(remainingSkips - 1);
+                  // decrement remaining skips (unless in challenge mode)
+                  mode !== "challenge" && setRemainingSkips(remainingSkips - 1);
                 }}
                 className="button"
                 inverted={isDarkMode}
                 color="red"
               >
-                {isInfiniteMode ? "SKIP" : `SKIP (${remainingSkips} left)`}
+                {mode === "challenge"
+                  ? "SKIP"
+                  : `SKIP (${remainingSkips} left)`}
               </Button>
             )}
           </>
@@ -537,14 +586,6 @@ export default function Game(props) {
     </>
   );
 }
-
-const getPuzzleNumber = (date) => {
-  const refDate = new Date(2022, 2, 22, 0, 0, 0, 0);
-  const _date = date || new Date();
-  const val =
-    new Date(_date).setHours(0, 0, 0, 0) - refDate.setHours(0, 0, 0, 0);
-  return Math.round(val / 864e5);
-};
 
 const getSkipsCount = (puzzleNumber) => {
   const hardPuzzles = [51];

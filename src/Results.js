@@ -14,7 +14,7 @@ export default function Results(props) {
     isDarkMode,
     isTeacherMode,
     isPractice,
-    isInfiniteMode,
+    isChallengeMode,
     onPlayAgain,
   } = props;
 
@@ -56,7 +56,7 @@ export default function Results(props) {
         )}
       </div>
       <>
-        {isInfiniteMode && onPlayAgain ? (
+        {isChallengeMode ? (
           <Button
             className="positive button"
             style={{ marginBottom: "18px" }}
