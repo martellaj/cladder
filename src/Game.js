@@ -307,6 +307,43 @@ export default function Game(props) {
     }
   }, [mode, progress, isOver, puzzleNumber, gameLevel]);
 
+  const showSkipButton = useMemo(() => {
+    if (mode === "challenge") {
+      return true;
+    }
+
+    return progress < 85 && remainingSkips > 0;
+  }, [progress, remainingSkips, mode]);
+
+  const onSkipped = useCallback(() => {
+    if (!showSkipButton) {
+      return;
+    }
+
+    // increment level
+    setGameLevel((currentLevel) => {
+      return currentLevel + 1;
+    });
+
+    // penalize user for skipping by incrementing timer
+    setProgress((oldProgress) => {
+      if (isOver) {
+        return oldProgress;
+      }
+
+      const elapsedTime = (oldProgress / 100) * TIME_LIMIT;
+      const newElapsedTime = ((elapsedTime + 5 * 1000) / TIME_LIMIT) * 100;
+
+      return Math.min(newElapsedTime, 100);
+    });
+
+    // decrement remaining skips (unless in challenge mode)
+    mode !== "challenge" && setRemainingSkips(remainingSkips - 1);
+
+    // increment number of skips used
+    mode === "challenge" && setSkipsUsed(skipsUsed + 1);
+  }, [showSkipButton, isOver, mode, remainingSkips, skipsUsed]);
+
   // adds keydown handlers to window so desktop users can type
   useEventListener("keydown", (e) => {
     if (isOver) {
@@ -321,6 +358,17 @@ export default function Game(props) {
       const newGuess = guess.slice(0, -1);
 
       setGuess(newGuess || "");
+      return;
+    }
+
+    if (e.key === " ") {
+      e.preventDefault();
+      e.stopPropagation();
+
+      if (!isOver) {
+        onSkipped();
+      }
+
       return;
     }
 
@@ -409,14 +457,6 @@ export default function Game(props) {
 
     return _board;
   }, [game, gameLevel]);
-
-  const showSkipButton = useMemo(() => {
-    if (mode === "challenge") {
-      return true;
-    }
-
-    return progress < 85 && remainingSkips > 0;
-  }, [progress, remainingSkips, mode]);
 
   const messageTargetId = useMemo(() => {
     let id = "hint";
@@ -527,37 +567,13 @@ export default function Game(props) {
             {showSkipButton && (
               <Button
                 id="skipButton"
-                onClick={() => {
-                  // increment level
-                  setGameLevel((currentLevel) => {
-                    return currentLevel + 1;
-                  });
-
-                  // penalize user for skipping by incrementing timer
-                  setProgress((oldProgress) => {
-                    if (isOver) {
-                      return oldProgress;
-                    }
-
-                    const elapsedTime = (oldProgress / 100) * TIME_LIMIT;
-                    const newElapsedTime =
-                      ((elapsedTime + 5 * 1000) / TIME_LIMIT) * 100;
-
-                    return Math.min(newElapsedTime, 100);
-                  });
-
-                  // decrement remaining skips (unless in challenge mode)
-                  mode !== "challenge" && setRemainingSkips(remainingSkips - 1);
-
-                  // increment number of skips used
-                  mode === "challenge" && setSkipsUsed(skipsUsed + 1);
-                }}
+                onClick={onSkipped}
                 className="button"
                 inverted={isDarkMode}
                 color="red"
               >
                 {mode === "challenge"
-                  ? "SKIP"
+                  ? "SKIP (SPACEBAR)"
                   : `SKIP (${remainingSkips} left)`}
               </Button>
             )}
