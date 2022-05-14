@@ -53,7 +53,7 @@ export default function ChallengePage(props) {
             onClick={() => {
               const CODE = "JAVAGIFT";
 
-              if (code.toLowerCase() === CODE.toLowerCase()) {
+              if (code.trim().toLowerCase() === CODE.toLowerCase()) {
                 // save for later
                 window.localStorage.setItem("isSupporter", true);
 
@@ -63,7 +63,9 @@ export default function ChallengePage(props) {
                   onOptionSelected("challengeFirst");
                 }, 0);
               } else {
-                alert("Invalid code");
+                alert(
+                  "That didn't work. Maybe try again? Please send an email to playcladder@gmail.com if the code you received isn't working."
+                );
               }
             }}
           >
