@@ -328,7 +328,6 @@ function App() {
   return (
     <div className={`App`}>
       {header}
-      {showCreatorWeekBanner && <CreatorWeekBanner />}
       {content}
     </div>
   );
