@@ -367,7 +367,6 @@ button:focus {
 
 #challengeModeTitle {
   font-variant: all-small-caps;
-  border-bottom: 1px solid gray;
   width: fit-content;
   margin: 0 auto;
   margin-bottom: 12px;
@@ -377,4 +376,5 @@ button:focus {
   margin: 30px 50px;
   text-align: justify;
   line-height: 1.6;
+  margin-top: 20px;
 }
