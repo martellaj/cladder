@@ -253,7 +253,9 @@ function App() {
           isTeacherMode={isTeacherMode}
           onPlayAgain={() => {
             setView("loading");
-            setTimeout(() => setView("challenge"), 250);
+            requestAnimationFrame(() => {
+              setView("challenge");
+            });
           }}
         />
       ) : (

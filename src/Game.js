@@ -68,9 +68,21 @@ export default function Game(props) {
   const game = useMemo(() => {
     // if challenge mode, get a random nyt puzzle
     if (mode === "challenge") {
-      return Math.random() < 0.5
-        ? getRandomThreeLetterPuzzle()
-        : getRandomFourLetterPuzzle();
+      const shouldGetThreeLetterPuzzle = Math.random() < 0.5;
+
+      let puzzle = null;
+
+      while (!puzzle) {
+        try {
+          if (shouldGetThreeLetterPuzzle) {
+            puzzle = getRandomThreeLetterPuzzle();
+          } else {
+            puzzle = getRandomFourLetterPuzzle();
+          }
+        } catch (e) {}
+      }
+
+      return puzzle;
     }
 
     // else, use puzzleNumber as index
@@ -315,9 +327,21 @@ export default function Game(props) {
     return progress < 85 && remainingSkips > 0;
   }, [progress, remainingSkips, mode]);
 
+  const [debounceSkip, setDeboounceSkip] = useState(false);
   const onSkipped = useCallback(() => {
     if (!showSkipButton) {
       return;
+    }
+
+    if (debounceSkip) {
+      return;
+    }
+
+    if (!debounceSkip) {
+      setDeboounceSkip(true);
+      setTimeout(() => {
+        setDeboounceSkip(false);
+      }, 500);
     }
 
     // increment level
@@ -342,7 +366,7 @@ export default function Game(props) {
 
     // increment number of skips used
     mode === "challenge" && setSkipsUsed(skipsUsed + 1);
-  }, [showSkipButton, isOver, mode, remainingSkips, skipsUsed]);
+  }, [showSkipButton, isOver, mode, remainingSkips, skipsUsed, debounceSkip]);
 
   // adds keydown handlers to window so desktop users can type
   useEventListener("keydown", (e) => {
