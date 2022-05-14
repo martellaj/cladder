@@ -319,7 +319,7 @@ function App() {
           onOptionSelected={onOptionSelected}
           puzzleNumber={params?.p ?? getDailyPuzzleNumber()}
           isDarkMode={isDarkMode}
-          showChallengeMode={params?.challenge}
+          showChallengeMode={true}
         />
       );
       break;

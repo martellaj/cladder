@@ -51,7 +51,7 @@ export default function ChallengePage(props) {
             inverted={isDarkMode}
             className="button"
             onClick={() => {
-              const CODE = "JAVAGIFT-17";
+              const CODE = "JAVAGIFT";
 
               if (code.toLowerCase() === CODE.toLowerCase()) {
                 // save for later
@@ -59,7 +59,7 @@ export default function ChallengePage(props) {
 
                 onOptionSelected("menu");
 
-                setTimeout(() => {
+                requestAnimationFrame(() => {
                   onOptionSelected("challengeFirst");
                 }, 0);
               } else {
