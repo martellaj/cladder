@@ -39,7 +39,13 @@ export default function ChallengePage(props) {
         >
           ❤️ SUPPORT BY DONATING
         </Button>
-        <div>
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
           <Input
             style={{ marginRight: "12px" }}
             value={code}
