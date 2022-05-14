@@ -8,8 +8,6 @@ import four from "./fourData";
 const fourKeys = Object.keys(four);
 
 const getRandomFourLetterPuzzle = () => {
-  const start = Date.now();
-
   const randomizer = getRandomizer();
 
   const initialWord = fourKeys[randomizer];
@@ -46,11 +44,6 @@ const getRandomFourLetterPuzzle = () => {
       puzzleAnswers.push(nextNextLevel.answer);
     }
   }
-
-  const duration = Date.now() - start;
-  console.log(`took ${duration}ms\n`);
-
-  console.log(puzzle);
 
   return puzzle;
 };

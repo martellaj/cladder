@@ -8,8 +8,6 @@ import three from "./threeData";
 const threeKeys = Object.keys(three);
 
 const getRandomThreeLetterPuzzle = () => {
-  const start = Date.now();
-
   const randomizer = getRandomizer();
 
   const initialWord = threeKeys[randomizer];
@@ -46,11 +44,6 @@ const getRandomThreeLetterPuzzle = () => {
       puzzleAnswers.push(nextNextLevel.answer);
     }
   }
-
-  const duration = Date.now() - start;
-  console.log(`took ${duration}ms\n`);
-
-  console.log(puzzle);
 
   return puzzle;
 };

@@ -114,6 +114,32 @@ function App() {
     setView(option);
   };
 
+  const getLeftHeaderButton = () => {
+    switch (view) {
+      case "menu":
+        return "help";
+      default:
+        return "arrow left";
+    }
+  };
+
+  const onLeftHeaderButtonClick = () => {
+    switch (view) {
+      case "game": {
+        selectedArchivePuzzleNumber !== undefined
+          ? setView("archive")
+          : setView("menu");
+        return;
+      }
+      case "menu":
+        setView("howToPlay");
+        return;
+      default:
+        setView("menu");
+        return;
+    }
+  };
+
   const header = (
     <div
       className="header"
@@ -128,20 +154,14 @@ function App() {
     >
       <div className="headerSection" style={{ marginLeft: "12px" }}>
         <Icon
-          onClick={() => {
-            if (view === "game" && selectedArchivePuzzleNumber !== undefined) {
-              setView("archive");
-            } else {
-              setView("menu");
-            }
-          }}
+          onClick={onLeftHeaderButtonClick}
           tabIndex="0"
           style={{
             cursor: "pointer",
-            visibility: view !== "menu" ? "visible" : "hidden",
+            // visibility: view !== "menu" ? "visible" : "hidden",
             marginRight: "12px",
           }}
-          name={view === "game" || view === "practice" ? "arrow left" : "close"}
+          name={getLeftHeaderButton()}
           inverted={isDarkMode}
         />
         <Icon
