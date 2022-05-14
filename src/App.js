@@ -13,6 +13,7 @@ import Converter from "./Converter";
 import CreatorWeekBanner from "./CreatorWeekBanner";
 import Loading from "./Loading";
 import getDailyPuzzleNumber from "./getDailyPuzzleNumber";
+import ChallengePage from "./ChallengePage";
 
 // set the app height for mobile
 const appHeight = () =>
@@ -196,6 +197,8 @@ function App() {
 
   let content = null;
 
+  const isSupporter = window.localStorage.getItem("isSupporter") === "true";
+
   switch (view) {
     case "game":
       content = (
@@ -221,6 +224,26 @@ function App() {
       );
       break;
     case "challenge":
+      content = isSupporter ? (
+        <Game
+          mode="challenge"
+          isDarkMode={isDarkMode}
+          selectionMode={selectionMode}
+          isHardMode={isHardMode}
+          isTeacherMode={isTeacherMode}
+          onPlayAgain={() => {
+            setView("loading");
+            setTimeout(() => setView("challenge"), 250);
+          }}
+        />
+      ) : (
+        <ChallengePage
+          isDarkMode={isDarkMode}
+          onOptionSelected={onOptionSelected}
+        />
+      );
+      break;
+    case "challengeFirst":
       content = (
         <Game
           mode="challenge"

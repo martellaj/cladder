@@ -38,6 +38,8 @@ export default function Results(props) {
     bigMessage = "There's always tomorrow!";
   }
 
+  const isSupporter = window.localStorage.getItem("isSupporter") === "true";
+
   return (
     <div className="resultsContainer">
       {!isPractice && <CreatorWeekResultsBanner puzzleNumber={puzzleNumber} />}
@@ -115,21 +117,23 @@ export default function Results(props) {
           </Button>
         )}
 
-        <Button
-          id="donateButton"
-          className="button active"
-          style={{
-            marginBottom: "12px",
-          }}
-          size="large"
-          color="purple"
-          inverted={isDarkMode}
-          onClick={() => {
-            window.open("https://www.buymeacoffee.com/playcladder", "_blank");
-          }}
-        >
-          ❤️ SUPPORT BY DONATING
-        </Button>
+        {!isSupporter && (
+          <Button
+            id="donateButton"
+            className="button active"
+            style={{
+              marginBottom: "12px",
+            }}
+            size="large"
+            color="purple"
+            inverted={isDarkMode}
+            onClick={() => {
+              window.open("https://www.buymeacoffee.com/playcladder", "_blank");
+            }}
+          >
+            ❤️ SUPPORT BY DONATING
+          </Button>
+        )}
       </>
     </div>
   );
