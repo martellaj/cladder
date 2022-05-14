@@ -3403,4 +3403,62 @@ export const game = [
       alteredPosition: 3,
     },
   ],
+  // 5/15/2022 (#54)
+  [
+    {
+      word: "free",
+      hint: "lose sleep (over)",
+      answer: "fret",
+      alteredPosition: 3,
+    },
+    {
+      word: "fret",
+      hint: "parts of the body that are slightly larger in the evening than morning",
+      answer: "feet",
+      alteredPosition: 1,
+    },
+    {
+      word: "feet",
+      hint: "underground vegetable with edible greens",
+      answer: "beet",
+      alteredPosition: 0,
+    },
+    {
+      word: "beet",
+      hint: "verb in egg recipes",
+      answer: "beat",
+      alteredPosition: 2,
+    },
+    {
+      word: "beat",
+      hint: "coffee (by the unit)",
+      answer: "bean",
+      alteredPosition: 3,
+    },
+    { word: "bean", hint: "to signify", answer: "mean", alteredPosition: 0 },
+    {
+      word: "mean",
+      hint: "sound from a dungeon",
+      answer: "moan",
+      alteredPosition: 1,
+    },
+    {
+      word: "moan",
+      hint: "apollo program destination",
+      answer: "moon",
+      alteredPosition: 2,
+    },
+    {
+      word: "moon",
+      hint: "irrelevant",
+      answer: "moot",
+      alteredPosition: 3,
+    },
+    {
+      word: "moot",
+      hint: "stolen money",
+      answer: "loot",
+      alteredPosition: 0,
+    },
+  ],
 ];
