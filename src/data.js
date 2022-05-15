@@ -3698,4 +3698,57 @@ export const game = [
       alteredPosition: 3,
     },
   ],
+  // 5/20/2022 (#59)
+  [
+    {
+      word: "door",
+      hint: "secure to the dock",
+      answer: "moor",
+      alteredPosition: 0,
+    },
+    {
+      word: "moor",
+      hint: "a kind of ring or music",
+      answer: "mood",
+      alteredPosition: 3,
+    },
+    {
+      word: "mood",
+      hint: "what's thrown in a cafeteria fight",
+      answer: "food",
+      alteredPosition: 0,
+    },
+    {
+      word: "food",
+      hint: "a court entertainer",
+      answer: "fool",
+      alteredPosition: 3,
+    },
+    {
+      word: "fool",
+      hint: "a stable newborn",
+      answer: "foal",
+      alteredPosition: 2,
+    },
+    { word: "foal", hint: "froth", answer: "foam", alteredPosition: 3 },
+    { word: "foam", hint: "to wander", answer: "roam", alteredPosition: 0 },
+    {
+      word: "roam",
+      hint: "office paper stack",
+      answer: "ream",
+      alteredPosition: 1,
+    },
+    {
+      word: "ream",
+      hint: "sewn line on a pair of slacks",
+      answer: "seam",
+      alteredPosition: 0,
+    },
+    {
+      word: "seam",
+      hint: "deception",
+      answer: "sham",
+      alteredPosition: 1,
+    },
+  ],
 ];
