@@ -3572,4 +3572,67 @@ export const game = [
       alteredPosition: 3,
     },
   ],
+  // 5/18/2022 (#57)
+  [
+    {
+      word: "pale",
+      hint: 'Dickens classic "A ___ of Two Cities"',
+      answer: "tale",
+      alteredPosition: 0,
+    },
+    {
+      word: "tale",
+      hint: "to gibber-jabber",
+      answer: "talk",
+      alteredPosition: 3,
+    },
+    {
+      word: "talk",
+      hint: "word that might excite a dog",
+      answer: "walk",
+      alteredPosition: 0,
+    },
+    {
+      word: "walk",
+      hint: "place to hang a poster",
+      answer: "wall",
+      alteredPosition: 3,
+    },
+    {
+      word: "wall",
+      hint: "a stretch between classrooms",
+      answer: "hall",
+      alteredPosition: 0,
+    },
+    {
+      word: "hall",
+      hint: '"___ caesar!"',
+      answer: "hail",
+      alteredPosition: 2,
+    },
+    {
+      word: "hail",
+      hint: "get-out-of-jail money",
+      answer: "bail",
+      alteredPosition: 0,
+    },
+    {
+      word: "bail",
+      hint: "heat to more than 212 degrees, as water",
+      answer: "boil",
+      alteredPosition: 1,
+    },
+    {
+      word: "boil",
+      hint: "slinky, e.g.",
+      answer: "coil",
+      alteredPosition: 0,
+    },
+    {
+      word: "coil",
+      hint: "fuel from a mine",
+      answer: "coal",
+      alteredPosition: 2,
+    },
+  ],
 ];
