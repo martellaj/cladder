@@ -3635,4 +3635,67 @@ export const game = [
       alteredPosition: 2,
     },
   ],
+  // 5/19/2022 (#58)
+  [
+    {
+      word: "cafe",
+      hint: "pet store purchase",
+      answer: "cage",
+      alteredPosition: 2,
+    },
+    {
+      word: "cage",
+      hint: "what workers earn",
+      answer: "wage",
+      alteredPosition: 0,
+    },
+    {
+      word: "wage",
+      hint: "thing caught near the shore",
+      answer: "wave",
+      alteredPosition: 2,
+    },
+    {
+      word: "wave",
+      hint: "spelunking site",
+      answer: "cave",
+      alteredPosition: 0,
+    },
+    {
+      word: "cave",
+      hint: "safe harbor",
+      answer: "cove",
+      alteredPosition: 1,
+    },
+    {
+      word: "cove",
+      hint: "small inlet on the water",
+      answer: "cone",
+      alteredPosition: 2,
+    },
+    {
+      word: "cone",
+      hint: "rib or femur",
+      answer: "bone",
+      alteredPosition: 0,
+    },
+    {
+      word: "bone",
+      hint: "water pipe",
+      answer: "bong",
+      alteredPosition: 3,
+    },
+    {
+      word: "bong",
+      hint: "gun blast",
+      answer: "bang",
+      alteredPosition: 1,
+    },
+    {
+      word: "bang",
+      hint: `word after "rubber" or "rock"`,
+      answer: "band",
+      alteredPosition: 3,
+    },
+  ],
 ];
