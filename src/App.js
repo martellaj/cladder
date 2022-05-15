@@ -10,7 +10,6 @@ import Settings from "./Settings";
 import Archive from "./Archive";
 import animateCSS from "./animateCSS";
 import Converter from "./Converter";
-import CreatorWeekBanner from "./CreatorWeekBanner";
 import Loading from "./Loading";
 import getDailyPuzzleNumber from "./getDailyPuzzleNumber";
 import ChallengePage from "./ChallengePage";
@@ -69,29 +68,12 @@ function App() {
   );
   const [selectedArchivePuzzleNumber, setSelectedArchivePuzzleNumber] =
     useState(undefined);
-  const [showCreatorWeekBanner, setShowCreatorWeekBanner] = useState(() => {
-    const puzzleNumber = params?.p ?? getDailyPuzzleNumber();
-    if (puzzleNumber >= 48 && puzzleNumber <= 53 && view === "menu") {
-      return true;
-    } else {
-      return false;
-    }
-  });
 
   useEffect(() => {
     if (params?.convert) {
       setView("convert");
     }
   }, []);
-
-  useEffect(() => {
-    const puzzleNumber = params?.p ?? getDailyPuzzleNumber();
-    if (puzzleNumber >= 48 && puzzleNumber <= 53 && view === "menu") {
-      setShowCreatorWeekBanner(true);
-    } else {
-      setShowCreatorWeekBanner(false);
-    }
-  }, [view]);
 
   // note the player has played before so we don't show help next time
   useEffect(() => {

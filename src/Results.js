@@ -1,7 +1,6 @@
 import { Button } from "semantic-ui-react";
 import copy from "copy-to-clipboard";
 import { useEffect } from "react";
-import CreatorWeekResultsBanner from "./CreatorWeekResultsBanner";
 
 export default function Results(props) {
   const {
@@ -42,7 +41,6 @@ export default function Results(props) {
 
   return (
     <div className="resultsContainer">
-      {!isPractice && <CreatorWeekResultsBanner puzzleNumber={puzzleNumber} />}
       <div style={{ marginBottom: "24px" }}>
         <div className="bigMessage">{bigMessage}</div>
         <div
