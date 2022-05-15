@@ -1,4 +1,6 @@
 import { Button } from "semantic-ui-react";
+import animateCSS from "./animateCSS";
+import { useEffect } from "react";
 
 export default function Menu(props) {
   const {
@@ -7,6 +9,12 @@ export default function Menu(props) {
     isDarkMode,
     showChallengeMode = false,
   } = props;
+
+  useEffect(() => {
+    if (window.localStorage.getItem("challengePageSeen") !== "true") {
+      animateCSS("#challengeButton", "tada");
+    }
+  }, []);
 
   return (
     <>
@@ -26,6 +34,7 @@ export default function Menu(props) {
         {showChallengeMode && (
           <div className="menuButton">
             <Button
+              id="challengeButton"
               size="massive"
               className="menuButton button"
               color="yellow"
