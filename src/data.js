@@ -3461,4 +3461,57 @@ export const game = [
       alteredPosition: 0,
     },
   ],
+  // 5/16/2022 (#55)
+  [
+    {
+      word: "raid",
+      hint: "Old ___ (card game)",
+      answer: "maid",
+      alteredPosition: 0,
+    },
+    {
+      word: "maid",
+      hint: "letters, packages, etc.",
+      answer: "mail",
+      alteredPosition: 3,
+    },
+    { word: "mail", hint: "flunk", answer: "fail", alteredPosition: 0 },
+    {
+      word: "fail",
+      hint: "aluminum sheet",
+      answer: "foil",
+      alteredPosition: 1,
+    },
+    {
+      word: "foil",
+      hint: "surely he jests",
+      answer: "fool",
+      alteredPosition: 2,
+    },
+    {
+      word: "fool",
+      hint: "filly or colt",
+      answer: "foal",
+      alteredPosition: 2,
+    },
+    {
+      word: "foal",
+      hint: "nonrenewable source of energy",
+      answer: "coal",
+      alteredPosition: 0,
+    },
+    {
+      word: "coal",
+      hint: "checked item",
+      answer: "coat",
+      alteredPosition: 3,
+    },
+    { word: "coat", hint: "price", answer: "cost", alteredPosition: 2 },
+    {
+      word: "cost",
+      hint: "share on social media",
+      answer: "post",
+      alteredPosition: 0,
+    },
+  ],
 ];
