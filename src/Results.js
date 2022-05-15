@@ -12,7 +12,6 @@ export default function Results(props) {
     isHardMode,
     isDarkMode,
     isTeacherMode,
-    isPractice,
     isChallengeMode,
     onPlayAgain,
     skipsUsed,
@@ -24,7 +23,7 @@ export default function Results(props) {
     setTimeout(() => {
       onLoaded();
     }, 250);
-  }, []);
+  });
 
   let bigMessage = "";
   if (correct === 10) {
