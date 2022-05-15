@@ -3514,4 +3514,62 @@ export const game = [
       alteredPosition: 0,
     },
   ],
+  // 5/17/2022 (#56)
+  [
+    { word: "clam", hint: "a talon", answer: "claw", alteredPosition: 3 },
+    {
+      word: "claw",
+      hint: "a deli side",
+      answer: "slaw",
+      alteredPosition: 0,
+    },
+    {
+      word: "slaw",
+      hint: "a thick slice",
+      answer: "slab",
+      alteredPosition: 3,
+    },
+    {
+      word: "slab",
+      hint: "an item in a COVID-19 test kit",
+      answer: "swab",
+      alteredPosition: 1,
+    },
+    {
+      word: "swab",
+      hint: "to strike a fly",
+      answer: "swat",
+      alteredPosition: 3,
+    },
+    {
+      word: "swat",
+      hint: "subway wish",
+      answer: "seat",
+      alteredPosition: 1,
+    },
+    {
+      word: "seat",
+      hint: "coconut filler",
+      answer: "meat",
+      alteredPosition: 0,
+    },
+    {
+      word: "meat",
+      hint: "defensive ring",
+      answer: "moat",
+      alteredPosition: 1,
+    },
+    {
+      word: "moat",
+      hint: "bearded mountain dweller",
+      answer: "goat",
+      alteredPosition: 0,
+    },
+    {
+      word: "goat",
+      hint: "good shot",
+      answer: "goal",
+      alteredPosition: 3,
+    },
+  ],
 ];
