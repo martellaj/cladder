@@ -30,7 +30,7 @@ export function reloadColors() {
 
   if (mode === "dark") {
     black = "white";
-    white = "#161616";
+    white = "#121213";
     alteredBackground = "#c39b38";
     keyboardBackground = "#373737";
     alteredFailedBackground = "darkred";

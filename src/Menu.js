@@ -93,10 +93,11 @@ export default function Menu(props) {
           marginBottom: "24px",
           marginTop: "auto",
           fontVariant: "all-small-caps",
+          fontSize: "12px",
         }}
       >
         <div>#{puzzleNumber}</div>
-        <div>v1.1.0</div>
+        <div style={{ marginTop: "2px" }}>v1.1.0</div>
         {/* eslint-disable-next-line */}
         <a id="contact" onClick={() => onOptionSelected("about")}>
           CONTACT
