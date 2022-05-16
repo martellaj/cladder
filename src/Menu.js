@@ -93,7 +93,7 @@ export default function Menu(props) {
           marginBottom: "24px",
           marginTop: "auto",
           fontVariant: "all-small-caps",
-          fontSize: "12px",
+          fontSize: "16px",
         }}
       >
         <div>#{puzzleNumber}</div>
