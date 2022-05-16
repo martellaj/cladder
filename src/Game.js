@@ -99,7 +99,7 @@ export default function Game(props) {
    * else returns undefined
    */
   const getDailyResult = () => {
-    if (mode === "daily") {
+    if (mode === "daily" && puzzleNumber === getDailyPuzzleNumber()) {
       const resultData = window.localStorage.getItem(`puzzle-${puzzleNumber}`);
 
       if (resultData) {
