@@ -1,5 +1,6 @@
 import Tile from "./Tile";
 import "./Word.css";
+import { useEffect, useState } from "react";
 
 function Word(props) {
   const {
@@ -14,6 +15,14 @@ function Word(props) {
     showTileToChange = false,
   } = props;
 
+  const [indexToAnimate, setIndexToAnimate] = useState(-1);
+
+  useEffect(() => {
+    if (mode === "hint") {
+      setIndexToAnimate(guess?.length - 1);
+    }
+  }, [mode, guess]);
+
   const tiles = [];
 
   if (guess !== undefined) {
@@ -23,6 +32,7 @@ function Word(props) {
           key={i}
           letter={guess[i]}
           mode={"hint"}
+          shouldAnimate={indexToAnimate === i}
           onSelected={onTileSelected ? () => onTileSelected?.(i) : null}
           isSelected={selectedIndex === i}
           wordLength={answer.length}

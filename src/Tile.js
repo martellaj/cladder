@@ -1,5 +1,5 @@
 import "./Tile.css";
-import { /*useEffect, */ useState } from "react";
+import { /*useEffect, */ useEffect, useState } from "react";
 
 function Tile(props) {
   const {
@@ -11,6 +11,7 @@ function Tile(props) {
     wordLength = 3,
     attempted = false,
     completed = false,
+    shouldAnimate = false,
   } = props;
 
   const [isAnimating, setIsAnimating] = useState(false);
@@ -25,6 +26,19 @@ function Tile(props) {
   //   }
   // }, [letter, isSelected]);
 
+  useEffect(() => {
+    if (
+      shouldAnimate &&
+      window.localStorage.getItem("selectionMode") !== "true"
+    ) {
+      setIsAnimating(true);
+
+      setTimeout(() => {
+        setIsAnimating(false);
+      }, 300);
+    }
+  }, [shouldAnimate, onSelected]);
+
   return (
     <div
       onClick={() => {
@@ -33,7 +47,7 @@ function Tile(props) {
 
           setTimeout(() => {
             setIsAnimating(false);
-          }, 500);
+          }, 300);
         }
 
         onSelected?.();
