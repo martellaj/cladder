@@ -9,7 +9,7 @@ import { getNegativeWord, getPositiveWord } from "./getWord";
 import { Button } from "semantic-ui-react";
 import Keyboard from "./Keyboard";
 import StatsComponent from "./StatsComponent";
-import getRandomThreeLetterPuzzle from "./randomPuzzleGenerator/three/three";
+// import getRandomThreeLetterPuzzle from "./randomPuzzleGenerator/three/three";
 import getRandomFourLetterPuzzle from "./randomPuzzleGenerator/four/four";
 import getDailyPuzzleNumber from "./getDailyPuzzleNumber";
 
@@ -75,7 +75,7 @@ export default function Game(props) {
       while (!puzzle) {
         try {
           if (shouldGetThreeLetterPuzzle) {
-            puzzle = getRandomThreeLetterPuzzle();
+            puzzle = getRandomFourLetterPuzzle(); // [three letter ones kinda suck] getRandomThreeLetterPuzzle();
           } else {
             puzzle = getRandomFourLetterPuzzle();
           }
