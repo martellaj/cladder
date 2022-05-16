@@ -37,12 +37,15 @@ function Tile(props) {
         setIsAnimating(false);
       }, 300);
     }
-  }, [shouldAnimate, onSelected]);
+  }, [shouldAnimate]);
 
   return (
     <div
       onClick={() => {
-        if (!isSelected && onSelected) {
+        if (
+          !isSelected &&
+          window.localStorage.getItem("selectionMode") === "true"
+        ) {
           setIsAnimating(true);
 
           setTimeout(() => {
