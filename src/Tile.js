@@ -28,7 +28,7 @@ function Tile(props) {
   return (
     <div
       onClick={() => {
-        if (!isSelected) {
+        if (!isSelected && onSelected) {
           setIsAnimating(true);
 
           setTimeout(() => {
@@ -36,7 +36,7 @@ function Tile(props) {
           }, 500);
         }
 
-        onSelected();
+        onSelected?.();
       }}
       className={`tile ${isSelected && "selected"} ${altered && "altered"} ${
         attempted && "attempted"

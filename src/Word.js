@@ -23,7 +23,7 @@ function Word(props) {
           key={i}
           letter={guess[i]}
           mode={"hint"}
-          onSelected={() => onTileSelected?.(i)}
+          onSelected={onTileSelected ? () => onTileSelected?.(i) : null}
           isSelected={selectedIndex === i}
           wordLength={answer.length}
           altered={mode === "hint" && alteredPosition === i && showTileToChange}
