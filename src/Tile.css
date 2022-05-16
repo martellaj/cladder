@@ -16,6 +16,7 @@
   user-select: none;
 
   cursor: pointer;
+  border-radius: 10%;
 }
 
 .fiveLetterTile {
