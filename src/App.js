@@ -23,13 +23,13 @@ const appHeight = () =>
 window.addEventListener("resize", appHeight);
 appHeight();
 
-const returningPlayer =
+const isReturningPlayer =
   window.localStorage.getItem("returningPlayer") === "true";
 
 const seenSettings = window.localStorage.getItem("seenSettings3") === "true";
 
 // set default mode to dark mode
-if (!returningPlayer) {
+if (!isReturningPlayer) {
   let isMobile = false; //initiate as false
 
   // device detection
@@ -54,7 +54,7 @@ const params = new Proxy(new URLSearchParams(window.location.search), {
 });
 
 function App() {
-  const [view, setView] = useState(returningPlayer ? "menu" : "howToPlay");
+  const [view, setView] = useState(isReturningPlayer ? "menu" : "howToPlay");
   const [isDarkMode, setIsDarkMode] = useState(
     window.localStorage.getItem("mode") === "dark"
   );
@@ -78,7 +78,7 @@ function App() {
 
   // note the player has played before so we don't show help next time
   useEffect(() => {
-    if (returningPlayer && !seenSettings) {
+    if (isReturningPlayer && !seenSettings) {
       setTimeout(() => {
         animateCSS("#settings", "flash");
       }, 100);
@@ -305,6 +305,7 @@ function App() {
           puzzleNumber={params?.p ?? getDailyPuzzleNumber()}
           isDarkMode={isDarkMode}
           showChallengeMode={true}
+          isReturningPlayer={isReturningPlayer}
         />
       );
       break;

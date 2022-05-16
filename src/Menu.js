@@ -8,13 +8,17 @@ export default function Menu(props) {
     puzzleNumber,
     isDarkMode,
     showChallengeMode = false,
+    isReturningPlayer,
   } = props;
 
   useEffect(() => {
-    if (window.localStorage.getItem("challengePageSeen") !== "true") {
+    const challengePageSeen =
+      window.localStorage.getItem("challengePageSeen") === "true";
+
+    if (isReturningPlayer && !challengePageSeen) {
       animateCSS("#challengeButton", "tada");
     }
-  }, []);
+  });
 
   return (
     <div className="menuContainer">
