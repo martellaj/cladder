@@ -16,7 +16,7 @@ export function reloadColors() {
   const mode = window.localStorage.getItem("mode") || "light";
 
   let black = "black";
-  let white = "white";
+  let white = "#f0f0f0";
   let alteredBackground = "palegoldenrod";
   let keyboardBackground = "#d3d6da";
   let keyboardActiveBackground = "#ededed";
@@ -29,7 +29,7 @@ export function reloadColors() {
 
   if (mode === "dark") {
     black = "white";
-    white = "#121212";
+    white = "#161616";
     alteredBackground = "#c39b38";
     keyboardBackground = "#373737";
     alteredFailedBackground = "darkred";
