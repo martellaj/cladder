@@ -22,7 +22,7 @@ export function reloadColors() {
   let keyboardActiveBackground = "#ededed";
   let alteredFailedBackground = "indianred";
   let selectedTileBackground = "#c0b9f9";
-  let statsBackground = "#f1f1f1";
+  let statsBackground = "#dcdcdc";
   let attemptedTileBackground = "#c0b9f9";
   let completedTileBackground = "#ade8ad";
   let bannerBackgroundColor = "#f3f3f3";
@@ -36,7 +36,7 @@ export function reloadColors() {
     alteredFailedBackground = "darkred";
     keyboardActiveBackground = "#2b2b2d";
     selectedTileBackground = "#6654f2";
-    statsBackground = "#272727";
+    statsBackground = "#222223";
     attemptedTileBackground = "#6654f2";
     completedTileBackground = "#3b843b";
     bannerBackgroundColor = "#1b1c1d";
