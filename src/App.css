@@ -387,3 +387,12 @@ button:focus {
   display: block;
   margin-top: 2px;
 }
+
+.headerButton {
+  background-color: var(--headerBackgroundColor) !important;
+  height: 35px !important;
+  width: 35px !important;
+  border-radius: 10% !important;
+  display: flex !important;
+  justify-content: center !important;
+}

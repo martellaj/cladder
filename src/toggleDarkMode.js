@@ -26,6 +26,7 @@ export function reloadColors() {
   let attemptedTileBackground = "#c0b9f9";
   let completedTileBackground = "#ade8ad";
   let bannerBackgroundColor = "#f3f3f3";
+  let headerBackgroundColor = "#dcdcdc";
 
   if (mode === "dark") {
     black = "white";
@@ -39,6 +40,7 @@ export function reloadColors() {
     attemptedTileBackground = "#6654f2";
     completedTileBackground = "#3b843b";
     bannerBackgroundColor = "#1b1c1d";
+    headerBackgroundColor = "#222223";
   }
 
   let root = document.documentElement;
@@ -56,4 +58,5 @@ export function reloadColors() {
   root.style.setProperty("--attemptedTileBackground", attemptedTileBackground);
   root.style.setProperty("--completedTileBackground", completedTileBackground);
   root.style.setProperty("--bannerBackgroundColor", bannerBackgroundColor);
+  root.style.setProperty("--headerBackgroundColor", headerBackgroundColor);
 }

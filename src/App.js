@@ -146,6 +146,7 @@ function App() {
           }}
           name={getLeftHeaderButton()}
           inverted={isDarkMode}
+          className="button headerButton"
         />
         <Icon
           onClick={() => {
@@ -158,6 +159,7 @@ function App() {
           }}
           name="bars"
           inverted={isDarkMode}
+          className="button headerButton"
         />
       </div>
       <span>CLADDER</span>
@@ -170,7 +172,7 @@ function App() {
           style={{
             cursor: "pointer",
           }}
-          className="button chart"
+          className="button chart headerButton"
           inverted={isDarkMode}
         />
         <Icon
@@ -182,7 +184,7 @@ function App() {
           style={{
             cursor: "pointer",
           }}
-          className="button"
+          className="button headerButton"
           inverted={isDarkMode}
         />
         {/* <Icon
