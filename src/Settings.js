@@ -34,30 +34,10 @@ export default function Settings(props) {
 
         <div className="settingRow">
           <div className="settingWithDescriptionContainer">
-            <div className="settingName">Hard Mode</div>
-            <div className="settingDescription">
-              Your skip won't be available and we won't let you know which tile
-              to change if you get stuck. Your score will have an asterisk to
-              denote that you took the challenge!
-            </div>
-          </div>
-          <Checkbox
-            checked={isHardMode}
-            onChange={(e, data) => {
-              window.localStorage.setItem("hardMode", data.checked);
-              setIsHardMode(data.checked);
-            }}
-          />
-        </div>
-
-        <div className="settingRow">
-          <div className="settingWithDescriptionContainer">
             <div className="settingName">Selection Mode</div>
             <div className="settingDescription">
-              When you turn on selection mode, you simply tap a tile to change
-              its letter instead of typing out the whole word. Mobile users may
-              find this more efficient. Turn it on and give it a try in practice
-              mode!
+              Tap to select which letter to change (suggested for mobile
+              players)
             </div>
           </div>
           <Checkbox
@@ -71,10 +51,25 @@ export default function Settings(props) {
 
         <div className="settingRow">
           <div className="settingWithDescriptionContainer">
-            <div className="settingName">Teacher Mode</div>
+            <div className="settingName">Hard Mode</div>
             <div className="settingDescription">
-              Teacher mode is made for classroom Cladder-ing. This mode disables
-              the timer to encourage collaborative classroom play.
+              No skips or extra hints (score marked with an *)
+            </div>
+          </div>
+          <Checkbox
+            checked={isHardMode}
+            onChange={(e, data) => {
+              window.localStorage.setItem("hardMode", data.checked);
+              setIsHardMode(data.checked);
+            }}
+          />
+        </div>
+
+        <div className="settingRow">
+          <div className="settingWithDescriptionContainer">
+            <div className="settingName">Zen Mode</div>
+            <div className="settingDescription">
+              Removes the timer so you can play without any pressure
             </div>
           </div>
           <Checkbox
