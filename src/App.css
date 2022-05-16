@@ -378,3 +378,10 @@ button:focus {
   line-height: 1.6;
   margin-top: 20px;
 }
+
+#contact {
+  color: var(--black) !important;
+  cursor: pointer;
+  display: block;
+  margin-top: 2px;
+}
