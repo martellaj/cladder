@@ -12,6 +12,7 @@ import StatsComponent from "./StatsComponent";
 // import getRandomThreeLetterPuzzle from "./randomPuzzleGenerator/three/three";
 import getRandomFourLetterPuzzle from "./randomPuzzleGenerator/four/four";
 import getDailyPuzzleNumber from "./getDailyPuzzleNumber";
+import { bluePuzzle } from "./specialPuzzles/bluePuzzle";
 
 const TIME_LIMIT = 60000;
 const INCREMENT = 200;
@@ -23,6 +24,8 @@ const params = new Proxy(new URLSearchParams(window.location.search), {
 });
 
 const puzzleParam = params?.p ?? undefined;
+
+const specialPuzzleParam = params?.special ?? undefined;
 
 function getRandomPuzzleNumber() {
   return Math.floor(Math.random() * getDailyPuzzleNumber());
@@ -45,6 +48,10 @@ export default function Game(props) {
   const puzzleNumber = useMemo(() => {
     if (puzzleParam) {
       return puzzleParam;
+    }
+
+    if (specialPuzzleParam) {
+      return specialPuzzleParam;
     }
 
     if (mode === "daily") {
@@ -83,6 +90,10 @@ export default function Game(props) {
       }
 
       return puzzle;
+    }
+
+    if (specialPuzzleParam === "bert") {
+      return bluePuzzle;
     }
 
     // else, use puzzleNumber as index
@@ -164,7 +175,11 @@ export default function Game(props) {
    */
   const saveResult = useCallback(() => {
     // no-op for practice and challenge modes
-    if (mode === "practice" || mode === "challenge") {
+    if (
+      mode === "practice" ||
+      mode === "challenge" ||
+      specialPuzzleParam !== undefined
+    ) {
       return;
     }
 
@@ -300,7 +315,11 @@ export default function Game(props) {
   // hook that saves game progress to local storage
   useEffect(() => {
     // no-op for practice and challenge modes
-    if (mode === "practice" || mode === "challenge") {
+    if (
+      mode === "practice" ||
+      mode === "challenge" ||
+      specialPuzzleParam !== undefined
+    ) {
       return;
     }
 
