@@ -390,6 +390,7 @@ export default function Game(props) {
   // adds keydown handlers to window so desktop users can type
   useEventListener("keydown", (e) => {
     if (isOver) {
+      onPlayAgain && onPlayAgain();
       return;
     }
 

@@ -68,7 +68,19 @@ export default function Results(props) {
             inverted={isDarkMode}
             onClick={() => onPlayAgain()}
           >
-            PLAY AGAIN
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
+              <span>PLAY AGAIN</span>
+              <span style={{ marginTop: "12px", fontSize: "14px" }}>
+                (SPACEBAR)
+              </span>
+            </div>
           </Button>
         ) : (
           <Button
