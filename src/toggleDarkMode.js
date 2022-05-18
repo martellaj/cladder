@@ -28,6 +28,10 @@ export function reloadColors() {
   let bannerBackgroundColor = "#f3f3f3";
   let headerBackgroundColor = "#dcdcdc";
 
+  let achievementBackground = "#2b2b2b";
+  let achievementBackgroundSuccess = "#3d7038";
+  let achievementDescription = "#d9d9d9";
+
   if (mode === "dark") {
     black = "white";
     white = "#121213";
@@ -41,6 +45,10 @@ export function reloadColors() {
     completedTileBackground = "#3b843b";
     bannerBackgroundColor = "#1b1c1d";
     headerBackgroundColor = "#222223";
+
+    achievementBackground = "#2b2b2b";
+    achievementDescription = "#d9d9d9";
+    achievementBackgroundSuccess = "#3d7038";
   }
 
   let root = document.documentElement;
@@ -59,4 +67,11 @@ export function reloadColors() {
   root.style.setProperty("--completedTileBackground", completedTileBackground);
   root.style.setProperty("--bannerBackgroundColor", bannerBackgroundColor);
   root.style.setProperty("--headerBackgroundColor", headerBackgroundColor);
+
+  root.style.setProperty("--achievementBackground", achievementBackground);
+  root.style.setProperty("--achievementDescription", achievementDescription);
+  root.style.setProperty(
+    "--achievementBackgroundSuccess",
+    achievementBackgroundSuccess
+  );
 }

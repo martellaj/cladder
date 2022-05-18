@@ -334,6 +334,7 @@ button:focus {
   background-color: var(--statsBackground);
   padding: 12px;
   border-radius: 10%;
+  margin-top: 12px;
 }
 
 .archiveContainer {
@@ -375,10 +376,8 @@ button:focus {
 }
 
 #challengeModeDescription {
-  margin: 30px 50px;
-  text-align: justify;
+  margin: 24px;
   line-height: 1.6;
-  margin-top: 20px;
 }
 
 #contact {
@@ -395,4 +394,15 @@ button:focus {
   border-radius: 10% !important;
   display: flex !important;
   justify-content: center !important;
+}
+
+.footerButton {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center;
+  font-size: 20px !important;
+}
+
+.ui.modal {
+  top: 35% !important;
 }

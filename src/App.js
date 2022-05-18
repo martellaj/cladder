@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import "./App.css";
 import Game from "./Game";
 import Menu from "./Menu";
-import { Icon } from "semantic-ui-react";
+import { Icon, Modal, Header, Button } from "semantic-ui-react";
 import HowToPlay from "./HowToPlay";
 import About from "./About";
 import StatsComponent from "./StatsComponent";
@@ -13,6 +13,7 @@ import Converter from "./Converter";
 import Loading from "./Loading";
 import getDailyPuzzleNumber from "./getDailyPuzzleNumber";
 import ChallengePage from "./ChallengePage";
+import Achievements from "./Achievements";
 
 // set the app height for mobile
 const appHeight = () =>
@@ -69,6 +70,10 @@ function App() {
   );
   const [selectedArchivePuzzleNumber, setSelectedArchivePuzzleNumber] =
     useState(undefined);
+  const [
+    isAchievementsComingSoonModalVisible,
+    setIsAchievementsComingSoonModalVisible,
+  ] = useState(false);
 
   useEffect(() => {
     if (params?.convert) {
@@ -141,7 +146,7 @@ function App() {
           tabIndex="0"
           style={{
             cursor: "pointer",
-            // visibility: view !== "menu" ? "visible" : "hidden",
+            visibility: view !== "menu" ? "visible" : "hidden",
             marginRight: "12px",
           }}
           name={getLeftHeaderButton()}
@@ -176,26 +181,22 @@ function App() {
           inverted={isDarkMode}
         />
         <Icon
-          id="settings"
-          name={"setting"}
+          name={"trophy"}
           onClick={() => {
-            setView("settings");
+            const isComingSoon = true;
+
+            if (isComingSoon) {
+              setIsAchievementsComingSoonModalVisible(true);
+            } else {
+              setView("achievements");
+            }
           }}
           style={{
             cursor: "pointer",
           }}
-          className="button headerButton"
+          className="button chart headerButton"
           inverted={isDarkMode}
         />
-        {/* <Icon
-          onClick={() => window.open("https://twitter.com/martellaj", "_blank")}
-          tabIndex="0"
-          style={{
-            cursor: "pointer",
-            visibility: false ? "visible" : "hidden",
-          }}
-          name="twitter"
-        /> */}
       </div>
     </div>
   );
@@ -274,6 +275,9 @@ function App() {
     case "stats":
       content = <StatsComponent isTeacherMode={isTeacherMode} />;
       break;
+    case "achievements":
+      content = <Achievements />;
+      break;
     case "settings":
       content = (
         <Settings
@@ -312,10 +316,36 @@ function App() {
   }
 
   return (
-    <div className={`App`}>
-      {header}
-      {content}
-    </div>
+    <>
+      <div className={`App`}>
+        {header}
+        {content}
+      </div>
+      <Modal
+        basic
+        onClose={() => setIsAchievementsComingSoonModalVisible(false)}
+        onOpen={() => setIsAchievementsComingSoonModalVisible(true)}
+        open={isAchievementsComingSoonModalVisible}
+        size="small"
+      >
+        <Header icon>
+          <Icon name="trophy" />
+          Achievements
+        </Header>
+        <Modal.Content>
+          <p>Achievements will be available for supporters soon!</p>
+        </Modal.Content>
+        <Modal.Actions className="achivevementModalActions">
+          <Button
+            basic
+            inverted
+            onClick={() => setIsAchievementsComingSoonModalVisible(false)}
+          >
+            <Icon name="thumbs up outline" /> Awesome
+          </Button>
+        </Modal.Actions>
+      </Modal>
+    </>
   );
 }
 

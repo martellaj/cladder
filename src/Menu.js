@@ -1,4 +1,4 @@
-import { Button } from "semantic-ui-react";
+import { Button, Icon } from "semantic-ui-react";
 import animateCSS from "./animateCSS";
 import { useEffect } from "react";
 
@@ -92,16 +92,55 @@ export default function Menu(props) {
         style={{
           marginBottom: "24px",
           marginTop: "auto",
-          fontVariant: "all-small-caps",
-          fontSize: "16px",
+          display: "flex",
+          flexDirection: "column",
         }}
       >
-        <div>#{puzzleNumber}</div>
-        <div style={{ marginTop: "2px" }}>v1.1.0</div>
-        {/* eslint-disable-next-line */}
-        <a id="contact" onClick={() => onOptionSelected("about")}>
-          CONTACT
-        </a>
+        <div style={{ display: "flex" }}>
+          <Icon
+            onClick={() => onOptionSelected("howToPlay")}
+            tabIndex="0"
+            style={{
+              cursor: "pointer",
+              marginRight: "12px",
+            }}
+            name={"help"}
+            inverted={isDarkMode}
+            className="button footerButton headerButton"
+          />
+
+          <Icon
+            onClick={() => onOptionSelected("about")}
+            tabIndex="0"
+            style={{
+              cursor: "pointer",
+              marginRight: "12px",
+            }}
+            name={"info circle"}
+            inverted={isDarkMode}
+            className="button footerButton headerButton"
+          />
+
+          <Icon
+            onClick={() => onOptionSelected("settings")}
+            tabIndex="0"
+            style={{
+              cursor: "pointer",
+            }}
+            name={"setting"}
+            inverted={isDarkMode}
+            className="button footerButton headerButton"
+          />
+        </div>
+        <span
+          style={{
+            fontSize: "18px",
+            fontVariant: "all-petite-caps",
+            marginTop: "8px",
+          }}
+        >
+          #{puzzleNumber}
+        </span>
       </div>
     </div>
   );

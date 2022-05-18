@@ -10,13 +10,12 @@ export default function StatsComponent(props) {
     }, 200);
   }, []);
 
-  const { resultsPage = false, isTeacherMode } = props;
+  const { isTeacherMode } = props;
 
   const { averageWinTime, fastestWinTime, gamesPlayed, gamesWon } = stats;
 
   return (
-    <div className={resultsPage && "statsContainer"}>
-      <h3>STATISTICS</h3>
+    <div className={"statsContainer"}>
       <div className="statsBlocks">
         <div className="statsBlock">
           <div className="statsValue">{gamesPlayed}</div>

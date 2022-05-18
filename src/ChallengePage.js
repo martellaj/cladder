@@ -12,7 +12,6 @@ export default function ChallengePage(props) {
 
   return (
     <div>
-      <h1 id="challengeModeTitle">Challenge Mode</h1>
       <p id="challengeModeDescription">
         Challenge mode is a <span style={{ fontWeight: "bold" }}>super</span>{" "}
         challenging version of Cladder with a virtually endless amount of
