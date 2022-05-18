@@ -3663,13 +3663,13 @@ export const game = [
     },
     {
       word: "cave",
-      hint: "safe harbor",
+      hint: "small inlet on the water",
       answer: "cove",
       alteredPosition: 1,
     },
     {
       word: "cove",
-      hint: "small inlet on the water",
+      hint: "shape of a party hat",
       answer: "cone",
       alteredPosition: 2,
     },
