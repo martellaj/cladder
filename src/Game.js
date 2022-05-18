@@ -13,6 +13,7 @@ import StatsComponent from "./StatsComponent";
 import getRandomFourLetterPuzzle from "./randomPuzzleGenerator/four/four";
 import getDailyPuzzleNumber from "./getDailyPuzzleNumber";
 import { bluePuzzle } from "./specialPuzzles/bluePuzzle";
+import { horsePuzzle } from "./specialPuzzles/horsePuzzle";
 
 const TIME_LIMIT = 60000;
 const INCREMENT = 200;
@@ -94,6 +95,8 @@ export default function Game(props) {
 
     if (specialPuzzleParam === "bert") {
       return bluePuzzle;
+    } else if (specialPuzzleParam === "michael") {
+      return horsePuzzle;
     }
 
     // else, use puzzleNumber as index
