@@ -602,6 +602,8 @@ export default function Game(props) {
             maxWidth: "500px",
             width: "100%",
             marginTop: "36px",
+            flexDirection: "column",
+            alignItems: "center",
           }}
         >
           {achievements.map((_achievement) => {

@@ -33,7 +33,8 @@ export function getStats() {
     return {
       averageWinTime:
         gamesWon > 0 ? parseFloat(cumulativeWonTime / gamesWon).toFixed(2) : 0,
-      fastestWinTime,
+      fastestWinTime:
+        fastestWinTime > -1 ? parseFloat(fastestWinTime).toFixed(2) : 0,
       gamesPlayed,
       gamesWon,
       scores,

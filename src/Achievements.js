@@ -1,8 +1,9 @@
 import "./Achievements.css";
 import isAchievementCompleted from "./utils/isAchievementCompleted";
 import { useEffect, useState } from "react";
-import { Button, Input } from "semantic-ui-react";
+import { Button, Input, Icon } from "semantic-ui-react";
 import achievementsData from "./utils/achievementsData";
+import getAchievementIconByType from "./utils/getAchievementIconByType";
 
 export function Achievement(props) {
   const { type, title, description, isSupporter, onClick } = props;
@@ -18,9 +19,23 @@ export function Achievement(props) {
         onClick && onClick();
       }}
     >
-      <div className="achievementContainerLeft">
-        <div className="achievementTitle">{title}</div>
-        <div className="achievementDescription">{description}</div>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        {isSupporter && (
+          <Icon
+            name={getAchievementIconByType(type)}
+            className="achievementIcon"
+          />
+        )}
+        <div className="achievementContainerLeft">
+          <div className="achievementTitle">{title}</div>
+          <div className="achievementDescription">{description}</div>
+        </div>
       </div>
 
       <div className="achievementContainerRight">
@@ -129,6 +144,20 @@ export default function Achievements(props) {
           isDarkMode={props.isDarkMode}
           onCorrectCode={setIsSupporter}
         />
+      )}
+      {isSupporter && (
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+            alignItems: "center",
+            padding: "24px 48px",
+          }}
+        >
+          Thank you so much for supporting Cladder! Please enjoy earning these
+          achievements and be on the look out for more!
+        </div>
       )}
       <div className="achievementsContainer">
         {achievementsData.map((achievementData, index) => {

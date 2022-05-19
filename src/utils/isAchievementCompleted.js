@@ -1,5 +1,13 @@
 import { getStats } from "../stats";
-import { TEST, WIN1, WIN10, WIN100 } from "./achievementsData";
+import {
+  SPEED20,
+  SPEED30,
+  SPEED40,
+  TEST,
+  WIN1,
+  WIN10,
+  WIN100,
+} from "./achievementsData";
 
 export default function isAchievementCompleted(type) {
   const stats = getStats();
@@ -27,6 +35,24 @@ export default function isAchievementCompleted(type) {
       return {
         progress: `${Math.min(stats.gamesWon, 100)} / 100`,
         completed: stats.gamesWon >= 100,
+      };
+    }
+    case SPEED40: {
+      return {
+        progress: stats.fastestWinTime || "0.00",
+        completed: stats.fastestWinTime ? stats.fastestWinTime < 40 : false,
+      };
+    }
+    case SPEED30: {
+      return {
+        progress: stats.fastestWinTime || "0.00",
+        completed: stats.fastestWinTime ? stats.fastestWinTime < 30 : false,
+      };
+    }
+    case SPEED20: {
+      return {
+        progress: stats.fastestWinTime || "0.00",
+        completed: stats.fastestWinTime ? stats.fastestWinTime < 20 : false,
       };
     }
     default:
