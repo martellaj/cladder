@@ -39,7 +39,7 @@
 }
 
 .achievementDescription {
-  font-size: medium;
+  font-size: 12px;
   color: var(--achievementDescription);
 }
 
