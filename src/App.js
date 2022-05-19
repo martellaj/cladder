@@ -183,7 +183,7 @@ function App() {
         <Icon
           name={"trophy"}
           onClick={() => {
-            const isComingSoon = true;
+            const isComingSoon = false;
 
             if (isComingSoon) {
               setIsAchievementsComingSoonModalVisible(true);
