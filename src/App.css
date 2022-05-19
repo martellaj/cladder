@@ -406,3 +406,8 @@ button:focus {
 .ui.modal {
   top: 35% !important;
 }
+
+.trophy {
+  background-color: goldenrod !important;
+  color: black !important;
+}

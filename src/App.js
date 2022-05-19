@@ -181,6 +181,7 @@ function App() {
           inverted={isDarkMode}
         />
         <Icon
+          id="achievementsHeaderButton"
           name={"trophy"}
           onClick={() => {
             const isComingSoon = false;
@@ -194,7 +195,7 @@ function App() {
           style={{
             cursor: "pointer",
           }}
-          className="button chart headerButton"
+          className="button chart headerButton trophy"
           inverted={isDarkMode}
         />
       </div>
