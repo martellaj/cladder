@@ -17,7 +17,8 @@ export default function ChallengePage(props) {
         challenging version of Cladder with a virtually endless amount of
         puzzles (and unlimited skips)! If 1 puzzle a day isn't enough for you,
         please consider supporting us (whatever you choose to give) and we'll
-        send you a code to unlock it so you can play all day!
+        send you a code to unlock it (and achievements!) so you can play all
+        day!
       </p>
       <div
         style={{
@@ -35,7 +36,6 @@ export default function ChallengePage(props) {
           }}
           size="large"
           color="purple"
-          inverted={isDarkMode}
           onClick={() => {
             window.open("https://www.buymeacoffee.com/playcladder", "_blank");
           }}

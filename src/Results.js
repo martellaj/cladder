@@ -135,7 +135,6 @@ export default function Results(props) {
             }}
             size="large"
             color="purple"
-            inverted={isDarkMode}
             onClick={() => {
               window.open("https://www.buymeacoffee.com/playcladder", "_blank");
             }}
