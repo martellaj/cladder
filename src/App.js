@@ -195,7 +195,10 @@ function App() {
           style={{
             cursor: "pointer",
           }}
-          className="button chart headerButton trophy"
+          className={`button chart headerButton trophy ${
+            window.localStorage.getItem("achievementsPageSeen") !== "true" &&
+            "unseenAchievements"
+          }`}
           inverted={isDarkMode}
         />
       </div>
@@ -216,6 +219,7 @@ function App() {
           selectionMode={selectionMode}
           isHardMode={isHardMode}
           isTeacherMode={isTeacherMode}
+          onOptionSelected={onOptionSelected}
         />
       );
       break;
@@ -227,6 +231,7 @@ function App() {
           selectionMode={selectionMode}
           isHardMode={isHardMode}
           isTeacherMode={isTeacherMode}
+          onOptionSelected={onOptionSelected}
         />
       );
       break;
@@ -244,6 +249,7 @@ function App() {
               setView("challenge");
             });
           }}
+          onOptionSelected={onOptionSelected}
         />
       ) : (
         <ChallengePage
@@ -264,6 +270,7 @@ function App() {
             setView("loading");
             setTimeout(() => setView("challenge"), 500);
           }}
+          onOptionSelected={onOptionSelected}
         />
       );
       break;

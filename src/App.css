@@ -407,7 +407,7 @@ button:focus {
   top: 35% !important;
 }
 
-.trophy {
-  background-color: goldenrod !important;
-  color: black !important;
+.unseenAchievements {
+  background-color: #d49800 !important;
+  color: white !important;
 }

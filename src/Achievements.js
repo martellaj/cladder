@@ -2,31 +2,10 @@ import "./Achievements.css";
 import isAchievementCompleted from "./utils/isAchievementCompleted";
 import { useEffect, useState } from "react";
 import { Button, Input } from "semantic-ui-react";
+import achievementsData from "./utils/achievementsData";
 
-const WIN1 = 0;
-const WIN10 = 1;
-const WIN100 = 2;
-
-const achievementsData = [
-  {
-    type: WIN1,
-    title: "Cladder Rookie",
-    description: "Win 1 game",
-  },
-  {
-    type: WIN10,
-    title: "Cladder Gamer",
-    description: "Win 10 games",
-  },
-  {
-    type: WIN100,
-    title: "Cladder Champion",
-    description: "Win 100 games",
-  },
-];
-
-function Achievement(props) {
-  const { type, title, description, isSupporter } = props;
+export function Achievement(props) {
+  const { type, title, description, isSupporter, onClick } = props;
 
   const { completed, progress } = isAchievementCompleted(type);
 
@@ -34,7 +13,10 @@ function Achievement(props) {
     <div
       className={`achievementContainer ${completed && "achievementCompleted"} ${
         !isSupporter && "achievementLocked"
-      }`}
+      } ${onClick && "clickable"}`}
+      onClick={() => {
+        onClick && onClick();
+      }}
     >
       <div className="achievementContainerLeft">
         <div className="achievementTitle">{title}</div>
@@ -137,7 +119,7 @@ export default function Achievements(props) {
   );
 
   useEffect(() => {
-    window.localStorage.setItem("challengePageSeen", "true");
+    window.localStorage.setItem("achievementsPageSeen", "true");
   }, []);
 
   return (

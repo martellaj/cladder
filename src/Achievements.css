@@ -60,11 +60,17 @@
   text-shadow: 0 0 8px #000;
 }
 
-.achievementLocked .achievementDescription {
+.achievementLocked .achievementDescription,
+.achievementLocked .achievementProgress,
+.achievementLocked .achievementTitle {
   color: transparent !important;
   text-shadow: 0 0 8px #000;
 }
 
 .achievementProgress {
   color: var(--achievementDescription);
+}
+
+.clickable {
+  cursor: pointer;
 }

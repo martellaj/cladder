@@ -14,6 +14,9 @@ import getRandomFourLetterPuzzle from "./randomPuzzleGenerator/four/four";
 import getDailyPuzzleNumber from "./getDailyPuzzleNumber";
 import { bluePuzzle } from "./specialPuzzles/bluePuzzle";
 import { horsePuzzle } from "./specialPuzzles/horsePuzzle";
+import getCompletedAchievements from "./utils/getCompletedAchievements";
+import getAchievementByType from "./utils/getAchievementByType";
+import { Achievement } from "./Achievements";
 
 const TIME_LIMIT = 60000;
 const INCREMENT = 200;
@@ -41,7 +44,12 @@ export default function Game(props) {
     mode, // daily, archive, practice, challenge
     onPlayAgain,
     selectionMode,
+    onOptionSelected,
   } = props;
+
+  const preGameAchievementsStatus = useMemo(() => {
+    return getCompletedAchievements();
+  }, []);
 
   /**
    * puzzle number for the game being completed (where applicable)
@@ -159,6 +167,7 @@ export default function Game(props) {
   const [skipsUsed, setSkipsUsed] = useState(
     mode === "challenge" ? 0 : undefined
   );
+  const [achievements, setAchievements] = useState([]);
 
   /////////////////////////////////
   /// CURRENT ROUND INFORMATION ///
@@ -338,8 +347,36 @@ export default function Game(props) {
           time: time,
         })
       );
+
+      if (window.localStorage.getItem("isSupporter") === "true") {
+        // check achievements
+        requestAnimationFrame(() => {
+          const postGameAchievementsStatus = getCompletedAchievements();
+
+          const newAchievements = [];
+
+          for (let i = 0; i < preGameAchievementsStatus.length; i++) {
+            const pre = preGameAchievementsStatus[i];
+            const post = postGameAchievementsStatus[i];
+
+            if (post === true && pre === false) {
+              newAchievements.push(getAchievementByType(i));
+            }
+          }
+
+          console.log(newAchievements);
+          setAchievements(newAchievements);
+        });
+      }
     }
-  }, [mode, progress, isOver, puzzleNumber, gameLevel]);
+  }, [
+    mode,
+    progress,
+    isOver,
+    puzzleNumber,
+    gameLevel,
+    preGameAchievementsStatus,
+  ]);
 
   const showSkipButton = useMemo(() => {
     if (mode === "challenge") {
@@ -556,6 +593,33 @@ export default function Game(props) {
           skipsUsed={skipsUsed}
         />
       )}
+
+      {achievements.length > 0 ? (
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            maxWidth: "500px",
+            width: "100%",
+            marginTop: "36px",
+          }}
+        >
+          {achievements.map((_achievement) => {
+            return (
+              <Achievement
+                key={_achievement.type}
+                type={_achievement.type}
+                title={_achievement.title}
+                description={_achievement.description}
+                isSupporter={true}
+                onClick={() => {
+                  onOptionSelected("achievements");
+                }}
+              />
+            );
+          })}
+        </div>
+      ) : null}
 
       <div
         style={{
