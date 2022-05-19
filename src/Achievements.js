@@ -26,13 +26,15 @@ const achievementsData = [
 ];
 
 function Achievement(props) {
-  const { type, title, description } = props;
+  const { type, title, description, isSupporter } = props;
 
   const { completed, progress } = isAchievementCompleted(type);
 
   return (
     <div
-      className={`achievementContainer ${completed && "achievementCompleted"}`}
+      className={`achievementContainer ${completed && "achievementCompleted"} ${
+        !isSupporter && "achievementLocked"
+      }`}
     >
       <div className="achievementContainerLeft">
         <div className="achievementTitle">{title}</div>
@@ -76,7 +78,7 @@ function SupporterClaim(props) {
         }}
       >
         <Button
-          id="challengePageDonateButton"
+          id="achievementPageDonateButton"
           className="button active"
           style={{
             marginBottom: "12px",
@@ -104,8 +106,8 @@ function SupporterClaim(props) {
             }}
           />
           <Button
-            inverted={isDarkMode}
             className="button"
+            inverted={isDarkMode}
             onClick={() => {
               const CODE = "JAVAGIFT";
 
@@ -141,7 +143,10 @@ export default function Achievements(props) {
   return (
     <>
       {!isSupporter && (
-        <SupporterClaim {...props} onCorrectCode={setIsSupporter} />
+        <SupporterClaim
+          isDarkMode={props.isDarkMode}
+          onCorrectCode={setIsSupporter}
+        />
       )}
       <div className="achievementsContainer">
         {achievementsData.map((achievementData, index) => {
@@ -151,6 +156,7 @@ export default function Achievements(props) {
               type={achievementData.type}
               title={achievementData.title}
               description={achievementData.description}
+              isSupporter={isSupporter}
             />
           );
         })}

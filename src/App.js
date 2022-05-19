@@ -276,7 +276,7 @@ function App() {
       content = <StatsComponent isTeacherMode={isTeacherMode} />;
       break;
     case "achievements":
-      content = <Achievements />;
+      content = <Achievements isDarkMode={isDarkMode} />;
       break;
     case "settings":
       content = (
