@@ -167,7 +167,12 @@ function App() {
           className="button headerButton"
         />
       </div>
-      <span>CLADDER</span>
+      <span
+        style={{ cursor: "pointer" }}
+        onClick={() => (window.location.href = "/")}
+      >
+        CLADDER
+      </span>
       <div className="headerSection" style={{ marginRight: "12px" }}>
         <Icon
           name={"chart bar"}
