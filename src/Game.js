@@ -724,5 +724,5 @@ export default function Game(props) {
 const getSkipsCount = (puzzleNumber) => {
   const hardPuzzles = [51];
 
-  return hardPuzzles.includes(puzzleNumber) ? 3 : 1;
+  return hardPuzzles.includes(puzzleNumber) ? 3 : 2;
 };

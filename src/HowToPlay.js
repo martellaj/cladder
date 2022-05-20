@@ -9,7 +9,7 @@ export default function HowToPlay() {
           to FAME)
         </h4>
         <h4>🙅‍♀️ You are not penalized for incorrect guesses</h4>
-        <h4>⏭ You have 1 skip (costs 5 seconds)</h4>
+        <h4>⏭ You have 2 skips (costs 5 seconds each)</h4>
         <h4>🕛 New puzzle at midnight</h4>
       </div>
     </div>

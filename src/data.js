@@ -3814,4 +3814,67 @@ export const game = [
       alteredPosition: 0,
     },
   ],
+  // 5/22/2022 (#61)
+  [
+    {
+      word: "olay",
+      hint: "sculptor's soft material",
+      answer: "clay",
+      alteredPosition: 0,
+    },
+    {
+      word: "clay",
+      hint: "often used in chowders",
+      answer: "clam",
+      alteredPosition: 3,
+    },
+    {
+      word: "clam",
+      hint: "like the 1970's david bowie",
+      answer: "glam",
+      alteredPosition: 0,
+    },
+    {
+      word: "glam",
+      hint: "sad",
+      answer: "glum",
+      alteredPosition: 2,
+    },
+    {
+      word: "glum",
+      hint: "an oversupply",
+      answer: "glut",
+      alteredPosition: 3,
+    },
+    {
+      word: "glut",
+      hint: "disease with painful joint inflamation",
+      answer: "gout",
+      alteredPosition: 1,
+    },
+    {
+      word: "gout",
+      hint: "make a sad face",
+      answer: "pout",
+      alteredPosition: 0,
+    },
+    {
+      word: "pout",
+      hint: "a boxers' event",
+      answer: "bout",
+      alteredPosition: 0,
+    },
+    {
+      word: "bout",
+      hint: "rock the ___ (stir up trouble)",
+      answer: "boat",
+      alteredPosition: 2,
+    },
+    {
+      word: "boat",
+      hint: "scarves or snakes",
+      answer: "boas",
+      alteredPosition: 3,
+    },
+  ],
 ];
