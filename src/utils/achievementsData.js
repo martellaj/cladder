@@ -30,17 +30,17 @@ const achievementsData = [
   {
     type: SPEED40,
     title: "Slow and Steady",
-    description: "Complete puzzle in under 40 seconds",
+    description: "Win a game in under 40 seconds",
   },
   {
     type: SPEED30,
     title: "Fast Fingers",
-    description: "Complete puzzle in under 30 seconds",
+    description: "Win a game in under 30 seconds",
   },
   {
     type: SPEED20,
     title: "Cladder Champion",
-    description: "Complete puzzle in under 20 seconds",
+    description: "Win a game in under 20 seconds",
   },
 ];
 
