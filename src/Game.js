@@ -339,6 +339,8 @@ export default function Game(props) {
       (((progress / 100) * TIME_LIMIT) / 1000).toFixed(2)
     );
 
+    const alreadyPlayed = getDailyResult() !== undefined;
+
     if (isOver) {
       window.localStorage.setItem(
         `puzzle-${puzzleNumber}`,
@@ -349,6 +351,14 @@ export default function Game(props) {
       );
 
       if (window.localStorage.getItem("isSupporter") === "true") {
+        if (!alreadyPlayed && isHardMode) {
+          // increment hard mode wins
+          window.localStorage.setItem(
+            "hardModeWins",
+            parseInt(window.localStorage.getItem("hardModeWins") || "0") + 1
+          );
+        }
+
         // check achievements
         requestAnimationFrame(() => {
           const postGameAchievementsStatus = getCompletedAchievements();

@@ -5,6 +5,9 @@ export const WIN100 = 3;
 export const SPEED40 = 4;
 export const SPEED30 = 5;
 export const SPEED20 = 6;
+export const HARD1 = 7;
+export const HARD10 = 8;
+export const HARD100 = 9;
 
 const achievementsData = [
   // {
@@ -26,6 +29,21 @@ const achievementsData = [
     type: WIN100,
     title: "Cladder Century",
     description: "Win 100 games",
+  },
+  {
+    type: HARD1,
+    title: "Cladder Rookie*",
+    description: "Win 1 game on hard mode",
+  },
+  {
+    type: HARD10,
+    title: "Cladder Gamer*",
+    description: "Win 10 games on hard mode",
+  },
+  {
+    type: HARD100,
+    title: "Cladder Century*",
+    description: "Win 100 games on hard mode",
   },
   {
     type: SPEED40,

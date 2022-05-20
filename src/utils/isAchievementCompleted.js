@@ -1,5 +1,8 @@
 import { getStats } from "../stats";
 import {
+  HARD1,
+  HARD10,
+  HARD100,
   SPEED20,
   SPEED30,
   SPEED40,
@@ -11,6 +14,9 @@ import {
 
 export default function isAchievementCompleted(type) {
   const stats = getStats();
+  const hardModeWins = parseInt(
+    window.localStorage.getItem("hardModeWins") || "0"
+  );
 
   switch (type) {
     case TEST: {
@@ -35,6 +41,24 @@ export default function isAchievementCompleted(type) {
       return {
         progress: `${Math.min(stats.gamesWon, 100)} / 100`,
         completed: stats.gamesWon >= 100,
+      };
+    }
+    case HARD1: {
+      return {
+        progress: `${hardModeWins} / 1`,
+        completed: hardModeWins >= 1,
+      };
+    }
+    case HARD10: {
+      return {
+        progress: `${hardModeWins} / 10`,
+        completed: hardModeWins >= 10,
+      };
+    }
+    case HARD100: {
+      return {
+        progress: `${hardModeWins} / 100`,
+        completed: hardModeWins >= 100,
       };
     }
     case SPEED40: {
