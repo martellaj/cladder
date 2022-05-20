@@ -3877,4 +3877,67 @@ export const game = [
       alteredPosition: 3,
     },
   ],
+  // 5/23/2022 (#62)
+  [
+    {
+      word: "pint",
+      hint: "mouthwash flavour",
+      answer: "mint",
+      alteredPosition: 0,
+    },
+    {
+      word: "mint",
+      hint: "'sierra ___': a lemon-lime soda",
+      answer: "mist",
+      alteredPosition: 2,
+    },
+    {
+      word: "mist",
+      hint: "'little ___ sunshine'",
+      answer: "miss",
+      alteredPosition: 3,
+    },
+    {
+      word: "miss",
+      hint: "to insult, slangily",
+      answer: "diss",
+      alteredPosition: 0,
+    },
+    {
+      word: "diss",
+      hint: "a plate",
+      answer: "dish",
+      alteredPosition: 3,
+    },
+    {
+      word: "dish",
+      hint: "a genie can grant one or more of this",
+      answer: "wish",
+      alteredPosition: 0,
+    },
+    {
+      word: "wish",
+      hint: "step before dry",
+      answer: "wash",
+      alteredPosition: 1,
+    },
+    {
+      word: "wash",
+      hint: "a relative of the bee",
+      answer: "wasp",
+      alteredPosition: 3,
+    },
+    {
+      word: "wasp",
+      hint: "a faster-than-light engine speed",
+      answer: "warp",
+      alteredPosition: 2,
+    },
+    {
+      word: "warp",
+      hint: "an angelic instrument",
+      answer: "harp",
+      alteredPosition: 0,
+    },
+  ],
 ];
