@@ -120,7 +120,7 @@ export default function Game(props) {
    * returns results from daily game (if played)
    * else returns undefined
    */
-  const getDailyResult = () => {
+  const getDailyResult = useCallback(() => {
     if (mode === "daily" && puzzleNumber === getDailyPuzzleNumber()) {
       const resultData = window.localStorage.getItem(`puzzle-${puzzleNumber}`);
 
@@ -134,7 +134,7 @@ export default function Game(props) {
     }
 
     return undefined;
-  };
+  }, [mode, puzzleNumber]);
   const dailyResult = getDailyResult();
 
   /**
@@ -386,6 +386,8 @@ export default function Game(props) {
     puzzleNumber,
     gameLevel,
     preGameAchievementsStatus,
+    isHardMode,
+    getDailyResult,
   ]);
 
   const showSkipButton = useMemo(() => {
