@@ -3940,4 +3940,67 @@ export const game = [
       alteredPosition: 0,
     },
   ],
+  // 5/24/2022 (#63)
+  [
+    {
+      word: "chaim",
+      hint: "piece of furniture for sitting",
+      answer: "chair",
+      alteredPosition: 4,
+    },
+    {
+      word: "chair",
+      hint: "'The Cosby Show' wife",
+      answer: "clair",
+      alteredPosition: 1,
+    },
+    {
+      word: "clair",
+      hint: "stylishness and originality",
+      answer: "flair",
+      alteredPosition: 0,
+    },
+    {
+      word: "flair",
+      hint: "to swing or move ones arms in a crazed fashion",
+      answer: "flail",
+      alteredPosition: 4,
+    },
+    {
+      word: "flail",
+      hint: "physically weak or easily broken",
+      answer: "frail",
+      alteredPosition: 1,
+    },
+    {
+      word: "frail",
+      hint: "a path marked and maintained in the woods",
+      answer: "trail",
+      alteredPosition: 0,
+    },
+    {
+      word: "trail",
+      hint: "to fish by dragging a net behind a boat",
+      answer: "trawl",
+      alteredPosition: 3,
+    },
+    {
+      word: "trawl",
+      hint: "southerners in the us speak with one of these",
+      answer: "drawl",
+      alteredPosition: 0,
+    },
+    {
+      word: "drawl",
+      hint: "sketched",
+      answer: "drawn",
+      alteredPosition: 4,
+    },
+    {
+      word: "drawn",
+      hint: "muscular strength",
+      answer: "brawn",
+      alteredPosition: 0,
+    },
+  ],
 ];
