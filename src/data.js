@@ -3751,4 +3751,67 @@ export const game = [
       alteredPosition: 1,
     },
   ],
+  // 5/21/2022 (#60)
+  [
+    {
+      word: "hurt",
+      hint: "terse",
+      answer: "curt",
+      alteredPosition: 0,
+    },
+    {
+      word: "curt",
+      hint: "to restore health",
+      answer: "cure",
+      alteredPosition: 3,
+    },
+    {
+      word: "cure",
+      hint: "artificial bait for fishing",
+      answer: "lure",
+      alteredPosition: 0,
+    },
+    {
+      word: "lure",
+      hint: "to lie hidden",
+      answer: "lurk",
+      alteredPosition: 3,
+    },
+    {
+      word: "lurk",
+      hint: "a person from Istanbul",
+      answer: "turk",
+      alteredPosition: 0,
+    },
+    {
+      word: "turk",
+      hint: "elephant's ivory tooth",
+      answer: "tusk",
+      alteredPosition: 2,
+    },
+    {
+      word: "tusk",
+      hint: "from ___ till dawn",
+      answer: "dusk",
+      alteredPosition: 0,
+    },
+    {
+      word: "dusk",
+      hint: "UFO's shape in many depictions",
+      answer: "disk",
+      alteredPosition: 1,
+    },
+    {
+      word: "disk",
+      hint: "smack-talk",
+      answer: "diss",
+      alteredPosition: 3,
+    },
+    {
+      word: "diss",
+      hint: "hug's partner",
+      answer: "kiss",
+      alteredPosition: 0,
+    },
+  ],
 ];
