@@ -4003,4 +4003,130 @@ export const game = [
       alteredPosition: 0,
     },
   ],
+  // 5/25/2022 (#64)
+  [
+    {
+      word: "weir",
+      hint: "put on clothing",
+      answer: "wear",
+      alteredPosition: 2,
+    },
+    {
+      word: "wear",
+      hint: "shape of some honey containers",
+      answer: "bear",
+      alteredPosition: 0,
+    },
+    {
+      word: "bear",
+      hint: "drink of fermented malt and hops",
+      answer: "beer",
+      alteredPosition: 2,
+    },
+    {
+      word: "beer",
+      hint: "carnivorous dish from cattle",
+      answer: "beef",
+      alteredPosition: 3,
+    },
+    {
+      word: "beef",
+      hint: "a large collection of coral",
+      answer: "reef",
+      alteredPosition: 0,
+    },
+    {
+      word: "reef",
+      hint: "an oboe has a double one",
+      answer: "reed",
+      alteredPosition: 3,
+    },
+    {
+      word: "reed",
+      hint: "peruse a book",
+      answer: "read",
+      alteredPosition: 2,
+    },
+    {
+      word: "read",
+      hint: "a paved path for cars",
+      answer: "road",
+      alteredPosition: 1,
+    },
+    {
+      word: "road",
+      hint: "crowd sound",
+      answer: "roar",
+      alteredPosition: 3,
+    },
+    {
+      word: "roar",
+      hint: "trunk's position, on many cars",
+      answer: "rear",
+      alteredPosition: 1,
+    },
+  ],
+  // 5/26/2022 (#65)
+  [
+    {
+      word: "shone",
+      hint: "a rock or 14 pounds",
+      answer: "stone",
+      alteredPosition: 0,
+    },
+    {
+      word: "stone",
+      hint: "'Goosebumps' author: R.L. ___",
+      answer: "stine",
+      alteredPosition: 2,
+    },
+    {
+      word: "stine",
+      hint: "smell very bad; reek",
+      answer: "stink",
+      alteredPosition: 4,
+    },
+    {
+      word: "stink",
+      hint: "move stealthily or in a provocative manner",
+      answer: "slink",
+      alteredPosition: 1,
+    },
+    {
+      word: "slink",
+      hint: "slang for prison; a sharp metallic sound",
+      answer: "clink",
+      alteredPosition: 0,
+    },
+    {
+      word: "clink",
+      hint: "___ Eastwood, Hollywood legend",
+      answer: "clint",
+      alteredPosition: 4,
+    },
+    {
+      word: "clint",
+      hint: "a material for making sparks",
+      answer: "flint",
+      alteredPosition: 0,
+    },
+    {
+      word: "flint",
+      hint: "to throw; a brief love affair",
+      answer: "fling",
+      alteredPosition: 4,
+    },
+    {
+      word: "fling",
+      hint: "flashy jewelry and ornamentation on a rapper",
+      answer: "bling",
+      alteredPosition: 0,
+    },
+    {
+      word: "bling",
+      hint: "unable to see",
+      answer: "blind",
+      alteredPosition: 4,
+    },
+  ],
 ];
