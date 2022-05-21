@@ -18,6 +18,8 @@ import getCompletedAchievements from "./utils/getCompletedAchievements";
 import getAchievementByType from "./utils/getAchievementByType";
 import { Achievement } from "./Achievements";
 
+const isStreaming = false;
+
 const TIME_LIMIT = 60000;
 const INCREMENT = 200;
 
@@ -705,6 +707,8 @@ export default function Game(props) {
           </>
         )}
       </div>
+
+      {isStreaming && !isOver && <div className="cta">PLAYCLADDER.COM</div>}
 
       {!isOver && (
         <Keyboard

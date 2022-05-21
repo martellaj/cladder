@@ -411,3 +411,16 @@ button:focus {
   background-color: #d49800 !important;
   color: white !important;
 }
+
+.cta {
+  color: white;
+  background-color: mediumpurple;
+  width: 70%;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-variant: all-petite-caps;
+  border-radius: 12px;
+  font-size: xx-large;
+}
