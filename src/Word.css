@@ -21,3 +21,25 @@
 .animate__slideInUp {
   --animate-duration: 0.4s;
 }
+
+.hintBackground {
+  background-color: var(--hintBackground);
+  opacity: 90%;
+  color: white !important;
+
+  animation-name: grow2;
+  animation-duration: 0.3s;
+  animation-iteration-count: 1;
+}
+
+@keyframes grow2 {
+  0% {
+    transform: scale(0.95);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}

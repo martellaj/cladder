@@ -1,6 +1,7 @@
 import Tile from "./Tile";
 import "./Word.css";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
+import { Icon } from "semantic-ui-react";
 
 function Word(props) {
   const {
@@ -13,9 +14,13 @@ function Word(props) {
     selectedIndex = -1,
     onTileSelected = null,
     showTileToChange = false,
+    hint = "",
+    reserveShowHintSpace = false,
   } = props;
 
   const [indexToAnimate, setIndexToAnimate] = useState(-1);
+  const [showHint, setShowHint] = useState(false);
+  const wordContainerRef = useRef(null);
 
   useEffect(() => {
     if (mode === "hint") {
@@ -72,8 +77,46 @@ function Word(props) {
   }
 
   return (
-    <div id={id} className={`wordContainer`}>
-      {tiles}
+    <div className="outerWordContainer">
+      <div
+        id={id}
+        className={`wordContainer`}
+        style={{ position: "relative" }}
+        ref={wordContainerRef}
+      >
+        {tiles}
+        {showHint && (
+          <div
+            className="hintBackground"
+            style={{
+              position: "absolute",
+              top: 0,
+              left: 0,
+              height: wordContainerRef?.current.clientHeight || "50px",
+              width: wordContainerRef?.current.clientWidth - 6 || "100px",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              fontSize: "14px",
+              overflow: "auto",
+            }}
+            title={hint}
+          >
+            {hint}
+          </div>
+        )}
+      </div>
+      {(hint || reserveShowHintSpace) && (
+        <Icon
+          name="lightbulb outline"
+          className="answerHintLater"
+          size="big"
+          onClick={() => setShowHint(!showHint)}
+          style={{
+            visibility: reserveShowHintSpace ? "hidden" : "visible",
+          }}
+        />
+      )}
     </div>
   );
 }

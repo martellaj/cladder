@@ -526,30 +526,50 @@ export default function Game(props) {
   const board = useMemo(() => {
     const _board = [];
 
+    const renderMe = (element, i) => {
+      return element;
+    };
+
     _board.push(
-      <Word key={game[0].word + "123"} answer={game[0].word} mode="board" />
+      renderMe(
+        <Word
+          key={game[0].word + "123"}
+          answer={game[0].word}
+          mode="board"
+          reserveShowHintSpace={true}
+        />,
+        -1
+      )
     );
 
     for (let i = 0; i < gameLevel; i++) {
       _board.push(
-        <Word
-          key={game[i].answer}
-          answer={game[i].answer}
-          alteredPosition={game[i].alteredPosition}
-          mode="board"
-        />
+        renderMe(
+          <Word
+            key={game[i].answer}
+            answer={game[i].answer}
+            alteredPosition={game[i].alteredPosition}
+            mode="board"
+            hint={game[i].hint}
+          />,
+          i
+        )
       );
     }
 
     if (gameLevel < 10) {
       _board.push(
-        <Word
-          key={game[gameLevel].answer}
-          answer={game[gameLevel].answer}
-          alteredPosition={game[gameLevel].alteredPosition}
-          failed={true}
-          mode="board"
-        />
+        renderMe(
+          <Word
+            key={game[gameLevel].answer}
+            answer={game[gameLevel].answer}
+            alteredPosition={game[gameLevel].alteredPosition}
+            failed={true}
+            mode="board"
+            hint={game[gameLevel].hint}
+          />,
+          gameLevel
+        )
       );
     }
 

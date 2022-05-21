@@ -424,3 +424,14 @@ button:focus {
   border-radius: 12px;
   font-size: xx-large;
 }
+
+.outerWordContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.answerHintLater {
+  margin-left: 12px !important;
+  cursor: pointer;
+}

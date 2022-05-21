@@ -33,6 +33,8 @@ export function reloadColors() {
   let achievementDescription = "white";
   let achievementBackgroundLocked = "#b6b6b6";
 
+  let hintBackground = "#2e2e2e";
+
   if (mode === "dark") {
     black = "white";
     white = "#121213";
@@ -51,6 +53,8 @@ export function reloadColors() {
     achievementDescription = "#d9d9d9";
     achievementBackgroundSuccess = "#3d7038";
     achievementBackgroundLocked = "#787878";
+
+    hintBackground = "#2e2e2e";
   }
 
   let root = document.documentElement;
@@ -80,4 +84,6 @@ export function reloadColors() {
     "--achievementBackgroundLocked",
     achievementBackgroundLocked
   );
+
+  root.style.setProperty("--hintBackground", hintBackground);
 }
