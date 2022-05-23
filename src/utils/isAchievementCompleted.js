@@ -45,19 +45,19 @@ export default function isAchievementCompleted(type) {
     }
     case HARD1: {
       return {
-        progress: `${hardModeWins} / 1`,
+        progress: `${Math.min(hardModeWins, 1)} / 1`,
         completed: hardModeWins >= 1,
       };
     }
     case HARD10: {
       return {
-        progress: `${hardModeWins} / 10`,
+        progress: `${Math.min(hardModeWins, 10)} / 10`,
         completed: hardModeWins >= 10,
       };
     }
     case HARD100: {
       return {
-        progress: `${hardModeWins} / 100`,
+        progress: `${Math.min(hardModeWins, 100)} / 100`,
         completed: hardModeWins >= 100,
       };
     }
