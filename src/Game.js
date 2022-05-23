@@ -170,6 +170,7 @@ export default function Game(props) {
     mode === "challenge" ? 0 : undefined
   );
   const [achievements, setAchievements] = useState([]);
+  const [showHints, setShowHints] = useState(false);
 
   /////////////////////////////////
   /// CURRENT ROUND INFORMATION ///
@@ -536,7 +537,8 @@ export default function Game(props) {
           key={game[0].word + "123"}
           answer={game[0].word}
           mode="board"
-          reserveShowHintSpace={true}
+          showHint={showHints}
+          hint="(starter word)"
         />,
         -1
       )
@@ -551,6 +553,7 @@ export default function Game(props) {
             alteredPosition={game[i].alteredPosition}
             mode="board"
             hint={game[i].hint}
+            showHint={showHints}
           />,
           i
         )
@@ -567,14 +570,29 @@ export default function Game(props) {
             failed={true}
             mode="board"
             hint={game[gameLevel].hint}
+            showHint={showHints}
           />,
           gameLevel
         )
       );
     }
 
-    return _board;
-  }, [game, gameLevel]);
+    return (
+      <div>
+        <Button
+          basic
+          className="showHintsButton"
+          size="large"
+          inverted={isDarkMode}
+          onClick={() => setShowHints(!showHints)}
+          color="black"
+        >
+          {showHints ? "HIDE" : "SHOW"} HINTS
+        </Button>
+        {_board}
+      </div>
+    );
+  }, [game, gameLevel, isDarkMode, showHints]);
 
   const messageTargetId = useMemo(() => {
     let id = "hint";

@@ -15,11 +15,10 @@ function Word(props) {
     onTileSelected = null,
     showTileToChange = false,
     hint = "",
-    reserveShowHintSpace = false,
+    showHint = false,
   } = props;
 
   const [indexToAnimate, setIndexToAnimate] = useState(-1);
-  const [showHint, setShowHint] = useState(false);
   const wordContainerRef = useRef(null);
 
   useEffect(() => {
@@ -77,45 +76,32 @@ function Word(props) {
   }
 
   return (
-    <div className="outerWordContainer">
-      <div
-        id={id}
-        className={`wordContainer`}
-        style={{ position: "relative" }}
-        ref={wordContainerRef}
-      >
-        {tiles}
-        {showHint && (
-          <div
-            className="hintBackground"
-            style={{
-              position: "absolute",
-              top: 0,
-              left: 0,
-              height: wordContainerRef?.current.clientHeight || "50px",
-              width: wordContainerRef?.current.clientWidth - 6 || "100px",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              fontSize: "14px",
-              overflow: "auto",
-            }}
-            title={hint}
-          >
-            {hint}
-          </div>
-        )}
-      </div>
-      {(hint || reserveShowHintSpace) && (
-        <Icon
-          name="lightbulb outline"
-          className="answerHintLater"
-          size="big"
-          onClick={() => setShowHint(!showHint)}
+    <div
+      id={id}
+      className={`wordContainer`}
+      style={{ position: "relative" }}
+      ref={wordContainerRef}
+    >
+      {tiles}
+      {showHint && (
+        <div
+          className="hintBackground"
           style={{
-            visibility: reserveShowHintSpace ? "hidden" : "visible",
+            position: "absolute",
+            top: 0,
+            left: 0,
+            height: wordContainerRef?.current.clientHeight || "50px",
+            width: wordContainerRef?.current.clientWidth - 6 || "100px",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            fontSize: "14px",
+            overflow: "auto",
           }}
-        />
+          title={hint}
+        >
+          {hint}
+        </div>
       )}
     </div>
   );
