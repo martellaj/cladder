@@ -1,7 +1,6 @@
 import Tile from "./Tile";
 import "./Word.css";
 import { useEffect, useState, useRef } from "react";
-import { Icon } from "semantic-ui-react";
 
 function Word(props) {
   const {
