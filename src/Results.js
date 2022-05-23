@@ -95,7 +95,7 @@ export default function Results(props) {
                   isHardMode && !isTeacherMode ? "*" : ""
                 }\n${
                   didComplete && !isTeacherMode ? `🚀 ${time} seconds\n` : ""
-                }\n"https://playcladder.com"`;
+                }\nhttps://playcladder.com`;
 
                 var ua = navigator.userAgent.toLowerCase();
                 var isAndroid = ua.indexOf("android") > -1;
