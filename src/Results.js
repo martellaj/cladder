@@ -83,47 +83,102 @@ export default function Results(props) {
             </div>
           </Button>
         ) : (
-          <Button
-            id="shareButton"
-            className="positive button"
-            style={{ marginBottom: "18px" }}
-            size="massive"
-            inverted={isDarkMode}
-            onClick={() => {
-              const text = `#Cladder ${puzzleNumber}\n\n✅ ${correct}/10${
-                isHardMode && !isTeacherMode ? "*" : ""
-              }\n${
-                didComplete && !isTeacherMode ? `🚀 ${time} seconds\n` : ""
-              }\nhttps://playcladder.com`;
+          <Button.Group size="massive">
+            <Button
+              id="shareButton"
+              className="button"
+              positive={true}
+              style={{ marginBottom: "18px" }}
+              inverted={isDarkMode}
+              onClick={() => {
+                let text = `#Cladder ${puzzleNumber}\n\n✅ ${correct}/10${
+                  isHardMode && !isTeacherMode ? "*" : ""
+                }\n${
+                  didComplete && !isTeacherMode ? `🚀 ${time} seconds\n` : ""
+                }\n"https://playcladder.com"`;
 
-              var ua = navigator.userAgent.toLowerCase();
-              var isAndroid = ua.indexOf("android") > -1;
+                var ua = navigator.userAgent.toLowerCase();
+                var isAndroid = ua.indexOf("android") > -1;
 
-              const isIos =
-                [
-                  "iPad Simulator",
-                  "iPhone Simulator",
-                  "iPod Simulator",
-                  "iPad",
-                  "iPhone",
-                  "iPod",
-                ].includes(navigator.platform) ||
-                // iPad on iOS 13 detection
-                (navigator.userAgent.includes("Mac") &&
-                  "ontouchend" in document);
+                const isIos =
+                  [
+                    "iPad Simulator",
+                    "iPhone Simulator",
+                    "iPod Simulator",
+                    "iPad",
+                    "iPhone",
+                    "iPod",
+                  ].includes(navigator.platform) ||
+                  // iPad on iOS 13 detection
+                  (navigator.userAgent.includes("Mac") &&
+                    "ontouchend" in document);
 
-              if (isIos || isAndroid) {
-                navigator.share({
-                  text: text,
-                });
-              } else {
-                copy(text);
-                onCopied();
-              }
-            }}
-          >
-            SHARE
-          </Button>
+                if (isIos || isAndroid) {
+                  navigator.share({
+                    text: text,
+                  });
+                } else {
+                  copy(text);
+                  onCopied();
+                }
+              }}
+            >
+              SHARE
+            </Button>
+            <Button.Or />
+            <Button
+              id="shareButton2"
+              className="button"
+              style={{ marginBottom: "18px" }}
+              inverted={isDarkMode}
+              onClick={() => {
+                let text = `#Cladder ${puzzleNumber}\n\n✅ ${correct}/10${
+                  isHardMode && !isTeacherMode ? "*" : ""
+                }\n${
+                  didComplete && !isTeacherMode ? `🚀 ${time} seconds\n` : ""
+                }\n`;
+
+                for (let i = 0; i < 10; i++) {
+                  if (i < correct) {
+                    text += "🟩➖➖🟩\n";
+                  } else if (i === correct) {
+                    text += "🟥➖➖🟥\n";
+                  } else {
+                    text += "⬛➖➖⬛\n";
+                  }
+                }
+
+                text += "\nhttps://playcladder.com";
+
+                var ua = navigator.userAgent.toLowerCase();
+                var isAndroid = ua.indexOf("android") > -1;
+
+                const isIos =
+                  [
+                    "iPad Simulator",
+                    "iPhone Simulator",
+                    "iPod Simulator",
+                    "iPad",
+                    "iPhone",
+                    "iPod",
+                  ].includes(navigator.platform) ||
+                  // iPad on iOS 13 detection
+                  (navigator.userAgent.includes("Mac") &&
+                    "ontouchend" in document);
+
+                if (isIos || isAndroid) {
+                  navigator.share({
+                    text: text,
+                  });
+                } else {
+                  copy(text);
+                  onCopied();
+                }
+              }}
+            >
+              🟩
+            </Button>
+          </Button.Group>
         )}
 
         {!isSupporter && (

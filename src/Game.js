@@ -637,7 +637,7 @@ export default function Game(props) {
           }}
           puzzleNumber={puzzleNumber}
           onLoaded={() => {
-            animateCSS("#shareButton", "heartBeat");
+            // animateCSS("#shareButton", "heartBeat");
           }}
           isChallengeMode={mode === "challenge"}
           onPlayAgain={onPlayAgain}

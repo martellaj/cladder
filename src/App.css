@@ -444,3 +444,27 @@ button:focus {
   box-shadow: 0 0 0 2px var(--black) inset !important;
   color: var(--black) !important;
 }
+
+#shareButton {
+  animation-name: shareGrow;
+  animation-duration: 1s;
+  animation-iteration-count: 1;
+}
+
+@keyframes shareGrow {
+  0% {
+    transform: scale(0.9);
+  }
+  25% {
+    transform: scale(1.1);
+  }
+  50% {
+    transform: scale(1);
+  }
+  75% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
