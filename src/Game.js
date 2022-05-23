@@ -581,11 +581,10 @@ export default function Game(props) {
       <div>
         <Button
           basic
-          className="showHintsButton"
+          id="showHintsButton"
           size="large"
           inverted={isDarkMode}
           onClick={() => setShowHints(!showHints)}
-          color="black"
         >
           {showHints ? "HIDE" : "SHOW"} HINTS
         </Button>

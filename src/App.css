@@ -436,9 +436,11 @@ button:focus {
   cursor: pointer;
 }
 
-.showHintsButton {
+#showHintsButton {
   margin-bottom: 12px !important;
   font-variant: all-petite-caps;
   width: calc(100% - 6px) !important;
   font-size: 20px !important;
+  box-shadow: 0 0 0 2px var(--black) inset !important;
+  color: var(--black) !important;
 }
