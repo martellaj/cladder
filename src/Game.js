@@ -736,6 +736,7 @@ export default function Game(props) {
                 key={`${word}-prev`}
                 answer={word}
                 mode="board"
+                yay={true}
               />
             )}
             <Word
@@ -748,6 +749,7 @@ export default function Game(props) {
               onTileSelected={onTileSelected}
               alteredPosition={game[gameLevel]?.alteredPosition}
               showTileToChange={shouldShowTileToChange}
+              yay={true}
             />
             <div id="hint" className="hint">
               {hint}
