@@ -8,7 +8,6 @@ export default function Results(props) {
     time,
     onCopied,
     puzzleNumber,
-    onLoaded,
     isHardMode,
     isDarkMode,
     isTeacherMode,
@@ -18,12 +17,6 @@ export default function Results(props) {
   } = props;
 
   const didComplete = correct === 10;
-
-  useEffect(() => {
-    setTimeout(() => {
-      onLoaded();
-    }, 250);
-  });
 
   let bigMessage = "";
   if (correct === 10) {

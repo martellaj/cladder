@@ -4,7 +4,6 @@ import useEventListener from "./useEventListener";
 import Timer from "./Timer";
 import Word from "./Word";
 import Results from "./Results";
-import animateCSS from "./animateCSS";
 import { getNegativeWord, getPositiveWord } from "./getWord";
 import { Button } from "semantic-ui-react";
 import Keyboard from "./Keyboard";
@@ -225,7 +224,13 @@ export default function Game(props) {
         return currentLevel + 1;
       });
     } else {
-      animateCSS("#guessingWord", "shakeX");
+      document.getElementById("guessingWord").classList.add("animateWrongWord");
+      setTimeout(() => {
+        document
+          .getElementById("guessingWord")
+          .classList.remove("animateWrongWord");
+      }, 700);
+
       setMessageDetails({
         message: getNegativeWord(),
         color: isDarkMode ? "#ff695e" : "#d95c5c",
@@ -293,11 +298,20 @@ export default function Game(props) {
       tileHintTimer = setTimeout(() => {
         setShouldShowTileToChange(true);
         setTimeout(() => {
-          animateCSS(".altered", "heartBeat");
+          if (!isOver) {
+            document
+              .getElementsByClassName("altered")[0]
+              ?.classList.add("animateHintTile");
+            setTimeout(() => {
+              document
+                .getElementsByClassName("altered")[0]
+                ?.classList.remove("animateHintTile");
+            }, 800);
+          }
         }, 0);
       }, 10000);
     }
-  }, [gameLevel, game, word, selectionMode, isHardMode]);
+  }, [gameLevel, game, word, selectionMode, isHardMode, isOver]);
 
   // hook that congratulates user when they get an answer right
   useEffect(() => {
@@ -647,9 +661,6 @@ export default function Game(props) {
             }, 1000);
           }}
           puzzleNumber={puzzleNumber}
-          onLoaded={() => {
-            // animateCSS("#shareButton", "heartBeat");
-          }}
           isChallengeMode={mode === "challenge"}
           onPlayAgain={onPlayAgain}
           skipsUsed={skipsUsed}

@@ -469,6 +469,30 @@ button:focus {
   }
 }
 
+.animateHintTile {
+  animation-name: hintTileGrow;
+  animation-duration: 0.75s;
+  animation-iteration-count: 1;
+}
+
+@keyframes hintTileGrow {
+  0% {
+    transform: scale(0.9);
+  }
+  25% {
+    transform: scale(1.1);
+  }
+  50% {
+    transform: scale(1);
+  }
+  75% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
 #resultBoardContainer .altered {
   background-color: var(--completedTileBackground);
   color: var(--white);
@@ -477,4 +501,23 @@ button:focus {
 #resultBoardContainer .altered.failed {
   background-color: var(--alteredBackground);
   color: var(--white);
+}
+
+@keyframes shake {
+  10%,
+  50%,
+  90% {
+    transform: translate3d(-10px, 0, 0);
+  }
+
+  30%,
+  70% {
+    transform: translate3d(10px, 0, 0);
+  }
+}
+
+.animateWrongWord {
+  animation: shake 0.82s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+  transform: translate3d(0, 0, 0);
+  animation-duration: 0.6s;
 }
