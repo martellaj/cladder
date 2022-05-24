@@ -1,6 +1,5 @@
 import { Button } from "semantic-ui-react";
 import copy from "copy-to-clipboard";
-import { useEffect } from "react";
 
 export default function Results(props) {
   const {
@@ -15,6 +14,7 @@ export default function Results(props) {
     onPlayAgain,
     skipsUsed,
     mode,
+    gameData,
   } = props;
 
   const didComplete = correct === 10;
@@ -134,13 +134,29 @@ export default function Results(props) {
                   didComplete && !isTeacherMode ? `🚀 ${time} seconds\n` : ""
                 }\n`;
 
+                // for (let i = 0; i < 10; i++) {
+                //   if (i < correct) {
+                //     text += "🟩➖➖🟩\n";
+                //   } else if (i === correct) {
+                //     text += "🟨➖➖🟨\n";
+                //   } else {
+                //     text += "⬛➖➖⬛\n";
+                //   }
+                // }
+
                 for (let i = 0; i < 10; i++) {
+                  const rung = gameData[i];
+
                   if (i < correct) {
-                    text += "🟩➖➖🟩\n";
+                    for (let j = 0; j < rung.word.length; j++) {
+                      text += rung.alteredPosition === j ? "🟩" : "⬛";
+                    }
+                    text += "\n";
                   } else if (i === correct) {
-                    text += "🟨➖➖🟨\n";
-                  } else {
-                    text += "⬛➖➖⬛\n";
+                    for (let j = 0; j < rung.word.length; j++) {
+                      text += rung.alteredPosition === j ? "🟨" : "⬛";
+                    }
+                    text += "\n";
                   }
                 }
 

@@ -665,6 +665,7 @@ export default function Game(props) {
           onPlayAgain={onPlayAgain}
           skipsUsed={skipsUsed}
           mode={mode}
+          gameData={game}
         />
       )}
 
