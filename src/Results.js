@@ -14,6 +14,7 @@ export default function Results(props) {
     isChallengeMode,
     onPlayAgain,
     skipsUsed,
+    mode,
   } = props;
 
   const didComplete = correct === 10;
@@ -28,8 +29,6 @@ export default function Results(props) {
   } else {
     bigMessage = "There's always tomorrow!";
   }
-
-  const isSupporter = window.localStorage.getItem("isSupporter") === "true";
 
   return (
     <div className="resultsContainer">
@@ -76,7 +75,7 @@ export default function Results(props) {
             </div>
           </Button>
         ) : (
-          <Button.Group size="massive">
+          <Button.Group size="massive" id="buttonz">
             <Button
               id="shareButton"
               className="button"
@@ -178,12 +177,15 @@ export default function Results(props) {
           </Button.Group>
         )}
 
-        {!isSupporter && (
+        {mode !== "challenge" && (
           <Button
             id="donateButton"
             className="button active"
             style={{
               marginBottom: "12px",
+              width:
+                document.getElementsByClassName("buttonz")[0]?.clientWidth ||
+                "100%",
             }}
             size="large"
             color="purple"
@@ -191,7 +193,7 @@ export default function Results(props) {
               window.open("https://www.buymeacoffee.com/playcladder", "_blank");
             }}
           >
-            ❤️ SUPPORT BY DONATING
+            ❤️ DONATE
           </Button>
         )}
       </>

@@ -1,14 +1,10 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Button, Input } from "semantic-ui-react";
 
 export default function ChallengePage(props) {
   const { isDarkMode, onOptionSelected } = props;
 
   const [code, setCode] = useState("");
-
-  useEffect(() => {
-    window.localStorage.setItem("challengePageSeen", "true");
-  }, []);
 
   return (
     <div>

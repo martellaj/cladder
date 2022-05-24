@@ -130,7 +130,7 @@ function SupporterClaim(props) {
 
 export default function Achievements(props) {
   const [isSupporter, setIsSupporter] = useState(
-    window.localStorage.getItem("isSupporter") === "true"
+    window.localStorage.getItem("isSupporter") === "true" || true
   );
 
   useEffect(() => {
@@ -144,20 +144,6 @@ export default function Achievements(props) {
           isDarkMode={props.isDarkMode}
           onCorrectCode={setIsSupporter}
         />
-      )}
-      {isSupporter && (
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "center",
-            alignItems: "center",
-            padding: "24px 48px",
-          }}
-        >
-          Thank you so much for supporting Cladder! Please enjoy earning these
-          achievements and be on the look out for more!
-        </div>
       )}
       <div className="achievementsContainer">
         {achievementsData.map((achievementData, index) => {

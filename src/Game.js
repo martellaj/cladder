@@ -375,7 +375,7 @@ export default function Game(props) {
         })
       );
 
-      if (window.localStorage.getItem("isSupporter") === "true") {
+      if (window.localStorage.getItem("isSupporter") === "true" || true) {
         if (!alreadyPlayed && isHardMode) {
           // increment hard mode wins
           window.localStorage.setItem(
@@ -664,6 +664,7 @@ export default function Game(props) {
           isChallengeMode={mode === "challenge"}
           onPlayAgain={onPlayAgain}
           skipsUsed={skipsUsed}
+          mode={mode}
         />
       )}
 

@@ -56,7 +56,7 @@ export default function Menu(props) {
           id="archiveButton"
           size="massive"
           className="menuButton button"
-          color="orange"
+          color={showChallengeMode ? "orange" : "yellow"}
           inverted={isDarkMode}
           onClick={() => onOptionSelected("archive")}
         >
@@ -68,26 +68,13 @@ export default function Menu(props) {
           id="practiceButton"
           size="massive"
           className="menuButton button"
-          color="red"
+          color={showChallengeMode ? "red" : "orange"}
           inverted={isDarkMode}
           onClick={() => onOptionSelected("practice")}
         >
           PRACTICE
         </Button>
       </div>
-      {!showChallengeMode && (
-        <div className="menuButton">
-          <Button
-            size="massive"
-            className="menuButton button"
-            color="yellow"
-            inverted={isDarkMode}
-            onClick={() => onOptionSelected("howToPlay")}
-          >
-            HOW TO PLAY
-          </Button>
-        </div>
-      )}
       <div
         style={{
           marginBottom: "24px",
