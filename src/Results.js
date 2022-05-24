@@ -134,31 +134,31 @@ export default function Results(props) {
                   didComplete && !isTeacherMode ? `🚀 ${time} seconds\n` : ""
                 }\n`;
 
-                // for (let i = 0; i < 10; i++) {
-                //   if (i < correct) {
-                //     text += "🟩➖➖🟩\n";
-                //   } else if (i === correct) {
-                //     text += "🟨➖➖🟨\n";
-                //   } else {
-                //     text += "⬛➖➖⬛\n";
-                //   }
-                // }
-
                 for (let i = 0; i < 10; i++) {
-                  const rung = gameData[i];
-
                   if (i < correct) {
-                    for (let j = 0; j < rung.word.length; j++) {
-                      text += rung.alteredPosition === j ? "🟩" : "⬛";
-                    }
-                    text += "\n";
+                    text += "🟩➖➖🟩\n";
                   } else if (i === correct) {
-                    for (let j = 0; j < rung.word.length; j++) {
-                      text += rung.alteredPosition === j ? "🟨" : "⬛";
-                    }
-                    text += "\n";
+                    text += "🟨➖➖🟨\n";
+                  } else {
+                    text += "⬛➖➖⬛\n";
                   }
                 }
+
+                // for (let i = 0; i < 10; i++) {
+                //   const rung = gameData[i];
+
+                //   if (i < correct) {
+                //     for (let j = 0; j < rung.word.length; j++) {
+                //       text += rung.alteredPosition === j ? "🟩" : "⬛";
+                //     }
+                //     text += "\n";
+                //   } else if (i === correct) {
+                //     for (let j = 0; j < rung.word.length; j++) {
+                //       text += rung.alteredPosition === j ? "🟨" : "⬛";
+                //     }
+                //     text += "\n";
+                //   }
+                // }
 
                 text += "\nhttps://playcladder.com";
 
