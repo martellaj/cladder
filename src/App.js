@@ -54,6 +54,10 @@ const params = new Proxy(new URLSearchParams(window.location.search), {
   get: (searchParams, prop) => searchParams.get(prop),
 });
 
+if (params?.clear) {
+  window.localStorage.removeItem("isSupporter");
+}
+
 function App() {
   const [view, setView] = useState(isReturningPlayer ? "menu" : "howToPlay");
   const [isDarkMode, setIsDarkMode] = useState(
