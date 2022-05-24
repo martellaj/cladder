@@ -408,8 +408,8 @@ button:focus {
 }
 
 .unseenAchievements {
-  background-color: #d49800 !important;
-  color: white !important;
+  background-color: var(--alteredBackground) !important;
+  color: var(--white) !important;
 }
 
 .cta {
@@ -467,4 +467,14 @@ button:focus {
   100% {
     transform: scale(1);
   }
+}
+
+#resultBoardContainer .altered {
+  background-color: var(--completedTileBackground);
+  color: var(--white);
+}
+
+#resultBoardContainer .altered.failed {
+  background-color: var(--alteredBackground);
+  color: var(--white);
 }

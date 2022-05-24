@@ -35,6 +35,7 @@
 
 .altered {
   background-color: var(--alteredBackground);
+  color: var(--alteredColorText);
 }
 
 .altered.failed {
@@ -47,13 +48,16 @@
 
 .selected {
   background-color: var(--selectedTileBackground);
+  color: white;
 }
 
 .attempted {
   background-color: var(--alteredBackground);
+  color: var(--attemptedColorText);
 }
 .completed {
   background-color: var(--completedTileBackground) !important;
+  color: var(--attemptedColorText);
 }
 
 @keyframes grow {

@@ -17,18 +17,20 @@ export function reloadColors() {
 
   let black = "black";
   let white = "#f0f0f0";
-  let alteredBackground = "palegoldenrod";
+  let alteredBackground = "#f2c61f";
+  let alteredColorText = "black";
   let keyboardBackground = "#d3d6da";
   let keyboardActiveBackground = "#ededed";
-  let alteredFailedBackground = "indianred";
-  let selectedTileBackground = "#c0b9f9";
-  let statsBackground = "#dcdcdc";
   let attemptedTileBackground = "#c0b9f9";
-  let completedTileBackground = "#ade8ad";
+  let alteredFailedBackground = alteredBackground;
+  let selectedTileBackground = "#6435c9";
+  let statsBackground = "#dcdcdc";
+  let completedTileBackground = "#5bbd72";
   let bannerBackgroundColor = "#f3f3f3";
   let headerBackgroundColor = "#dcdcdc";
+  let attemptedColorText = "white";
 
-  let achievementBackground = "#6f6f6f";
+  let achievementBackground = "#7f7f7f";
   let achievementBackgroundSuccess = "#5bbd72";
   let achievementDescription = "white";
   let achievementBackgroundLocked = "#b6b6b6";
@@ -38,20 +40,22 @@ export function reloadColors() {
   if (mode === "dark") {
     black = "white";
     white = "#121213";
-    alteredBackground = "#c39b38";
+    alteredBackground = "#ffe21f";
+    alteredColorText = "black";
     keyboardBackground = "#373737";
-    alteredFailedBackground = "darkred";
-    keyboardActiveBackground = "#2b2b2d";
-    selectedTileBackground = "#6654f2";
-    statsBackground = "#222223";
     attemptedTileBackground = "#6654f2";
-    completedTileBackground = "#3b843b";
+    alteredFailedBackground = alteredBackground;
+    keyboardActiveBackground = "#2b2b2d";
+    selectedTileBackground = "#6435c9";
+    statsBackground = "#222223";
+    completedTileBackground = "#2ecc40";
     bannerBackgroundColor = "#1b1c1d";
     headerBackgroundColor = "#222223";
+    attemptedColorText = "black";
 
-    achievementBackground = "#2b2b2b";
-    achievementDescription = "#d9d9d9";
-    achievementBackgroundSuccess = "#3d7038";
+    achievementBackground = "#b9b9b9";
+    achievementDescription = "black";
+    achievementBackgroundSuccess = "#2ecc40";
     achievementBackgroundLocked = "#787878";
 
     hintBackground = "#2e2e2e";
@@ -61,6 +65,7 @@ export function reloadColors() {
   root.style.setProperty("--black", black);
   root.style.setProperty("--white", white);
   root.style.setProperty("--alteredBackground", alteredBackground);
+  root.style.setProperty("--alteredColorText", alteredColorText);
   root.style.setProperty("--keyboardBackground", keyboardBackground);
   root.style.setProperty("--alteredFailedBackground", alteredFailedBackground);
   root.style.setProperty(
@@ -73,6 +78,7 @@ export function reloadColors() {
   root.style.setProperty("--completedTileBackground", completedTileBackground);
   root.style.setProperty("--bannerBackgroundColor", bannerBackgroundColor);
   root.style.setProperty("--headerBackgroundColor", headerBackgroundColor);
+  root.style.setProperty("--attemptedColorText", attemptedColorText);
 
   root.style.setProperty("--achievementBackground", achievementBackground);
   root.style.setProperty("--achievementDescription", achievementDescription);

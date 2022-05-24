@@ -226,7 +226,10 @@ export default function Game(props) {
       });
     } else {
       animateCSS("#guessingWord", "shakeX");
-      setMessageDetails({ message: getNegativeWord(), color: "darkred" });
+      setMessageDetails({
+        message: getNegativeWord(),
+        color: isDarkMode ? "#ff695e" : "#d95c5c",
+      });
 
       setTimeout(() => {
         setGuess(selectionMode ? word : "");
@@ -236,7 +239,7 @@ export default function Game(props) {
         setMessageDetails({ message: "", color: "" });
       }, 1000);
     }
-  }, [guess, answer, word, selectionMode]);
+  }, [guess, answer, word, selectionMode, isDarkMode]);
 
   // hook that checks answer when guess is made
   useEffect(() => {
@@ -299,7 +302,12 @@ export default function Game(props) {
   // hook that congratulates user when they get an answer right
   useEffect(() => {
     if (gameLevel > 0 && gameLevel < 10 && !isOver) {
-      setMessageDetails({ message: getPositiveWord(), color: "green" });
+      setMessageDetails({
+        message: getPositiveWord(),
+        color: getComputedStyle(document.documentElement).getPropertyValue(
+          "--achievementBackgroundSuccess"
+        ),
+      });
 
       setTimeout(() => {
         setMessageDetails({ message: "", color: "" });
@@ -509,7 +517,8 @@ export default function Game(props) {
       } else {
         setMessageDetails({
           message: "Tap a tile to change its letter!",
-          color: "#c39b38",
+          color: isDarkMode ? "#ffe21f" : "#f2c61f",
+          overrideTextColor: "black",
         });
 
         setTimeout(() => {
@@ -628,7 +637,9 @@ export default function Game(props) {
           onCopied={() => {
             setMessageDetails({
               message: "COPIED TO YOUR CLIPBOARD",
-              color: "green",
+              color: getComputedStyle(
+                document.documentElement
+              ).getPropertyValue("--achievementBackgroundSuccess"),
             });
 
             setTimeout(() => {
@@ -699,7 +710,7 @@ export default function Game(props) {
               </>
             )}
             <div style={{ height: "60px" }}></div>
-            {board}
+            <div id="resultBoardContainer">{board}</div>
             <div style={{ height: "24px" }}></div>
           </>
         )}
@@ -761,9 +772,12 @@ export default function Game(props) {
             letterSpacing: "0.2rem",
             textTransform: "uppercase",
             backgroundColor: messageDetails.color,
+            color:
+              messageDetails.overrideTextColor ||
+              (isDarkMode ? "black" : "white"),
             top: `${
               document.getElementById(messageTargetId)?.getBoundingClientRect()
-                ?.top - 50
+                ?.top - (isOver ? 20 : 50)
             }px`,
           }}
         >

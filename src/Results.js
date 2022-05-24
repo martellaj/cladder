@@ -87,8 +87,12 @@ export default function Results(props) {
             <Button
               id="shareButton"
               className="button"
-              positive={true}
-              style={{ marginBottom: "18px" }}
+              color="green"
+              style={{
+                marginBottom: "18px",
+                backgroundColor: isDarkMode ? "#2ecc40" : "#5bbd72",
+                color: "white",
+              }}
               inverted={isDarkMode}
               onClick={() => {
                 let text = `#Cladder ${puzzleNumber}\n\n✅ ${correct}/10${
@@ -142,7 +146,7 @@ export default function Results(props) {
                   if (i < correct) {
                     text += "🟩➖➖🟩\n";
                   } else if (i === correct) {
-                    text += "🟥➖➖🟥\n";
+                    text += "🟨➖➖🟨\n";
                   } else {
                     text += "⬛➖➖⬛\n";
                   }
