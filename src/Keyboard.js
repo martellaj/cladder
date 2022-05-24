@@ -14,7 +14,14 @@ export default function Keyboard(props) {
   };
 
   return (
-    <div className="keyboard">
+    <div
+      className="keyboard"
+      style={{
+        marginBottom: window?.matchMedia("(display-mode: standalone)")?.matches
+          ? "50px"
+          : "unset",
+      }}
+    >
       <button
         className="key letter"
         draggable={false}
