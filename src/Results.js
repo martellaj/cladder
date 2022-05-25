@@ -201,7 +201,7 @@ export default function Results(props) {
               marginBottom: "12px",
               width:
                 document.getElementsByClassName("buttonz")[0]?.clientWidth ||
-                "100%",
+                "270px",
             }}
             size="large"
             color="purple"
