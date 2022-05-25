@@ -258,7 +258,7 @@ export default function Game(props) {
         setMessageDetails({ message: "", color: "" });
       }, 1000);
     }
-  }, [guess, answer, word, selectionMode, isDarkMode]);
+  }, [guess, answer, word, selectionMode, isDarkMode, gameLevel]);
 
   // hook that checks answer when guess is made
   useEffect(() => {
