@@ -184,6 +184,8 @@ export default function Game(props) {
     color: "",
   });
 
+  const [winningAnimation, setWinningAnimation] = useState(false);
+
   /**
    * saves game result to localStorage
    */
@@ -220,9 +222,21 @@ export default function Game(props) {
     }
 
     if (guess.toLowerCase() === answer.toLowerCase()) {
-      setGameLevel((currentLevel) => {
-        return currentLevel + 1;
-      });
+      if (gameLevel === 9) {
+        setWinningAnimation(true);
+
+        setTimeout(() => {
+          setWinningAnimation(false);
+
+          setGameLevel((currentLevel) => {
+            return currentLevel + 1;
+          });
+        }, 900);
+      } else {
+        setGameLevel((currentLevel) => {
+          return currentLevel + 1;
+        });
+      }
     } else {
       document.getElementById("guessingWord").classList.add("animateWrongWord");
       setTimeout(() => {
@@ -736,7 +750,7 @@ export default function Game(props) {
                 key={`${word}-prev`}
                 answer={word}
                 mode="board"
-                yay={true}
+                winningAnimation={winningAnimation}
               />
             )}
             <Word
@@ -749,7 +763,7 @@ export default function Game(props) {
               onTileSelected={onTileSelected}
               alteredPosition={game[gameLevel]?.alteredPosition}
               showTileToChange={shouldShowTileToChange}
-              yay={true}
+              winningAnimation={winningAnimation}
             />
             <div id="hint" className="hint">
               {hint}

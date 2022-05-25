@@ -12,7 +12,7 @@ function Tile(props) {
     attempted = false,
     completed = false,
     shouldAnimate = false,
-    yay,
+    winningAnimation,
   } = props;
 
   const [isAnimating, setIsAnimating] = useState(false);
@@ -60,7 +60,7 @@ function Tile(props) {
         attempted && "attempted"
       } ${completed && "completed"} ${failed && "failed"} ${
         wordLength === 5 && "fiveLetterTile"
-      } ${isAnimating && "animateTile"} ${yay && "bouncingTile"}`}
+      } ${isAnimating && "animateTile"} ${winningAnimation && "bouncingTile"}`}
     >
       {letter}
     </div>

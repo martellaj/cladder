@@ -15,7 +15,7 @@ function Word(props) {
     showTileToChange = false,
     hint = "",
     showHint = false,
-    yay,
+    winningAnimation,
   } = props;
 
   const [indexToAnimate, setIndexToAnimate] = useState(-1);
@@ -41,7 +41,7 @@ function Word(props) {
           isSelected={selectedIndex === i}
           wordLength={answer.length}
           altered={mode === "hint" && alteredPosition === i && showTileToChange}
-          yay={yay}
+          winningAnimation={winningAnimation}
         />
       );
     }
@@ -56,7 +56,7 @@ function Word(props) {
             (mode === "board" && alteredPosition === i) ||
             (mode === "hint" && alteredPosition === i && showTileToChange)
           }
-          yay={yay}
+          winningAnimation={winningAnimation}
         />
       );
     }
@@ -72,7 +72,7 @@ function Word(props) {
           }
           wordLength={answer.length}
           failed={failed}
-          yay={yay}
+          winningAnimation={winningAnimation}
         />
       );
     }
