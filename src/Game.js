@@ -222,21 +222,9 @@ export default function Game(props) {
     }
 
     if (guess.toLowerCase() === answer.toLowerCase()) {
-      if (gameLevel === 9) {
-        setWinningAnimation(true);
-
-        setTimeout(() => {
-          setWinningAnimation(false);
-
-          setGameLevel((currentLevel) => {
-            return currentLevel + 1;
-          });
-        }, 900);
-      } else {
-        setGameLevel((currentLevel) => {
-          return currentLevel + 1;
-        });
-      }
+      setGameLevel((currentLevel) => {
+        return currentLevel + 1;
+      });
     } else {
       document.getElementById("guessingWord").classList.add("animateWrongWord");
       setTimeout(() => {
@@ -258,7 +246,7 @@ export default function Game(props) {
         setMessageDetails({ message: "", color: "" });
       }, 1000);
     }
-  }, [guess, answer, word, selectionMode, isDarkMode, gameLevel]);
+  }, [guess, answer, word, selectionMode, isDarkMode]);
 
   // hook that checks answer when guess is made
   useEffect(() => {
@@ -291,7 +279,14 @@ export default function Game(props) {
   useEffect(() => {
     if (gameLevel === game.length) {
       clearTimeout(tileHintTimer);
-      setIsOver(true);
+
+      setWinningAnimation(true);
+
+      setTimeout(() => {
+        setWinningAnimation(false);
+        setIsOver(true);
+      }, 900);
+
       return;
     }
 
