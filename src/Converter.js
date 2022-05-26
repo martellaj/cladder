@@ -22,7 +22,7 @@ export default function Converter() {
           const clues = [];
 
           for (let i = 0; i < rows.length; i++) {
-            const parts = rows[i].split("\t");
+            const parts = rows[i].split("	");
             words.push(parts[1].toLowerCase());
             clues.push(parts[0].toLowerCase());
           }
@@ -48,9 +48,24 @@ export default function Converter() {
 }
 
 const getAlteredPosition = (a, b) => {
-  for (let i = 0; i < a.length; i++) {
-    if (a[i] !== b[i]) {
-      return i;
+  try {
+    for (let i = 0; i < a.length; i++) {
+      if (a[i] !== b[i]) {
+        return i;
+      }
     }
+  } catch (e) {
+    return 0;
   }
 };
+
+// Enjoyment	FUN
+// Hair of certain animals	FUR
+// At a distance	FAR
+// Cylindrical glass container	JAR
+// Poke someone quickly	JAB
+// Occupation	JOB
+// Run slowly, steadily	JOG
+// Don't share something	HOG
+// Jump on one foot	HOP
+// Cut the end off quickly	LOP
