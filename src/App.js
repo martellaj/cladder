@@ -216,8 +216,7 @@ function App() {
 
   let content = null;
 
-  const isSupporter =
-    window.localStorage.getItem("isSupporter") === "true" || true;
+  const isSupporter = window.localStorage.getItem("isSupporter") === "true";
 
   switch (view) {
     case "game":
@@ -326,9 +325,7 @@ function App() {
           onOptionSelected={onOptionSelected}
           puzzleNumber={params?.p ?? getDailyPuzzleNumber()}
           isDarkMode={isDarkMode}
-          showChallengeMode={
-            window.localStorage.getItem("isSupporter") === "true"
-          }
+          showChallengeMode={true}
           isReturningPlayer={isReturningPlayer}
         />
       );

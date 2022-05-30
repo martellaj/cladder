@@ -384,7 +384,7 @@ export default function Game(props) {
         })
       );
 
-      if (window.localStorage.getItem("isSupporter") === "true" || true) {
+      if (window.localStorage.getItem("isSupporter") === "true") {
         if (!alreadyPlayed && isHardMode) {
           // increment hard mode wins
           window.localStorage.setItem(

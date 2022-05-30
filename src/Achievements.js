@@ -130,7 +130,7 @@ function SupporterClaim(props) {
 
 export default function Achievements(props) {
   const [isSupporter, setIsSupporter] = useState(
-    window.localStorage.getItem("isSupporter") === "true" || true
+    window.localStorage.getItem("isSupporter") === "true"
   );
 
   useEffect(() => {
