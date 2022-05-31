@@ -4444,4 +4444,67 @@ export const game = [
       alteredPosition: 1,
     },
   ],
+  // 6/1/2022 (#71)
+  [
+    {
+      word: "truck",
+      hint: 'common Halloween phrase: "___ or treat"',
+      answer: "trick",
+      alteredPosition: 2,
+    },
+    {
+      word: "trick",
+      hint: "not thin",
+      answer: "thick",
+      alteredPosition: 1,
+    },
+    {
+      word: "thick",
+      hint: "a young bird",
+      answer: "chick",
+      alteredPosition: 0,
+    },
+    {
+      word: "chick",
+      hint: "one way of paying",
+      answer: "check",
+      alteredPosition: 2,
+    },
+    {
+      word: "check",
+      hint: "fleshy part of the face",
+      answer: "cheek",
+      alteredPosition: 3,
+    },
+    {
+      word: "cheek",
+      hint: "small stream of water",
+      answer: "creek",
+      alteredPosition: 1,
+    },
+    {
+      word: "creek",
+      hint: "socrates or zorba",
+      answer: "greek",
+      alteredPosition: 0,
+    },
+    {
+      word: "greek",
+      hint: "to welcome in a friendly way",
+      answer: "greet",
+      alteredPosition: 4,
+    },
+    {
+      word: "greet",
+      hint: "large in size",
+      answer: "great",
+      alteredPosition: 3,
+    },
+    {
+      word: "great",
+      hint: 'common Halloween phrase: "trick or ___"',
+      answer: "treat",
+      alteredPosition: 0,
+    },
+  ],
 ];
