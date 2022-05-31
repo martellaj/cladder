@@ -29,6 +29,7 @@ export default function ZenMode(props) {
       </div>
       {showButton ? (
         <Button
+          id="zenButton"
           color="black"
           inverted={true}
           style={{ fontVariant: "all-petite-caps", width: "fit-content" }}
