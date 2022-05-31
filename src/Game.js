@@ -46,6 +46,7 @@ export default function Game(props) {
     onPlayAgain,
     selectionMode,
     onOptionSelected,
+    setIsTeacherMode,
   } = props;
 
   const preGameAchievementsStatus = useMemo(() => {
@@ -675,6 +676,7 @@ export default function Game(props) {
           skipsUsed={skipsUsed}
           mode={mode}
           gameData={game}
+          setIsTeacherMode={setIsTeacherMode}
         />
       )}
 

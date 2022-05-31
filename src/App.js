@@ -229,6 +229,7 @@ function App() {
           isHardMode={isHardMode}
           isTeacherMode={isTeacherMode}
           onOptionSelected={onOptionSelected}
+          setIsTeacherMode={setIsTeacherMode}
         />
       );
       break;
@@ -241,6 +242,7 @@ function App() {
           isHardMode={isHardMode}
           isTeacherMode={isTeacherMode}
           onOptionSelected={onOptionSelected}
+          setIsTeacherMode={setIsTeacherMode}
         />
       );
       break;
@@ -259,6 +261,7 @@ function App() {
             });
           }}
           onOptionSelected={onOptionSelected}
+          setIsTeacherMode={setIsTeacherMode}
         />
       ) : (
         <ChallengePage
@@ -280,6 +283,7 @@ function App() {
             setTimeout(() => setView("challenge"), 500);
           }}
           onOptionSelected={onOptionSelected}
+          setIsTeacherMode={setIsTeacherMode}
         />
       );
       break;

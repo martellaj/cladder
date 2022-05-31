@@ -1,5 +1,6 @@
 import { Button } from "semantic-ui-react";
 import copy from "copy-to-clipboard";
+import ZenMode from "./ZenMode";
 
 export default function Results(props) {
   const {
@@ -14,7 +15,7 @@ export default function Results(props) {
     onPlayAgain,
     skipsUsed,
     mode,
-    gameData,
+    setIsTeacherMode,
   } = props;
 
   const didComplete = correct === 10;
@@ -33,6 +34,7 @@ export default function Results(props) {
   return (
     <div className="resultsContainer">
       <div style={{ marginBottom: "24px" }}>
+        <ZenMode setIsTeacherMode={setIsTeacherMode} />
         <div className="bigMessage">{bigMessage}</div>
         <div
           id="gameResult"

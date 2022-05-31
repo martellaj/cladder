@@ -521,3 +521,17 @@ button:focus {
   transform: translate3d(0, 0, 0);
   animation-duration: 0.6s;
 }
+
+.zenModeContainer {
+  display: flex;
+  flex-direction: column;
+  background-color: #4c467a;
+  color: white;
+  width: 80%;
+  margin: auto;
+  margin-bottom: 24px;
+  padding: 24px;
+  border-radius: 10px;
+  justify-content: center;
+  align-items: center;
+}
