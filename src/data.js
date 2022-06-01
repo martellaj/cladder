@@ -4507,4 +4507,67 @@ export const game = [
       alteredPosition: 0,
     },
   ],
+  // 6/2/2022 (#72)
+  [
+    {
+      word: "beer",
+      hint: "my cross to ___",
+      answer: "bear",
+      alteredPosition: 2,
+    },
+    {
+      word: "bear",
+      hint: "papa pig",
+      answer: "boar",
+      alteredPosition: 1,
+    },
+    {
+      word: "boar",
+      hint: "uncouth lout",
+      answer: "boor",
+      alteredPosition: 2,
+    },
+    {
+      word: "boor",
+      hint: "to reserve, like a flight",
+      answer: "book",
+      alteredPosition: 3,
+    },
+    {
+      word: "book",
+      hint: "just walked off with",
+      answer: "took",
+      alteredPosition: 0,
+    },
+    {
+      word: "took",
+      hint: "hammer or screwdriver, e.g.",
+      answer: "tool",
+      alteredPosition: 3,
+    },
+    {
+      word: "tool",
+      hint: "game played on a table with pockets",
+      answer: "pool",
+      alteredPosition: 0,
+    },
+    {
+      word: "pool",
+      hint: "____ richard's almanack",
+      answer: "poor",
+      alteredPosition: 3,
+    },
+    {
+      word: "poor",
+      hint: "what bartenders do",
+      answer: "pour",
+      alteredPosition: 2,
+    },
+    {
+      word: "pour",
+      hint: "not mine",
+      answer: "your",
+      alteredPosition: 0,
+    },
+  ],
 ];
