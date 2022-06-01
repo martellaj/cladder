@@ -91,6 +91,8 @@ export default function Results(props) {
               onClick={() => {
                 let text = `#Cladder ${puzzleNumber}\n\n✅ ${correct}/10${
                   isHardMode && !isTeacherMode ? "*" : ""
+                } ${
+                  skipsUsed ? (skipsUsed === 1 ? "(1 skip)" : "(2 skips)") : ""
                 }\n${
                   didComplete && !isTeacherMode ? `🚀 ${time} seconds\n` : ""
                 }\nhttps://playcladder.com`;
@@ -132,6 +134,8 @@ export default function Results(props) {
               onClick={() => {
                 let text = `#Cladder ${puzzleNumber}\n\n✅ ${correct}/10${
                   isHardMode && !isTeacherMode ? "*" : ""
+                } ${
+                  skipsUsed ? (skipsUsed === 1 ? "(1 skip)" : "(2 skips)") : ""
                 }\n${
                   didComplete && !isTeacherMode ? `🚀 ${time} seconds\n` : ""
                 }\n`;

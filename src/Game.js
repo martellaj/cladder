@@ -166,9 +166,7 @@ export default function Game(props) {
   const [remainingSkips, setRemainingSkips] = useState(
     initializeRemainingSkips
   );
-  const [skipsUsed, setSkipsUsed] = useState(
-    mode === "challenge" ? 0 : undefined
-  );
+  const [skipsUsed, setSkipsUsed] = useState(0);
   const [achievements, setAchievements] = useState([]);
   const [showHints, setShowHints] = useState(false);
 
@@ -471,7 +469,7 @@ export default function Game(props) {
     mode !== "challenge" && setRemainingSkips(remainingSkips - 1);
 
     // increment number of skips used
-    mode === "challenge" && setSkipsUsed(skipsUsed + 1);
+    setSkipsUsed(skipsUsed + 1);
   }, [showSkipButton, isOver, mode, remainingSkips, skipsUsed, debounceSkip]);
 
   // adds keydown handlers to window so desktop users can type
