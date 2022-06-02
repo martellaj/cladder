@@ -4570,4 +4570,67 @@ export const game = [
       alteredPosition: 0,
     },
   ],
+  // 6/3/2022 (#73)
+  [
+    {
+      word: "trace",
+      hint: "neckwear after an injury",
+      answer: "brace",
+      alteredPosition: 0,
+    },
+    {
+      word: "brace",
+      hint: "unlike chickens",
+      answer: "brave",
+      alteredPosition: 3,
+    },
+    {
+      word: "brave",
+      hint: "to long for",
+      answer: "crave",
+      alteredPosition: 0,
+    },
+    {
+      word: "crave",
+      hint: "a short-lived fad",
+      answer: "craze",
+      alteredPosition: 3,
+    },
+    {
+      word: "craze",
+      hint: "to munch on grass",
+      answer: "graze",
+      alteredPosition: 0,
+    },
+    {
+      word: "graze",
+      hint: "a shiny coating",
+      answer: "glaze",
+      alteredPosition: 1,
+    },
+    {
+      word: "glaze",
+      hint: "mark first, as a trail",
+      answer: "blaze",
+      alteredPosition: 0,
+    },
+    {
+      word: "blaze",
+      hint: "to point the finger at",
+      answer: "blame",
+      alteredPosition: 3,
+    },
+    {
+      word: "blame",
+      hint: "blast at full volume",
+      answer: "blare",
+      alteredPosition: 3,
+    },
+    {
+      word: "blare",
+      hint: "to give an angry look",
+      answer: "glare",
+      alteredPosition: 0,
+    },
+  ],
 ];
