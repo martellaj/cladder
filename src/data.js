@@ -4633,4 +4633,67 @@ export const game = [
       alteredPosition: 0,
     },
   ],
+  // 6/4/2022 (#74)
+  [
+    {
+      word: "hand",
+      hint: "a beach is full of the stuff",
+      answer: "sand",
+      alteredPosition: 0,
+    },
+    {
+      word: "sand",
+      hint: "dropped to the bottom of the ocean",
+      answer: "sank",
+      alteredPosition: 3,
+    },
+    {
+      word: "sank",
+      hint: "land alongside a river",
+      answer: "bank",
+      alteredPosition: 0,
+    },
+    {
+      word: "bank",
+      hint: "to support with funds",
+      answer: "back",
+      alteredPosition: 2,
+    },
+    {
+      word: "back",
+      hint: '"more bang for your ___"',
+      answer: "buck",
+      alteredPosition: 1,
+    },
+    {
+      word: "buck",
+      hint: "upper or lower bed",
+      answer: "bunk",
+      alteredPosition: 2,
+    },
+    {
+      word: "bunk",
+      hint: "play a practical joke on, slangily",
+      answer: "punk",
+      alteredPosition: 0,
+    },
+    {
+      word: "punk",
+      hint: "hardly Herculean",
+      answer: "puny",
+      alteredPosition: 3,
+    },
+    {
+      word: "puny",
+      hint: "pay (up)",
+      answer: "pony",
+      alteredPosition: 1,
+    },
+    {
+      word: "pony",
+      hint: "skeletal",
+      answer: "bony",
+      alteredPosition: 0,
+    },
+  ],
 ];
