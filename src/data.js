@@ -4696,4 +4696,67 @@ export const game = [
       alteredPosition: 0,
     },
   ],
+  // 6/5/2022 (#75)
+  [
+    {
+      word: "suez",
+      hint: "took to small claims court",
+      answer: "sued",
+      alteredPosition: 3,
+    },
+    {
+      word: "sued",
+      hint: "transport down a winter hill",
+      answer: "sled",
+      alteredPosition: 1,
+    },
+    {
+      word: "sled",
+      hint: "said 'guilty' or 'not guilty' in court",
+      answer: "pled",
+      alteredPosition: 0,
+    },
+    {
+      word: "pled",
+      hint: "turned the pool water yellow",
+      answer: "peed",
+      alteredPosition: 1,
+    },
+    {
+      word: "peed",
+      hint: "cheat, during a game of hide & seek",
+      answer: "peek",
+      alteredPosition: 3,
+    },
+    {
+      word: "peek",
+      hint: "onion relative used in soups",
+      answer: "leek",
+      alteredPosition: 0,
+    },
+    {
+      word: "leek",
+      hint: "give a dirty look",
+      answer: "leer",
+      alteredPosition: 3,
+    },
+    {
+      word: "leer",
+      hint: "antelope's playmate in song",
+      answer: "deer",
+      alteredPosition: 0,
+    },
+    {
+      word: "deer",
+      hint: "proof of home ownership",
+      answer: "deed",
+      alteredPosition: 3,
+    },
+    {
+      word: "deed",
+      hint: "plant by a pond",
+      answer: "reed",
+      alteredPosition: 0,
+    },
+  ],
 ];
