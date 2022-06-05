@@ -4759,4 +4759,67 @@ export const game = [
       alteredPosition: 0,
     },
   ],
+  // 6/6/2022 (#76)
+  [
+    {
+      word: "rose",
+      hint: "measured portion of medicine",
+      answer: "dose",
+      alteredPosition: 0,
+    },
+    {
+      word: "dose",
+      hint: "bird of peace",
+      answer: "dove",
+      alteredPosition: 2,
+    },
+    {
+      word: "dove",
+      hint: "zero as a tennis score",
+      answer: "love",
+      alteredPosition: 0,
+    },
+    {
+      word: "love",
+      hint: "what players hate to do",
+      answer: "lose",
+      alteredPosition: 2,
+    },
+    {
+      word: "lose",
+      hint: "state or feeling of grief",
+      answer: "loss",
+      alteredPosition: 3,
+    },
+    {
+      word: "loss",
+      hint: "the person in charge",
+      answer: "boss",
+      alteredPosition: 0,
+    },
+    {
+      word: "boss",
+      hint: "weapons used in archery",
+      answer: "bows",
+      alteredPosition: 2,
+    },
+    {
+      word: "bows",
+      hint: "throw or roll (a ball)",
+      answer: "bowl",
+      alteredPosition: 3,
+    },
+    {
+      word: "bowl",
+      hint: "wolf's wail",
+      answer: "howl",
+      alteredPosition: 0,
+    },
+    {
+      word: "howl",
+      hint: "a long, loose hood",
+      answer: "cowl",
+      alteredPosition: 0,
+    },
+  ],
 ];
