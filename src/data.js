@@ -4822,4 +4822,130 @@ export const game = [
       alteredPosition: 0,
     },
   ],
+  // 6/7/2022 (#77)
+  [
+    {
+      word: "pear",
+      hint: "polar, grizzly, e.g.",
+      answer: "bear",
+      alteredPosition: 0,
+    },
+    {
+      word: "bear",
+      hint: "the most basic part of any song; rhythm",
+      answer: "beat",
+      alteredPosition: 3,
+    },
+    {
+      word: "beat",
+      hint: "beef, pork, or mutton",
+      answer: "meat",
+      alteredPosition: 0,
+    },
+    {
+      word: "meat",
+      hint: "castle trench",
+      answer: "moat",
+      alteredPosition: 1,
+    },
+    {
+      word: "moat",
+      hint: "shed one's skin",
+      answer: "molt",
+      alteredPosition: 2,
+    },
+    {
+      word: "molt",
+      hint: "unwanted item on bread or fruit",
+      answer: "mold",
+      alteredPosition: 3,
+    },
+    {
+      word: "mold",
+      hint: "an attitude or emotion",
+      answer: "mood",
+      alteredPosition: 2,
+    },
+    {
+      word: "mood",
+      hint: "product from a tree",
+      answer: "wood",
+      alteredPosition: 0,
+    },
+    {
+      word: "wood",
+      hint: "clothing from a sheep",
+      answer: "wool",
+      alteredPosition: 3,
+    },
+    {
+      word: "wool",
+      hint: "moderately cold; lacking in warmth",
+      answer: "cool",
+      alteredPosition: 0,
+    },
+  ],
+  // 6/8/2022 (#78)
+  [
+    {
+      word: "cowl",
+      hint: "a bird of any kind",
+      answer: "fowl",
+      alteredPosition: 0,
+    },
+    {
+      word: "fowl",
+      hint: "possible strike in baseball",
+      answer: "foul",
+      alteredPosition: 2,
+    },
+    {
+      word: "foul",
+      hint: "'fantastic' number",
+      answer: "four",
+      alteredPosition: 3,
+    },
+    {
+      word: "four",
+      hint: "acidic taste",
+      answer: "sour",
+      alteredPosition: 0,
+    },
+    {
+      word: "sour",
+      hint: "speak indistinctly",
+      answer: "slur",
+      alteredPosition: 1,
+    },
+    {
+      word: "slur",
+      hint: "background of an action shot, often",
+      answer: "blur",
+      alteredPosition: 0,
+    },
+    {
+      word: "blur",
+      hint: "a sad color",
+      answer: "blue",
+      alteredPosition: 3,
+    },
+    {
+      word: "blue",
+      hint: "adhesive",
+      answer: "glue",
+      alteredPosition: 0,
+    },
+    {
+      word: "glue",
+      hint: "surly or depressed",
+      answer: "glum",
+      alteredPosition: 3,
+    },
+    {
+      word: "glum",
+      hint: "an oval fruit also used commonly as a color",
+      answer: "plum",
+      alteredPosition: 0,
+    },
+  ],
 ];
