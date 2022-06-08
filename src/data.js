@@ -4948,4 +4948,67 @@ export const game = [
       alteredPosition: 0,
     },
   ],
+  // 6/9/2022 (#79)
+  [
+    {
+      word: "leon",
+      hint: "element #10; used to make signs glow",
+      answer: "neon",
+      alteredPosition: 0,
+    },
+    {
+      word: "neon",
+      hint: "12:00 p.m.",
+      answer: "noon",
+      alteredPosition: 1,
+    },
+    {
+      word: "noon",
+      hint: "celestial body that is 'made of cheese'",
+      answer: "moon",
+      alteredPosition: 0,
+    },
+    {
+      word: "moon",
+      hint: "low sound induced by physical or mental suffering",
+      answer: "moan",
+      alteredPosition: 2,
+    },
+    {
+      word: "moan",
+      hint: "the average of a set of data",
+      answer: "mean",
+      alteredPosition: 1,
+    },
+    {
+      word: "mean",
+      hint: "lima, kidney, or jumping",
+      answer: "bean",
+      alteredPosition: 0,
+    },
+    {
+      word: "bean",
+      hint: "a Kellogg's cereal: Raisin ____",
+      answer: "bran",
+      alteredPosition: 1,
+    },
+    {
+      word: "bran",
+      hint: "country whose capital is Tehran",
+      answer: "iran",
+      alteredPosition: 0,
+    },
+    {
+      word: "iran",
+      hint: "element #26; metal that was once used to make nails",
+      answer: "iron",
+      alteredPosition: 2,
+    },
+    {
+      word: "iron",
+      hint: "1982 sci-fi film starring jeff bridges",
+      answer: "tron",
+      alteredPosition: 0,
+    },
+  ],
 ];
