@@ -2,6 +2,9 @@ import { Button } from "semantic-ui-react";
 import copy from "copy-to-clipboard";
 import ZenMode from "./ZenMode";
 
+const clickedBattleshipple =
+  window.localStorage.getItem("clickedBattleshipple") === "true";
+
 export default function Results(props) {
   const {
     correct,
@@ -200,23 +203,58 @@ export default function Results(props) {
         )}
 
         {mode !== "challenge" && (
-          <Button
-            id="donateButton"
-            className="button active"
-            style={{
-              marginBottom: "12px",
-              width:
-                document.getElementsByClassName("buttonz")[0]?.clientWidth ||
-                "270px",
-            }}
-            size="large"
-            color="purple"
-            onClick={() => {
-              window.open("https://www.buymeacoffee.com/playcladder", "_blank");
-            }}
-          >
-            ❤️ DONATE
-          </Button>
+          <>
+            <Button
+              id="donateButton"
+              className="button active"
+              style={{
+                marginBottom: "12px",
+                width:
+                  document.getElementsByClassName("buttonz")[0]?.clientWidth ||
+                  "270px",
+              }}
+              size="large"
+              color="purple"
+              onClick={() => {
+                window.open(
+                  "https://www.buymeacoffee.com/playcladder",
+                  "_blank"
+                );
+              }}
+            >
+              ❤️ DONATE
+            </Button>
+            {!clickedBattleshipple && (
+              <div
+                onClick={() => {
+                  window.localStorage.setItem("clickedBattleshipple", "true");
+                  window.open("https://battleshipple.com", "_");
+                }}
+                style={{
+                  backgroundColor: "#038eca",
+                  width:
+                    document.getElementsByClassName("buttonz")[0]
+                      ?.clientWidth || "270px",
+                  borderRadius: "10px",
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  fontVariant: "all-small-caps",
+                  cursor: "pointer",
+                  marginTop: "6px",
+                }}
+              >
+                <div style={{ fontSize: "30px", marginBottom: "12px" }}>🌊</div>
+                <div style={{ fontSize: "16px", marginBottom: "12px" }}>
+                  Can you sink the battleship?
+                </div>
+                <div style={{ fontSize: "16px", marginBottom: "12px" }}>
+                  battleshipple.com
+                </div>
+              </div>
+            )}
+          </>
         )}
       </>
     </div>
