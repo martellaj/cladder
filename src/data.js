@@ -5011,4 +5011,67 @@ export const game = [
       alteredPosition: 0,
     },
   ],
+  // 6/10/2022 (#80)
+  [
+    {
+      word: "coot",
+      hint: "a young male horse",
+      answer: "colt",
+      alteredPosition: 2,
+    },
+    {
+      word: "colt",
+      hint: "like a popsicle or the arctic",
+      answer: "cold",
+      alteredPosition: 3,
+    },
+    {
+      word: "cold",
+      hint: "recently sought after in Tokyo",
+      answer: "gold",
+      alteredPosition: 0,
+    },
+    {
+      word: "gold",
+      hint: "decorate expensively",
+      answer: "gild",
+      alteredPosition: 1,
+    },
+    {
+      word: "gild",
+      hint: "part of a fish",
+      answer: "gill",
+      alteredPosition: 3,
+    },
+    {
+      word: "gill",
+      hint: "self-control",
+      answer: "will",
+      alteredPosition: 0,
+    },
+    {
+      word: "will",
+      hint: "from the jungle",
+      answer: "wild",
+      alteredPosition: 3,
+    },
+    {
+      word: "wild",
+      hint: "air in motion",
+      answer: "wind",
+      alteredPosition: 2,
+    },
+    {
+      word: "wind",
+      hint: "a surface that produces lift for flight",
+      answer: "wing",
+      alteredPosition: 3,
+    },
+    {
+      word: "wing",
+      hint: "an interjection said after a witty insult",
+      answer: "zing",
+      alteredPosition: 0,
+    },
+  ],
 ];
