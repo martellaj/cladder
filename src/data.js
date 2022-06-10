@@ -5074,4 +5074,67 @@ export const game = [
       alteredPosition: 0,
     },
   ],
+  // 6/11/2022 (#81)
+  [
+    {
+      word: "gall",
+      hint: "Cinderella's big event",
+      answer: "ball",
+      alteredPosition: 0,
+    },
+    {
+      word: "ball",
+      hint: "empty a flooding boat",
+      answer: "bail",
+      alteredPosition: 2,
+    },
+    {
+      word: "bail",
+      hint: "roller coaster track",
+      answer: "rail",
+      alteredPosition: 0,
+    },
+    {
+      word: "rail",
+      hint: "to rummage through the fridge",
+      answer: "raid",
+      alteredPosition: 3,
+    },
+    {
+      word: "raid",
+      hint: "uttered",
+      answer: "said",
+      alteredPosition: 0,
+    },
+    {
+      word: "said",
+      hint: "lose traction on wet pavement",
+      answer: "skid",
+      alteredPosition: 1,
+    },
+    {
+      word: "skid",
+      hint: "largest human organ",
+      answer: "skin",
+      alteredPosition: 3,
+    },
+    {
+      word: "skin",
+      hint: "last cycle on a washer",
+      answer: "spin",
+      alteredPosition: 1,
+    },
+    {
+      word: "spin",
+      hint: "wing-to-wing measurement",
+      answer: "span",
+      alteredPosition: 2,
+    },
+    {
+      word: "span",
+      hint: "long-necked, graceful swimmer",
+      answer: "swan",
+      alteredPosition: 1,
+    },
+  ],
 ];
