@@ -5137,4 +5137,67 @@ export const game = [
       alteredPosition: 1,
     },
   ],
+  // 6/12/2022 (#82)
+  [
+    {
+      word: "lark",
+      hint: "'listen!'",
+      answer: "hark",
+      alteredPosition: 0,
+    },
+    {
+      word: "hark",
+      hint: "short, dry cough",
+      answer: "hack",
+      alteredPosition: 2,
+    },
+    {
+      word: "hack",
+      hint: "pair of antlers",
+      answer: "rack",
+      alteredPosition: 0,
+    },
+    {
+      word: "rack",
+      hint: "speed contest",
+      answer: "race",
+      alteredPosition: 3,
+    },
+    {
+      word: "race",
+      hint: "critic's fabulous review",
+      answer: "rave",
+      alteredPosition: 2,
+    },
+    {
+      word: "rave",
+      hint: "wander",
+      answer: "rove",
+      alteredPosition: 1,
+    },
+    {
+      word: "rove",
+      hint: "magician's bird",
+      answer: "dove",
+      alteredPosition: 0,
+    },
+    {
+      word: "dove",
+      hint: "lavish affection on",
+      answer: "dote",
+      alteredPosition: 2,
+    },
+    {
+      word: "dote",
+      hint: "june 12, e.g.",
+      answer: "date",
+      alteredPosition: 1,
+    },
+    {
+      word: "date",
+      hint: "the duchess of cambridge",
+      answer: "kate",
+      alteredPosition: 0,
+    },
+  ],
 ];
