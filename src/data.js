@@ -5200,4 +5200,67 @@ export const game = [
       alteredPosition: 0,
     },
   ],
+  // 6/13/2022 (#83)
+  [
+    {
+      word: "fargo",
+      hint: "omit or decline to take; refrain from",
+      answer: "forgo",
+      alteredPosition: 1,
+    },
+    {
+      word: "forgo",
+      hint: "shape a metal object by heating in a fire",
+      answer: "forge",
+      alteredPosition: 4,
+    },
+    {
+      word: "forge",
+      hint: "to eat too much",
+      answer: "gorge",
+      alteredPosition: 0,
+    },
+    {
+      word: "gorge",
+      hint: "to severely overcharge",
+      answer: "gouge",
+      alteredPosition: 2,
+    },
+    {
+      word: "gouge",
+      hint: "cosmetic for coloring face",
+      answer: "rouge",
+      alteredPosition: 0,
+    },
+    {
+      word: "rouge",
+      hint: "like sandpaper",
+      answer: "rough",
+      alteredPosition: 4,
+    },
+    {
+      word: "rough",
+      hint: "strong and physically robust",
+      answer: "tough",
+      alteredPosition: 0,
+    },
+    {
+      word: "tough",
+      hint: "fifth sense or doors song '_____ me'",
+      answer: "touch",
+      alteredPosition: 3,
+    },
+    {
+      word: "touch",
+      hint: "mob necessity (along with pitchforks)",
+      answer: "torch",
+      alteredPosition: 2,
+    },
+    {
+      word: "torch",
+      hint: "best occupied by rocking chair and pitcher of iced tea",
+      answer: "porch",
+      alteredPosition: 0,
+    },
+  ],
 ];
