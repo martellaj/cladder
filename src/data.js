@@ -5263,4 +5263,67 @@ export const game = [
       alteredPosition: 0,
     },
   ],
+  // 6/14/2022 (#84)
+  [
+    {
+      word: "cape",
+      hint: "an adhesive roll, scotch for one",
+      answer: "tape",
+      alteredPosition: 0,
+    },
+    {
+      word: "tape",
+      hint: "a ____ of two cities",
+      answer: "tale",
+      alteredPosition: 2,
+    },
+    {
+      word: "tale",
+      hint: "boy, not girl",
+      answer: "male",
+      alteredPosition: 0,
+    },
+    {
+      word: "male",
+      hint: "5280 feet, unless nautical",
+      answer: "mile",
+      alteredPosition: 1,
+    },
+    {
+      word: "mile",
+      hint: "highly offensive, distasteful",
+      answer: "vile",
+      alteredPosition: 0,
+    },
+    {
+      word: "vile",
+      hint: "a small rodent",
+      answer: "vole",
+      alteredPosition: 1,
+    },
+    {
+      word: "vole",
+      hint: "bottom of the shoe",
+      answer: "sole",
+      alteredPosition: 0,
+    },
+    {
+      word: "sole",
+      hint: "sight for ____ eyes",
+      answer: "sore",
+      alteredPosition: 2,
+    },
+    {
+      word: "sore",
+      hint: "oliver twist's food request",
+      answer: "more",
+      alteredPosition: 0,
+    },
+    {
+      word: "more",
+      hint: "with ice cream: a la ___",
+      answer: "mode",
+      alteredPosition: 2,
+    },
+  ],
 ];
