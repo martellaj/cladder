@@ -5326,4 +5326,67 @@ export const game = [
       alteredPosition: 2,
     },
   ],
+  // 6/15/2022 (#85)
+  [
+    {
+      word: "pace",
+      hint: "liver spread starter",
+      answer: "pate",
+      alteredPosition: 2,
+    },
+    {
+      word: "pate",
+      hint: "failing to meet a deadline",
+      answer: "late",
+      alteredPosition: 0,
+    },
+    {
+      word: "late",
+      hint: "uncool",
+      answer: "lame",
+      alteredPosition: 2,
+    },
+    {
+      word: "lame",
+      hint: "green fruit, consumed with tequila & salt",
+      answer: "lime",
+      alteredPosition: 1,
+    },
+    {
+      word: "lime",
+      hint: "tv shown as it happens",
+      answer: "live",
+      alteredPosition: 2,
+    },
+    {
+      word: "live",
+      hint: `"all you need is ____" (beatles)`,
+      answer: "love",
+      alteredPosition: 1,
+    },
+    {
+      word: "love",
+      hint: "fail to win",
+      answer: "lose",
+      alteredPosition: 2,
+    },
+    {
+      word: "lose",
+      hint: "one of a dozen sent on valentines",
+      answer: "rose",
+      alteredPosition: 0,
+    },
+    {
+      word: "rose",
+      hint: "italians wander here",
+      answer: "rome",
+      alteredPosition: 2,
+    },
+    {
+      word: "rome",
+      hint: "stadium cover",
+      answer: "dome",
+      alteredPosition: 0,
+    },
+  ],
 ];
