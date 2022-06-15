@@ -5389,4 +5389,67 @@ export const game = [
       alteredPosition: 0,
     },
   ],
+  // 6/16/2022 (#86)
+  [
+    {
+      word: "aria",
+      hint: "description of an extremely dry environment",
+      answer: "arid",
+      alteredPosition: 3,
+    },
+    {
+      word: "arid",
+      hint: "the pattern found on graph paper",
+      answer: "grid",
+      alteredPosition: 0,
+    },
+    {
+      word: "grid",
+      hint: "courage and resolve; strength of character",
+      answer: "grit",
+      alteredPosition: 3,
+    },
+    {
+      word: "grit",
+      hint: "a way or manner of walking",
+      answer: "gait",
+      alteredPosition: 1,
+    },
+    {
+      word: "gait",
+      hint: "the greek mother of all titans",
+      answer: "gaia",
+      alteredPosition: 3,
+    },
+    {
+      word: "gaia",
+      hint: "an elaborate party or ball",
+      answer: "gala",
+      alteredPosition: 2,
+    },
+    {
+      word: "gala",
+      hint: "an extremely powerful windstorm",
+      answer: "gale",
+      alteredPosition: 3,
+    },
+    {
+      word: "gale",
+      hint: "a door used to pass through a fence or wall",
+      answer: "gate",
+      alteredPosition: 2,
+    },
+    {
+      word: "gate",
+      hint: "to loathe",
+      answer: "hate",
+      alteredPosition: 0,
+    },
+    {
+      word: "hate",
+      hint: "a large relative of the rabbit",
+      answer: "hare",
+      alteredPosition: 2,
+    },
+  ],
 ];
