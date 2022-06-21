@@ -5767,4 +5767,193 @@ export const game = [
       alteredPosition: 0,
     },
   ],
+  // 6/22/2022 (#92)
+  [
+    {
+      word: "pac",
+      hint: "greek god of nature",
+      answer: "pan",
+      alteredPosition: 2,
+    },
+    {
+      word: "pan",
+      hint: "a play on words",
+      answer: "pun",
+      alteredPosition: 1,
+    },
+    {
+      word: "pun",
+      hint: "a type of dog",
+      answer: "pug",
+      alteredPosition: 2,
+    },
+    {
+      word: "pug",
+      hint: "error in a program",
+      answer: "bug",
+      alteredPosition: 0,
+    },
+    {
+      word: "bug",
+      hint: "carrying assistant",
+      answer: "bag",
+      alteredPosition: 1,
+    },
+    {
+      word: "bag",
+      hint: "video chat disruption",
+      answer: "lag",
+      alteredPosition: 0,
+    },
+    {
+      word: "lag",
+      hint: "actor jude",
+      answer: "law",
+      alteredPosition: 2,
+    },
+    {
+      word: "law",
+      hint: "not high",
+      answer: "low",
+      alteredPosition: 1,
+    },
+    {
+      word: "low",
+      hint: "bathroom in britain",
+      answer: "loo",
+      alteredPosition: 2,
+    },
+    {
+      word: "loo",
+      hint: "bovine utterance",
+      answer: "moo",
+      alteredPosition: 0,
+    },
+  ],
+  // 6/23/2022 (#93)
+  [
+    {
+      word: "slip",
+      hint: "pancake manipulation",
+      answer: "flip",
+      alteredPosition: 0,
+    },
+    {
+      word: "flip",
+      hint: "inelegant dive",
+      answer: "flop",
+      alteredPosition: 2,
+    },
+    {
+      word: "flop",
+      hint: "wing maneuver",
+      answer: "flap",
+      alteredPosition: 2,
+    },
+    {
+      word: "flap",
+      hint: "show appreciation",
+      answer: "clap",
+      alteredPosition: 0,
+    },
+    {
+      word: "clap",
+      hint: "horse hoof sound",
+      answer: "clop",
+      alteredPosition: 2,
+    },
+    {
+      word: "clop",
+      hint: "agricultural plant",
+      answer: "crop",
+      alteredPosition: 1,
+    },
+    {
+      word: "crop",
+      hint: "raven relative",
+      answer: "crow",
+      alteredPosition: 3,
+    },
+    {
+      word: "crow",
+      hint: "a group of workers, such as on a ship",
+      answer: "crew",
+      alteredPosition: 2,
+    },
+    {
+      word: "crew",
+      hint: "to enjoy a piece of gum",
+      answer: "chew",
+      alteredPosition: 1,
+    },
+    {
+      word: "chew",
+      hint: "professional cook",
+      answer: "chef",
+      alteredPosition: 3,
+    },
+  ],
+  // 6/24/2022 (#94)
+  [
+    {
+      word: "crue",
+      hint: "crime-solving hint",
+      answer: "clue",
+      alteredPosition: 1,
+    },
+    {
+      word: "clue",
+      hint: "color associated with law enforcement",
+      answer: "blue",
+      alteredPosition: 0,
+    },
+    {
+      word: "blue",
+      hint: "become visually indistinct",
+      answer: "blur",
+      alteredPosition: 3,
+    },
+    {
+      word: "blur",
+      hint: "an insulting or disparaging remark",
+      answer: "slur",
+      alteredPosition: 0,
+    },
+    {
+      word: "slur",
+      hint: "the opposite of sweet",
+      answer: "sour",
+      alteredPosition: 1,
+    },
+    {
+      word: "sour",
+      hint: `"Chicken Soup for the __" (inspirational book series)`,
+      answer: "soul",
+      alteredPosition: 3,
+    },
+    {
+      word: "soul",
+      hint: "to stain or defile morally",
+      answer: "soil",
+      alteredPosition: 2,
+    },
+    {
+      word: "soil",
+      hint: "to become agitated, seethe",
+      answer: "boil",
+      alteredPosition: 0,
+    },
+    {
+      word: "boil",
+      hint: "money paid to secure one's release",
+      answer: "bail",
+      alteredPosition: 1,
+    },
+    {
+      word: "bail",
+      hint: "where one may go after conviction",
+      answer: "jail",
+      alteredPosition: 0,
+    },
+  ],
 ];
