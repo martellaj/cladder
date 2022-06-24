@@ -32,8 +32,17 @@ const puzzleParam = params?.p ?? undefined;
 
 const specialPuzzleParam = params?.special ?? undefined;
 
-function getRandomPuzzleNumber() {
-  return Math.floor(Math.random() * getDailyPuzzleNumber());
+/**
+ * Returns a random integer between min (inclusive) and max (inclusive).
+ * The value is no lower than min (or the next integer greater than min
+ * if min isn't an integer) and no greater than max (or the next integer
+ * lower than max if max isn't an integer).
+ * Using Math.round() will give you a non-uniform distribution!
+ */
+function getRandomInt(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
 export default function Game(props) {
@@ -70,7 +79,7 @@ export default function Game(props) {
     }
 
     if (mode === "practice") {
-      return getRandomPuzzleNumber();
+      return getRandomInt(1, 10);
     }
 
     if (mode === "archive") {

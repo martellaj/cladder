@@ -63,7 +63,7 @@ function SupporterClaim(props) {
       <div style={{ display: "inline" }}>
         <span style={{ fontWeight: "bold" }}>Achievements</span> are available
         to all supporters! After you donate (whatever you choose), we'll send
-        you a code to unlock achievements and challenge mode!
+        you a code to unlock achievements!
       </div>
       <div
         style={{
