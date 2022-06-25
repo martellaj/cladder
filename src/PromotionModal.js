@@ -9,9 +9,6 @@ function PromotionModal(props) {
 
   const cta = getCta();
 
-  var ua = navigator.userAgent.toLowerCase();
-  var isAndroid = ua.indexOf("android") > -1;
-
   const isIos =
     [
       "iPad Simulator",
