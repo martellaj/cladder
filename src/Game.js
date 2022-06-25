@@ -57,7 +57,7 @@ export default function Game(props) {
     onOptionSelected,
     setIsTeacherMode,
     shouldPromote,
-    onGameCompleted
+    onGameCompleted,
   } = props;
 
   const preGameAchievementsStatus = useMemo(() => {
@@ -287,7 +287,7 @@ export default function Game(props) {
         onGameCompleted();
       }
     }
-  }, [progress, isTeacherMode, saveResult]);
+  }, [progress, isTeacherMode, saveResult, shouldPromote, onGameCompleted]);
 
   // hook that updates level information
   useEffect(() => {
@@ -338,7 +338,16 @@ export default function Game(props) {
         }, 0);
       }, 10000);
     }
-  }, [gameLevel, game, word, selectionMode, isHardMode, isOver]);
+  }, [
+    gameLevel,
+    game,
+    word,
+    selectionMode,
+    isHardMode,
+    isOver,
+    shouldPromote,
+    onGameCompleted,
+  ]);
 
   // hook that congratulates user when they get an answer right
   useEffect(() => {
