@@ -38,7 +38,7 @@ function PromotionModal(props) {
     </Button>
   );
 
-  if (isIos && getRandomInt(0, 1) === 0) {
+  if (isIos) {
     ctaButton = (
       <img
         id="iosInstallButton"
