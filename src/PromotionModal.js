@@ -3,43 +3,51 @@ import { Modal, Button } from "semantic-ui-react";
 import { useState } from "react";
 
 function PromotionModal(props) {
-  const { onClose } = props;
+  const { isDarkMode, onClose } = props;
 
   const [open, setOpen] = useState(true);
 
   const cta = getCta();
 
   var ua = navigator.userAgent.toLowerCase();
-                var isAndroid = ua.indexOf("android") > -1;
+  var isAndroid = ua.indexOf("android") > -1;
 
-                const isIos =
-                  [
-                    "iPad Simulator",
-                    "iPhone Simulator",
-                    "iPod Simulator",
-                    "iPad",
-                    "iPhone",
-                    "iPod",
-                  ].includes(navigator.platform) ||
-                  // iPad on iOS 13 detection
-                  (navigator.userAgent.includes("Mac") &&
-                    "ontouchend" in document);
+  const isIos =
+    [
+      "iPad Simulator",
+      "iPhone Simulator",
+      "iPod Simulator",
+      "iPad",
+      "iPhone",
+      "iPod",
+    ].includes(navigator.platform) ||
+    // iPad on iOS 13 detection
+    (navigator.userAgent.includes("Mac") && "ontouchend" in document);
 
-  let ctaButton = <Button
-  id={cta.id}
-    size="large"
-    className="shareButton"
-    color="green"
-    onClick={() => {
-      alert("k");
-    }}
-  >
-    {cta.text}
-  </Button>;
+  let ctaButton = (
+    <Button
+      id={cta.id}
+      size="large"
+      className="shareButton"
+      color="green"
+      onClick={() => {
+        window.open("https://google.com", "_blank");
+      }}
+    >
+      {cta.text}
+    </Button>
+  );
 
-  // also exp
-  if (isIos) {
-    ctaButton = <img src='http://localhost:3001/install-ios.svg' style={{ width: '200px'}} />;
+  if (isIos && getRandomInt(0, 1) === 0) {
+    ctaButton = (
+      <img
+        id="iosInstallButton"
+        src={isDarkMode ? "/install-ios.svg" : "/install-ios-light.svg"}
+        style={{ width: "200px" }}
+        onClick={() => window.open("https://google.com", "_blank")}
+        alt="download button"
+      />
+    );
   }
 
   return (
@@ -55,9 +63,15 @@ function PromotionModal(props) {
       open={open}
       size="small"
     >
-      <img style={{marginTop: '24px'}} src="https://placekitten.com/g/300/100"/>
+      <img
+        style={{ marginTop: "24px" }}
+        src="https://placekitten.com/g/300/100"
+        alt="download button"
+      />
 
-      <div id="message">Play more Cladder and other fun word games in the app!</div>
+      <div id="message">
+        Play more Cladder and other fun word games in the app!
+      </div>
 
       {ctaButton}
     </Modal>
@@ -71,7 +85,7 @@ function PromotionModal(props) {
  * lower than max if max isn't an integer).
  * Using Math.round() will give you a non-uniform distribution!
  */
- function getRandomInt(min, max) {
+function getRandomInt(min, max) {
   min = Math.ceil(min);
   max = Math.floor(max);
   return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -83,25 +97,25 @@ function getCta() {
   switch (variant) {
     case 0:
       return {
-        text: 'FREE INSTALL',
-        id: 'freeInstallCta'
+        text: "FREE INSTALL",
+        id: "freeInstallCta",
       };
     case 1:
       return {
-        text: 'GET THE APP',
-        id: 'getTheAppCta'
+        text: "GET THE APP",
+        id: "getTheAppCta",
       };
     case 2:
       return {
-        text: 'DOWNLOAD',
-        id: 'downloadCta'
+        text: "DOWNLOAD",
+        id: "downloadCta",
       };
     case 3:
     default:
       return {
-        text: 'FREE DOWNLOAD',
-        id: 'freeDownloadCta'
-      }
+        text: "FREE DOWNLOAD",
+        id: "freeDownloadCta",
+      };
   }
 }
 

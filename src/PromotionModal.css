@@ -11,6 +11,7 @@
 #modalContainer {
   background-color: var(--white);
   display: flex !important;
+  top: 25% !important;
 }
 
 #modalContainer i {
@@ -29,9 +30,9 @@
 
 #message {
   font-size: 24px;
-    padding: 20px;
-    text-align: center;
-    line-height: 1.5;
-    padding-left: 0;
-    padding-right: 0;
+  padding: 20px;
+  text-align: center;
+  line-height: 1.5;
+  padding-left: 0;
+  padding-right: 0;
 }
