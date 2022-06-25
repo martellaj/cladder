@@ -19,6 +19,7 @@ export default function Results(props) {
     skipsUsed,
     mode,
     setIsTeacherMode,
+    shouldPromote
   } = props;
 
   const didComplete = correct === 10;
@@ -224,7 +225,7 @@ export default function Results(props) {
             >
               ❤️ DONATE
             </Button>
-            {!clickedBattleshipple && (
+            {!shouldPromote && !clickedBattleshipple && (
               <div
                 onClick={() => {
                   window.localStorage.setItem("clickedBattleshipple", "true");

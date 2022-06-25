@@ -1,5 +1,5 @@
 .modalContainer {
-  font-variant: all-small-caps;
+  /* font-variant: all-small-caps; */
   padding: 24px;
 
   display: flex !important;
@@ -18,9 +18,20 @@
 }
 
 .shareButton {
-  margin-top: 16px !important;
-  font-size: 36px !important;
+  font-size: 34px !important;
   padding: 12px 36px !important;
   padding-top: 6px !important;
   margin-right: 0px !important;
+  font-variant: small-caps;
+  margin-top: 6px;
+  margin-bottom: 6px;
+}
+
+#message {
+  font-size: 24px;
+    padding: 20px;
+    text-align: center;
+    line-height: 1.5;
+    padding-left: 0;
+    padding-right: 0;
 }

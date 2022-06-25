@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import "./App.css";
 import Game from "./Game";
 import Menu from "./Menu";
@@ -246,6 +246,10 @@ function App() {
 
   const showChallengeMode = isSupporter || !shouldPromote;
 
+  const onGameCompleted = useCallback(() => {
+    setShowPromotionModal(true);
+  }, []);
+
   switch (view) {
     case "game":
       content = (
@@ -258,6 +262,8 @@ function App() {
           isTeacherMode={isTeacherMode}
           onOptionSelected={onOptionSelected}
           setIsTeacherMode={setIsTeacherMode}
+          shouldPromote={shouldPromote}
+          onGameCompleted={onGameCompleted}
         />
       );
       break;
@@ -271,6 +277,8 @@ function App() {
           isTeacherMode={isTeacherMode}
           onOptionSelected={onOptionSelected}
           setIsTeacherMode={setIsTeacherMode}
+          shouldPromote={shouldPromote}
+          onGameCompleted={onGameCompleted}
         />
       );
       break;
@@ -290,6 +298,8 @@ function App() {
           }}
           onOptionSelected={onOptionSelected}
           setIsTeacherMode={setIsTeacherMode}
+          shouldPromote={shouldPromote}
+          onGameCompleted={onGameCompleted}
         />
       ) : (
         <ChallengePage
@@ -312,6 +322,8 @@ function App() {
           }}
           onOptionSelected={onOptionSelected}
           setIsTeacherMode={setIsTeacherMode}
+          shouldPromote={shouldPromote}
+          onGameCompleted={onGameCompleted}
         />
       );
       break;

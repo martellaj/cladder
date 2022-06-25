@@ -56,6 +56,8 @@ export default function Game(props) {
     selectionMode,
     onOptionSelected,
     setIsTeacherMode,
+    shouldPromote,
+    onGameCompleted
   } = props;
 
   const preGameAchievementsStatus = useMemo(() => {
@@ -280,6 +282,10 @@ export default function Game(props) {
 
       // update game state
       setIsOver(true);
+
+      if (shouldPromote) {
+        onGameCompleted();
+      }
     }
   }, [progress, isTeacherMode, saveResult]);
 
@@ -293,6 +299,10 @@ export default function Game(props) {
       setTimeout(() => {
         setWinningAnimation(false);
         setIsOver(true);
+
+        if (shouldPromote) {
+          onGameCompleted();
+        }
       }, 900);
 
       return;
@@ -684,6 +694,7 @@ export default function Game(props) {
           mode={mode}
           gameData={game}
           setIsTeacherMode={setIsTeacherMode}
+          shouldPromote={shouldPromote}
         />
       )}
 
