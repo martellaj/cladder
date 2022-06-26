@@ -3,9 +3,27 @@ import { Modal, Button } from "semantic-ui-react";
 import { useRef, useState } from "react";
 
 function PromotionModal(props) {
-  const { isDarkMode, onClose } = props;
+  const { isDarkMode, onClose, force } = props;
 
-  const [open, setOpen] = useState(true);
+  const [open, setOpen] = useState(() => {
+    if (force) {
+      return true;
+    }
+
+    const lastClicked = window.localStorage.getItem("clickedCta");
+    const lastClickedTime = lastClicked
+      ? new Date(lastClicked).getTime()
+      : null;
+
+    if (lastClickedTime === null) {
+      return true;
+    }
+
+    const now = Date.now();
+
+    // cool down for a week after they interact with install button
+    return now - lastClickedTime > 7 * 24 * 60 * 60 * 1000;
+  });
 
   const openedTime = useRef(Date.now());
 
@@ -29,9 +47,7 @@ function PromotionModal(props) {
       size="large"
       className="shareButton"
       color="green"
-      onClick={() => {
-        window.open("https://google.com", "_blank");
-      }}
+      onClick={onCtaClick}
     >
       {cta.text}
     </Button>
@@ -43,7 +59,7 @@ function PromotionModal(props) {
         id="iosInstallButton"
         src={isDarkMode ? "/install-ios.svg" : "/install-ios-light.svg"}
         style={{ width: "200px" }}
-        onClick={() => window.open("https://google.com", "_blank")}
+        onClick={onCtaClick}
         alt="download button"
       />
     );
@@ -119,6 +135,11 @@ function getCta() {
         id: "freeDownloadCta",
       };
   }
+}
+
+function onCtaClick() {
+  window.localStorage.setItem("clickedCta", Date.now().toString());
+  window.open("https://twitter.com/martellaj", "_blank");
 }
 
 export default PromotionModal;

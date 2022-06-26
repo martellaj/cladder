@@ -82,9 +82,10 @@ function App() {
   const [selectedArchivePuzzleNumber, setSelectedArchivePuzzleNumber] =
     useState(undefined);
   const [showPromotionModal, setShowPromotionModal] = useState(false);
+  const [showPromotionModalForce, setShowPromotionModalForce] = useState(false);
 
   // switch over to true when app launches
-  const shouldPromote = params?.aff || false;
+  const shouldPromote = params?.app || false;
 
   useEffect(() => {
     if (params?.convert) {
@@ -128,8 +129,7 @@ function App() {
     }
 
     if (option === "moreGames") {
-      // todo: just replace with link navigation
-      setShowPromotionModal(true);
+      setShowPromotionModalForce(true);
       return;
     }
 
@@ -387,6 +387,13 @@ function App() {
         <PromotionModal
           isDarkMode={isDarkMode}
           onClose={() => setShowPromotionModal(false)}
+        />
+      )}
+      {showPromotionModalForce && (
+        <PromotionModal
+          isDarkMode={isDarkMode}
+          onClose={() => setShowPromotionModalForce(false)}
+          force={true}
         />
       )}
     </>
