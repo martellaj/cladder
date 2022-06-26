@@ -93,9 +93,7 @@ export default function Menu(props) {
           id="practiceButton"
           size="massive"
           className="menuButton button"
-          color={
-            shouldPromote ? "orange" : showChallengeMode ? "red" : "orange"
-          }
+          color={shouldPromote ? "orange" : "red"}
           inverted={isDarkMode}
           onClick={() => onOptionSelected("practice")}
         >
