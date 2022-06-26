@@ -62,6 +62,7 @@ if (params?.clear) {
 if (params?.app) {
   if (params.app === "force") {
     window.localStorage.removeItem("lastSelloutTime");
+    window.localStorage.removeItem("clickedCta");
   }
 }
 
