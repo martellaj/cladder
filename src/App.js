@@ -247,6 +247,12 @@ function App() {
 
   const isSupporter = window.localStorage.getItem("isSupporter") === "true";
 
+  const now = Date.now();
+  const launchDate = new Date(2022, 6, 25);
+  if (isSupporter && now < launchDate) {
+    window.localStorage.setItem("ogSupporter", "true");
+  }
+
   const showChallengeMode = isSupporter || !shouldPromote;
 
   const onGameCompleted = useCallback(() => {

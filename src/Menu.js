@@ -15,6 +15,8 @@ export default function Menu(props) {
   const engagedWithPromo =
     window.localStorage.getItem("engagedWithPromo1") === "true";
 
+  const isOgSupporter = window.localStorage.getItem("ogSupporter") === "true";
+
   useEffect(() => {
     const challengePageSeen =
       window.localStorage.getItem("challengePageSeen") === "true";
@@ -100,6 +102,23 @@ export default function Menu(props) {
           PRACTICE
         </Button>
       </div>
+      {shouldPromote && isOgSupporter && (
+        <div className="menuButton">
+          <Button
+            id="challengeButton"
+            size="massive"
+            className="menuButton button"
+            color="red"
+            inverted={isDarkMode}
+            onClick={() => {
+              window.localStorage.setItem("challengePageSeen", "true");
+              onOptionSelected("challenge");
+            }}
+          >
+            CHALLENGE
+          </Button>
+        </div>
+      )}
       <div
         style={{
           marginBottom: "24px",
