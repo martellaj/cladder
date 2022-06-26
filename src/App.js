@@ -59,8 +59,8 @@ if (params?.clear) {
   window.localStorage.removeItem("isSupporter");
 }
 
-if (params?.aff) {
-  if (params.aff === "force") {
+if (params?.app) {
+  if (params.app === "force") {
     window.localStorage.removeItem("lastSelloutTime");
   }
 }
