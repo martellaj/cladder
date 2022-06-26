@@ -1,11 +1,13 @@
 import "./PromotionModal.css";
 import { Modal, Button } from "semantic-ui-react";
-import { useState } from "react";
+import { useRef, useState } from "react";
 
 function PromotionModal(props) {
   const { isDarkMode, onClose } = props;
 
   const [open, setOpen] = useState(true);
+
+  const openedTime = useRef(Date.now());
 
   const cta = getCta();
 
@@ -53,8 +55,11 @@ function PromotionModal(props) {
       id="modalContainer"
       className="modalContainer"
       onClose={() => {
-        setOpen(false);
-        onClose();
+        const now = Date.now();
+        if (openedTime.current && now - openedTime.current > 1000) {
+          setOpen(false);
+          onClose();
+        }
       }}
       onOpen={() => setOpen(true)}
       open={open}
