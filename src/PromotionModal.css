@@ -1,0 +1,38 @@
+.modalContainer {
+  /* font-variant: all-small-caps; */
+  padding: 24px;
+
+  display: flex !important;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#modalContainer {
+  background-color: var(--white);
+  display: flex !important;
+  top: 25% !important;
+}
+
+#modalContainer i {
+  color: var(--black) !important;
+}
+
+.shareButton {
+  font-size: 34px !important;
+  padding: 12px 36px !important;
+  padding-top: 6px !important;
+  margin-right: 0px !important;
+  font-variant: small-caps;
+  margin-top: 6px;
+  margin-bottom: 6px;
+}
+
+#message {
+  font-size: 24px;
+  padding: 20px;
+  text-align: center;
+  line-height: 1.5;
+  padding-left: 0;
+  padding-right: 0;
+}

@@ -9,7 +9,13 @@ export default function Menu(props) {
     isDarkMode,
     showChallengeMode = false,
     isReturningPlayer,
+    shouldPromote,
   } = props;
+
+  const engagedWithPromo =
+    window.localStorage.getItem("engagedWithPromo1") === "true";
+
+  const isOgSupporter = window.localStorage.getItem("ogSupporter") === "true";
 
   useEffect(() => {
     const challengePageSeen =
@@ -18,7 +24,12 @@ export default function Menu(props) {
     if (isReturningPlayer && !challengePageSeen) {
       animateCSS("#challengeButton", "tada");
     }
-  });
+
+    // todo also track if button was clicked
+    if (shouldPromote && !engagedWithPromo) {
+      animateCSS("#moreGamesButton", "tada");
+    }
+  }, [engagedWithPromo, isReturningPlayer, shouldPromote]);
 
   return (
     <div className="menuContainer">
@@ -34,7 +45,7 @@ export default function Menu(props) {
           PLAY
         </Button>
       </div>
-      {showChallengeMode && (
+      {!shouldPromote && showChallengeMode && (
         <div className="menuButton">
           <Button
             id="challengeButton"
@@ -51,30 +62,63 @@ export default function Menu(props) {
           </Button>
         </div>
       )}
-      <div className="menuButton">
-        <Button
-          id="archiveButton"
-          size="massive"
-          className="menuButton button"
-          color={showChallengeMode ? "orange" : "yellow"}
-          inverted={isDarkMode}
-          onClick={() => onOptionSelected("archive")}
-        >
-          ARCHIVE
-        </Button>
-      </div>
+      {!shouldPromote && (
+        <div className="menuButton">
+          <Button
+            id="archiveButton"
+            size="massive"
+            className="menuButton button"
+            color={showChallengeMode ? "orange" : "yellow"}
+            inverted={isDarkMode}
+            onClick={() => onOptionSelected("archive")}
+          >
+            ARCHIVE
+          </Button>
+        </div>
+      )}
+      {shouldPromote && (
+        <div className="menuButton">
+          <Button
+            id="moreGamesButton"
+            size="massive"
+            className="menuButton button"
+            color="yellow"
+            inverted={isDarkMode}
+            onClick={() => onOptionSelected("moreGames")}
+          >
+            MORE GAMES
+          </Button>
+        </div>
+      )}
       <div className="menuButton">
         <Button
           id="practiceButton"
           size="massive"
           className="menuButton button"
-          color={showChallengeMode ? "red" : "orange"}
+          color={shouldPromote ? "orange" : "red"}
           inverted={isDarkMode}
           onClick={() => onOptionSelected("practice")}
         >
           PRACTICE
         </Button>
       </div>
+      {shouldPromote && isOgSupporter && (
+        <div className="menuButton">
+          <Button
+            id="challengeButton"
+            size="massive"
+            className="menuButton button"
+            color="red"
+            inverted={isDarkMode}
+            onClick={() => {
+              window.localStorage.setItem("challengePageSeen", "true");
+              onOptionSelected("challenge");
+            }}
+          >
+            CHALLENGE
+          </Button>
+        </div>
+      )}
       <div
         style={{
           marginBottom: "24px",

@@ -1,8 +1,8 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import "./App.css";
 import Game from "./Game";
 import Menu from "./Menu";
-import { Icon, Modal, Header, Button } from "semantic-ui-react";
+import { Icon } from "semantic-ui-react";
 import HowToPlay from "./HowToPlay";
 import About from "./About";
 import StatsComponent from "./StatsComponent";
@@ -14,6 +14,7 @@ import Loading from "./Loading";
 import getDailyPuzzleNumber from "./getDailyPuzzleNumber";
 import ChallengePage from "./ChallengePage";
 import Achievements from "./Achievements";
+import PromotionModal from "./PromotionModal";
 
 // set the app height for mobile
 const appHeight = () =>
@@ -58,6 +59,14 @@ if (params?.clear) {
   window.localStorage.removeItem("isSupporter");
 }
 
+if (params?.app) {
+  if (params.app === "force") {
+    window.localStorage.removeItem("lastSelloutTime");
+    window.localStorage.removeItem("clickedCta");
+    window.localStorage.removeItem("engagedWithPromo1");
+  }
+}
+
 function App() {
   const [view, setView] = useState(isReturningPlayer ? "menu" : "howToPlay");
   const [isDarkMode, setIsDarkMode] = useState(
@@ -74,10 +83,11 @@ function App() {
   );
   const [selectedArchivePuzzleNumber, setSelectedArchivePuzzleNumber] =
     useState(undefined);
-  const [
-    isAchievementsComingSoonModalVisible,
-    setIsAchievementsComingSoonModalVisible,
-  ] = useState(false);
+  const [showPromotionModal, setShowPromotionModal] = useState(false);
+  const [showPromotionModalForce, setShowPromotionModalForce] = useState(false);
+
+  // switch over to true when app launches
+  const shouldPromote = params?.app || false;
 
   useEffect(() => {
     if (params?.convert) {
@@ -96,9 +106,34 @@ function App() {
     window.localStorage.setItem("returningPlayer", "true");
   }, []);
 
+  // pop modal very 2 days
+  // also track if install link was clicked to stop showing
+  useEffect(() => {
+    if (shouldPromote) {
+      const lastSelloutTime = window.localStorage.getItem("lastSelloutTime");
+      const _lastSelloutTime = lastSelloutTime
+        ? new Date(lastSelloutTime)
+        : new Date(2022, 1, 1);
+      const cooloffPeriod = _lastSelloutTime.setDate(
+        _lastSelloutTime.getDate() + 2
+      );
+      const now = Date.now();
+
+      if (now > cooloffPeriod) {
+        window.localStorage.setItem("lastSelloutTime", now);
+      }
+    }
+  }, [shouldPromote]);
+
   const onOptionSelected = (option, level) => {
     if (option === "toggleDarkMode") {
       setIsDarkMode(!isDarkMode);
+    }
+
+    if (option === "moreGames") {
+      window.localStorage.setItem("engagedWithPromo1", "true");
+      setShowPromotionModalForce(true);
+      return;
     }
 
     setSelectedArchivePuzzleNumber(level || undefined);
@@ -193,13 +228,7 @@ function App() {
           id="achievementsHeaderButton"
           name={"trophy"}
           onClick={() => {
-            const isComingSoon = false;
-
-            if (isComingSoon) {
-              setIsAchievementsComingSoonModalVisible(true);
-            } else {
-              setView("achievements");
-            }
+            setView("achievements");
           }}
           style={{
             cursor: "pointer",
@@ -218,6 +247,18 @@ function App() {
 
   const isSupporter = window.localStorage.getItem("isSupporter") === "true";
 
+  const now = Date.now();
+  const launchDate = new Date(2022, 6, 25);
+  if (isSupporter && now < launchDate) {
+    window.localStorage.setItem("ogSupporter", "true");
+  }
+
+  const showChallengeMode = isSupporter || !shouldPromote;
+
+  const onGameCompleted = useCallback(() => {
+    setShowPromotionModal(true);
+  }, []);
+
   switch (view) {
     case "game":
       content = (
@@ -230,6 +271,8 @@ function App() {
           isTeacherMode={isTeacherMode}
           onOptionSelected={onOptionSelected}
           setIsTeacherMode={setIsTeacherMode}
+          shouldPromote={shouldPromote}
+          onGameCompleted={onGameCompleted}
         />
       );
       break;
@@ -243,6 +286,8 @@ function App() {
           isTeacherMode={isTeacherMode}
           onOptionSelected={onOptionSelected}
           setIsTeacherMode={setIsTeacherMode}
+          shouldPromote={shouldPromote}
+          onGameCompleted={onGameCompleted}
         />
       );
       break;
@@ -262,6 +307,8 @@ function App() {
           }}
           onOptionSelected={onOptionSelected}
           setIsTeacherMode={setIsTeacherMode}
+          shouldPromote={shouldPromote}
+          onGameCompleted={onGameCompleted}
         />
       ) : (
         <ChallengePage
@@ -284,6 +331,8 @@ function App() {
           }}
           onOptionSelected={onOptionSelected}
           setIsTeacherMode={setIsTeacherMode}
+          shouldPromote={shouldPromote}
+          onGameCompleted={onGameCompleted}
         />
       );
       break;
@@ -329,8 +378,9 @@ function App() {
           onOptionSelected={onOptionSelected}
           puzzleNumber={params?.p ?? getDailyPuzzleNumber()}
           isDarkMode={isDarkMode}
-          showChallengeMode={true}
+          showChallengeMode={showChallengeMode}
           isReturningPlayer={isReturningPlayer}
+          shouldPromote={shouldPromote}
         />
       );
       break;
@@ -342,30 +392,19 @@ function App() {
         {header}
         {content}
       </div>
-      <Modal
-        basic
-        onClose={() => setIsAchievementsComingSoonModalVisible(false)}
-        onOpen={() => setIsAchievementsComingSoonModalVisible(true)}
-        open={isAchievementsComingSoonModalVisible}
-        size="small"
-      >
-        <Header icon>
-          <Icon name="trophy" />
-          Achievements
-        </Header>
-        <Modal.Content>
-          <p>Achievements will be available for supporters soon!</p>
-        </Modal.Content>
-        <Modal.Actions className="achivevementModalActions">
-          <Button
-            basic
-            inverted
-            onClick={() => setIsAchievementsComingSoonModalVisible(false)}
-          >
-            <Icon name="thumbs up outline" /> Awesome
-          </Button>
-        </Modal.Actions>
-      </Modal>
+      {showPromotionModal && (
+        <PromotionModal
+          isDarkMode={isDarkMode}
+          onClose={() => setShowPromotionModal(false)}
+        />
+      )}
+      {showPromotionModalForce && (
+        <PromotionModal
+          isDarkMode={isDarkMode}
+          onClose={() => setShowPromotionModalForce(false)}
+          force={true}
+        />
+      )}
     </>
   );
 }

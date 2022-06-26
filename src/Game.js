@@ -32,8 +32,17 @@ const puzzleParam = params?.p ?? undefined;
 
 const specialPuzzleParam = params?.special ?? undefined;
 
-function getRandomPuzzleNumber() {
-  return Math.floor(Math.random() * getDailyPuzzleNumber());
+/**
+ * Returns a random integer between min (inclusive) and max (inclusive).
+ * The value is no lower than min (or the next integer greater than min
+ * if min isn't an integer) and no greater than max (or the next integer
+ * lower than max if max isn't an integer).
+ * Using Math.round() will give you a non-uniform distribution!
+ */
+function getRandomInt(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
 export default function Game(props) {
@@ -47,6 +56,8 @@ export default function Game(props) {
     selectionMode,
     onOptionSelected,
     setIsTeacherMode,
+    shouldPromote,
+    onGameCompleted,
   } = props;
 
   const preGameAchievementsStatus = useMemo(() => {
@@ -70,7 +81,7 @@ export default function Game(props) {
     }
 
     if (mode === "practice") {
-      return getRandomPuzzleNumber();
+      return getRandomInt(1, 10);
     }
 
     if (mode === "archive") {
@@ -271,8 +282,12 @@ export default function Game(props) {
 
       // update game state
       setIsOver(true);
+
+      if (shouldPromote) {
+        onGameCompleted();
+      }
     }
-  }, [progress, isTeacherMode, saveResult]);
+  }, [progress, isTeacherMode, saveResult, shouldPromote, onGameCompleted]);
 
   // hook that updates level information
   useEffect(() => {
@@ -284,6 +299,10 @@ export default function Game(props) {
       setTimeout(() => {
         setWinningAnimation(false);
         setIsOver(true);
+
+        if (shouldPromote) {
+          onGameCompleted();
+        }
       }, 900);
 
       return;
@@ -319,7 +338,16 @@ export default function Game(props) {
         }, 0);
       }, 10000);
     }
-  }, [gameLevel, game, word, selectionMode, isHardMode, isOver]);
+  }, [
+    gameLevel,
+    game,
+    word,
+    selectionMode,
+    isHardMode,
+    isOver,
+    shouldPromote,
+    onGameCompleted,
+  ]);
 
   // hook that congratulates user when they get an answer right
   useEffect(() => {
@@ -675,6 +703,7 @@ export default function Game(props) {
           mode={mode}
           gameData={game}
           setIsTeacherMode={setIsTeacherMode}
+          shouldPromote={shouldPromote}
         />
       )}
 
