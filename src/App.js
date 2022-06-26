@@ -63,6 +63,7 @@ if (params?.app) {
   if (params.app === "force") {
     window.localStorage.removeItem("lastSelloutTime");
     window.localStorage.removeItem("clickedCta");
+    window.localStorage.removeItem("engagedWithPromo1");
   }
 }
 
@@ -130,6 +131,7 @@ function App() {
     }
 
     if (option === "moreGames") {
+      window.localStorage.setItem("engagedWithPromo1", "true");
       setShowPromotionModalForce(true);
       return;
     }
