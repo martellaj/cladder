@@ -6334,4 +6334,67 @@ export const game = [
       alteredPosition: 0,
     },
   ],
+  // 7/1/2022 (#101)
+  [
+    {
+      word: "sega",
+      hint: "lengthy story",
+      answer: "saga",
+      alteredPosition: 1,
+    },
+    {
+      word: "saga",
+      hint: "turkey seasoning herb",
+      answer: "sage",
+      alteredPosition: 3,
+    },
+    {
+      word: "sage",
+      hint: "of sound mind",
+      answer: "sane",
+      alteredPosition: 2,
+    },
+    {
+      word: "sane",
+      hint: "lion's hair",
+      answer: "mane",
+      alteredPosition: 0,
+    },
+    {
+      word: "mane",
+      hint: "not yours",
+      answer: "mine",
+      alteredPosition: 1,
+    },
+    {
+      word: "mine",
+      hint: "speak your __ (be forthright)",
+      answer: "mind",
+      alteredPosition: 3,
+    },
+    {
+      word: "mind",
+      hint: "moving air",
+      answer: "wind",
+      alteredPosition: 0,
+    },
+    {
+      word: "wind",
+      hint: "finishes in first place",
+      answer: "wins",
+      alteredPosition: 3,
+    },
+    {
+      word: "wins",
+      hint: "mental ability, astuteness",
+      answer: "wits",
+      alteredPosition: 2,
+    },
+    {
+      word: "wits",
+      hint: "accompanied by",
+      answer: "with",
+      alteredPosition: 3,
+    },
+  ],
 ];
