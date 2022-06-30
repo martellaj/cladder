@@ -6281,7 +6281,7 @@ export const game = [
     },
     {
       word: "wine",
-      hint: "knowledgeabe",
+      hint: "knowledgeable",
       answer: "wise",
       alteredPosition: 2,
     },
