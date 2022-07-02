@@ -82,8 +82,14 @@ function PromotionModal(props) {
       size="small"
     >
       <img
-        style={{ marginTop: "24px" }}
-        src="https://placekitten.com/g/300/100"
+        style={{
+          marginTop: "24px",
+          width: "100%",
+          backgroundColor: "white",
+          padding: " 24px 12px 12px 12px",
+          borderRadius: "10px",
+        }}
+        src="/app-logo.png"
         alt="download button"
       />
 

@@ -390,6 +390,18 @@ function App() {
     <>
       <div className={`App`}>
         {header}
+        {shouldPromote && view === "menu" && (
+          <img
+            src="/app-banner.png"
+            alt="promo banner"
+            style={{
+              width: "100%",
+              margin: "6px 0 24px 0px",
+              cursor: "pointer",
+            }}
+            onClick={onBannerClick}
+          />
+        )}
         {content}
       </div>
       {showPromotionModal && (
@@ -408,5 +420,9 @@ function App() {
     </>
   );
 }
+
+const onBannerClick = () => {
+  window.open("https://twitter.com/martellaj", "_blank");
+};
 
 export default App;

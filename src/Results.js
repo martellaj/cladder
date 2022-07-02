@@ -19,7 +19,7 @@ export default function Results(props) {
     skipsUsed,
     mode,
     setIsTeacherMode,
-    shouldPromote
+    shouldPromote,
   } = props;
 
   const didComplete = correct === 10;
@@ -35,10 +35,24 @@ export default function Results(props) {
     bigMessage = "There's always tomorrow!";
   }
 
+  const style = shouldPromote ? { marginTop: "0" } : null;
+
   return (
-    <div className="resultsContainer">
+    <div className="resultsContainer" style={style}>
       <div style={{ marginBottom: "24px" }}>
         <ZenMode setIsTeacherMode={setIsTeacherMode} />
+        {shouldPromote && (
+          <img
+            src="/app-banner.png"
+            alt="promo banner"
+            style={{
+              width: "100%",
+              margin: "6px 0 0px 0px",
+              cursor: "pointer",
+            }}
+            onClick={onBannerClick}
+          />
+        )}
         <div className="bigMessage">{bigMessage}</div>
         <div
           id="gameResult"
@@ -261,3 +275,7 @@ export default function Results(props) {
     </div>
   );
 }
+
+const onBannerClick = () => {
+  window.open("https://twitter.com/martellaj", "_blank");
+};
