@@ -6460,4 +6460,67 @@ export const game = [
       alteredPosition: 0,
     },
   ],
+  // 7/3/2022 (#11, #103)
+  [
+    {
+      word: "drop",
+      hint: "kitchen sink annoyance",
+      answer: "drip",
+      alteredPosition: 2,
+    },
+    {
+      word: "drip",
+      hint: "to stumble",
+      answer: "trip",
+      alteredPosition: 0,
+    },
+    {
+      word: "trip",
+      hint: "groom, like a beard",
+      answer: "trim",
+      alteredPosition: 3,
+    },
+    {
+      word: "trim",
+      hint: "Disney shuttle",
+      answer: "tram",
+      alteredPosition: 2,
+    },
+    {
+      word: "tram",
+      hint: "Chelsea FC, for example",
+      answer: "team",
+      alteredPosition: 1,
+    },
+    {
+      word: "team",
+      hint: "to smile big",
+      answer: "beam",
+      alteredPosition: 0,
+    },
+    {
+      word: "beam",
+      hint: "friendship bracelet bit",
+      answer: "bead",
+      alteredPosition: 3,
+    },
+    {
+      word: "bead",
+      hint: "__ over backwards (try hard)",
+      answer: "bend",
+      alteredPosition: 2,
+    },
+    {
+      word: "bend",
+      hint: "to patch, repair",
+      answer: "mend",
+      alteredPosition: 0,
+    },
+    {
+      word: "mend",
+      hint: "thinking thing",
+      answer: "mind",
+      alteredPosition: 1,
+    },
+  ],
 ];
