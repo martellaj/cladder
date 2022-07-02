@@ -392,11 +392,11 @@ function App() {
         {header}
         {shouldPromote && view === "menu" && (
           <img
-            src="/app-banner.png"
+            src="/app-banner2.png"
             alt="promo banner"
             style={{
               width: "100%",
-              margin: "6px 0 24px 0px",
+              margin: "6px 0 0px 0px",
               cursor: "pointer",
             }}
             onClick={onBannerClick}
