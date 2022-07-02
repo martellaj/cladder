@@ -6523,4 +6523,61 @@ export const game = [
       alteredPosition: 1,
     },
   ],
+  // 7/4/2022 (#12, #104)
+  [
+    {
+      word: "fire",
+      hint: "give a paying job to",
+      answer: "hire",
+      alteredPosition: 0,
+    },
+    {
+      word: "hire",
+      hint: "long-eared hopper",
+      answer: "hare",
+      alteredPosition: 1,
+    },
+    {
+      word: "hare",
+      hint: "what doctors are sworn not to do",
+      answer: "harm",
+      alteredPosition: 3,
+    },
+    {
+      word: "harm",
+      hint: "place to grow crops",
+      answer: "farm",
+      alteredPosition: 0,
+    },
+    {
+      word: "farm",
+      hint: "document to fill out",
+      answer: "form",
+      alteredPosition: 1,
+    },
+    {
+      word: "form",
+      hint: "wriggling bait on a fishhook",
+      answer: "worm",
+      alteredPosition: 0,
+    },
+    {
+      word: "worm",
+      hint: "to do a job",
+      answer: "work",
+      alteredPosition: 3,
+    },
+    {
+      word: "work",
+      hint: "common sausage ingredient",
+      answer: "pork",
+      alteredPosition: 0,
+    },
+    {
+      word: "pork",
+      hint: "cruise ship hub",
+      answer: "port",
+      alteredPosition: 3,
+    },
+  ],
 ];
