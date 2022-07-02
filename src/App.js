@@ -392,7 +392,7 @@ function App() {
         {header}
         {shouldPromote && view === "menu" && (
           <img
-            src="/app-banner2.png"
+            src="/app-banner.png"
             alt="promo banner"
             style={{
               width: "100%",

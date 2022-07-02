@@ -43,7 +43,7 @@ export default function Results(props) {
         <ZenMode setIsTeacherMode={setIsTeacherMode} />
         {shouldPromote && (
           <img
-            src="/app-banner2.png"
+            src="/app-banner.png"
             alt="promo banner"
             style={{
               width: "100%",
