@@ -6579,5 +6579,11 @@ export const game = [
       answer: "port",
       alteredPosition: 3,
     },
+    {
+      word: "port",
+      hint: "frown",
+      answer: "pout",
+      alteredPosition: 2,
+    },
   ],
 ];
