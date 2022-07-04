@@ -6580,4 +6580,67 @@ export const game = [
       alteredPosition: 3,
     },
   ],
+  // 7/5/2022 (#14, #105)
+  [
+    {
+      word: "bun",
+      hint: `"Math is as easy as pi!", e.g.`,
+      answer: "pun",
+      alteredPosition: 0,
+    },
+    {
+      word: "pun",
+      hint: "barking litter member",
+      answer: "pup",
+      alteredPosition: 2,
+    },
+    {
+      word: "pup",
+      hint: "eight fluid ounces",
+      answer: "cup",
+      alteredPosition: 0,
+    },
+    {
+      word: "cup",
+      hint: "toothpaste topper",
+      answer: "cap",
+      alteredPosition: 1,
+    },
+    {
+      word: "cap",
+      hint: "ride hailed in a city",
+      answer: "cab",
+      alteredPosition: 2,
+    },
+    {
+      word: "cab",
+      hint: "to seize a crook",
+      answer: "nab",
+      alteredPosition: 0,
+    },
+    {
+      word: "nab",
+      hint: "place for experimenting",
+      answer: "lab",
+      alteredPosition: 0,
+    },
+    {
+      word: "lab",
+      hint: "high pitch",
+      answer: "lob",
+      alteredPosition: 1,
+    },
+    {
+      word: "lob",
+      hint: "head motion",
+      answer: "bob",
+      alteredPosition: 0,
+    },
+    {
+      word: "bob",
+      hint: "cry from an unhappy spectator",
+      answer: "boo",
+      alteredPosition: 2,
+    },
+  ],
 ];
