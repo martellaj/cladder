@@ -6579,6 +6579,12 @@ export const game = [
       answer: "port",
       alteredPosition: 3,
     },
+    {
+      word: "port",
+      hint: "frown",
+      answer: "pout",
+      alteredPosition: 2,
+    },
   ],
   // 7/5/2022 (#14, #105)
   [
