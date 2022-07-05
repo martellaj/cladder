@@ -6649,4 +6649,57 @@ export const game = [
       alteredPosition: 2,
     },
   ],
+  // 7/6/2022 (#16, #106)
+  [
+    { word: "copy", hint: "to deal with", answer: "cope", alteredPosition: 3 },
+    {
+      word: "cope",
+      hint: "dog command",
+      answer: "come",
+      alteredPosition: 2,
+    },
+    {
+      word: "come",
+      hint: "many a stadium cover",
+      answer: "dome",
+      alteredPosition: 0,
+    },
+    {
+      word: "dome",
+      hint: "small U.S. coin",
+      answer: "dime",
+      alteredPosition: 1,
+    },
+    {
+      word: "dime",
+      hint: "vitamin C source",
+      answer: "lime",
+      alteredPosition: 0,
+    },
+    {
+      word: "lime",
+      hint: 'prison sentence that may be "without parole"',
+      answer: "life",
+      alteredPosition: 2,
+    },
+    { word: "life", hint: "elevate", answer: "lift", alteredPosition: 3 },
+    {
+      word: "lift",
+      hint: "apartment with a wide-open floor plan",
+      answer: "loft",
+      alteredPosition: 1,
+    },
+    {
+      word: "loft",
+      hint: "not comprehending at all",
+      answer: "lost",
+      alteredPosition: 2,
+    },
+    {
+      word: "lost",
+      hint: "put up, as an Instagram picture",
+      answer: "post",
+      alteredPosition: 0,
+    },
+  ],
 ];
