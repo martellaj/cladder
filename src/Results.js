@@ -239,7 +239,7 @@ export default function Results(props) {
             >
               ❤️ DONATE
             </Button>
-            {!shouldPromote && false && (
+            {!shouldPromote && (
               <img
                 style={{
                   marginBottom: "12px",
