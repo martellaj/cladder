@@ -40,7 +40,7 @@ export default function Results(props) {
   return (
     <div className="resultsContainer" style={style}>
       <div style={{ marginBottom: "24px" }}>
-        <ZenMode setIsTeacherMode={setIsTeacherMode} />
+        {!shouldPromote && <ZenMode setIsTeacherMode={setIsTeacherMode} />}
         {shouldPromote && (
           <img
             src="/app-banner.png"

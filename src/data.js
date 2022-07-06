@@ -6702,4 +6702,52 @@ export const game = [
       alteredPosition: 0,
     },
   ],
+  // 7/7/2022 (#17, #107)
+  [
+    { word: "rad", hint: "purge", answer: "rid", alteredPosition: 1 },
+    { word: "rid", hint: "pot top", answer: "lid", alteredPosition: 0 },
+    { word: "lid", hint: "a boy", answer: "lad", alteredPosition: 1 },
+    {
+      word: "lad",
+      hint: "set of rules that must be followed",
+      answer: "law",
+      alteredPosition: 2,
+    },
+    {
+      word: "law",
+      hint: "like most sushi",
+      answer: "raw",
+      alteredPosition: 0,
+    },
+    {
+      word: "raw",
+      hint: "line in a spreadsheet",
+      answer: "row",
+      alteredPosition: 1,
+    },
+    {
+      word: "row",
+      hint: "gift decoration",
+      answer: "bow",
+      alteredPosition: 0,
+    },
+    {
+      word: "bow",
+      hint: 'to encumber ("___ down")',
+      answer: "bog",
+      alteredPosition: 2,
+    },
+    {
+      word: "bog",
+      hint: "a little critter",
+      answer: "bug",
+      alteredPosition: 1,
+    },
+    {
+      word: "bug",
+      hint: "to pull or yank",
+      answer: "tug",
+      alteredPosition: 0,
+    },
+  ],
 ];
