@@ -239,7 +239,22 @@ export default function Results(props) {
             >
               ❤️ DONATE
             </Button>
-            {!shouldPromote && !clickedBattleshipple && (
+            {!shouldPromote && (
+              <img
+                style={{
+                  marginBottom: "12px",
+                  marginTop: "6px",
+                  borderRadius: "10px",
+                  cursor: "pointer",
+                  width:
+                    document.getElementsByClassName("buttonz")[0]
+                      ?.clientWidth || "270px",
+                }}
+                src="/LatticeAd.jpg"
+                onClick={() => window.open("https://playlattice.com", "_blank")}
+              />
+            )}
+            {/* {!shouldPromote && !clickedBattleshipple && (
               <div
                 onClick={() => {
                   window.localStorage.setItem("clickedBattleshipple", "true");
@@ -268,7 +283,7 @@ export default function Results(props) {
                   battleshipple.com
                 </div>
               </div>
-            )}
+            )} */}
           </>
         )}
       </>
