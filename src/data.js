@@ -6750,4 +6750,67 @@ export const game = [
       alteredPosition: 0,
     },
   ],
+  // 7/8/2022 (#108)
+  [
+    {
+      word: "dire",
+      hint: "what a dragon breathes",
+      answer: "fire",
+      alteredPosition: 0,
+    },
+    {
+      word: "fire",
+      hint: "thing in a folder",
+      answer: "file",
+      alteredPosition: 2,
+    },
+    {
+      word: "file",
+      hint: "to use all available space",
+      answer: "fill",
+      alteredPosition: 3,
+    },
+    {
+      word: "fill",
+      hint: "to grind grain into flour",
+      answer: "mill",
+      alteredPosition: 0,
+    },
+    {
+      word: "mill",
+      hint: "least spicy salsa",
+      answer: "mild",
+      alteredPosition: 3,
+    },
+    {
+      word: "mild",
+      hint: "mold on food",
+      answer: "mold",
+      alteredPosition: 1,
+    },
+    {
+      word: "mold",
+      hint: "first place medal",
+      answer: "gold",
+      alteredPosition: 0,
+    },
+    {
+      word: "gold",
+      hint: "to prod annoyingly",
+      answer: "goad",
+      alteredPosition: 2,
+    },
+    {
+      word: "goad",
+      hint: "to put clothes into a washing machine",
+      answer: "load",
+      alteredPosition: 0,
+    },
+    {
+      word: "load",
+      hint: "the star role of a movie or play",
+      answer: "lead",
+      alteredPosition: 1,
+    },
+  ],
 ];
