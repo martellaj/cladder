@@ -6813,4 +6813,67 @@ export const game = [
       alteredPosition: 1,
     },
   ],
+  // 7/9/2022 (#109)
+  [
+    {
+      word: "bare",
+      hint: "cost of a bus ride",
+      answer: "fare",
+      alteredPosition: 0,
+    },
+    {
+      word: "fare",
+      hint: "widespread reputation",
+      answer: "fame",
+      alteredPosition: 2,
+    },
+    {
+      word: "fame",
+      hint: "as before",
+      answer: "same",
+      alteredPosition: 0,
+    },
+    {
+      word: "same",
+      hint: "not all and not none",
+      answer: "some",
+      alteredPosition: 1,
+    },
+    {
+      word: "some",
+      hint: "book with some weight to it",
+      answer: "tome",
+      alteredPosition: 0,
+    },
+    {
+      word: "tome",
+      hint: "what a watch displays",
+      answer: "time",
+      alteredPosition: 1,
+    },
+    {
+      word: "time",
+      hint: "movement of seawater",
+      answer: "tide",
+      alteredPosition: 2,
+    },
+    {
+      word: "tide",
+      hint: "opposite of narrow",
+      answer: "wide",
+      alteredPosition: 0,
+    },
+    {
+      word: "wide",
+      hint: "owl descriptor",
+      answer: "wise",
+      alteredPosition: 2,
+    },
+    {
+      word: "wise",
+      hint: "express a desire for",
+      answer: "wish",
+      alteredPosition: 3,
+    },
+  ],
 ];
