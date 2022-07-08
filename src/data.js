@@ -6784,7 +6784,7 @@ export const game = [
     },
     {
       word: "mild",
-      hint: "mold on food",
+      hint: "fuzz on food",
       answer: "mold",
       alteredPosition: 1,
     },
