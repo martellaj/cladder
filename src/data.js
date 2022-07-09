@@ -6876,4 +6876,67 @@ export const game = [
       alteredPosition: 3,
     },
   ],
+  // 7/10/2022 (#20, #110)
+  [
+    {
+      word: "son",
+      hint: "makes you tanner",
+      answer: "sun",
+      alteredPosition: 1,
+    },
+    {
+      word: "sun",
+      hint: "cause for a confession",
+      answer: "sin",
+      alteredPosition: 1,
+    },
+    {
+      word: "sin",
+      hint: "drink often mixed with tonic water",
+      answer: "gin",
+      alteredPosition: 0,
+    },
+    {
+      word: "gin",
+      hint: "hot glue ___ (crafter's item)",
+      answer: "gun",
+      alteredPosition: 1,
+    },
+    {
+      word: "gun",
+      hint: "___ reaction",
+      answer: "gut",
+      alteredPosition: 2,
+    },
+    {
+      word: "gut",
+      hint: "Hagrid's home at Hogwarts",
+      answer: "hut",
+      alteredPosition: 0,
+    },
+    {
+      word: "hut",
+      hint: "a sombrero is one",
+      answer: "hat",
+      alteredPosition: 1,
+    },
+    {
+      word: "hat",
+      hint: "furry mouse chaser",
+      answer: "cat",
+      alteredPosition: 0,
+    },
+    {
+      word: "cat",
+      hint: "no-frills bed",
+      answer: "cot",
+      alteredPosition: 1,
+    },
+    {
+      word: "cot",
+      hint: "money wagered in poker",
+      answer: "pot",
+      alteredPosition: 0,
+    },
+  ],
 ];
