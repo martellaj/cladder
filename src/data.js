@@ -6939,4 +6939,52 @@ export const game = [
       alteredPosition: 0,
     },
   ],
+  // 7/11/2022 (#21, #111)
+  [
+    {
+      word: "bar",
+      hint: "unit of corn",
+      answer: "ear",
+      alteredPosition: 0,
+    },
+    {
+      word: "ear",
+      hint: "grandparent's urging at dinner",
+      answer: "eat",
+      alteredPosition: 2,
+    },
+    { word: "eat", hint: "rotund", answer: "fat", alteredPosition: 0 },
+    {
+      word: "fat",
+      hint: "like a triathlete",
+      answer: "fit",
+      alteredPosition: 1,
+    },
+    {
+      word: "fit",
+      hint: "stand-up comedian's asset",
+      answer: "wit",
+      alteredPosition: 0,
+    },
+    {
+      word: "wit",
+      hint: "costume party accessory (for your head)",
+      answer: "wig",
+      alteredPosition: 2,
+    },
+    { word: "wig", hint: "farm squealer", answer: "pig", alteredPosition: 0 },
+    {
+      word: "pig",
+      hint: "pirate leg",
+      answer: "peg",
+      alteredPosition: 1,
+    },
+    {
+      word: "peg",
+      hint: "ink-filled writing instrument",
+      answer: "pen",
+      alteredPosition: 2,
+    },
+    { word: "pen", hint: "dudes", answer: "men", alteredPosition: 0 },
+  ],
 ];
