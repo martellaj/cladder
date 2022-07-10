@@ -6987,4 +6987,67 @@ export const game = [
     },
     { word: "pen", hint: "dudes", answer: "men", alteredPosition: 0 },
   ],
+  // 7/12/2022 (#22, #112)
+  [
+    {
+      word: "etsy",
+      hint: "not hard",
+      answer: "easy",
+      alteredPosition: 1,
+    },
+    {
+      word: "easy",
+      hint: "direction of the sunrise",
+      answer: "east",
+      alteredPosition: 3,
+    },
+    {
+      word: "east",
+      hint: "theatrical roster",
+      answer: "cast",
+      alteredPosition: 0,
+    },
+    {
+      word: "cast",
+      hint: "distillery item",
+      answer: "cask",
+      alteredPosition: 3,
+    },
+    {
+      word: "cask",
+      hint: "an errand",
+      answer: "task",
+      alteredPosition: 0,
+    },
+    {
+      word: "task",
+      hint: "what some fish live in",
+      answer: "tank",
+      alteredPosition: 2,
+    },
+    {
+      word: "tank",
+      hint: "position in a hierarchy",
+      answer: "rank",
+      alteredPosition: 0,
+    },
+    {
+      word: "rank",
+      hint: "skating oval",
+      answer: "rink",
+      alteredPosition: 1,
+    },
+    {
+      word: "rink",
+      hint: "cheese coating",
+      answer: "rind",
+      alteredPosition: 3,
+    },
+    {
+      word: "rind",
+      hint: "state of ___ (attitude)",
+      answer: "mind",
+      alteredPosition: 0,
+    },
+  ],
 ];
