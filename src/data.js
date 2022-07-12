@@ -7050,4 +7050,67 @@ export const game = [
       alteredPosition: 0,
     },
   ],
+  // 7/13/2022 (#22, #113)
+  [
+    {
+      word: "kind",
+      hint: "a bed size and a chess piece",
+      answer: "king",
+      alteredPosition: 3,
+    },
+    {
+      word: "king",
+      hint: "a part of a large house",
+      answer: "wing",
+      alteredPosition: 0,
+    },
+    {
+      word: "wing",
+      hint: "flirty eye gesture",
+      answer: "wink",
+      alteredPosition: 3,
+    },
+    {
+      word: "wink",
+      hint: "color for baby girls (traditionally)",
+      answer: "pink",
+      alteredPosition: 0,
+    },
+    {
+      word: "pink",
+      hint: "small-time hoodlum",
+      answer: "punk",
+      alteredPosition: 1,
+    },
+    {
+      word: "punk",
+      hint: "hockey disk",
+      answer: "puck",
+      alteredPosition: 2,
+    },
+    {
+      word: "puck",
+      hint: "informal term for a U.S. dollar",
+      answer: "buck",
+      alteredPosition: 0,
+    },
+    {
+      word: "buck",
+      hint: "like some mail",
+      answer: "bulk",
+      alteredPosition: 2,
+    },
+    {
+      word: "bulk",
+      hint: "unwanted china shop visitor",
+      answer: "bull",
+      alteredPosition: 3,
+    },
+    {
+      word: "bull",
+      hint: "door-handle sign",
+      answer: "pull",
+      alteredPosition: 0,
+    },
+  ],
 ];
