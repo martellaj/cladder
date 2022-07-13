@@ -7050,7 +7050,7 @@ export const game = [
       alteredPosition: 0,
     },
   ],
-  // 7/13/2022 (#22, #113)
+  // 7/13/2022 (#23, #113)
   [
     {
       word: "kind",
@@ -7111,6 +7111,69 @@ export const game = [
       hint: "door-handle sign",
       answer: "pull",
       alteredPosition: 0,
+    },
+  ],
+  // 7/14/2022 (#24, #114)
+  [
+    {
+      word: "haul",
+      hint: "pellets of frozen rain",
+      answer: "hail",
+      alteredPosition: 2,
+    },
+    {
+      word: "hail",
+      hint: "what a barber cuts",
+      answer: "hair",
+      alteredPosition: 3,
+    },
+    {
+      word: "hair",
+      hint: "just",
+      answer: "fair",
+      alteredPosition: 0,
+    },
+    {
+      word: "fair",
+      hint: "a criminal's hideout",
+      answer: "lair",
+      alteredPosition: 0,
+    },
+    {
+      word: "lair",
+      hint: "produced some eggs",
+      answer: "laid",
+      alteredPosition: 3,
+    },
+    {
+      word: "laid",
+      hint: "to praise, glorify, or honor",
+      answer: "laud",
+      alteredPosition: 2,
+    },
+    {
+      word: "laud",
+      hint: "having exceptional volume",
+      answer: "loud",
+      alteredPosition: 1,
+    },
+    {
+      word: "loud",
+      hint: "quantity of clothes put in a washing machine",
+      answer: "load",
+      alteredPosition: 2,
+    },
+    {
+      word: "load",
+      hint: "dangerous element in older paint",
+      answer: "lead",
+      alteredPosition: 1,
+    },
+    {
+      word: "lead",
+      hint: "tilt in one direction",
+      answer: "lean",
+      alteredPosition: 3,
     },
   ],
 ];
