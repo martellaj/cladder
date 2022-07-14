@@ -7176,4 +7176,67 @@ export const game = [
       alteredPosition: 3,
     },
   ],
+  // 7/15/2022 (#25, #115)
+  [
+    {
+      word: "mile",
+      hint: "not-too-spicy salsa choice",
+      answer: "mild",
+      alteredPosition: 3,
+    },
+    {
+      word: "mild",
+      hint: "interior wall problem",
+      answer: "mold",
+      alteredPosition: 1,
+    },
+    {
+      word: "mold",
+      hint: "spy deeply undercover",
+      answer: "mole",
+      alteredPosition: 3,
+    },
+    {
+      word: "mole",
+      hint: "ski equipment",
+      answer: "pole",
+      alteredPosition: 0,
+    },
+    {
+      word: "pole",
+      hint: "survey of voters",
+      answer: "poll",
+      alteredPosition: 3,
+    },
+    {
+      word: "poll",
+      hint: "tablet in an aspirin bottle",
+      answer: "pill",
+      alteredPosition: 1,
+    },
+    {
+      word: "pill",
+      hint: "take up all the available space",
+      answer: "fill",
+      alteredPosition: 0,
+    },
+    {
+      word: "fill",
+      hint: "flannel shirt season",
+      answer: "fall",
+      alteredPosition: 1,
+    },
+    {
+      word: "fall",
+      hint: "terrible performance",
+      answer: "fail",
+      alteredPosition: 2,
+    },
+    {
+      word: "fail",
+      hint: "wrapping for a Hershey's Kiss",
+      answer: "foil",
+      alteredPosition: 1,
+    },
+  ],
 ];
