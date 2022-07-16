@@ -6,7 +6,7 @@ export default function Archive(props) {
   const todayPuzzleNumber = getPuzzleNumber();
   const content = [];
 
-  for (let i = todayPuzzleNumber - 1; i >= 0; i--) {
+  for (let i = todayPuzzleNumber - 1; i >= todayPuzzleNumber - 50; i--) {
     const data = window.localStorage.getItem(`puzzle-${i}`);
     const isAttempted = !!data;
     const isCompleted = data ? JSON.parse(data).score === 10 : false;

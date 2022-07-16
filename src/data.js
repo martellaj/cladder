@@ -7303,4 +7303,257 @@ export const game = [
       alteredPosition: 0,
     },
   ],
+  // 7/17/2022 (#27, #117)
+  [
+    {
+      word: "bud",
+      hint: "soil, after a heavy rain",
+      answer: "mud",
+      alteredPosition: 0,
+    },
+    {
+      word: "mud",
+      hint: "angry",
+      answer: "mad",
+      alteredPosition: 1,
+    },
+    {
+      word: "mad",
+      hint: "a trend",
+      answer: "fad",
+      alteredPosition: 0,
+    },
+    {
+      word: "fad",
+      hint: "big admirer",
+      answer: "fan",
+      alteredPosition: 2,
+    },
+    {
+      word: "fan",
+      hint: "part of a shark seen above",
+      answer: "fin",
+      alteredPosition: 1,
+    },
+    {
+      word: "fin",
+      hint: "family",
+      answer: "kin",
+      alteredPosition: 0,
+    },
+
+    {
+      word: "kin",
+      hint: "a young goat",
+      answer: "kid",
+      alteredPosition: 2,
+    },
+    {
+      word: "kid",
+      hint: "thing to do at an auction",
+      answer: "bid",
+      alteredPosition: 0,
+    },
+    {
+      word: "bid",
+      hint: "The ___ Bang",
+      answer: "big",
+      alteredPosition: 2,
+    },
+    {
+      word: "big",
+      hint: "a band's booking",
+      answer: "gig",
+      alteredPosition: 0,
+    },
+  ],
+  // 7/18/2022 (#28, #118)
+  [
+    {
+      word: "card",
+      hint: "thin, woven rope",
+      answer: "cord",
+      alteredPosition: 1,
+    },
+    {
+      word: "cord",
+      hint: "part of Microsoft Office",
+      answer: "word",
+      alteredPosition: 0,
+    },
+    {
+      word: "word",
+      hint: "a rotten apple resident",
+      answer: "worm",
+      alteredPosition: 3,
+    },
+    {
+      word: "worm",
+      hint: "something bureaucratic to fill out",
+      answer: "form",
+      alteredPosition: 0,
+    },
+    {
+      word: "form",
+      hint: "cappuccino topping",
+      answer: "foam",
+      alteredPosition: 1,
+    },
+    {
+      word: "foam",
+      hint: "to drift here and there",
+      answer: "roam",
+      alteredPosition: 0,
+    },
+    {
+      word: "roam",
+      hint: "there might be a fork in one",
+      answer: "road",
+      alteredPosition: 3,
+    },
+    {
+      word: "road",
+      hint: "curl up with a good book, say",
+      answer: "read",
+      alteredPosition: 1,
+    },
+    {
+      word: "read",
+      hint: "tall slender plant of wet areas",
+      answer: "reed",
+      alteredPosition: 2,
+    },
+    {
+      word: "reed",
+      hint: "undesirable plant",
+      answer: "weed",
+      alteredPosition: 0,
+    },
+  ],
+  // 7/19/2022 (#29, #119)
+  [
+    {
+      word: "pool",
+      hint: "yarn for a winter garment",
+      answer: "wool",
+      alteredPosition: 0,
+    },
+    {
+      word: "wool",
+      hint: "comment from a canine",
+      answer: "woof",
+      alteredPosition: 3,
+    },
+    {
+      word: "woof",
+      hint: "top of your mouth",
+      answer: "roof",
+      alteredPosition: 0,
+    },
+    {
+      word: "roof",
+      hint: "plant part that's underground",
+      answer: "root",
+      alteredPosition: 3,
+    },
+    {
+      word: "root",
+      hint: "money from a heist",
+      answer: "loot",
+      alteredPosition: 0,
+    },
+    {
+      word: "loot",
+      hint: "one might step on the gas",
+      answer: "foot",
+      alteredPosition: 0,
+    },
+    {
+      word: "foot",
+      hint: "refuge in a snowball fight",
+      answer: "fort",
+      alteredPosition: 2,
+    },
+    {
+      word: "fort",
+      hint: "chopsticks alternative",
+      answer: "fork",
+      alteredPosition: 3,
+    },
+    {
+      word: "fork",
+      hint: "common people",
+      answer: "folk",
+      alteredPosition: 2,
+    },
+    {
+      word: "folk",
+      hint: "the center of an egg",
+      answer: "yolk",
+      alteredPosition: 0,
+    },
+  ],
+  // 7/20/2022 (#30, #120)
+  [
+    {
+      word: "door",
+      hint: "person of action",
+      answer: "doer",
+      alteredPosition: 2,
+    },
+    {
+      word: "doer",
+      hint: "gentle creature of the forest",
+      answer: "deer",
+      alteredPosition: 1,
+    },
+    {
+      word: "deer",
+      hint: "academic paper reviewer, often",
+      answer: "peer",
+      alteredPosition: 0,
+    },
+    {
+      word: "peer",
+      hint: "tree inhabited by a Christmas partridge",
+      answer: "pear",
+      alteredPosition: 2,
+    },
+    {
+      word: "pear",
+      hint: "use one of your senses",
+      answer: "hear",
+      alteredPosition: 0,
+    },
+    {
+      word: "hear",
+      hint: "your brain is in it",
+      answer: "head",
+      alteredPosition: 3,
+    },
+    {
+      word: "head",
+      hint: "a group of cattle",
+      answer: "herd",
+      alteredPosition: 2,
+    },
+    {
+      word: "herd",
+      hint: "how you may find this puzzle",
+      answer: "hard",
+      alteredPosition: 1,
+    },
+    {
+      word: "hard",
+      hint: "listen up (old-style)",
+      answer: "hark",
+      alteredPosition: 3,
+    },
+    {
+      word: "hark",
+      hint: "like Darth Vader's side",
+      answer: "dark",
+      alteredPosition: 0,
+    },
+  ],
 ];
