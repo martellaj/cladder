@@ -239,21 +239,27 @@ export default function Results(props) {
             >
               ❤️ DONATE
             </Button>
-            {!shouldPromote && (
-              <img
-                style={{
-                  marginBottom: "12px",
-                  marginTop: "6px",
-                  borderRadius: "10px",
-                  cursor: "pointer",
-                  width:
-                    document.getElementsByClassName("buttonz")[0]
-                      ?.clientWidth || "270px",
-                }}
-                src="/LatticeAd.jpg"
-                onClick={() => window.open("https://playlattice.com", "_blank")}
-              />
-            )}
+            {!shouldPromote &&
+              window.localStorage.getItem("fromLattice") === "false" && (
+                <img
+                  style={{
+                    marginBottom: "12px",
+                    marginTop: "6px",
+                    borderRadius: "10px",
+                    cursor: "pointer",
+                    width:
+                      document.getElementsByClassName("buttonz")[0]
+                        ?.clientWidth || "270px",
+                  }}
+                  src="/LatticeAd.jpg"
+                  onClick={() =>
+                    window.open(
+                      "https://playlattice.com?fromCladder=true",
+                      "_blank"
+                    )
+                  }
+                />
+              )}
             {/* {!shouldPromote && !clickedBattleshipple && (
               <div
                 onClick={() => {

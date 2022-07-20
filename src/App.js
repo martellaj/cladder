@@ -67,6 +67,8 @@ if (params?.app) {
   }
 }
 
+window.localStorage.setItem("fromLattice", params?.fromLattice || false);
+
 function App() {
   const [view, setView] = useState(isReturningPlayer ? "menu" : "howToPlay");
   const [isDarkMode, setIsDarkMode] = useState(
