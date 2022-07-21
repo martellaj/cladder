@@ -43,7 +43,8 @@ export default function Results(props) {
         {!shouldPromote && <ZenMode setIsTeacherMode={setIsTeacherMode} />}
         {shouldPromote && (
           <img
-            src="/app-banner.png"
+            id="cladderBannerResults"
+            src="/cladder-banner.png"
             alt="promo banner"
             style={{
               width: "100%",
@@ -298,5 +299,5 @@ export default function Results(props) {
 }
 
 const onBannerClick = () => {
-  window.open("https://twitter.com/martellaj", "_blank");
+  window.open("https://epcladder.onelink.me/W079/joptk2js", "_blank");
 };

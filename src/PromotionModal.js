@@ -72,7 +72,7 @@ function PromotionModal(props) {
       className="modalContainer"
       onClose={() => {
         const now = Date.now();
-        if (openedTime.current && now - openedTime.current > 1000) {
+        if (openedTime.current && now - openedTime.current > 1250) {
           setOpen(false);
           onClose();
         }
@@ -145,7 +145,7 @@ function getCta() {
 
 function onCtaClick() {
   window.localStorage.setItem("clickedCta", Date.now().toString());
-  window.open("https://twitter.com/martellaj", "_blank");
+  window.open("https://epcladder.onelink.me/W079/joptk2js", "_blank");
 }
 
 export default PromotionModal;
