@@ -392,6 +392,8 @@ function App() {
     <>
       <div className={`App`}>
         {header}
+
+        {content}
         {shouldPromote && view === "menu" && (
           <img
             id="cladderBannerMenu"
@@ -405,7 +407,6 @@ function App() {
             onClick={onBannerClick}
           />
         )}
-        {content}
       </div>
       {showPromotionModal && (
         <PromotionModal
