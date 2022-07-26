@@ -90,7 +90,7 @@ function App() {
 
   // switch over to true when app launches
   // switched over on 7/26
-  const shouldPromote = params?.app || true;
+  const shouldPromote = params?.app || false;
 
   useEffect(() => {
     if (params?.convert) {
