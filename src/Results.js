@@ -299,5 +299,7 @@ export default function Results(props) {
 }
 
 const onBannerClick = () => {
+  // eslint-disable-next-line no-undef
+  dataLayer.push({ event: "adClicked" });
   window.open("https://epcladder.onelink.me/W079/joptk2js", "_blank");
 };

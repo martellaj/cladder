@@ -144,6 +144,8 @@ function getCta() {
 }
 
 function onCtaClick() {
+  // eslint-disable-next-line no-undef
+  dataLayer.push({ event: "adClicked" });
   window.localStorage.setItem("clickedCta", Date.now().toString());
   window.open("https://epcladder.onelink.me/W079/joptk2js", "_blank");
 }
