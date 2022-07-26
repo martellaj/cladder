@@ -89,7 +89,8 @@ function App() {
   const [showPromotionModalForce, setShowPromotionModalForce] = useState(false);
 
   // switch over to true when app launches
-  const shouldPromote = params?.app || false;
+  // switched over on 7/26
+  const shouldPromote = params?.app || true;
 
   useEffect(() => {
     if (params?.convert) {
