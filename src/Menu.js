@@ -15,8 +15,6 @@ export default function Menu(props) {
   const engagedWithPromo =
     window.localStorage.getItem("engagedWithPromo1") === "true";
 
-  const isOgSupporter = window.localStorage.getItem("ogSupporter") === "true";
-
   useEffect(() => {
     const challengePageSeen =
       window.localStorage.getItem("challengePageSeen") === "true";
@@ -45,38 +43,7 @@ export default function Menu(props) {
           PLAY
         </Button>
       </div>
-      {!shouldPromote && showChallengeMode && (
-        <div className="menuButton">
-          <Button
-            id="challengeButton"
-            size="massive"
-            className="menuButton button"
-            color="yellow"
-            inverted={isDarkMode}
-            onClick={() => {
-              window.localStorage.setItem("challengePageSeen", "true");
-              onOptionSelected("challenge");
-            }}
-          >
-            CHALLENGE
-          </Button>
-        </div>
-      )}
-      {!shouldPromote && (
-        <div className="menuButton">
-          <Button
-            id="archiveButton"
-            size="massive"
-            className="menuButton button"
-            color={showChallengeMode ? "orange" : "yellow"}
-            inverted={isDarkMode}
-            onClick={() => onOptionSelected("archive")}
-          >
-            ARCHIVE
-          </Button>
-        </div>
-      )}
-      {shouldPromote && (
+      {!showChallengeMode && (
         <div className="menuButton">
           <Button
             id="moreGamesButton"
@@ -90,25 +57,13 @@ export default function Menu(props) {
           </Button>
         </div>
       )}
-      <div className="menuButton">
-        <Button
-          id="practiceButton"
-          size="massive"
-          className="menuButton button"
-          color={shouldPromote ? "orange" : "red"}
-          inverted={isDarkMode}
-          onClick={() => onOptionSelected("practice")}
-        >
-          PRACTICE
-        </Button>
-      </div>
-      {shouldPromote && isOgSupporter && (
+      {showChallengeMode && (
         <div className="menuButton">
           <Button
             id="challengeButton"
             size="massive"
             className="menuButton button"
-            color="red"
+            color="yellow"
             inverted={isDarkMode}
             onClick={() => {
               window.localStorage.setItem("challengePageSeen", "true");
@@ -119,6 +74,30 @@ export default function Menu(props) {
           </Button>
         </div>
       )}
+      <div className="menuButton">
+        <Button
+          id="archiveButton"
+          size="massive"
+          className="menuButton button"
+          color={"orange"}
+          inverted={isDarkMode}
+          onClick={() => onOptionSelected("archive")}
+        >
+          ARCHIVE
+        </Button>
+      </div>
+      <div className="menuButton">
+        <Button
+          id="practiceButton"
+          size="massive"
+          className="menuButton button"
+          color={"red"}
+          inverted={isDarkMode}
+          onClick={() => onOptionSelected("practice")}
+        >
+          PRACTICE
+        </Button>
+      </div>
       <div
         style={{
           marginBottom: "24px",
