@@ -8249,4 +8249,67 @@ export const game = [
       alteredPosition: 0,
     },
   ],
+  // 8/1/2022 (#132)
+  [
+    {
+      word: "tote",
+      hint: "injured, as a ligament",
+      answer: "tore",
+      alteredPosition: 2,
+    },
+    {
+      word: "tore",
+      hint: "was clad in",
+      answer: "wore",
+      alteredPosition: 0,
+    },
+    {
+      word: "wore",
+      hint: "Scrabble player's creation",
+      answer: "word",
+      alteredPosition: 3,
+    },
+    {
+      word: "word",
+      hint: "parachutist's pull",
+      answer: "cord",
+      alteredPosition: 0,
+    },
+    {
+      word: "cord",
+      hint: "one of 52 in a deck",
+      answer: "card",
+      alteredPosition: 1,
+    },
+    {
+      word: "card",
+      hint: "horse preceder, at times",
+      answer: "cart",
+      alteredPosition: 3,
+    },
+    {
+      word: "cart",
+      hint: "'you ____ be serious!'",
+      answer: "cant",
+      alteredPosition: 2,
+    },
+    {
+      word: "cant",
+      hint: "to crave for",
+      answer: "want",
+      alteredPosition: 0,
+    },
+    {
+      word: "want",
+      hint: "didn't stay",
+      answer: "went",
+      alteredPosition: 1,
+    },
+    {
+      word: "went",
+      hint: "kanye's last name",
+      answer: "west",
+      alteredPosition: 2,
+    },
+  ],
 ];
