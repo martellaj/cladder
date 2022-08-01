@@ -8312,4 +8312,67 @@ export const game = [
       alteredPosition: 2,
     },
   ],
+  // 8/2/2022 (#133)
+  [
+    {
+      word: "gate",
+      hint: "prescribed personal outcome",
+      answer: "fate",
+      alteredPosition: 0,
+    },
+    {
+      word: "fate",
+      hint: "price for riding the bus",
+      answer: "fare",
+      alteredPosition: 2,
+    },
+    {
+      word: "fare",
+      hint: "golf warning",
+      answer: "fore",
+      alteredPosition: 1,
+    },
+    {
+      word: "fore",
+      hint: "shallow river crossing (also a car manufacturer)",
+      answer: "ford",
+      alteredPosition: 3,
+    },
+    {
+      word: "ford",
+      hint: "English nobility title",
+      answer: "lord",
+      alteredPosition: 0,
+    },
+    {
+      word: "lord",
+      hint: "body of tradition or knowledge",
+      answer: "lore",
+      alteredPosition: 3,
+    },
+    {
+      word: "lore",
+      hint: "solo, like the ranger",
+      answer: "lone",
+      alteredPosition: 2,
+    },
+    {
+      word: "lone",
+      hint: "a narrow road",
+      answer: "lane",
+      alteredPosition: 1,
+    },
+    {
+      word: "lane",
+      hint: "delicate material often used in garment making",
+      answer: "lace",
+      alteredPosition: 2,
+    },
+    {
+      word: "lace",
+      hint: "tempo or rate of movement",
+      answer: "pace",
+      alteredPosition: 0,
+    },
+  ],
 ];
