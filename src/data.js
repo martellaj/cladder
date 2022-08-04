@@ -8501,4 +8501,67 @@ export const game = [
       alteredPosition: 0,
     },
   ],
+  // 8/5/2022 (#136)
+  [
+    {
+      word: "well",
+      hint: "china's is great",
+      answer: "wall",
+      alteredPosition: 1,
+    },
+    {
+      word: "wall",
+      hint: "audacity",
+      answer: "gall",
+      alteredPosition: 0,
+    },
+    {
+      word: "gall",
+      hint: "guys' partners",
+      answer: "gals",
+      alteredPosition: 3,
+    },
+    {
+      word: "gals",
+      hint: "close friends",
+      answer: "pals",
+      alteredPosition: 0,
+    },
+    {
+      word: "pals",
+      hint: "gandalf phrase 'you shall not ____'",
+      answer: "pass",
+      alteredPosition: 2,
+    },
+    {
+      word: "pass",
+      hint: "before now",
+      answer: "past",
+      alteredPosition: 3,
+    },
+    {
+      word: "past",
+      hint: "only remaining",
+      answer: "last",
+      alteredPosition: 0,
+    },
+    {
+      word: "last",
+      hint: "eye irritant, perhaps",
+      answer: "lash",
+      alteredPosition: 3,
+    },
+    {
+      word: "lash",
+      hint: "use soap and water",
+      answer: "wash",
+      alteredPosition: 0,
+    },
+    {
+      word: "wash.",
+      hint: "to hope strongly",
+      answer: "wish",
+      alteredPosition: 1,
+    },
+  ],
 ];
