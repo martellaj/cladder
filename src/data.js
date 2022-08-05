@@ -8564,4 +8564,67 @@ export const game = [
       alteredPosition: 1,
     },
   ],
+  // 8/6/2022 (#137)
+  [
+    {
+      word: "brit",
+      hint: "spoiled tot",
+      answer: "brat",
+      alteredPosition: 2,
+    },
+    {
+      word: "brat",
+      hint: "cadence",
+      answer: "beat",
+      alteredPosition: 1,
+    },
+    {
+      word: "beat",
+      hint: "borscht basic",
+      answer: "beet",
+      alteredPosition: 2,
+    },
+    {
+      word: "beet",
+      hint: "pavement pounders",
+      answer: "feet",
+      alteredPosition: 0,
+    },
+    {
+      word: "feet",
+      hint: "to touch",
+      answer: "feel",
+      alteredPosition: 3,
+    },
+    {
+      word: "feel",
+      hint: "car food",
+      answer: "fuel",
+      alteredPosition: 1,
+    },
+    {
+      word: "fuel",
+      hint: "F, on a gas gauge",
+      answer: "full",
+      alteredPosition: 2,
+    },
+    {
+      word: "full",
+      hint: "topple",
+      answer: "fall",
+      alteredPosition: 1,
+    },
+    {
+      word: "fall",
+      hint: "ring up",
+      answer: "call",
+      alteredPosition: 0,
+    },
+    {
+      word: "call",
+      hint: "mr. sagan or jung",
+      answer: "carl",
+      alteredPosition: 2,
+    },
+  ],
 ];
