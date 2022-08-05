@@ -8558,7 +8558,7 @@ export const game = [
       alteredPosition: 0,
     },
     {
-      word: "wash.",
+      word: "wash",
       hint: "to hope strongly",
       answer: "wish",
       alteredPosition: 1,
