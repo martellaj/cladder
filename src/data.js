@@ -8627,4 +8627,67 @@ export const game = [
       alteredPosition: 2,
     },
   ],
+  // 8/7/2022 (#138)
+  [
+    {
+      word: "mint",
+      hint: "half a quart",
+      answer: "pint",
+      alteredPosition: 0,
+    },
+    {
+      word: "pint",
+      hint: "shade of red",
+      answer: "pink",
+      alteredPosition: 3,
+    },
+    {
+      word: "pink",
+      hint: "part of a chain",
+      answer: "link",
+      alteredPosition: 0,
+    },
+    {
+      word: "link",
+      hint: "belly button fluff",
+      answer: "lint",
+      alteredPosition: 3,
+    },
+    {
+      word: "lint",
+      hint: "santa checks it twice",
+      answer: "list",
+      alteredPosition: 2,
+    },
+    {
+      word: "list",
+      hint: "deadly sin",
+      answer: "lust",
+      alteredPosition: 1,
+    },
+    {
+      word: "lust",
+      hint: "color of oxidized iron",
+      answer: "rust",
+      alteredPosition: 0,
+    },
+    {
+      word: "rust",
+      hint: "trick, deception",
+      answer: "ruse",
+      alteredPosition: 3,
+    },
+    {
+      word: "ruse",
+      hint: "shade of red",
+      answer: "rose",
+      alteredPosition: 1,
+    },
+    {
+      word: "rose",
+      hint: "an actor's part",
+      answer: "role",
+      alteredPosition: 2,
+    },
+  ],
 ];
