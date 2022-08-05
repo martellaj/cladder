@@ -6,7 +6,7 @@ export default function Archive(props) {
   const todayPuzzleNumber = getPuzzleNumber();
   const content = [];
 
-  for (let i = todayPuzzleNumber - 1; i >= 1; i--) {
+  for (let i = todayPuzzleNumber - 1; i >= todayPuzzleNumber - 10; i--) {
     const data = window.localStorage.getItem(`puzzle-${i}`);
     const isAttempted = !!data;
     const isCompleted = data ? JSON.parse(data).score === 10 : false;
@@ -27,8 +27,29 @@ export default function Archive(props) {
     );
   }
 
-  return <div className="archiveContainer">{content}</div>;
+  return (
+    <div className="archiveContainer">
+      <img
+        id="cladderBannerMenu"
+        src="/cladder-banner.png"
+        alt="promo banner"
+        style={{
+          width: "100%",
+          cursor: "pointer",
+          marginBottom: "12px",
+        }}
+        onClick={onBannerClick}
+      />
+      {content}
+    </div>
+  );
 }
+
+const onBannerClick = () => {
+  // eslint-disable-next-line no-undef
+  dataLayer.push({ event: "adClicked" });
+  window.open("https://epcladder.onelink.me/W079/joptk2js", "_blank");
+};
 
 const getPuzzleNumber = (date) => {
   const refDate = new Date(2022, 2, 22, 0, 0, 0, 0);
