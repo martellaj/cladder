@@ -8690,4 +8690,130 @@ export const game = [
       alteredPosition: 2,
     },
   ],
+  // 8/8/2022 (#139)
+  [
+    {
+      word: "some",
+      hint: "alike",
+      answer: "same",
+      alteredPosition: 1,
+    },
+    {
+      word: "same",
+      hint: "having a sound, healthy mind",
+      answer: "sane",
+      alteredPosition: 2,
+    },
+    {
+      word: "sane",
+      hint: "what counts time in an hourglass",
+      answer: "sand",
+      alteredPosition: 3,
+    },
+    {
+      word: "sand",
+      hint: "told; pronounced",
+      answer: "said",
+      alteredPosition: 2,
+    },
+    {
+      word: "said",
+      hint: "canvas hanging from a boat's rigging",
+      answer: "sail",
+      alteredPosition: 3,
+    },
+    {
+      word: "sail",
+      hint: "an appendage at the rear of many animals",
+      answer: "tail",
+      alteredPosition: 0,
+    },
+    {
+      word: "tail",
+      hint: "a thin tin plate",
+      answer: "tain",
+      alteredPosition: 3,
+    },
+    {
+      word: "tain",
+      hint: "slender; with little body fat",
+      answer: "thin",
+      alteredPosition: 1,
+    },
+    {
+      word: "thin",
+      hint: "place for a helmet strap",
+      answer: "chin",
+      alteredPosition: 0,
+    },
+    {
+      word: "chin",
+      hint: "brother and murderer of abel",
+      answer: "cain",
+      alteredPosition: 1,
+    },
+  ],
+  // 8/9/2022 (#140)
+  [
+    {
+      word: "flick",
+      hint: "slippery or clever",
+      answer: "slick",
+      alteredPosition: 0,
+    },
+    {
+      word: "slick",
+      hint: "a section of a pie",
+      answer: "slice",
+      alteredPosition: 4,
+    },
+    {
+      word: "slice",
+      hint: "cinnamon or turmeric, e.g.",
+      answer: "spice",
+      alteredPosition: 1,
+    },
+    {
+      word: "spice",
+      hint: "astronauts' realm",
+      answer: "space",
+      alteredPosition: 2,
+    },
+    {
+      word: "space",
+      hint: "knock over 10 pins with two balls",
+      answer: "spare",
+      alteredPosition: 3,
+    },
+    {
+      word: "spare",
+      hint: "a unit of stock",
+      answer: "share",
+      alteredPosition: 1,
+    },
+    {
+      word: "share",
+      hint: "where frodo baggins is from, with the",
+      answer: "shire",
+      alteredPosition: 2,
+    },
+    {
+      word: "shire",
+      hint: "clothing for covering the torso",
+      answer: "shirt",
+      alteredPosition: 4,
+    },
+    {
+      word: "shirt",
+      hint: "a key to make capital letters",
+      answer: "shift",
+      alteredPosition: 3,
+    },
+    {
+      word: "shift",
+      hint: "taylor who got interrupted by ye",
+      answer: "swift",
+      alteredPosition: 1,
+    },
+  ],
 ];
