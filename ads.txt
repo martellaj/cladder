@@ -1,5 +1,11 @@
 #Ads.txt playcladder.com
+#Ads.txt managed by AdsTxtManager.com - the free ads.txt management tool for publishers
+ownerdomain=playcladder.com
+contact=directsales@ezoic.com
+managerdomain=ezoic.ai
 
+ezoic.ai, 9eb84dd0ead32f9c2cc58aaed709da07, DIRECT
+ezoic.ai, 9359c964155db095df4918c3f4dcd380, DIRECT
 152media.com, 152, DIRECT
 152media.info, 152M1, RESELLER
 152media.info, 152M10, RESELLER
