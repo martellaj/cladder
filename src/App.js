@@ -395,7 +395,7 @@ function App() {
         <div id="ezoic-pub-ad-placeholder-102"> </div>
         {header}
         {content}
-        {shouldPromote && view === "menu" && (
+        {/* {shouldPromote && view === "menu" && (
           <img
             id="cladderBannerMenu"
             src="/cladder-banner.png"
@@ -407,7 +407,7 @@ function App() {
             }}
             onClick={onBannerClick}
           />
-        )}
+        )} */}
         <div id="ezoic-pub-ad-placeholder-103"> </div>
       </div>
       {showPromotionModal && (
