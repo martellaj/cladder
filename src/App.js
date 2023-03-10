@@ -389,10 +389,23 @@ function App() {
       break;
   }
 
+  const isPlaying = view === "game" || view === "practice";
+  if (isPlaying) {
+    const ads = document.getElementById("ezmob-wrapper");
+    if (ads) {
+      ads.style.display = "none";
+    }
+  } else {
+    const ads = document.getElementById("ezmob-wrapper");
+    if (ads) {
+      ads.style.display = "block";
+    }
+  }
+
   return (
     <>
       <div className={`App`}>
-        <div id="ezoic-pub-ad-placeholder-102"> </div>
+        {!isPlaying && <div id="ezoic-pub-ad-placeholder-102"> </div>}
         {header}
         {content}
         {/* {shouldPromote && view === "menu" && (
@@ -408,7 +421,7 @@ function App() {
             onClick={onBannerClick}
           />
         )} */}
-        <div id="ezoic-pub-ad-placeholder-103"> </div>
+        {!isPlaying && <div id="ezoic-pub-ad-placeholder-103"> </div>}
       </div>
       {showPromotionModal && (
         <PromotionModal
