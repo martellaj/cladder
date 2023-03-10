@@ -87,6 +87,7 @@ function App() {
     useState(undefined);
   const [showPromotionModal, setShowPromotionModal] = useState(false);
   const [showPromotionModalForce, setShowPromotionModalForce] = useState(false);
+  const [showAds, setShowAds] = useState(true);
 
   // switch over to true when app launches
   // switched over on 7/26
@@ -137,6 +138,12 @@ function App() {
       window.localStorage.setItem("engagedWithPromo1", "true");
       setShowPromotionModalForce(true);
       return;
+    }
+
+    if (option === "game" || option === "practice") {
+      setShowAds(false);
+    } else {
+      setShowAds(true);
     }
 
     setSelectedArchivePuzzleNumber(level || undefined);
@@ -260,6 +267,7 @@ function App() {
 
   const onGameCompleted = useCallback(() => {
     setShowPromotionModal(true);
+    setShowAds(true);
   }, []);
 
   switch (view) {
@@ -389,8 +397,7 @@ function App() {
       break;
   }
 
-  const isPlaying = view === "game" || view === "practice";
-  if (isPlaying) {
+  if (!showAds) {
     const ads = document.getElementById("ezmob-wrapper");
     if (ads) {
       ads.style.display = "none";
@@ -405,7 +412,7 @@ function App() {
   return (
     <>
       <div className={`App`}>
-        {!isPlaying && <div id="ezoic-pub-ad-placeholder-102"> </div>}
+        {showAds && <div id="ezoic-pub-ad-placeholder-102"> </div>}
         {header}
         {content}
         {/* {shouldPromote && view === "menu" && (
@@ -421,7 +428,7 @@ function App() {
             onClick={onBannerClick}
           />
         )} */}
-        {!isPlaying && <div id="ezoic-pub-ad-placeholder-103"> </div>}
+        {showAds && <div id="ezoic-pub-ad-placeholder-103"> </div>}
       </div>
       {showPromotionModal && (
         <PromotionModal
