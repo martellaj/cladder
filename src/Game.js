@@ -68,24 +68,24 @@ export default function Game(props) {
    * puzzle number for the game being completed (where applicable)
    */
   const puzzleNumber = useMemo(() => {
-    if (puzzleParam) {
-      return puzzleParam;
-    }
-
-    if (specialPuzzleParam) {
-      return specialPuzzleParam;
-    }
-
-    if (mode === "daily") {
-      return getDailyPuzzleNumber();
-    }
-
     if (mode === "practice") {
       return getRandomInt(1, 10);
     }
 
     if (mode === "archive") {
-      return archivePuzzleNumber || 0;
+      return (archivePuzzleNumber || 0) % _game.length;
+    }
+
+    if (puzzleParam) {
+      return puzzleParam % _game.length;
+    }
+
+    if (specialPuzzleParam) {
+      return specialPuzzleParam % _game.length;
+    }
+
+    if (mode === "daily") {
+      return getDailyPuzzleNumber() % _game.length;
     }
 
     return -1;
@@ -121,11 +121,7 @@ export default function Game(props) {
     }
 
     // else, use puzzleNumber as index
-
-    // index an array of 100 items but the key can be over 100
-    // so we need to wrap around
-    const puzzleNumberIndex = puzzleNumber % _game.length;
-    return _game[puzzleNumberIndex];
+    return _game[puzzleNumber];
   }, [mode, puzzleNumber]);
 
   // if there's no game data, then refresh the page
