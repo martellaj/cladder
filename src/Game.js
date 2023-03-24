@@ -121,7 +121,11 @@ export default function Game(props) {
     }
 
     // else, use puzzleNumber as index
-    return _game[puzzleNumber];
+
+    // index an array of 100 items but the key can be over 100
+    // so we need to wrap around
+    const puzzleNumberIndex = puzzleNumber % _game.length;
+    return _game[puzzleNumberIndex];
   }, [mode, puzzleNumber]);
 
   // if there's no game data, then refresh the page
