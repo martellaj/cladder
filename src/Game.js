@@ -696,7 +696,9 @@ export default function Game(props) {
               setMessageDetails({ message: "", color: "" });
             }, 1000);
           }}
-          puzzleNumber={puzzleNumber}
+          puzzleNumber={
+            mode === "daily" ? getDailyPuzzleNumber() : puzzleNumber
+          }
           isChallengeMode={mode === "challenge"}
           onPlayAgain={onPlayAgain}
           skipsUsed={skipsUsed}
