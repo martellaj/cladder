@@ -5953,7 +5953,7 @@ export const game = [
       word: "pack",
       hint: "hockey disk",
       answer: "puck",
-      alteredPosition: 0,
+      alteredPosition: 1,
     },
   ],
 ];
