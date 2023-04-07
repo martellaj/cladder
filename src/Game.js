@@ -85,7 +85,9 @@ export default function Game(props) {
     }
 
     if (mode === "daily") {
-      return getDailyPuzzleNumber() % _game.length;
+      const dailyPuzzleNumber = getDailyPuzzleNumber();
+      const numberOfGames = _game.length;
+      return dailyPuzzleNumber % numberOfGames;
     }
 
     return -1;
@@ -134,8 +136,11 @@ export default function Game(props) {
    * else returns undefined
    */
   const getDailyResult = useCallback(() => {
-    if (mode === "daily" && puzzleNumber === getDailyPuzzleNumber()) {
-      const resultData = window.localStorage.getItem(`puzzle-${puzzleNumber}`);
+    const dailyPuzzleNumber = getDailyPuzzleNumber();
+    if (mode === "daily" && puzzleNumber === dailyPuzzleNumber % _game.length) {
+      const resultData = window.localStorage.getItem(
+        `puzzle-${dailyPuzzleNumber}`
+      );
 
       if (resultData) {
         const parsedResultData = JSON.parse(resultData);
@@ -213,8 +218,10 @@ export default function Game(props) {
       (((progress / 100) * TIME_LIMIT) / 1000).toFixed(2)
     );
 
+    const dailyPuzzleNumber = getDailyPuzzleNumber();
+
     window.localStorage.setItem(
-      `puzzle-${puzzleNumber}`,
+      `puzzle-${mode === "daily" ? dailyPuzzleNumber : puzzleNumber}`,
       JSON.stringify({
         score: gameLevel,
         time: time,
@@ -299,6 +306,8 @@ export default function Game(props) {
       setTimeout(() => {
         setWinningAnimation(false);
         setIsOver(true);
+
+        saveResult();
 
         if (shouldPromote) {
           onGameCompleted();
