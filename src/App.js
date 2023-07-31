@@ -401,7 +401,7 @@ function App() {
       break;
   }
 
-  if (!showAds) {
+  if (!showAds || isSupporter) {
     const ads = document.getElementById("ezmob-wrapper");
     if (ads) {
       ads.style.display = "none";
