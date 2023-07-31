@@ -15,6 +15,7 @@ import getDailyPuzzleNumber from "./getDailyPuzzleNumber";
 import ChallengePage from "./ChallengePage";
 import Achievements from "./Achievements";
 import PromotionModal from "./PromotionModal";
+import AdsModal from "./AdsModal";
 
 // set the app height for mobile
 const appHeight = () =>
@@ -88,6 +89,9 @@ function App() {
   const [showPromotionModal, setShowPromotionModal] = useState(false);
   const [showPromotionModalForce, setShowPromotionModalForce] = useState(false);
   const [showAds, setShowAds] = useState(true);
+  const [showAdsModal, setShowAdsModal] = useState(
+    isReturningPlayer && window.localStorage.getItem("seenAdsModal") !== "true"
+  );
 
   // switch over to true when app launches
   // switched over on 7/26
@@ -412,7 +416,9 @@ function App() {
   return (
     <>
       <div className={`App`}>
-        {showAds && <div id="ezoic-pub-ad-placeholder-102"> </div>}
+        {!isSupporter && showAds && (
+          <div id="ezoic-pub-ad-placeholder-102"> </div>
+        )}
         {header}
         {content}
         {/* {shouldPromote && view === "menu" && (
@@ -428,7 +434,9 @@ function App() {
             onClick={onBannerClick}
           />
         )} */}
-        {showAds && <div id="ezoic-pub-ad-placeholder-103"> </div>}
+        {!isSupporter && showAds && (
+          <div id="ezoic-pub-ad-placeholder-103"> </div>
+        )}
       </div>
       {showPromotionModal && (
         <PromotionModal
@@ -441,6 +449,12 @@ function App() {
           isDarkMode={isDarkMode}
           onClose={() => setShowPromotionModalForce(false)}
           force={true}
+        />
+      )}
+      {!isSupporter && showAdsModal && (
+        <AdsModal
+          isDarkMode={isDarkMode}
+          onClose={() => setShowAdsModal(false)}
         />
       )}
     </>
